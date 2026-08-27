@@ -33,10 +33,10 @@ export function HomeHero() {
     // clamps let the frame breathe on a tall screen and close up on a short
     // one without a single type size changing.
     <section
-      className="relative isolate flex min-h-svh items-end overflow-hidden bg-evergreen-950"
+      className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-evergreen-950"
       style={{
         paddingTop: "clamp(5.5rem, 11svh, 8.25rem)",
-        paddingBottom: "clamp(4.25rem, 9svh, 7rem)",
+        paddingBottom: "clamp(1.75rem, 4svh, 3rem)",
       }}
     >
       <PreloadHeroPoster href="/media/hero-poster.webp" />
@@ -141,17 +141,28 @@ export function HomeHero() {
       </Container>
 
       {/* Footer rule of the frame: the standing line on the left, the scroll
-          cue on the right. */}
+          cue on the right.
+
+          In normal flow, deliberately. This used to be absolutely positioned
+          against `bottom`, which made the rule's height a viewport coordinate
+          while the buttons above it were laid out by the flow — two systems
+          that only agreed by luck. Once the section padding tightened, the
+          rule cut straight through both CTAs. As a flow sibling it can only
+          ever sit below the content, and its margin is real separation rather
+          than a gap that happens to survive at one window size. */}
       <div
         aria-hidden
-        className="u-in-fade pointer-events-none absolute inset-x-0 bottom-[clamp(1rem,2.4svh,2rem)] hidden lg:block"
-        style={{ animationDelay: "900ms" }}
+        className="u-in-fade pointer-events-none relative hidden lg:block"
+        style={{
+          marginTop: "clamp(1.75rem, 4.2svh, 3rem)",
+          animationDelay: "900ms",
+        }}
       >
-        <div className="u-container flex items-center justify-between border-t border-ivory-100/15 pt-5">
+        <div className="u-container flex items-center justify-between border-t border-ivory-100/15 pt-[clamp(0.875rem,2svh,1.25rem)]">
           <span className="u-eyebrow text-ivory-100/60">{site.tagline}</span>
           <span className="flex items-center gap-4">
             <span className="u-eyebrow text-ivory-100/60">Scroll</span>
-            <span className="relative block h-12 w-px overflow-hidden bg-ivory-100/25">
+            <span className="relative block h-[clamp(2.25rem,4.5svh,3rem)] w-px overflow-hidden bg-ivory-100/25">
               <span className="absolute inset-x-0 top-0 block h-1/2 animate-[lbc-scroll-cue_2.4s_ease-in-out_infinite] bg-brass-500" />
             </span>
           </span>
