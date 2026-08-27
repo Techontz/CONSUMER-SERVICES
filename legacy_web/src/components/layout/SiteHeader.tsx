@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { primaryNav, site, type NavItem } from "@/lib/site";
 import { industriesPage } from "@/lib/content/pages";
+import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { MobileNav } from "./MobileNav";
 
@@ -120,11 +121,14 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
           }
         }}
       >
-        <div className="u-container">
+        <Container wide>
           <div
             className={cn(
               "flex items-center gap-6 transition-[padding] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-              scrolled ? "py-3" : "py-4 lg:py-5",
+              // Trimmed a step: this bar overlays the hero, and every
+              // pixel of its height is a pixel the hero composition
+              // has to clear before it can start.
+              scrolled ? "py-2.5" : "py-3 lg:py-3.5",
             )}
           >
             {/* ---------- Identity ---------- */}
@@ -218,7 +222,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
               </span>
             </button>
           </div>
-        </div>
+        </Container>
 
         {/* ---------- Mega menu ---------- */}
         <div

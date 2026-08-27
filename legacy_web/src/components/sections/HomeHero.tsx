@@ -26,7 +26,19 @@ export function HomeHero() {
   const closing = lines.length - 1;
 
   return (
-    <section className="relative isolate flex min-h-[92svh] items-end overflow-hidden bg-evergreen-950 pb-16 pt-32 lg:min-h-dvh lg:pb-28">
+    // Padding and the gaps below are keyed to viewport HEIGHT, not width.
+    // The old fixed values (128px top, 112px bottom, 32/40/32/44 between the
+    // parts) came to 1055px of composition, which fits 1080 and nothing
+    // shorter — at 1366x768 the buttons sat 175px below the fold. Height-aware
+    // clamps let the frame breathe on a tall screen and close up on a short
+    // one without a single type size changing.
+    <section
+      className="relative isolate flex min-h-svh items-end overflow-hidden bg-evergreen-950"
+      style={{
+        paddingTop: "clamp(5.5rem, 11svh, 8.25rem)",
+        paddingBottom: "clamp(4.25rem, 9svh, 7rem)",
+      }}
+    >
       <PreloadHeroPoster href="/media/hero-poster.webp" />
       <HeroFilm
         poster="/media/hero-poster.webp"
@@ -53,7 +65,7 @@ export function HomeHero() {
         <div className="max-w-[48rem]">
           <p
             className="u-in-fade flex items-center gap-4"
-            style={{ animationDelay: "140ms" }}
+            style={{ animationDelay: "100ms" }}
           >
             <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
             <span className="u-eyebrow text-brass-400">
@@ -61,16 +73,26 @@ export function HomeHero() {
             </span>
           </p>
 
-          <h1 className="u-editorial mt-8 text-[clamp(2.875rem,7vw,6rem)] text-ivory-100">
+          {/* The size is unchanged wherever there is room for it: at 1080
+              tall this still resolves to the same 6rem it always did. The
+              height term only engages on short viewports, where the choice is
+              otherwise between a smaller headline and buttons below the fold. */}
+          <h1
+            className="u-editorial text-ivory-100"
+            style={{
+              marginTop: "clamp(1rem, 2.6svh, 2rem)",
+              fontSize: "clamp(2.875rem, min(7vw, 9svh), 6rem)",
+            }}
+          >
             {lines.map((line, i) => (
-              <span key={line} className="block overflow-hidden pb-[0.06em]">
+              <span key={line} className="block overflow-hidden pb-[0.04em]">
                 <span
                   className={
                     i === closing
                       ? "u-in-mask block italic text-brass-400"
                       : "u-in-mask block"
                   }
-                  style={{ animationDelay: `${260 + i * 115}ms` }}
+                  style={{ animationDelay: `${200 + i * 80}ms` }}
                 >
                   {line}
                 </span>
@@ -80,20 +102,29 @@ export function HomeHero() {
 
           <span
             aria-hidden
-            className="u-in-draw mt-10 block h-px w-32 origin-left bg-brass-500"
-            style={{ animationDelay: "780ms" }}
+            className="u-in-draw block h-px w-32 origin-left bg-brass-500"
+            style={{
+              marginTop: "clamp(1.25rem, 3svh, 2.5rem)",
+              animationDelay: "480ms",
+            }}
           />
 
           <p
-            className="u-in-rise mt-8 max-w-[42ch] text-[1.0625rem] leading-[1.75] text-ivory-100/80 lg:text-[1.1875rem]"
-            style={{ animationDelay: "880ms" }}
+            className="u-in-rise-lcp max-w-[42ch] text-[1.0625rem] leading-[1.75] text-ivory-100/80 lg:text-[1.1875rem]"
+            style={{
+              marginTop: "clamp(1rem, 2.6svh, 2rem)",
+              animationDelay: "560ms",
+            }}
           >
             {homeHero.lede}
           </p>
 
           <div
-            className="u-in-rise mt-11 flex flex-wrap gap-4"
-            style={{ animationDelay: "1000ms" }}
+            className="u-in-rise flex flex-wrap gap-4"
+            style={{
+              marginTop: "clamp(1.25rem, 3.4svh, 2.75rem)",
+              animationDelay: "660ms",
+            }}
           >
             <ButtonLink href={homeHero.primaryCta.href} variant="gold">
               {homeHero.primaryCta.label}
@@ -113,8 +144,8 @@ export function HomeHero() {
           cue on the right. */}
       <div
         aria-hidden
-        className="u-in-fade pointer-events-none absolute inset-x-0 bottom-8 hidden lg:block"
-        style={{ animationDelay: "1400ms" }}
+        className="u-in-fade pointer-events-none absolute inset-x-0 bottom-[clamp(1rem,2.4svh,2rem)] hidden lg:block"
+        style={{ animationDelay: "900ms" }}
       >
         <div className="u-container flex items-center justify-between border-t border-ivory-100/15 pt-5">
           <span className="u-eyebrow text-ivory-100/60">{site.tagline}</span>

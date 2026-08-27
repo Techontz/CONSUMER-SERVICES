@@ -47,12 +47,33 @@
   --font-sans: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-serif-face), Georgia, "Times New Roman", serif;
 
-  /* --- Layout --- */
-  --spacing-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  /* --- Layout ---
+     The gutter is proportional, not a fixed rail. The old value capped at
+     40px against a 1320px max-width, which on a 1920 screen left the content
+     starting 17.7% in from the edge — measured against REFERENCE.mov, whose
+     hero copy starts at 8.0%, that is more than double the empty margin.
+     8vw holds that 8% from 1366 all the way up; the phone step stays narrow
+     because a proportional gutter on a 375px screen is just lost width. */
+  --spacing-gutter: 1.25rem;
+  /* The header sits nearer the edge than the body copy does — 4.5% against
+     8% — which is the same relationship the reference recording uses. */
+  --spacing-gutter-wide: 1.25rem;
+  --container-max: 132rem; /* 2112px — only bites on ultrawide */
 
   /* --- Motion --- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Above phone widths the gutter becomes proportional: 8vw holds the content
+   8% in from each edge at 1366, 1440 and 1920 alike, which is the proportion
+   measured off REFERENCE.mov. It stops growing at 2112 so an ultrawide
+   monitor does not push the line length past what is readable. */
+@media (min-width: 40rem) {
+  :root {
+    --spacing-gutter: clamp(1.5rem, 8vw, 10rem);
+    --spacing-gutter-wide: clamp(1.5rem, 4.5vw, 5.5rem);
+  }
 }
 
 @layer base {
@@ -114,10 +135,20 @@
   /* Page gutter container */
   .u-container {
     width: 100%;
-    max-width: 82.5rem; /* 1320px */
+    max-width: var(--container-max);
     margin-inline: auto;
     padding-inline: var(--spacing-gutter);
   }
+  /* Full-width rail for the header, so navigation reaches nearer the edges
+     than the body copy — see --spacing-gutter-wide. */
+  .u-container-wide {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter-wide);
+  }
+  /* Deliberately narrow. Long-form reading columns are *meant* to be inset
+     further than the page gutter; widening these would hurt them. */
   .u-container-tight {
     width: 100%;
     max-width: 68rem;
@@ -288,6 +319,12 @@
   }
   .u-in-mask { animation-name: lbc-mask; animation-duration: 1.05s; }
   .u-in-rise { animation-name: lbc-rise; animation-duration: 0.9s; }
+  /* Same movement, no opacity gate. For the one element that is the page's
+     LCP candidate: an element held at opacity 0 behind an animation delay
+     does not count as painted, so the delay lands directly on the measured
+     LCP. Sliding it in without fading it keeps the choreography and lets it
+     paint immediately. */
+  .u-in-rise-lcp { animation-name: lbc-rise-visible; animation-duration: 0.9s; }
   .u-in-fade { animation-name: lbc-fade; }
   .u-in-draw { animation-name: lbc-draw; animation-duration: 1.1s; }
 
@@ -416,6 +453,10 @@
 @keyframes lbc-rise {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: none; }
+}
+@keyframes lbc-rise-visible {
+  from { transform: translateY(18px); }
+  to   { transform: none; }
 }
 @keyframes lbc-fade {
   from { opacity: 0; }
