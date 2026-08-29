@@ -50,14 +50,19 @@ export function HomeHero() {
 
       {/* Directional scrim. Dense behind the type on the left, opening up
           across the frame so the architecture stays legible on the right —
-          not a flat wash over the whole film. */}
+          not a flat wash over the whole film.
+
+          Opened up for the bay film: the old values were tuned for a darker,
+          hazier clip and flattened this one's golden-hour light into grey.
+          The left end is untouched, because that is the only part the type
+          actually needs. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(92deg,rgba(4,18,15,0.95)_0%,rgba(4,18,15,0.88)_24%,rgba(6,32,27,0.66)_46%,rgba(8,52,48,0.34)_68%,rgba(8,52,48,0.18)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(92deg,rgba(4,18,15,0.95)_0%,rgba(4,18,15,0.87)_24%,rgba(6,32,27,0.58)_46%,rgba(8,52,48,0.24)_70%,rgba(8,52,48,0.06)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.86)_0%,rgba(4,18,15,0.16)_28%,rgba(4,18,15,0.12)_56%,rgba(4,18,15,0.78)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.72)_0%,rgba(4,18,15,0.10)_30%,rgba(4,18,15,0.08)_58%,rgba(4,18,15,0.62)_100%)]"
       />
       <div aria-hidden className="u-grain absolute inset-0 -z-10" />
 
