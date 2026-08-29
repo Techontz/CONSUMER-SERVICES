@@ -44,60 +44,80 @@ resolution and carries no signage, logo or watermark anywhere in the frame.
 
 ---
 
-## Motion — Coverr
+## Motion
+
+Two moving assets, from two libraries.
+
+### Homepage hero — Pexels
+
+| File in `public/media/` | Pexels ID | Slug |
+| --- | --- | --- |
+| `hero-desktop.mp4`, `hero-desktop.webm`, `hero-mobile.mp4`, `hero-poster.webp` | `5052605` | `drone-footage-of-city-skyline-during-sunset-5052605` |
+
+**Source:** <https://www.pexels.com/video/drone-footage-of-city-skyline-during-sunset-5052605/>
+**Licence:** [Pexels License](https://www.pexels.com/license/) — free for
+commercial use, no attribution required, no permission needed.
+**Native:** 3840×2160, 24fps, 21.8 Mbps, 14.43 s.
+**Subject:** a slow aerial drift across a bay toward a modern CBD at golden
+hour — Melbourne across Port Phillip Bay.
+
+**Why this clip.** The brief asked for a business district meeting a horizon:
+growth and opportunity, not tourism. This frame separates cleanly into the
+three things that had to be there — glass towers reading unmistakably as a
+financial district, open water carrying the eye out to a clean horizon, and
+warm low sun that is optimistic without going orange. The left third is open
+sky and water, which is where the headline sits, so the type lands on calm
+ground rather than fighting architecture. The camera drifts slowly enough that
+nothing crosses the CTAs.
+
+It was chosen against 18 candidates across both libraries. Rejected along the
+way: clips shot through plane windows (hazy, low contrast); overcast harbour
+shots with no sunlight; frames where the sun blew out the area behind the
+headline; a life-ring filling the foreground; and several that read as beach
+or resort rather than business. Coverr's free tier had nothing that met the
+brief, which is why the hero moved libraries.
+
+Inspected at native 3840×2160 across the clip before acceptance: no legible
+signage, no watermark, no third-party logos, no AI artefacts. The construction
+cranes on the skyline are real, and sit comfortably with a company whose
+subject is businesses growing.
+
+**Encoded:** 1920×1080 H.264 (`crf 25`) and VP9, plus a 1280×720 mobile cut —
+a downscale from 4K at every step, nothing upscaled. The last 1.5 s
+cross-dissolves into the first: measured loop seam 1.23 against a largest
+ordinary in-clip step of 1.50, so the join is below the clip's own motion.
+`hero-poster.webp` is frame 0 of the encoded file (correlation 0.9995).
+
+The previous hero (`coverr-city-boulevard-8888`, Coverr `w1koKmZTTx`) is
+retired. It carried a legible ST REGIS hotel wordmark that could not be cropped
+out at its shipping resolution; the new clip has no such problem, so that open
+item is now closed.
+
+### Funding Readiness panel — Coverr
 
 **Licence:** [Coverr License](https://coverr.co/license). Free for commercial
-use. Attribution not required. Only the free tier is used; no watermarked
-"coverr+" premium file appears in the build. (One was rejected during
-selection for exactly that reason.)
+use, no attribution required. Only free-tier files are used — no watermarked
+"coverr+" premium file appears in the build.
 
 | File in `public/media/` | Coverr ID | Slug | Subject |
 | --- | --- | --- | --- |
-| `hero-desktop.mp4`, `hero-desktop.webm`, `hero-mobile.mp4`, `hero-poster.webp` | `w1koKmZTTx` | `coverr-city-boulevard-8888` | Aerial over a downtown corporate boulevard |
 | `work-panel.mp4`, `work-panel-poster.webp` | `27bG4pHuoI` | `coverr-colleagues-discussing-work-351` | Colleagues working through a plan at a table |
 
-Both clips are 3840×2160 at source; Coverr's free tier delivers them at
-1920×1080, which is what was downloaded and what everything here derives from.
-The hero is encoded at 1920×1080 native (H.264 and VP9) plus a 1280×720 mobile
-cut — nothing is upscaled at any stage. Each poster is frame 0 of its own film,
-so the first painted frame and the first played frame are the same pixels
-(verified: correlation 1.0000 between `hero-poster.webp` and frame 0 of
-`hero-desktop.mp4`).
+Source 3840×2160; Coverr's free tier delivers 1920×1080, which is what was
+downloaded. Encoded at 1280×720 for its panel. Its poster is frame 0 of its own
+film, so the first painted frame and the first played frame are the same pixels.
 
-### One open item: signage in the hero footage
-
-`coverr-city-boulevard-8888` contains a building carrying the **ST REGIS**
-hotel wordmark, upper-centre of frame. It is legible at 1920px, occupies about
-**4.1% of frame width** (~78px of 1920, ~58px at a 1440 viewport, ~16px on a
-phone), and is present for the whole loop — the aerial pushes in, so it grows
-slightly rather than leaving frame. It is therefore also in `hero-poster.webp`,
-which is frame 0.
-
-This is recorded rather than fixed, deliberately:
-
-- It is a hotel brand incidentally present in a documentary cityscape, which
-  reads differently from the case that forced the earlier still-image swap
-  (financial-services marks — SAMSUNG, PZU, Warta — sitting behind the headline
-  on six interior pages of a business-services site).
-- It cannot be cropped out. Coverr's free tier delivers this clip at 1920×1080,
-  which is exactly the shipping resolution; cropping would mean upscaling, and
-  nothing in this build upscales.
-- Removing it therefore means changing the hero footage, which is a client
-  decision, not a technical one.
-
-**If the client wants it gone**, the fix is to select a different Coverr clip
-and re-run the same encode (1920×1080 H.264 + VP9, 1280×720 mobile, 1.2s
-cross-dissolve loop, poster regenerated from frame 0). Candidates checked
-during this pass and found free of legible signage are `HxSHCB5dMI`
-(*City skyscrapers*, aerial over midtown) and `SBEjKK48WL` (*Skyscrapers in
-New York*). Both are free-tier, non-AI, and 1920×1080.
 
 Provenance was verified rather than assumed: every Pexels ID above was
 re-fetched and its native resolution confirmed against this table, and each
 shipped file was structurally correlated against its documented source
 (0.96–1.00; the two explicitly re-cropped tiles confirm at 0.998 when compared
-against the same crop region). The hero video correlates at 0.994 with
-`coverr-city-boulevard-8888`.
+against the same crop region).
+
+The hero film was re-verified the same way after the change: the live source
+at `videos.pexels.com/video-files/5052605/5052605-uhd_3840_2160_24fps.mp4`
+returns 3840×2160 at 24000/1001 fps, 14.431 s — matching this record — and the
+shipped `hero-desktop.mp4` correlates at **0.9970** with its frame 0.
 
 ---
 
