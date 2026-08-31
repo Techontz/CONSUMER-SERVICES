@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { NumberedGrid } from "@/components/sections/NumberedGrid";
+import { MarkerGrid } from "@/components/sections/MarkerGrid";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -33,7 +33,7 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <Eyebrow>{p.role.eyebrow}</Eyebrow>
-            <h2 className="u-display-3 mt-7 text-evergreen-600">
+            <h2 className="u-display-3 mt-6 text-evergreen-600">
               {p.role.headline}
             </h2>
             <p className="mt-7 text-[1.0625rem] leading-[1.72] text-ink-500">
@@ -46,14 +46,14 @@ export default function AboutPage() {
               <Eyebrow>{p.how.eyebrow}</Eyebrow>
             </Reveal>
             <div className="mt-7">
-              <NumberedGrid items={p.how.steps} columns={2} />
+              <MarkerGrid items={p.how.steps} columns={2} />
             </div>
           </div>
         </div>
       </Section>
 
       {/* --- Our story, against the lake --- */}
-      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-22 pt-30 text-ivory-100 lg:pb-30 lg:pt-40">
+      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-18 pt-24 text-ivory-100 lg:pb-24 lg:pt-30">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal variant="clip" className="lg:col-span-5">
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
             <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
               <Eyebrow tone="light">{p.story.eyebrow}</Eyebrow>
-              <h2 className="u-display-3 mt-7 text-ivory-100">
+              <h2 className="u-display-3 mt-6 text-ivory-100">
                 {p.story.headline}
               </h2>
               <p className="mt-7 text-[1.0625rem] leading-[1.72] text-ivory-100/72">
@@ -98,11 +98,11 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-6">
             <Eyebrow>{p.approach.eyebrow}</Eyebrow>
-            <h2 className="u-display-2 mt-7 max-w-[16ch] text-evergreen-600">
+            <h2 className="u-display-2 mt-6 max-w-[16ch] text-evergreen-600">
               {p.approach.headline}
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
+          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
             <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
               {p.approach.body}
             </p>
@@ -114,14 +114,14 @@ export default function AboutPage() {
       <Section tone="paper">
         <Reveal className="max-w-[62ch]">
           <Eyebrow>{p.today.eyebrow}</Eyebrow>
-          <h2 className="u-display-2 mt-7 text-evergreen-600">
+          <h2 className="u-display-2 mt-6 text-evergreen-600">
             {p.today.headline}
           </h2>
-          <p className="u-lede mt-7">{p.today.lede}</p>
+          <p className="u-lede mt-6">{p.today.lede}</p>
         </Reveal>
 
-        <div className="mt-14 lg:mt-18">
-          <NumberedGrid items={p.today.principles} columns={4} />
+        <div className="mt-11 lg:mt-14">
+          <MarkerGrid items={p.today.principles} columns={4} />
         </div>
       </Section>
 
@@ -130,7 +130,7 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <Eyebrow>{p.collaboration.eyebrow}</Eyebrow>
-            <h2 className="u-display-3 mt-7 text-evergreen-600">
+            <h2 className="u-display-3 mt-6 text-evergreen-600">
               {p.collaboration.headline}
             </h2>
           </Reveal>

@@ -6,16 +6,15 @@ import { homeIntro } from "@/lib/content/home";
 
 export function IntroSplit() {
   return (
-    <Section tone="paper" className="py-24 lg:py-36">
+    <Section tone="paper" className="py-18 lg:py-24">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <SectionOpener
-          index="01"
           label={homeIntro.kicker}
           heading={homeIntro.headline.join(" ")}
           className="lg:col-span-6"
         />
 
-        <Reveal delay={0.12} className="lg:col-span-5 lg:col-start-8 lg:pt-20">
+        <Reveal delay={0.12} className="lg:col-span-5 lg:col-start-8 lg:pt-12">
           {homeIntro.body.map((p) => (
             <p key={p} className="u-copy mb-7 text-ink-500 last:mb-0">
               {p}

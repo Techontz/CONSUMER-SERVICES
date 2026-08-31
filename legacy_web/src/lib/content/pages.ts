@@ -108,10 +108,10 @@ export const aboutPage = {
   how: {
     eyebrow: "How We Work",
     steps: [
-      { n: "01", title: "Structure", note: "Build the foundation." },
-      { n: "02", title: "Research", note: "Understand the requirements." },
-      { n: "03", title: "Prepare", note: "Get the business ready." },
-      { n: "04", title: "Implement", note: "Put the plan into action." },
+      { title: "Structure", note: "Build the foundation." },
+      { title: "Research", note: "Understand the requirements." },
+      { title: "Prepare", note: "Get the business ready." },
+      { title: "Implement", note: "Put the plan into action." },
     ],
   },
   approach: {
@@ -335,17 +335,14 @@ export const contactPage = {
       "You know what you want. Allow us to help provide the direction to move it forward.",
     items: [
       {
-        n: "01",
         title: "You Have an Idea",
         body: "You’re ready to turn a business concept into a structured plan.",
       },
       {
-        n: "02",
         title: "You’re Building",
         body: "Your business is underway, but you need strategy, documentation, structure, or implementation support.",
       },
       {
-        n: "03",
         title: "You’re Ready for the Next Milestone",
         body: "You’re preparing for growth, funding, government opportunities, licensing, expansion, or another important business objective.",
       },
@@ -374,12 +371,12 @@ export const contactPage = {
     body:
       "Our work is designed around the business objective, not a one-size-fits-all package.",
     items: [
-      { n: "01", title: "Structure", body: "Organize the business foundation." },
-      { n: "02", title: "Plan", body: "Develop the blueprint and strategy." },
-      { n: "03", title: "Prepare", body: "Get the business ready for the objective." },
-      { n: "04", title: "Position", body: "Strengthen market and opportunity readiness." },
-      { n: "05", title: "Implement", body: "Put the plan and systems into action." },
-      { n: "06", title: "Advance", body: "Support the next stage of growth or development." },
+      { title: "Structure", body: "Organize the business foundation." },
+      { title: "Plan", body: "Develop the blueprint and strategy." },
+      { title: "Prepare", body: "Get the business ready for the objective." },
+      { title: "Position", body: "Strengthen market and opportunity readiness." },
+      { title: "Implement", body: "Put the plan and systems into action." },
+      { title: "Advance", body: "Support the next stage of growth or development." },
     ],
   },
   checkpoints: {
@@ -518,29 +515,24 @@ export const healthcarePage = {
     lede:
       "Selected care businesses require development beyond ordinary business formation.",
     steps: [
-      { n: "01", title: "Model", note: "Define the service and business structure." },
+      { title: "Model", note: "Define the service and business structure." },
       {
-        n: "02",
         title: "Requirements",
         note: "Identify applicable development and regulatory requirements.",
       },
       {
-        n: "03",
         title: "Property",
         note: "Evaluate property considerations where applicable.",
       },
       {
-        n: "04",
         title: "Documentation",
         note: "Develop the operational foundation.",
       },
       {
-        n: "05",
         title: "Prepare",
         note: "Organize the business for the applicable next stage.",
       },
       {
-        n: "06",
         title: "Implement",
         note: "Coordinate the development plan toward operation.",
       },

@@ -304,27 +304,34 @@ committed.
 The homepage opens on a full-bleed cinematic film, per the composition in
 `DOCUMENTS/REFERENCE.mov`.
 
-**The footage is real.** It is a slow aerial push through a downtown corporate
-canyon — architecture, depth, natural movement — chosen because it matches the
-subject of the client's own approved hero photograph and the business the
-approved copy describes. It was sourced from **Coverr**, whose licence permits
-commercial use with no attribution required, then graded to sit under the
-brand: darkened, cooled toward evergreen, contrast lifted, lightly vignetted.
-The last 1.6 seconds cross-dissolve into the first, so it loops without a cut.
+**The footage is supplied by the client** — a slow push along a city canal at
+golden hour: glass towers, a planted park, a stone embankment, and the sun low
+on the left throwing a lane of light down the water. It is the approved hero
+asset, and it reads as opportunity and forward movement rather than as a
+destination, which is the whole point of putting a film there.
+
+It is graded lightly at encode — shadows lifted a touch toward evergreen,
+highlights held off pure blue so the sun stays warm, a small saturation and
+sharpening pass — and it loops by running forward then reversed, because a
+slow dolly-in neither hard-loops nor cross-dissolves cleanly. Its licence is
+the one open item on the asset register; see `ASSET-LICENSES.md`.
 
 No frame of either reference recording appears anywhere in the build.
 
 | File | Purpose |
 | --- | --- |
-| `public/media/hero-desktop.webm` | VP9, 1920×1080, 1.9 MB — offered first on wide screens |
-| `public/media/hero-desktop.mp4` | H.264, 1920×1080, 3.3 MB — the fallback everywhere |
-| `public/media/hero-mobile.mp4` | H.264, 1280×720, 1.1 MB — below 768px |
-| `public/media/hero-poster.webp` | 1920×1080, 49 KB; paints immediately and is always the fallback |
+| `public/media/hero-waterfront-desktop.webm` | VP9, 1280×720, 3.4 MB — offered first on wide screens |
+| `public/media/hero-waterfront-desktop.mp4` | H.264, 1280×720, 4.3 MB — the fallback everywhere |
+| `public/media/hero-waterfront-mobile.mp4` | H.264, 960×540, 1.8 MB — below 768px |
+| `public/media/hero-waterfront-poster.webp` | 1280×720, 151 KB; paints immediately and is always the fallback |
 | `public/media/work-panel.mp4` | H.264, 1280×720, 660 KB — Funding Readiness, loaded near-viewport |
 
-The desktop film is **1920×1080 native**. An earlier cut shipped at 1600×900,
-which was itself an upscale of a 1440×810 working file — soft on any
-high-DPR desktop. Nothing in the pipeline upscales now.
+The desktop film ships at **1280×720, which is the supplied resolution** —
+the previous hero was a 4K library clip and could be cut at 1920×1080, this
+one cannot. Nothing in the pipeline upscales, so the film is served at its
+native size and the browser does the rest; a light sharpening pass in the
+grade is there to help that. The files run 15.9 s rather than 8 because the
+loop is the clip forward and then reversed.
 
 ### How it behaves
 

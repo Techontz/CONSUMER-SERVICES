@@ -26,7 +26,6 @@ type Story = {
  */
 export function ReadinessStory({
   story,
-  index,
   image,
   film,
   filmPoster,
@@ -35,7 +34,6 @@ export function ReadinessStory({
   flip = false,
 }: {
   story: Story;
-  index: string;
   /** Still media. Ignored when `film` is supplied. */
   image?: string;
   /** Looping footage, loaded only as the section approaches the viewport. */
@@ -50,7 +48,7 @@ export function ReadinessStory({
   return (
     <section
       className={cn(
-        "relative isolate overflow-hidden py-24 lg:py-32",
+        "relative isolate overflow-hidden py-18 lg:py-24",
         dark ? "u-grain bg-evergreen-800 text-ivory-100" : "bg-ivory-200",
       )}
     >
@@ -100,14 +98,13 @@ export function ReadinessStory({
             )}
           >
             <SectionOpener
-              index={index}
               label={story.kicker}
               heading={story.headline}
               tone={dark ? "light" : "dark"}
             />
 
             <Reveal delay={0.08}>
-              <div className="mt-8">
+              <div className="mt-7">
                 {story.body.map((p) => (
                   <p
                     key={p}
@@ -121,7 +118,7 @@ export function ReadinessStory({
                 ))}
               </div>
 
-              <div className="mt-8">
+              <div className="mt-7">
                 <TextLink href={story.link.href} tone={dark ? "light" : "dark"}>
                   {story.link.label}
                 </TextLink>
@@ -131,7 +128,7 @@ export function ReadinessStory({
             <RevealGroup
               as="ul"
               amount={0.05}
-              className="mt-10 flex flex-wrap gap-2.5"
+              className="mt-8 flex flex-wrap gap-2.5"
             >
               {story.chips.map((chip) => (
                 <RevealItem as="li" key={chip}>

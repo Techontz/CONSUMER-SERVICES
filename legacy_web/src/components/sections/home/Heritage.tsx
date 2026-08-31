@@ -18,7 +18,7 @@ export function Heritage() {
   return (
     <section
       id="heritage"
-      className="u-grain relative isolate overflow-hidden bg-evergreen-950 py-26 text-ivory-100 lg:py-36"
+      className="u-grain relative isolate overflow-hidden bg-evergreen-950 py-20 text-ivory-100 lg:py-26"
     >
       <div aria-hidden className="absolute inset-x-0 -inset-y-[10%] -z-20 u-parallax">
         <Image
@@ -44,21 +44,21 @@ export function Heritage() {
               <span className="u-eyebrow text-brass-400">{heritage.kicker}</span>
             </p>
 
-            <p className="mt-8 font-display text-[clamp(4.5rem,11vw,9.5rem)] leading-[0.84] tracking-[0.01em] text-ivory-100">
+            <p className="mt-7 font-display text-[clamp(4rem,9vw,7.5rem)] leading-[0.84] tracking-[0.01em] text-ivory-100">
               {heritage.year}
             </p>
 
-            <span aria-hidden className="mt-8 block h-px w-28 bg-brass-500" />
+            <span aria-hidden className="mt-7 block h-px w-28 bg-brass-500" />
           </Reveal>
 
           <Reveal delay={0.12} className="lg:col-span-6 lg:col-start-7">
             <p className="u-eyebrow text-brass-400">
               {heritage.establishedLabel}
             </p>
-            <h2 className="u-display-2 mt-7 max-w-[22ch] text-ivory-100">
+            <h2 className="u-display-2 mt-6 max-w-[22ch] text-ivory-100">
               {heritage.headline}
             </h2>
-            <p className="u-copy mt-8 max-w-[54ch] text-ivory-100/75">
+            <p className="u-copy mt-6 max-w-[54ch] text-ivory-100/75">
               {heritage.body}
             </p>
             <div className="mt-9">

@@ -32,11 +32,11 @@ export const digitalStory = {
   ],
   flowLabel: "Digital readiness progression",
   flow: [
-    { n: "01", label: "Business" },
-    { n: "02", label: "Presence" },
-    { n: "03", label: "Communication" },
-    { n: "04", label: "Organization" },
-    { n: "05", label: "Opportunity" },
+    { label: "Business" },
+    { label: "Presence" },
+    { label: "Communication" },
+    { label: "Organization" },
+    { label: "Opportunity" },
   ],
 };
 
@@ -156,11 +156,11 @@ export const processStory = {
   body:
     "Built around what you are creating and what is required to move it toward operation.",
   steps: [
-    { n: "01", title: "Discover", note: "Understand the vision and objective." },
-    { n: "02", title: "Structure", note: "Determine what needs to be established." },
-    { n: "03", title: "Develop", note: "Build the essential pieces." },
-    { n: "04", title: "Prepare", note: "Get ready for the intended objective." },
-    { n: "05", title: "Implement", note: "Put the approved plan into action." },
+    { title: "Discover", note: "Understand the vision and objective." },
+    { title: "Structure", note: "Determine what needs to be established." },
+    { title: "Develop", note: "Build the essential pieces." },
+    { title: "Prepare", note: "Get ready for the intended objective." },
+    { title: "Implement", note: "Put the approved plan into action." },
   ],
 };
 

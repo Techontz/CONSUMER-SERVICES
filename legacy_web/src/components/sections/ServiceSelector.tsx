@@ -16,8 +16,13 @@ type Service = {
  *
  * Seven cards in a grid make the reader compare seven things at once; a list
  * against one panel lets them read the index, then one answer. The step verbs
- * run down the left as a numbered spine, and the panel to the right changes
- * with the selection.
+ * run down the left as a spine, and the panel to the right changes with the
+ * selection.
+ *
+ * The spine used to be numbered, and the panel carried a 64px ghost numeral
+ * in its corner. Both are gone. The brass bar already marks which pathway is
+ * live, which is the only thing the numeral was doing that the reader needed;
+ * counting to seven was never it.
  *
  * Built as a proper tablist so arrow keys move between pathways and the panel
  * is announced when it changes. Below `lg` it falls back to a stacked
@@ -67,7 +72,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               tabIndex={selected ? 0 : -1}
               onClick={() => setActive(i)}
               onMouseEnter={() => setActive(i)}
-              className="group relative flex w-full items-baseline gap-6 border-b border-rule py-5 text-left"
+              className="group relative flex w-full items-start gap-5 border-b border-rule py-5 text-left"
             >
               {/* Brass spine marking the live pathway. */}
               <span
@@ -79,13 +84,12 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               />
 
               <span
+                aria-hidden
                 className={cn(
-                  "u-index w-10 shrink-0 pl-5 transition-colors duration-300",
+                  "ml-5 mt-1 u-dot transition-colors duration-300",
                   selected ? "text-brass-700" : "text-ink-300",
                 )}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              />
 
               <span className="min-w-0 flex-1">
                 <span
@@ -129,12 +133,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
         aria-live="polite"
         className="hidden lg:col-span-7 lg:sticky lg:top-28 lg:block"
       >
-        <div className="u-grain relative isolate overflow-hidden bg-evergreen-800 p-12 text-ivory-100 xl:p-14">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -right-24 -top-24 -z-10 size-80 rounded-full bg-[radial-gradient(circle,rgba(201,162,75,0.18),transparent_70%)]"
-          />
-
+        <div className="u-grain relative isolate overflow-hidden bg-evergreen-800 p-10 text-ivory-100 xl:p-12">
           {/* Keying on the index restarts the entrance each time the
               selection changes. */}
           <div key={active}>
@@ -159,7 +158,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
           </div>
 
           <div
-            className="u-in-rise mt-14 flex items-end justify-between gap-8 border-t border-ivory-100/12 pt-8"
+            className="u-in-rise mt-12 flex items-end justify-between gap-8 border-t border-ivory-100/12 pt-7"
             style={{ animationDelay: "200ms" }}
           >
             <Link
@@ -172,26 +171,16 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                 className="block h-px w-8 bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-14 motion-reduce:transition-none"
               />
             </Link>
-
-            <span
-              aria-hidden
-              className="font-display text-[4rem] leading-none text-ivory-100/[0.08]"
-            >
-              {String(active + 1).padStart(2, "0")}
-            </span>
           </div>
         </div>
       </div>
 
       {/* ---------- Small screens: a plain list, no two-pane theatre ---------- */}
       <ul className="border-t border-rule lg:hidden">
-        {items.map((item, i) => (
+        {items.map((item) => (
           <li key={item.title} className="border-b border-rule">
             <Link href={item.href} className="group block py-7">
               <span className="flex items-center gap-3">
-                <span className="u-index text-brass-700">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 <span aria-hidden className="block h-px w-6 bg-brass-600" />
                 <span className="u-eyebrow text-brass-700">{item.step}</span>
               </span>

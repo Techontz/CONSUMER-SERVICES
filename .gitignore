@@ -1,8 +1,11 @@
+# Master / reference footage.
+#
+# These are the sources design works from, not what the site serves: the
+# browser is given the optimised derivatives in
+# legacy_web/public/media/ instead. Keeping the masters out of the
+# repository is why a hero film costs 4 MB of history rather than 250 MB.
+DOCUMENTS/*.mov
+DOCUMENTS/*.MOV
+DOCUMENTS/*.mp4
 
-# Large design reference videos
-DOCUMENTS/DESIGN.mov
-DOCUMENTS/REFERENCE.mov
-
-# Large design/reference videos
-DOCUMENTS/DESIGN.mov
-DOCUMENTS/REFERENCE.mov
+.DS_Store

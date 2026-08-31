@@ -73,19 +73,19 @@ export default function ResourcesPage() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <Eyebrow>Library</Eyebrow>
-            <h2 className="u-display-2 mt-7 text-evergreen-600">
+            <h2 className="u-display-2 mt-6 text-evergreen-600">
               {p.library.headline}
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
+          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
             <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
               {p.library.body}
             </p>
           </Reveal>
         </div>
 
-        <RevealGroup as="ul" className="mt-14 border-t border-rule lg:mt-18">
-          {p.library.items.map((item, i) => (
+        <RevealGroup as="ul" className="mt-11 border-t border-rule lg:mt-14">
+          {p.library.items.map((item) => (
             <RevealItem as="li" key={item.title}>
               <Link
                 href="/contact"
@@ -95,10 +95,7 @@ export default function ResourcesPage() {
                   aria-hidden
                   className="absolute -inset-x-[var(--spacing-gutter)] inset-y-0 -z-10 origin-bottom scale-y-0 bg-ivory-50 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100 motion-reduce:transition-none"
                 />
-                <span className="col-span-2 u-index text-brass-700 sm:col-span-1">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="col-span-10 text-[1.25rem] leading-snug text-evergreen-600 sm:col-span-5 lg:text-[1.375rem]">
+                <h3 className="col-span-12 text-[1.1875rem] leading-snug text-evergreen-600 sm:col-span-6 lg:text-[1.3125rem]">
                   {item.title}
                 </h3>
                 <p className="col-span-12 mt-2 text-sm leading-relaxed text-ink-500 sm:col-span-5 sm:mt-0">
@@ -121,11 +118,11 @@ export default function ResourcesPage() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-6">
             <Eyebrow>Notes</Eyebrow>
-            <h2 className="u-display-2 mt-7 text-evergreen-600">
+            <h2 className="u-display-2 mt-6 text-evergreen-600">
               {p.notes.headline}
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
+          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
             <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
               {p.notes.body}
             </p>
@@ -134,7 +131,7 @@ export default function ResourcesPage() {
 
         <RevealGroup
           as="ul"
-          className="mt-14 grid gap-px border border-rule bg-rule sm:grid-cols-2 lg:mt-18 lg:grid-cols-4"
+          className="mt-11 grid gap-px border border-rule bg-rule sm:grid-cols-2 lg:mt-14 lg:grid-cols-4"
         >
           {p.notes.items.map((item) => (
             <RevealItem as="li" key={item.title} className="bg-ivory-50">

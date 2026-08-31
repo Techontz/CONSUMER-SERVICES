@@ -37,11 +37,11 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative isolate py-20 lg:py-28",
+        "relative isolate py-16 lg:py-22",
         tones[tone],
         dark && "u-grain",
-        seam === "top" && "u-seam-up pt-28 lg:pt-36",
-        seam === "bottom" && "u-seam-down pb-28 lg:pb-36",
+        seam === "top" && "u-seam-up pt-22 lg:pt-28",
+        seam === "bottom" && "u-seam-down pb-22 lg:pb-28",
         className,
       )}
     >
@@ -89,7 +89,7 @@ export function SectionHead({
           <div className="mt-6">{heading}</div>
         </div>
         {children ? (
-          <div className="lg:col-span-5 lg:col-start-8 lg:pt-12">{children}</div>
+          <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">{children}</div>
         ) : null}
       </div>
     );

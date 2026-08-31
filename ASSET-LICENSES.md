@@ -48,50 +48,73 @@ resolution and carries no signage, logo or watermark anywhere in the frame.
 
 Two moving assets, from two libraries.
 
-### Homepage hero — Pexels
+### Homepage hero — client-supplied
 
-| File in `public/media/` | Pexels ID | Slug |
-| --- | --- | --- |
-| `hero-desktop.mp4`, `hero-desktop.webm`, `hero-mobile.mp4`, `hero-poster.webp` | `5052605` | `drone-footage-of-city-skyline-during-sunset-5052605` |
+| File in `public/media/` | Derived from |
+| --- | --- |
+| `hero-waterfront-desktop.mp4`, `hero-waterfront-desktop.webm`, `hero-waterfront-mobile.mp4`, `hero-waterfront-poster.webp` | `DOCUMENTS/Waterfront_city_canal_with_park_202608312150 (1).mov` |
 
-**Source:** <https://www.pexels.com/video/drone-footage-of-city-skyline-during-sunset-5052605/>
-**Licence:** [Pexels License](https://www.pexels.com/license/) — free for
-commercial use, no attribution required, no permission needed.
-**Native:** 3840×2160, 24fps, 21.8 Mbps, 14.43 s.
-**Subject:** a slow aerial drift across a bay toward a modern CBD at golden
-hour — Melbourne across Port Phillip Bay.
+**Origin:** supplied directly by the client and approved by them as the hero
+footage. It did not come from Pexels, Coverr or any other library this
+repository draws on, so none of those licences cover it.
 
-**Why this clip.** The brief asked for a business district meeting a horizon:
-growth and opportunity, not tourism. This frame separates cleanly into the
-three things that had to be there — glass towers reading unmistakably as a
-financial district, open water carrying the eye out to a clean horizon, and
-warm low sun that is optimistic without going orange. The left third is open
-sky and water, which is where the headline sits, so the type lands on calm
-ground rather than fighting architecture. The camera drifts slowly enough that
-nothing crosses the CTAs.
+**Licence: not established here.** Every other asset in this file has a
+licence that was checked at its source. This one cannot be, because the
+supplied file is the only artefact — it arrives with no library page, no
+photographer credit and no licence text, and its filename carries a
+generation-style timestamp rather than a catalogue ID. Nothing about the file
+tells us who holds the rights to it. **The client should confirm the
+provenance and usage rights before this goes to a wider audience**; that is
+the one open item on this page.
 
-It was chosen against 18 candidates across both libraries. Rejected along the
-way: clips shot through plane windows (hazy, low contrast); overcast harbour
-shots with no sunlight; frames where the sun blew out the area behind the
-headline; a life-ring filling the foreground; and several that read as beach
-or resort rather than business. Coverr's free tier had nothing that met the
-brief, which is why the hero moved libraries.
+**Native:** 1280×720, 24 fps, H.264 High, 5.17 Mbps, 8.00 s, with an AAC
+track that is dropped on encode (the hero is muted).
 
-Inspected at native 3840×2160 across the clip before acceptance: no legible
-signage, no watermark, no third-party logos, no AI artefacts. The construction
-cranes on the skyline are real, and sit comfortably with a company whose
-subject is businesses growing.
+**Subject:** a slow push along a city canal at golden hour — glass towers, a
+planted park, a stone embankment, and the sun low on the left throwing a
+lane of light down the water.
 
-**Encoded:** 1920×1080 H.264 (`crf 25`) and VP9, plus a 1280×720 mobile cut —
-a downscale from 4K at every step, nothing upscaled. The last 1.5 s
-cross-dissolves into the first: measured loop seam 1.23 against a largest
-ordinary in-clip step of 1.50, so the join is below the clip's own motion.
-`hero-poster.webp` is frame 0 of the encoded file (correlation 0.9995).
+**Framing.** The clip separates into the four things the frame is for: low
+warm sun, open water, greenery, and towers that read as a business district
+rather than a resort. On a wide screen the type is a column down the left and
+the whole frame is visible. A phone is the hard case — `cover` on a 9:19.5
+viewport shows about a quarter of a 16:9 frame, and the centre quarter of
+this one is trees and glass with neither the sun nor the canal in it, so the
+mobile crop is anchored at `28%`, the slice that still carries all four.
 
-The previous hero (`coverr-city-boulevard-8888`, Coverr `w1koKmZTTx`) is
-retired. It carried a legible ST REGIS hotel wordmark that could not be cropped
-out at its shipping resolution; the new clip has no such problem, so that open
-item is now closed.
+**Grade.** Deliberately light, and applied at encode rather than in CSS so
+the poster and the film match: shadows lifted a little and pushed a hair
+toward evergreen, highlights held back off pure blue so the sun stays warm,
+saturation `1.05`, and a gentle unsharp because a 720p source is being asked
+to cover a 1920 hero. No teal-and-orange preset, no crushed blacks — the
+supplied grade was already close.
+
+**Loop.** The clip is a slow dolly-in whose first and last frames sit far
+apart, so it neither hard-loops nor cross-dissolves cleanly: a fade would
+ghost two different camera positions over each other. It is encoded forward
+then reversed instead — push in, ease back out — with the duplicated boundary
+frames trimmed so the turn does not stutter. 15.92 s round trip.
+
+Measured rather than assumed: the loop seam scores **SSIM 0.855** against an
+ordinary one-frame step mid-clip of **0.826**, so the join is a smaller
+change than the footage's own motion and there is nothing to see at it.
+
+**Encoded:** 1280×720 H.264 (`crf 27`, capped 2.1 Mbps, 4.26 MB) and VP9
+(`crf 42`, capped 1.5 Mbps, 3.41 MB — offered first, and genuinely the
+smaller file), plus a 960×540 H.264 cut at 1.84 MB below 768 px. Everything
+is a downscale or a straight copy of the supplied resolution; nothing is
+upscaled, and the 5.2 MB master stays out of the repository (see
+`.gitignore`) because the browser is served the derivatives.
+
+`hero-waterfront-poster.webp` is frame 0 of the encoded film. It correlates
+**0.942** with the shipped frame 0 — that gap is WebP-vs-H.264 compression on
+the same picture, not a different picture, which the one-frame step above
+puts in scale: a genuinely adjacent frame only reaches 0.826.
+
+The previous hero (Pexels `5052605`,
+`drone-footage-of-city-skyline-during-sunset`, a drone drift across Port
+Phillip Bay) is retired at the client's direction and its files are deleted.
+Its Pexels licence covered it and no obligation survives its removal.
 
 ### Funding Readiness panel — Coverr
 
@@ -114,10 +137,10 @@ shipped file was structurally correlated against its documented source
 (0.96–1.00; the two explicitly re-cropped tiles confirm at 0.998 when compared
 against the same crop region).
 
-The hero film was re-verified the same way after the change: the live source
-at `videos.pexels.com/video-files/5052605/5052605-uhd_3840_2160_24fps.mp4`
-returns 3840×2160 at 24000/1001 fps, 14.431 s — matching this record — and the
-shipped `hero-desktop.mp4` correlates at **0.9970** with its frame 0.
+That verification covers the library assets. It cannot cover the homepage
+hero, which is client-supplied and has no library record to check against —
+its specifications above were read off the supplied file itself, and its
+rights remain for the client to confirm.
 
 ---
 

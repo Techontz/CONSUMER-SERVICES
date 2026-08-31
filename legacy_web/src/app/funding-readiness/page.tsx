@@ -30,29 +30,30 @@ export default function FundingPage() {
       <Section tone="paper">
         <Reveal className="max-w-[52ch]">
           <Eyebrow>{p.purpose.label}</Eyebrow>
-          <h2 className="u-display-2 mt-7 text-evergreen-600">
+          <h2 className="u-display-2 mt-6 text-evergreen-600">
             {p.purpose.headline}
           </h2>
         </Reveal>
 
         <RevealGroup
           as="ul"
-          className="mt-14 grid gap-px border border-rule bg-rule sm:grid-cols-3 lg:mt-18 lg:grid-cols-6"
+          className="mt-11 grid gap-px border border-rule bg-rule sm:grid-cols-3 lg:mt-14 lg:grid-cols-6"
         >
-          {p.purpose.items.map((item, i) => (
+          {p.purpose.items.map((item) => (
             <RevealItem
               as="li"
               key={item}
-              className="group relative overflow-hidden bg-ivory-50 px-6 py-10 text-center transition-colors duration-500"
+              className="group relative overflow-hidden bg-ivory-50 px-6 py-8 text-center transition-colors duration-500"
             >
               <span
                 aria-hidden
                 className="absolute inset-0 origin-bottom scale-y-0 bg-evergreen-800 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100 motion-reduce:transition-none"
               />
-              <span className="relative block u-index text-brass-700 transition-colors duration-400 group-hover:text-brass-400">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="relative mt-4 text-[1.375rem] text-evergreen-600 transition-colors duration-400 group-hover:text-ivory-100">
+              <span
+                aria-hidden
+                className="relative mx-auto u-dot text-brass-700 transition-colors duration-400 group-hover:text-brass-400"
+              />
+              <h3 className="relative mt-4 text-[1.25rem] text-evergreen-600 transition-colors duration-400 group-hover:text-ivory-100">
                 {item}
               </h3>
             </RevealItem>
@@ -65,12 +66,12 @@ export default function FundingPage() {
       </Section>
 
       {/* --- Pathways --- */}
-      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-22 pt-30 text-ivory-100 lg:pb-30 lg:pt-40">
+      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-18 pt-24 text-ivory-100 lg:pb-24 lg:pt-30">
         <Container>
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-5">
               <Eyebrow tone="light">{p.pathways.label}</Eyebrow>
-              <h2 className="u-display-2 mt-7 text-ivory-100">
+              <h2 className="u-display-2 mt-6 text-ivory-100">
                 {p.pathways.headline}
               </h2>
             </Reveal>
@@ -88,7 +89,7 @@ export default function FundingPage() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <Eyebrow>{p.work.label}</Eyebrow>
-            <h2 className="u-display-2 mt-7 text-evergreen-600">
+            <h2 className="u-display-2 mt-6 text-evergreen-600">
               {p.work.headline}
             </h2>
           </Reveal>

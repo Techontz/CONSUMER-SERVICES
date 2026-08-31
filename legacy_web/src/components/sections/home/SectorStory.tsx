@@ -6,16 +6,15 @@ import { sectorStory } from "@/lib/content/home";
 
 export function SectorStory() {
   return (
-    <Section tone="paper" className="py-24 lg:py-36">
+    <Section tone="paper" className="py-18 lg:py-24">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
         <SectionOpener
-          index="04"
           label={sectorStory.label}
           heading={sectorStory.headline}
           className="lg:col-span-6"
         />
 
-        <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-24">
+        <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
           <p className="u-copy text-ink-500">{sectorStory.body}</p>
           <div className="mt-9">
             <TextLink href={sectorStory.link.href}>
@@ -27,13 +26,13 @@ export function SectorStory() {
 
       <RevealGroup
         as="ul"
-        className="mt-18 grid gap-px border-y border-rule bg-rule sm:grid-cols-2 lg:mt-24 lg:grid-cols-3"
+        className="mt-12 grid gap-px border-y border-rule bg-rule sm:grid-cols-2 lg:mt-16 lg:grid-cols-3"
       >
         {sectorStory.items.map((item) => (
           <RevealItem
             as="li"
             key={item.title}
-            className="group relative overflow-hidden bg-ivory-50 p-9 transition-colors duration-500 lg:p-11"
+            className="group relative overflow-hidden bg-ivory-50 p-8 transition-colors duration-500 lg:p-9"
           >
             {/* An evergreen wash rises from the foot of the cell. */}
             <span

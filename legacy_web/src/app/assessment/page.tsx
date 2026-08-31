@@ -27,7 +27,6 @@ export default function AssessmentPage() {
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <SectionOpener
-              index="01"
               label={p.formLabel}
               heading={p.formHeadline}
               standfirst={p.hero.lede}

@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 /**
  * The opening frame.
  *
- * Real footage fills the viewport — a slow aerial push through a downtown
- * canyon — and the type sits on it, anchored low and left behind a
- * directional scrim, following the composition in the hero reference.
+ * Real footage fills the viewport — a slow push along a city canal at golden
+ * hour, water and park and towers in one frame — and the type sits on it,
+ * anchored low and left behind a directional scrim.
  *
  * The headline is the one place on the site that speaks in the editorial
  * serif rather than letterspaced capitals: three nouns set roman, the promise
@@ -39,32 +39,58 @@ export function HomeHero() {
         paddingBottom: "clamp(1.75rem, 4svh, 3rem)",
       }}
     >
-      <PreloadHeroPoster href="/media/hero-poster.webp" />
+      <PreloadHeroPoster href="/media/hero-waterfront-poster.webp" />
       <HeroFilm
-        poster="/media/hero-poster.webp"
-        src="/media/hero-desktop.mp4"
-        webmSrc="/media/hero-desktop.webm"
-        mobileSrc="/media/hero-mobile.mp4"
+        poster="/media/hero-waterfront-poster.webp"
+        src="/media/hero-waterfront-desktop.mp4"
+        webmSrc="/media/hero-waterfront-desktop.webm"
+        mobileSrc="/media/hero-waterfront-mobile.mp4"
         className="-z-20"
       />
 
-      {/* Directional scrim. Dense behind the type on the left, opening up
-          across the frame so the architecture stays legible on the right —
-          not a flat wash over the whole film.
+      {/* Scrim, in parts that each do one job.
 
-          Opened up for the bay film: the old values were tuned for a darker,
-          hazier clip and flattened this one's golden-hour light into grey.
-          The left end is untouched, because that is the only part the type
-          actually needs. */}
+          The old treatment was two full-bleed gradients stacked, and the
+          vertical one was the problem: a 0.72 band across the top and a 0.62
+          band across the bottom darkened the sky and the canal — the two
+          things this film is for — in order to protect type that is nowhere
+          near either of them.
+
+          Its replacement runs with the type, and the type does not sit in
+          the same place at every width. On a wide screen the copy is a
+          column down the left, so the wash is directional and the park and
+          the towers on the right are left alone. On a phone the same copy
+          fills the frame from a quarter of the way down, so a left-to-right
+          wash would protect the first word of every line and abandon the
+          last; there it runs bottom-up instead, and the open part of the
+          picture is the band of sky and towers above the headline.
+
+          Densities are measured, not guessed: the brightest thing the
+          headline crosses is the sun at about 250, which composites to
+          around 79 — better than 7:1 against the ivory type. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(92deg,rgba(4,18,15,0.95)_0%,rgba(4,18,15,0.87)_24%,rgba(6,32,27,0.58)_46%,rgba(8,52,48,0.24)_70%,rgba(8,52,48,0.06)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.14)_0%,rgba(4,18,15,0.34)_16%,rgba(6,32,27,0.62)_34%,rgba(4,18,15,0.82)_66%,rgba(4,18,15,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(4,18,15,0.82)_0%,rgba(4,18,15,0.70)_30%,rgba(6,32,27,0.32)_56%,rgba(8,52,48,0.06)_78%,rgba(8,52,48,0)_90%)]"
       />
+
+      {/* The header band is measured in pixels, not percent: it is protecting
+          an 80px bar over a bright sky, not a fraction of the viewport, so it
+          is dense across the navigation and gone 208px down at any window
+          height. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.72)_0%,rgba(4,18,15,0.10)_30%,rgba(4,18,15,0.08)_58%,rgba(4,18,15,0.62)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.80)_0px,rgba(4,18,15,0.74)_68px,rgba(4,18,15,0.22)_136px,rgba(4,18,15,0)_208px)]"
       />
-      <div aria-hidden className="u-grain absolute inset-0 -z-10" />
+
+      {/* The standing rule and the scroll cue reach out over open water on
+          the right, past where the directional wash has run out. Their own
+          short band — desktop only, because below `lg` that rule is not
+          rendered and the bottom-up wash already covers the ground. */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 -z-10 hidden h-[34%] bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.10)_46%,rgba(4,18,15,0.40)_100%)] lg:block"
+      />
+      <div aria-hidden className="u-grain absolute inset-0 -z-10 [&::after]:opacity-[0.10]" />
 
       <Container className="relative">
         <div className="max-w-[48rem]">

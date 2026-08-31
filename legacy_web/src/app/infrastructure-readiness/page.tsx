@@ -1,5 +1,5 @@
 import { CtaBand } from "@/components/sections/CtaBand";
-import { NumberedGrid } from "@/components/sections/NumberedGrid";
+import { MarkerGrid } from "@/components/sections/MarkerGrid";
 import { PageHero } from "@/components/sections/PageHero";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
@@ -29,7 +29,7 @@ export default function InfrastructurePage() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <Eyebrow>{p.where.label}</Eyebrow>
-            <h2 className="u-display-3 mt-7 text-evergreen-600">
+            <h2 className="u-display-3 mt-6 text-evergreen-600">
               {p.where.headline}
             </h2>
           </Reveal>
@@ -42,13 +42,13 @@ export default function InfrastructurePage() {
       <Section tone="ivory">
         <Reveal className="max-w-[54ch]">
           <Eyebrow>{p.role.label}</Eyebrow>
-          <h2 className="u-display-2 mt-7 text-evergreen-600">
+          <h2 className="u-display-2 mt-6 text-evergreen-600">
             {p.role.headline}
           </h2>
         </Reveal>
 
-        <div className="mt-14 lg:mt-18">
-          <NumberedGrid items={p.role.principles} columns={4} />
+        <div className="mt-11 lg:mt-14">
+          <MarkerGrid items={p.role.principles} columns={4} />
         </div>
 
         <Reveal className="mt-12 max-w-[72ch]">

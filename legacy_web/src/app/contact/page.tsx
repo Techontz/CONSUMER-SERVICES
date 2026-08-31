@@ -1,5 +1,5 @@
 import { ContactForm } from "@/components/forms/ContactForm";
-import { NumberedGrid } from "@/components/sections/NumberedGrid";
+import { MarkerGrid } from "@/components/sections/MarkerGrid";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -33,7 +33,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5">
             <Reveal>
               <Eyebrow>{p.reasons.eyebrow}</Eyebrow>
-              <h2 className="u-display-3 mt-7 text-evergreen-600">
+              <h2 className="u-display-3 mt-6 text-evergreen-600">
                 {p.reasons.headline}
               </h2>
             </Reveal>
@@ -42,12 +42,10 @@ export default function ContactPage() {
               {p.reasons.items.map((r) => (
                 <RevealItem
                   as="li"
-                  key={r.n}
-                  className="group flex gap-6 border-t border-rule py-7 last:border-b"
+                  key={r.title}
+                  className="group flex gap-5 border-t border-rule py-6 last:border-b"
                 >
-                  <span className="shrink-0 u-index text-brass-700">
-                    {r.n}
-                  </span>
+                  <span aria-hidden className="mt-2.5 u-dot text-brass-700" />
                   <span>
                     <h3 className="text-[1.1875rem] leading-snug text-evergreen-600">
                       {r.title}
@@ -110,28 +108,28 @@ export default function ContactPage() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-6">
             <Eyebrow>{p.next.eyebrow}</Eyebrow>
-            <h2 className="u-display-2 mt-7 text-evergreen-600">
+            <h2 className="u-display-2 mt-6 text-evergreen-600">
               {p.next.headline}
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
+          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
             <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
               {p.next.body}
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-14 lg:mt-18">
-          <NumberedGrid items={p.next.items} columns={3} />
+        <div className="mt-11 lg:mt-14">
+          <MarkerGrid items={p.next.items} columns={3} />
         </div>
       </Section>
 
       {/* --- Nine readiness checkpoints --- */}
-      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-22 pt-30 text-ivory-100 lg:pb-30 lg:pt-40">
+      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-18 pt-24 text-ivory-100 lg:pb-24 lg:pt-30">
         <Container>
           <Reveal className="max-w-[52ch]">
             <Eyebrow tone="light">{p.checkpoints.eyebrow}</Eyebrow>
-            <h2 className="u-display-3 mt-7 text-ivory-100">
+            <h2 className="u-display-3 mt-6 text-ivory-100">
               {p.checkpoints.headline}
             </h2>
           </Reveal>
@@ -139,17 +137,15 @@ export default function ContactPage() {
           <RevealGroup
             as="ul"
             amount={0.06}
-            className="mt-14 grid gap-px bg-ivory-100/12 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-11 grid gap-px bg-ivory-100/12 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {p.checkpoints.items.map((item, i) => (
+            {p.checkpoints.items.map((item) => (
               <RevealItem
                 as="li"
                 key={item}
                 className="group flex items-center gap-5 bg-evergreen-800 px-7 py-6 transition-colors duration-500 hover:bg-evergreen-700"
               >
-                <span className="u-index text-brass-500">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span aria-hidden className="u-dot text-brass-500" />
                 <span className="text-[1.0625rem] leading-snug text-ivory-100">
                   {item}
                 </span>

@@ -136,7 +136,13 @@ export function HeroFilm({
         tabIndex={-1}
         aria-hidden
         disablePictureInPicture
-        className="absolute inset-0 size-full object-cover object-[50%_46%]"
+        // Framing, not a default. A phone shows about a quarter of a 16:9
+        // frame through `cover`, and the centre quarter of this one is trees
+        // and glass with neither the sun nor the canal in it. 28% is the
+        // slice that still carries all four things the frame is for — light,
+        // water, greenery, architecture — and it is held until the viewport
+        // is wide enough to show most of the frame anyway.
+        className="absolute inset-0 size-full object-cover object-[28%_50%] lg:object-[50%_50%]"
       >
         {source && wide && webmSrc ? (
           <source src={webmSrc} type="video/webm" />

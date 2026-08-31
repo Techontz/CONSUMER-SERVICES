@@ -20,14 +20,12 @@ export default function HomePage() {
 
       <ReadinessStory
         story={opportunityStory}
-        index="05"
         image="/media/industry-infrastructure.jpg"
         alt="Site engineers reviewing drawings on a construction project"
         tone="ivory"
       />
       <ReadinessStory
         story={fundingStory}
-        index="06"
         film="/media/work-panel.mp4"
         filmPoster="/media/work-panel-poster.webp"
         alt="Colleagues working through a plan together at a table"

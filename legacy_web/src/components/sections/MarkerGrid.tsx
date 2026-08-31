@@ -2,15 +2,19 @@ import { cn } from "@/lib/cn";
 import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
 
 /**
- * A numbered sequence rendered as a hairline grid — used for the process,
- * readiness and "ways we help" blocks across the interior pages.
+ * A sequence rendered as a hairline grid — used for the process, readiness
+ * and "ways we help" blocks across the interior pages.
+ *
+ * Each cell used to open with its own two-digit index. They were removed
+ * everywhere: the order of these is rarely meaningful and the numerals made
+ * four ordinary points look like a procedure. A dot holds the same column.
  */
-export function NumberedGrid({
+export function MarkerGrid({
   items,
   dark = false,
   columns = 3,
 }: {
-  items: { n?: string; title: string; note?: string; body?: string }[];
+  items: { title: string; note?: string; body?: string }[];
   dark?: boolean;
   columns?: 2 | 3 | 4;
 }) {
@@ -29,12 +33,12 @@ export function NumberedGrid({
         dark ? "bg-ivory-100/12" : "border border-rule bg-rule",
       )}
     >
-      {items.map((item, i) => (
+      {items.map((item) => (
         <RevealItem
           as="li"
           key={item.title}
           className={cn(
-            "group relative p-8 transition-colors duration-500 lg:p-9",
+            "group relative p-7 transition-colors duration-500 lg:p-8",
             dark
               ? "bg-evergreen-800 hover:bg-evergreen-700"
               : "bg-ivory-50 hover:bg-ivory-200",
@@ -46,10 +50,9 @@ export function NumberedGrid({
           />
 
           <span
-            className={cn("u-index block", dark ? "text-brass-500" : "text-brass-700")}
-          >
-            {item.n ?? String(i + 1).padStart(2, "0")}
-          </span>
+            aria-hidden
+            className={cn("u-dot", dark ? "text-brass-500" : "text-brass-700")}
+          />
 
           <h3
             className={cn(

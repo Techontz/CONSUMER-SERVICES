@@ -29,16 +29,10 @@ export function CtaBand({
     <section
       id={id}
       className={cn(
-        "u-grain relative isolate overflow-hidden bg-evergreen-800 py-22 text-ivory-100 lg:py-30",
+        "u-grain relative isolate overflow-hidden bg-evergreen-800 py-18 text-ivory-100 lg:py-24",
         className,
       )}
     >
-      {/* A soft brass bloom keeps the flat field from reading as a block. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-40 top-1/2 -z-10 size-[36rem] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(201,162,75,0.16),transparent_68%)]"
-      />
-
       <Container className="relative">
         <Reveal className="max-w-[46rem]">
           {eyebrow ? (
@@ -48,15 +42,15 @@ export function CtaBand({
             </p>
           ) : null}
 
-          <h2 className="u-display-2 mt-8 max-w-[20ch] text-ivory-100">
+          <h2 className="u-display-2 mt-7 max-w-[20ch] text-ivory-100">
             {headline}
           </h2>
 
           {body ? (
-            <p className="u-copy mt-8 max-w-[52ch] text-ivory-100/75">{body}</p>
+            <p className="u-copy mt-6 max-w-[52ch] text-ivory-100/75">{body}</p>
           ) : null}
 
-          <div className="mt-11 flex flex-wrap gap-4">
+          <div className="mt-9 flex flex-wrap gap-4">
             <ButtonLink href={primary.href} variant="gold">
               {primary.label}
             </ButtonLink>

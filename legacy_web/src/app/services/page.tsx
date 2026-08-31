@@ -28,10 +28,10 @@ export default function ServicesPage() {
       <Section tone="paper">
         <Reveal className="max-w-[62ch]">
           <Eyebrow>Services</Eyebrow>
-          <p className="u-lede mt-7">{p.intro}</p>
+          <p className="u-lede mt-6">{p.intro}</p>
         </Reveal>
 
-        <div className="mt-14 lg:mt-18">
+        <div className="mt-11 lg:mt-14">
           <ServiceSelector items={p.cards} />
         </div>
 

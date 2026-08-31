@@ -1,5 +1,5 @@
 import { CtaBand } from "@/components/sections/CtaBand";
-import { NumberedGrid } from "@/components/sections/NumberedGrid";
+import { MarkerGrid } from "@/components/sections/MarkerGrid";
 import { PageHero } from "@/components/sections/PageHero";
 import { Disclaimer } from "@/components/ui/Disclaimer";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -29,14 +29,14 @@ export default function HealthcarePage() {
       <Section tone="paper">
         <Reveal className="max-w-[54ch]">
           <Eyebrow>{p.process.label}</Eyebrow>
-          <h2 className="u-display-2 mt-7 text-evergreen-600">
+          <h2 className="u-display-2 mt-6 text-evergreen-600">
             {p.process.headline}
           </h2>
-          <p className="u-lede mt-7">{p.process.lede}</p>
+          <p className="u-lede mt-6">{p.process.lede}</p>
         </Reveal>
 
-        <div className="mt-14 lg:mt-18">
-          <NumberedGrid items={p.process.steps} columns={3} />
+        <div className="mt-11 lg:mt-14">
+          <MarkerGrid items={p.process.steps} columns={3} />
         </div>
       </Section>
 
@@ -44,7 +44,7 @@ export default function HealthcarePage() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <Eyebrow>{p.models.label}</Eyebrow>
-            <h2 className="u-display-2 mt-7 text-evergreen-600">
+            <h2 className="u-display-2 mt-6 text-evergreen-600">
               {p.models.headline}
             </h2>
           </Reveal>

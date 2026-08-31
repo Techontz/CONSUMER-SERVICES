@@ -5,13 +5,18 @@ import { Reveal } from "./Reveal";
 /**
  * How every section announces itself.
  *
- * An index numeral, a rule that draws across, the label, then the heading in
- * letterspaced capitals. The reference opens each section this way and the
- * repetition is the point: it is the spine that holds the page together, so
- * nothing else on the site is allowed to introduce a section any other way.
+ * A rule that draws across, the label, then the heading in letterspaced
+ * capitals. The repetition is the point: it is the spine that holds the page
+ * together, so nothing else on the site is allowed to introduce a section any
+ * other way.
+ *
+ * There used to be an index numeral in front of the rule, and the sections
+ * counted themselves off 01 to 07 down the homepage. That is the kind of
+ * detail that makes a site read as generated from a template rather than
+ * written — the reader is never once helped by knowing a section is the
+ * sixth one. The rule and the label do the whole job.
  */
 export function SectionOpener({
-  index,
   label,
   heading,
   standfirst,
@@ -20,8 +25,6 @@ export function SectionOpener({
   className,
   children,
 }: {
-  /** Two digits — "01". Omit on the rare section that is not part of a run. */
-  index?: string;
   label: string;
   heading: ReactNode;
   standfirst?: ReactNode;
@@ -43,17 +46,6 @@ export function SectionOpener({
           centered && "justify-center",
         )}
       >
-        {index ? (
-          <span
-            className={cn(
-              "u-index shrink-0",
-              light ? "text-brass-400" : "text-brass-700",
-            )}
-          >
-            {index}
-          </span>
-        ) : null}
-
         <span
           aria-hidden
           className={cn(
@@ -73,7 +65,7 @@ export function SectionOpener({
       </Reveal>
 
       {/* --- heading --- */}
-      <Reveal variant="mask" className="mt-7">
+      <Reveal variant="mask" className="mt-6">
         <h2
           className={cn(
             "u-display-2",
@@ -86,7 +78,7 @@ export function SectionOpener({
       </Reveal>
 
       {standfirst ? (
-        <Reveal delay={0.08} className="mt-7">
+        <Reveal delay={0.08} className="mt-6">
           <p
             className={cn(
               "u-copy",

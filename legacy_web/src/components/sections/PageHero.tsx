@@ -24,7 +24,7 @@ export function PageHero({
   position?: string;
 }) {
   return (
-    <section className="u-grain relative isolate flex min-h-[52svh] items-end overflow-hidden bg-evergreen-900 pb-14 pt-36 lg:min-h-[58svh] lg:pb-20 lg:pt-40">
+    <section className="u-grain relative isolate flex min-h-[42svh] items-end overflow-hidden bg-evergreen-900 pb-12 pt-32 lg:min-h-[46svh] lg:pb-16 lg:pt-36">
       <CinematicBackdrop
         src={image}
         priority
@@ -41,11 +41,11 @@ export function PageHero({
           and keeps the lower edge from fighting the section below. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(96deg,rgba(4,18,15,0.96)_0%,rgba(6,32,27,0.92)_38%,rgba(8,52,48,0.62)_68%,rgba(8,52,48,0.24)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(96deg,rgba(4,18,15,0.90)_0%,rgba(6,32,27,0.82)_38%,rgba(8,52,48,0.48)_70%,rgba(8,52,48,0.16)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.78)_0%,rgba(4,18,15,0)_36%,rgba(4,18,15,0.46)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.76)_0px,rgba(4,18,15,0.20)_140px,rgba(4,18,15,0)_212px)]"
       />
 
       <Container className="relative">
@@ -57,7 +57,7 @@ export function PageHero({
           <span className="u-eyebrow text-brass-400">{eyebrow}</span>
         </p>
 
-        <h1 className="u-display-1 mt-7 max-w-[18ch] text-ivory-100">
+        <h1 className="u-display-1 mt-6 max-w-[18ch] text-ivory-100">
           <span className="block overflow-hidden pb-[0.05em]">
             <span className="u-in-mask block" style={{ animationDelay: "200ms" }}>
               {headline}
@@ -67,13 +67,13 @@ export function PageHero({
 
         <span
           aria-hidden
-          className="u-in-draw mt-9 block h-px w-28 origin-left bg-brass-500"
+          className="u-in-draw mt-7 block h-px w-28 origin-left bg-brass-500"
           style={{ animationDelay: "600ms" }}
         />
 
         {lede ? (
           <p
-            className="u-in-rise u-copy mt-8 max-w-[56ch] text-ivory-100/78"
+            className="u-in-rise u-copy mt-7 max-w-[56ch] text-ivory-100/78"
             style={{ animationDelay: "700ms" }}
           >
             {lede}
