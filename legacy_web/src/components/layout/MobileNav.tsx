@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ import { industriesPage } from "@/lib/content/pages";
 const industryLinks = industriesPage.items.map((i) => ({
   label: i.title,
   href: "/industries",
+  image: i.image,
 }));
 
 /**
@@ -142,9 +144,25 @@ export function MobileNav({
                                 href={s.href}
                                 onClick={onClose}
                                 tabIndex={isOpen ? undefined : -1}
-                                className="block py-2.5 text-[0.9375rem] leading-snug text-ivory-100/75 transition-colors duration-300 hover:text-brass-400"
+                                className="flex items-center gap-3.5 py-2.5 text-[0.9375rem] leading-snug text-ivory-100/75 transition-colors duration-300 hover:text-brass-400"
                               >
-                                {s.label}
+                                {/* The same argument the desktop menu makes,
+                                    at phone scale: six thumbnails say "six
+                                    different kinds of business" faster than
+                                    six headings do. */}
+                                {s.image ? (
+                                  <span className="relative block h-9 w-13 shrink-0 overflow-hidden bg-evergreen-950">
+                                    <Image
+                                      src={s.image}
+                                      alt=""
+                                      fill
+                                      sizes="52px"
+                                      quality={55}
+                                      className="object-cover"
+                                    />
+                                  </span>
+                                ) : null}
+                                <span className="min-w-0">{s.label}</span>
                               </Link>
                             </li>
                           ))}

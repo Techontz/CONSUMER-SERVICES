@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
@@ -9,6 +10,8 @@ type Service = {
   title: string;
   body: string;
   href: string;
+  image?: string;
+  alt?: string;
 };
 
 /**
@@ -133,7 +136,49 @@ export function ServiceSelector({ items }: { items: Service[] }) {
         aria-live="polite"
         className="hidden lg:col-span-7 lg:sticky lg:top-28 lg:block"
       >
-        <div className="u-grain relative isolate overflow-hidden bg-evergreen-800 p-10 text-ivory-100 xl:p-12">
+        {/* The panel used to be an evergreen field with type on it, which
+            described a pathway without ever showing one. Every pathway now
+            opens on a photograph, cross-faded rather than swapped so there is
+            no decode flash and no layout to settle between selections. */}
+        <div className="relative isolate overflow-hidden bg-evergreen-800 text-ivory-100">
+          <div className="relative aspect-16/9 w-full overflow-hidden bg-evergreen-950">
+            {items.map((s, i) =>
+              s.image ? (
+                <span
+                  key={s.image + i}
+                  aria-hidden={active !== i}
+                  className={cn(
+                    "absolute inset-0 block transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
+                    active === i ? "opacity-100" : "opacity-0",
+                  )}
+                >
+                  <Image
+                    src={s.image}
+                    alt={active === i ? (s.alt ?? "") : ""}
+                    fill
+                    sizes="(min-width: 1024px) 56vw, 100vw"
+                    quality={80}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    className={cn(
+                      "object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
+                      active === i ? "scale-[1.03]" : "scale-100",
+                    )}
+                  />
+                </span>
+              ) : null,
+            )}
+            {/* One tint over seven photographs, so the set reads as commissioned. */}
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(10,60,52,0.24),rgba(4,18,15,0.60))]"
+            />
+            <span
+              aria-hidden
+              className="absolute bottom-0 left-0 block h-0.5 w-20 bg-brass-500"
+            />
+          </div>
+
+          <div className="u-grain relative isolate p-10 xl:p-12">
           {/* Keying on the index restarts the entrance each time the
               selection changes. */}
           <div key={active}>
@@ -171,6 +216,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                 className="block h-px w-8 bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-14 motion-reduce:transition-none"
               />
             </Link>
+            </div>
           </div>
         </div>
       </div>

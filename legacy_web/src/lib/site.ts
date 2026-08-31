@@ -37,6 +37,13 @@ export type NavChild = {
   label: string;
   href: string;
   blurb?: string;
+  /**
+   * The photograph the mega-menu shows while this item is live. Every one is
+   * an image the site already ships and licenses; the menu introduces no new
+   * asset, it just stops being a wall of text.
+   */
+  image?: string;
+  alt?: string;
 };
 
 export type NavItem = {
@@ -68,26 +75,36 @@ export const primaryNav: NavItem[] = [
         label: "All Services",
         href: "/services",
         blurb: "The seven development pathways.",
+        image: "/media/industry-professional.jpg",
+        alt: "Professionals working through a business plan together",
       },
       {
         label: "Funding Readiness",
         href: "/funding-readiness",
         blurb: "Capital starts with preparation.",
+        image: "/media/advisory-session.jpg",
+        alt: "Advisers reviewing financial documents across a table",
       },
       {
         label: "Infrastructure Readiness",
         href: "/infrastructure-readiness",
         blurb: "Prepare to participate in large projects.",
+        image: "/media/industry-infrastructure.jpg",
+        alt: "Engineers reviewing drawings on a project site",
       },
       {
         label: "Healthcare & Residential Care",
         href: "/healthcare-development",
         blurb: "Building the business behind care.",
+        image: "/media/industry-healthcare.jpg",
+        alt: "A professional healthcare environment",
       },
       {
         label: "Business Readiness Assessment",
         href: "/assessment",
         blurb: "Where is your business today?",
+        image: "/media/work-panel-poster.webp",
+        alt: "Colleagues working through a plan at a table",
       },
     ],
   },

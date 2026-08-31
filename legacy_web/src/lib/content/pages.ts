@@ -30,6 +30,8 @@ export const servicesPage = {
       body:
         "Establish the business foundation, structure, documentation, and development priorities.",
       href: "/contact",
+      image: "/media/industry-professional.jpg",
+      alt: "Advisers reviewing a plan together",
     },
     {
       step: "Plan",
@@ -37,6 +39,8 @@ export const servicesPage = {
       body:
         "Develop the business blueprint, market approach, operating strategy, and implementation path.",
       href: "/contact",
+      image: "/media/advisory-session.jpg",
+      alt: "A planning session over documents and figures",
     },
     {
       step: "Position",
@@ -44,6 +48,8 @@ export const servicesPage = {
       body:
         "Build the professional presence and practical digital foundation needed for today’s business environment.",
       href: "/contact",
+      image: "/media/industry-technology.jpg",
+      alt: "A data and technology environment",
     },
     {
       step: "Prepare",
@@ -51,6 +57,8 @@ export const servicesPage = {
       body:
         "Organize documentation, budgets, use-of-funds planning, capability materials, and readiness requirements.",
       href: "/funding-readiness",
+      image: "/media/work-panel-poster.webp",
+      alt: "Colleagues working through a plan at a table",
     },
     {
       step: "Register",
@@ -58,6 +66,8 @@ export const servicesPage = {
       body:
         "Prepare for federal vendor registration, capability development, NAICS identification, and contracting readiness.",
       href: "/infrastructure-readiness",
+      image: "/media/city-towers-dusk.jpg",
+      alt: "A business district at dusk",
     },
     {
       step: "Develop",
@@ -65,6 +75,8 @@ export const servicesPage = {
       body:
         "Specialized development support for selected care, senior living, and community-based service models.",
       href: "/healthcare-development",
+      image: "/media/industry-healthcare.jpg",
+      alt: "A professional healthcare environment",
     },
     {
       step: "Implement",
@@ -72,6 +84,8 @@ export const servicesPage = {
       body:
         "Develop the procedures, workflows, administrative systems, and implementation steps behind the business.",
       href: "/contact",
+      image: "/media/industry-workforce.jpg",
+      alt: "A technical training environment",
     },
   ],
   note:
@@ -180,22 +194,16 @@ export const industriesPage = {
   },
   items: [
     {
-      title: "Infrastructure & Facility Services",
-      note: "Construction support · HVAC · Mechanical · Electrical · Facility services",
-      image: "/media/industry-infrastructure.jpg",
-      alt: "Infrastructure and facility services",
+      title: "Professional & Business Services",
+      note: "Consulting · Administrative services · Professional services · Small-business development",
+      image: "/media/industry-professional.jpg",
+      alt: "Professional and business services",
     },
     {
       title: "Digital & Technology",
       note: "IT · Digital services · Data · Cybersecurity · Communications",
       image: "/media/industry-technology.jpg",
       alt: "Digital and technology",
-    },
-    {
-      title: "Transportation & Logistics",
-      note: "Trucking · Freight · Delivery · Logistics · Material movement",
-      image: "/media/industry-transportation.jpg",
-      alt: "Transportation and logistics",
     },
     {
       title: "Healthcare & Senior Living",
@@ -210,11 +218,17 @@ export const industriesPage = {
       alt: "Workforce and training",
     },
     {
-      title: "Professional & Business Services",
-      note: "Consulting · Administrative services · Professional services · Small-business development",
-      image: "/media/industry-professional.jpg",
-      alt: "Professional and business services",
+      title: "Transportation & Logistics",
+      note: "Trucking · Freight · Delivery · Logistics · Material movement",
+      image: "/media/industry-transportation.jpg",
+      alt: "Transportation and logistics",
     },
+    {
+      title: "Infrastructure & Facility Services",
+      note: "Construction support · HVAC · Mechanical · Electrical · Facility services",
+      image: "/media/industry-infrastructure.jpg",
+      alt: "Infrastructure and facility services",
+    }
   ],
   role: {
     eyebrow: "Our Role",

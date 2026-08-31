@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { cn } from "@/lib/cn";
 
 type Industry = {
   title: string;
@@ -17,28 +18,43 @@ type Industry = {
  * over it — so the grid reads as imagery first and turns into a reference
  * only when someone asks it to.
  *
+ * The tiles are deliberately not all one size. Six identical rectangles is
+ * the shape of a template, and it also flattens six genuinely different
+ * kinds of business into one repeated card; alternating a wide tile against
+ * a narrow one down the grid gives the page an editorial rhythm and lets the
+ * photography breathe at different scales. The row height is constant, so
+ * the variation reads as composition rather than accident.
+ *
  * No JavaScript: the whole interaction is CSS on `group-hover` and
  * `group-focus-within`, which means it also works from the keyboard.
  */
+/** Wide, narrow, narrow, wide, wide, narrow — down a three-column grid. */
+const SPAN = ["lg:col-span-2", "lg:col-span-1", "lg:col-span-1",
+              "lg:col-span-2", "lg:col-span-2", "lg:col-span-1"];
+
 export function IndustryMosaic({ items }: { items: Industry[] }) {
   return (
     <RevealGroup
       as="ul"
-      className="grid grid-cols-1 gap-px bg-rule sm:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-px bg-rule sm:grid-cols-2 lg:auto-rows-[clamp(15rem,23vw,21rem)] lg:grid-cols-3"
     >
-      {items.map((item) => (
-        <RevealItem as="li" key={item.title} className="bg-evergreen-900">
+      {items.map((item, i) => (
+        <RevealItem
+          as="li"
+          key={item.title}
+          className={cn("bg-evergreen-900", SPAN[i % SPAN.length])}
+        >
           <Link
             href="/contact"
-            className="group relative block aspect-4/3 overflow-hidden focus:outline-none"
+            className="group relative block aspect-4/3 overflow-hidden focus:outline-none lg:aspect-auto lg:h-full"
           >
             <Image
               src={item.image}
               alt={item.alt}
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 55vw"
               quality={82}
-              className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.07] group-focus-within:scale-[1.07] motion-reduce:transition-none"
+              className="object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-focus-within:scale-[1.03] motion-reduce:transition-none"
             />
 
             {/* Evergreen tint unifies six photographs shot in six different

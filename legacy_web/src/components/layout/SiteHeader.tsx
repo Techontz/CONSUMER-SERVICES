@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -18,6 +19,8 @@ const industryLinks = industriesPage.items.map((i) => ({
   label: i.title,
   href: "/industries",
   blurb: i.note,
+  image: i.image,
+  alt: i.alt,
 }));
 
 function panelItems(item: NavItem) {
@@ -79,11 +82,18 @@ export function SiteHeader() {
     setOpenKey(key);
   }, []);
 
-  // A short grace period keeps the panel from flickering as the pointer
-  // crosses the gap between a trigger and the panel itself.
+  /**
+   * The grace period between leaving a trigger and the panel closing.
+   *
+   * It was 140ms, which is about as long as it takes to change your mind and
+   * far less than it takes to read a menu. Anything that re-enters the header
+   * or the panel cancels it, so the only thing this timer measures is a
+   * pointer that has genuinely left and stayed away — and 420ms of that is a
+   * deliberate departure rather than a hand pausing mid-travel.
+   */
   const scheduleClose = useCallback(() => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setOpenKey(null), 140);
+    closeTimer.current = setTimeout(() => setOpenKey(null), 420);
   }, []);
 
   useEffect(
@@ -279,13 +289,31 @@ function MegaPanel({
   items,
 }: {
   item: NavItem;
-  items: { label: string; href: string; blurb?: string }[];
+  items: { label: string; href: string; blurb?: string; image?: string; alt?: string }[];
 }) {
+  /**
+   * The menu argues visually rather than listing.
+   *
+   * It used to be two columns of headings and comma-separated notes — a
+   * directory, and one that opened on construction support and HVAC, which
+   * is how a business-advisory firm ends up reading as a contractor. The
+   * content is unchanged; what changed is that every item now brings its own
+   * photograph, and the panel shows one at a time.
+   *
+   * The frames are all mounted and cross-faded on opacity rather than
+   * swapped, so there is no decode flash between them and no layout to
+   * settle. The first is eager because it is what the panel opens on; the
+   * rest load lazily as the menu is used.
+   */
+  const [live, setLive] = useState(0);
+  const withArt = items.filter((i) => i.image);
+
   return (
-    <div className="u-container grid grid-cols-12 gap-x-10 py-12">
-      <div className="col-span-4 pr-8">
+    <div className="u-container grid grid-cols-12 gap-x-10 py-8">
+      {/* --- the argument --- */}
+      <div className="col-span-4 pr-10">
         <p className="u-eyebrow text-brass-400">{item.label}</p>
-        <h2 className="u-display-3 mt-6 text-ivory-100">{item.panelTitle}</h2>
+        <h2 className="u-display-3 mt-5 text-ivory-100">{item.panelTitle}</h2>
         {item.panelBlurb ? (
           <p className="mt-4 max-w-[38ch] text-sm leading-relaxed text-ivory-100/70">
             {item.panelBlurb}
@@ -293,33 +321,111 @@ function MegaPanel({
         ) : null}
       </div>
 
-      <ul className="col-span-8 grid grid-cols-2 gap-x-8 gap-y-1 border-l border-ivory-100/10 pl-10">
-        {items.map((link) => (
+      {/* --- the index --- */}
+      <ul className="col-span-4 border-l border-ivory-100/10 pl-9">
+        {items.map((link, i) => (
           <li key={link.label}>
             <Link
               href={link.href}
-              className="group flex flex-col gap-1 border-b border-ivory-100/10 py-4 transition-colors duration-300"
+              onMouseEnter={() => setLive(i)}
+              onFocus={() => setLive(i)}
+              className="group flex gap-4 border-b border-ivory-100/10 py-2.5 last:border-b-0"
             >
-              <span className="flex items-center justify-between gap-4">
-                <span className="u-display-4 text-ivory-100 transition-colors duration-300 group-hover:text-brass-400">
-                  {link.label}
-                </span>
-                <span
-                  aria-hidden
-                  className="-translate-x-1 shrink-0 text-brass-500 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0 group-hover:opacity-100 motion-reduce:transition-none"
-                >
-                  &rarr;
-                </span>
-              </span>
-              {link.blurb ? (
-                <span className="text-xs leading-relaxed text-ivory-100/60">
-                  {link.blurb}
+              {/* The thumbnail is the whole argument of this menu. One large
+                  frame shows the live item well but says nothing until you
+                  hover; six small ones say "these are six different kinds of
+                  business" the moment the menu opens, which is the thing a
+                  reader most needs to know about this company. */}
+              {link.image ? (
+                <span className="relative mt-0.5 block h-11 w-16 shrink-0 overflow-hidden bg-evergreen-950">
+                  <Image
+                    src={link.image}
+                    alt=""
+                    fill
+                    sizes="64px"
+                    quality={62}
+                    className={cn(
+                      "object-cover transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
+                      live === i
+                        ? "scale-[1.05] opacity-100 grayscale-0"
+                        : "scale-100 opacity-60 grayscale-[0.45]",
+                    )}
+                  />
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute inset-x-0 bottom-0 block h-0.5 origin-left bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
+                      live === i ? "scale-x-100" : "scale-x-0",
+                    )}
+                  />
                 </span>
               ) : null}
+
+              <span className="min-w-0">
+                <span
+                  className={cn(
+                    "u-display-4 block transition-colors duration-400",
+                    live === i ? "text-brass-400" : "text-ivory-100",
+                  )}
+                >
+                  {link.label}
+                </span>
+                {link.blurb ? (
+                  <span className="mt-1.5 block text-xs leading-relaxed text-ivory-100/55">
+                    {link.blurb}
+                  </span>
+                ) : null}
+              </span>
             </Link>
           </li>
         ))}
       </ul>
+
+      {/* --- the frame --- */}
+      {withArt.length ? (
+        <div className="col-span-4 flex items-center">
+          {/* A plate, centred against the index, rather than a column
+              stretched to the list's full height — at that proportion the
+              crop was taking the tops off heads. */}
+          <div className="relative aspect-4/5 w-full overflow-hidden bg-evergreen-950">
+            {items.map((link, i) =>
+              link.image ? (
+                <span
+                  key={link.image + i}
+                  aria-hidden={live !== i}
+                  className={cn(
+                    "absolute inset-0 block transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
+                    live === i ? "opacity-100" : "opacity-0",
+                  )}
+                >
+                  <Image
+                    src={link.image}
+                    alt={live === i ? (link.alt ?? "") : ""}
+                    fill
+                    sizes="(min-width: 1024px) 32vw, 100vw"
+                    quality={80}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    className={cn(
+                      "object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
+                      live === i ? "scale-[1.03]" : "scale-100",
+                    )}
+                  />
+                </span>
+              ) : null,
+            )}
+            {/* Ties six photographs shot in six conditions into one set, and
+                keeps any of them from competing with the type beside it. */}
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(10,60,52,0.26),rgba(4,18,15,0.52))]"
+            />
+            <span
+              aria-hidden
+              className="absolute bottom-0 left-0 block h-0.5 w-16 bg-brass-500"
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
