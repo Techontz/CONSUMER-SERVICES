@@ -26,9 +26,15 @@ export function Logo({
   showTagline?: boolean;
   className?: string;
 }) {
+  // The seal is what gives the masthead its height: 68px at the wide tier
+  // against the 56 it was, which is most of the bar's 104. Everything else
+  // in the lockup is smaller than it and centres against it. The middle tier
+  // takes as much of that as its rail will carry — the bar there is 92px,
+  // short of the wide one because 1024 has to fit the same five nav items
+  // and a button in 300 fewer pixels.
   const seal = {
     sm: "size-11",
-    md: "size-12 lg:size-13 wide:size-14",
+    md: "size-13 lg:size-15 wide:size-17",
     lg: "size-14",
   }[size];
 
@@ -36,18 +42,18 @@ export function Logo({
   // comfortable lines beside the seal rather than three cramped ones.
   const name = {
     sm: "text-[0.625rem] tracking-[0.08em] sm:text-[0.8125rem] sm:tracking-[0.13em]",
-    md: "text-[0.625rem] tracking-[0.08em] sm:text-[0.875rem] sm:tracking-[0.13em] lg:text-[0.9375rem] lg:tracking-[0.09em] wide:text-[1.0625rem] wide:tracking-[0.13em]",
+    md: "text-[0.625rem] tracking-[0.08em] sm:text-[0.875rem] sm:tracking-[0.13em] lg:text-[0.9375rem] lg:tracking-[0.09em] wide:text-[1.125rem] wide:tracking-[0.12em]",
     lg: "text-[0.6875rem] tracking-[0.1em] sm:text-[0.9375rem] sm:tracking-[0.13em]",
   }[size];
 
   return (
-    <span className={cn("flex min-w-0 items-center gap-3", className)}>
+    <span className={cn("flex min-w-0 items-center gap-3 wide:gap-4", className)}>
       <span className={cn("relative block shrink-0", seal)}>
         <Image
           src="/media/seal.png"
           alt=""
           fill
-          sizes="60px"
+          sizes="72px"
           priority={size !== "lg"}
           className="object-contain"
         />
@@ -69,7 +75,7 @@ export function Logo({
         {showTagline ? (
           <span
             className={cn(
-              "mt-2 hidden font-display text-[0.5625rem] uppercase tracking-[0.26em] sm:block",
+              "mt-2 hidden font-display text-[0.5625rem] uppercase tracking-[0.26em] sm:block wide:mt-2.5 wide:text-[0.625rem]",
               tone === "light" ? "text-ivory-100/60" : "text-brass-700",
             )}
           >

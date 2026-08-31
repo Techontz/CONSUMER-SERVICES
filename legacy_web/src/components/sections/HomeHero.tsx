@@ -35,7 +35,7 @@ export function HomeHero() {
     <section
       className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-evergreen-950"
       style={{
-        paddingTop: "clamp(6.25rem, 12svh, 8.5rem)",
+        paddingTop: "clamp(6.875rem, 13svh, 9rem)",
         paddingBottom: "clamp(1.75rem, 4svh, 3rem)",
       }}
     >

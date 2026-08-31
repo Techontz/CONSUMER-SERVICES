@@ -124,12 +124,13 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
         {/* Vertical depth, and the only thing standing between pale
             navigation and a sunlit sky.
 
-            Deepest evergreen at the very top, gone by 248px — well below
-            the bar itself, so the header reads as the dense end of one
-            cinematic frame rather than a panel with an edge ruled under it.
-            It reaches its own height and a half on purpose: a gradient that
-            stopped where the bar stops would draw exactly the hard line it
-            exists to avoid.
+            Deepest evergreen down to about 105px — the foot of the bar —
+            and then away sharply, gone by 300px. It runs past the bar on
+            purpose, because a gradient that stopped where the bar stops
+            would draw exactly the hard line it exists to avoid; but the tail
+            is steep rather than long, because every point of it below the
+            navigation is density spent on film nobody needed darkened. As
+            drawn it costs the picture under the bar about 3%.
 
             This used to be painted by each hero separately, which meant two
             elements owning one effect and no way to change it in one place.
@@ -139,9 +140,9 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
         <div
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[248px]",
+            "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[300px]",
             "transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-            "bg-[linear-gradient(180deg,rgba(4,18,15,0.92)_0%,rgba(4,18,15,0.82)_28%,rgba(6,32,27,0.46)_58%,rgba(6,32,27,0.16)_80%,rgba(8,52,48,0)_100%)]",
+            "bg-[linear-gradient(180deg,rgba(4,18,15,0.92)_0%,rgba(4,18,15,0.86)_35%,rgba(6,32,27,0.32)_60%,rgba(6,32,27,0.07)_80%,rgba(8,52,48,0)_100%)]",
             transparent ? "opacity-100" : "opacity-0",
           )}
         />
@@ -150,12 +151,17 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
           <div
             className={cn(
               "flex items-center gap-4 transition-[padding] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] wide:gap-6",
-              // The bar overlays the hero, so every pixel of its height is a
-              // pixel the hero composition has to clear. It is still kept
-              // honest — but a navigation this thin read as tentative
-              // against a full-bleed film, and the height it takes back is
-              // returned to the hero by the headline coming down a step.
-              scrolled ? "py-3" : "py-4 lg:py-3.5 wide:py-4.5",
+              // A masthead rather than a navigation strip: 104px at the wide
+              // tier, and none of it empty. The height is the seal's, the
+              // padding only centres it.
+              //
+              // What it costs is horizontal, and that is the tighter budget.
+              // The rail is asymmetric — 8vw at the start so the seal lands
+              // on the same line as the headline, 4.5vw at the end — which
+              // leaves about 44px spare at 1366. Every size that grew here is
+              // paid for by tracking and padding coming out of the
+              // navigation, so the bar gets taller without getting wider.
+              scrolled ? "py-3" : "py-4 lg:py-4 wide:py-[1.125rem]",
             )}
           >
             {/* ---------- Identity ---------- */}
@@ -189,7 +195,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
                         aria-expanded={hasPanel ? openKey === item.label : undefined}
                         aria-haspopup={hasPanel || undefined}
                         className={cn(
-                          "relative block px-2.5 py-3 font-display text-[0.625rem] uppercase tracking-[0.16em] wide:px-4 wide:py-3.5 wide:text-[0.6875rem] wide:tracking-[0.2em]",
+                          "relative block px-2.5 py-3 font-display text-[0.625rem] uppercase tracking-[0.16em] wide:px-3 wide:py-4 wide:text-[0.75rem] wide:tracking-[0.17em]",
                           "transition-colors duration-300",
                           active || openKey === item.label
                             ? "text-ivory-100"
@@ -213,18 +219,18 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
                 })}
               </ul>
 
-              <span aria-hidden className="mx-3 block h-7 w-px bg-ivory-100/15 wide:mx-4" />
+              <span aria-hidden className="mx-3 block h-7 w-px bg-ivory-100/15 wide:mx-3.5 wide:h-9" />
 
               <a
                 href={site.phoneHref}
-                className="mr-5 hidden font-display text-[0.625rem] tracking-[0.14em] text-ivory-100/70 transition-colors duration-300 hover:text-ivory-100 xl:block wide:text-[0.6875rem]"
+                className="mr-4 hidden font-display text-[0.625rem] tracking-[0.14em] text-ivory-100/70 transition-colors duration-300 hover:text-ivory-100 xl:block wide:mr-5 wide:text-[0.75rem]"
               >
                 {site.phone}
               </a>
 
               <Link
                 href="/contact"
-                className="group relative overflow-hidden whitespace-nowrap border border-brass-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] wide:tracking-[0.22em] text-brass-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-8 wide:py-4 wide:text-[0.6875rem]"
+                className="group relative overflow-hidden whitespace-nowrap border border-brass-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-brass-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-7 wide:py-5 wide:text-[0.75rem] wide:tracking-[0.2em]"
               >
                 <span
                   aria-hidden
@@ -240,7 +246,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
               onClick={() => setMobileOpen(true)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              className="ml-auto flex shrink-0 items-center gap-2.5 border border-ivory-100/30 px-5 py-3 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-brass-500 lg:hidden"
+              className="ml-auto flex shrink-0 items-center gap-2.5 border border-ivory-100/30 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-brass-500 lg:hidden"
             >
               Menu
               <span aria-hidden className="flex flex-col gap-[3px]">
