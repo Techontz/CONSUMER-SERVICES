@@ -24,7 +24,14 @@ function panelItems(item: NavItem) {
   return item.label === "Industries" ? industryLinks : (item.children ?? []);
 }
 
-export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
+/**
+ * The header is a solid evergreen band, on every page and at every scroll
+ * position. It used to take an `overHero` flag and go transparent at the top
+ * of a page that owned a dark hero; the band does not change ground any
+ * more, so the flag was removed rather than left on the signature doing
+ * nothing.
+ */
+export function SiteHeader() {
   const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
@@ -86,9 +93,6 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
     [],
   );
 
-  /** Transparent only at the very top of a page that owns a dark hero. */
-  const transparent = overHero && !scrolled && !openKey;
-
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
@@ -105,11 +109,22 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
 
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500",
+          "fixed inset-x-0 top-0 z-50 transition-[box-shadow,backdrop-filter] duration-500",
           "ease-[cubic-bezier(0.16,1,0.3,1)]",
-          transparent
-            ? "bg-transparent"
-            : "bg-evergreen-900/95 shadow-[0_1px_0_rgb(255_255_255/0.07)] backdrop-blur-xl",
+          // A solid band, not a veil over the film.
+          //
+          // This used to fade out over the hero so the first viewport read as
+          // one cinematic frame. It reads instead as a branded architectural
+          // layer with a definite end: strongly evergreen, with a shallow
+          // tonal fall inside its own height — deepest at the very top,
+          // easing by the foot — so the band has depth without ever letting
+          // the video through it.
+          "bg-[linear-gradient(180deg,var(--color-evergreen-950)_0%,var(--color-evergreen-900)_58%,var(--color-evergreen-800)_100%)]",
+          // The line that says where the header stops. One pixel of low
+          // brass: enough to read as a drawn edge against sunlit water,
+          // far too little to read as a border.
+          "border-b border-brass-500/70",
+          scrolled && "shadow-[0_14px_34px_-16px_rgba(4,18,15,0.85)] backdrop-blur-xl",
         )}
         onMouseLeave={scheduleClose}
         // Tabbing out of the header closes any open panel, so keyboard users
@@ -121,47 +136,21 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
           }
         }}
       >
-        {/* Vertical depth, and the only thing standing between pale
-            navigation and a sunlit sky.
-
-            Deepest evergreen down to about 105px — the foot of the bar —
-            and then away sharply, gone by 300px. It runs past the bar on
-            purpose, because a gradient that stopped where the bar stops
-            would draw exactly the hard line it exists to avoid; but the tail
-            is steep rather than long, because every point of it below the
-            navigation is density spent on film nobody needed darkened. As
-            drawn it costs the picture under the bar about 3%.
-
-            This used to be painted by each hero separately, which meant two
-            elements owning one effect and no way to change it in one place.
-            The header carries it now, and fades it out as the solid bar
-            fades in, so the two never stack into something darker than
-            either. */}
-        <div
-          aria-hidden
-          className={cn(
-            "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[300px]",
-            "transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-            "bg-[linear-gradient(180deg,rgba(4,18,15,0.92)_0%,rgba(4,18,15,0.86)_35%,rgba(6,32,27,0.32)_60%,rgba(6,32,27,0.07)_80%,rgba(8,52,48,0)_100%)]",
-            transparent ? "opacity-100" : "opacity-0",
-          )}
-        />
-
         <Container wide>
           <div
             className={cn(
               "flex items-center gap-4 transition-[padding] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] wide:gap-6",
-              // A masthead rather than a navigation strip: 104px at the wide
-              // tier, and none of it empty. The height is the seal's, the
-              // padding only centres it.
+              // A masthead: 116px at the wide tier. The seal supplies 68 of
+              // it and the padding the remaining 24 a side, which is the
+              // clear air the band needs to read as architecture rather than
+              // as a strip with things crammed in it.
               //
               // What it costs is horizontal, and that is the tighter budget.
               // The rail is asymmetric — 8vw at the start so the seal lands
               // on the same line as the headline, 4.5vw at the end — which
-              // leaves about 44px spare at 1366. Every size that grew here is
-              // paid for by tracking and padding coming out of the
-              // navigation, so the bar gets taller without getting wider.
-              scrolled ? "py-3" : "py-4 lg:py-4 wide:py-[1.125rem]",
+              // leaves about 44px spare at 1366, so nothing here may get
+              // wider to get taller.
+              scrolled ? "py-3" : "py-5 lg:py-5 wide:py-6",
             )}
           >
             {/* ---------- Identity ---------- */}
@@ -195,7 +184,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
                         aria-expanded={hasPanel ? openKey === item.label : undefined}
                         aria-haspopup={hasPanel || undefined}
                         className={cn(
-                          "relative block px-2.5 py-3 font-display text-[0.625rem] uppercase tracking-[0.16em] wide:px-3 wide:py-4 wide:text-[0.75rem] wide:tracking-[0.17em]",
+                          "relative block px-2.5 py-3 font-display text-[0.625rem] uppercase tracking-[0.16em] wide:px-3 wide:py-3 wide:text-[0.75rem] wide:tracking-[0.17em]",
                           "transition-colors duration-300",
                           active || openKey === item.label
                             ? "text-ivory-100"
@@ -230,7 +219,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
 
               <Link
                 href="/contact"
-                className="group relative overflow-hidden whitespace-nowrap border border-brass-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-brass-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-7 wide:py-5 wide:text-[0.75rem] wide:tracking-[0.2em]"
+                className="group relative overflow-hidden whitespace-nowrap border border-brass-500/60 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-brass-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
               >
                 <span
                   aria-hidden

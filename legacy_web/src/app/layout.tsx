@@ -100,9 +100,9 @@ export default function RootLayout({
       className={`${archivo.variable} ${mulish.variable} ${fraunces.variable}`}
     >
       <body className="min-h-dvh antialiased">
-        {/* Every page opens on a dark hero, so the header starts
-            transparent and solidifies on scroll across the whole site. */}
-        <SiteHeader overHero />
+        {/* One solid evergreen band across the whole site, with a hairline
+            at its foot marking where it ends and the page begins. */}
+        <SiteHeader />
         {children}
         <SiteFooter />
         <RevealObserver />

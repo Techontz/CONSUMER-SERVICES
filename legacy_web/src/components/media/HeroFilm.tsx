@@ -142,6 +142,11 @@ export function HeroFilm({
         // slice that still carries all four things the frame is for — light,
         // water, greenery, architecture — and it is held until the viewport
         // is wide enough to show most of the frame anyway.
+        // Layer four of the grade: contrast down to flatten the compression
+        // the scale exposes, brightness up to pay back what the veil above
+        // costs, saturation down so the evergreen over it reads as a grade
+        // and not a filter.
+        style={{ filter: "contrast(0.95) brightness(1.05) saturate(0.99)" }}
         className="absolute inset-0 size-full object-cover object-[28%_50%] lg:object-[50%_50%]"
       >
         {source && wide && webmSrc ? (

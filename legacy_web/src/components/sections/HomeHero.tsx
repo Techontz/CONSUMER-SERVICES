@@ -27,6 +27,9 @@ export function HomeHero() {
 
   return (
     // Padding and the gaps below are keyed to viewport HEIGHT, not width.
+    // Their floors came down a notch when the header became a 116px band:
+    // at 1280x720 the composition was six pixels past the viewport, and
+    // sixteen pixels spread across five gaps is the whole of the fix.
     // The old fixed values (128px top, 112px bottom, 32/40/32/44 between the
     // parts) came to 1055px of composition, which fits 1080 and nothing
     // shorter — at 1366x768 the buttons sat 175px below the fold. Height-aware
@@ -35,8 +38,8 @@ export function HomeHero() {
     <section
       className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-evergreen-950"
       style={{
-        paddingTop: "clamp(6.875rem, 13svh, 9rem)",
-        paddingBottom: "clamp(1.75rem, 4svh, 3rem)",
+        paddingTop: "clamp(7.75rem, 14svh, 9.5rem)",
+        paddingBottom: "clamp(1.5rem, 3.6svh, 3rem)",
       }}
     >
       <PreloadHeroPoster href="/media/hero-waterfront-poster.webp" />
@@ -48,44 +51,58 @@ export function HomeHero() {
         className="-z-20"
       />
 
-      {/* Scrim, in parts that each do one job.
+      {/* The grade, in four layers.
 
-          The old treatment was two full-bleed gradients stacked, and the
-          vertical one was the problem: a 0.72 band across the top and a 0.62
-          band across the bottom darkened the sky and the canal — the two
-          things this film is for — in order to protect type that is nowhere
-          near either of them.
+          The film is a 720p source being asked to cover a 1920 frame, and
+          played raw it looks like exactly that: soft edges, visible
+          compression in the water, detail that does not survive the scale.
+          The answer is not blur — blur announces itself — it is the thing a
+          colourist would do, which is to put the picture under a veil and
+          let tone rather than resolution carry it.
 
-          Its replacement runs with the type, and the type does not sit in
-          the same place at every width. On a wide screen the copy is a
-          column down the left, so the wash is directional and the park and
-          the towers on the right are left alone. On a phone the same copy
-          fills the frame from a quarter of the way down, so a left-to-right
-          wash would protect the first word of every line and abandon the
-          last; there it runs bottom-up instead, and the open part of the
-          picture is the band of sky and towers above the headline.
-
-          Densities are measured, not guessed: the brightest thing the
-          headline crosses is the sun at about 250, which composites to
-          around 79 — better than 7:1 against the ivory type. */}
+          1. An evergreen veil across the whole frame. The colour is
+             deliberately a mid evergreen rather than the near-black the
+             scrims use: at luminance 48 against the film's 64 it tints
+             strongly at a third opacity while costing almost no brightness,
+             which is the difference between veiled and dark. It is also
+             warmer than the brand evergreen — 18 of red rather than 4 —
+             because a veil with almost no red in it takes the golden hour
+             out of a golden hour clip, and the point is to harmonise with
+             that light rather than cancel it.
+          2. The directional wash the type sits on, denser to the left, and
+             flipped bottom-up below `lg` where the copy fills the frame
+             rather than sitting in a column down its side.
+          3. A vignette, shallow enough to read as a lens rather than an
+             effect.
+          4. A grade on the video element itself — contrast slightly down to
+             flatten the artefacts, brightness slightly up to pay for the
+             veil, saturation slightly down so the evergreen reads as a grade
+             over the footage rather than a filter laid on it. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.14)_0%,rgba(4,18,15,0.34)_16%,rgba(6,32,27,0.62)_34%,rgba(4,18,15,0.82)_66%,rgba(4,18,15,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(4,18,15,0.82)_0%,rgba(4,18,15,0.70)_30%,rgba(6,32,27,0.32)_56%,rgba(8,52,48,0.06)_78%,rgba(8,52,48,0)_90%)]"
+        className="absolute inset-0 -z-10 bg-[rgba(18,58,42,0.33)]"
       />
 
-      {/* The band that used to sit under the navigation is gone from here.
-          The header draws its own now, which is the only way one gradient
-          can serve a bar that is over this film on the homepage and over a
-          photograph everywhere else. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.16)_18%,rgba(6,32,27,0.46)_40%,rgba(4,18,15,0.72)_70%,rgba(4,18,15,0.78)_100%)] lg:bg-[linear-gradient(96deg,rgba(4,18,15,0.80)_0%,rgba(4,18,15,0.66)_30%,rgba(6,32,27,0.26)_58%,rgba(8,52,48,0.05)_80%,rgba(8,52,48,0)_92%)]"
+      />
+
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[radial-gradient(125%_105%_at_50%_44%,rgba(4,18,15,0)_52%,rgba(4,18,15,0.16)_78%,rgba(4,18,15,0.34)_100%)]"
+      />
 
       {/* The standing rule and the scroll cue reach out over open water on
-          the right, past where the directional wash has run out. Their own
-          short band — desktop only, because below `lg` that rule is not
-          rendered and the bottom-up wash already covers the ground. */}
+          the right, past where the directional wash has run out — 10px ivory
+          at 60% over sunlit reflections is the least legible thing in the
+          frame, and it needs its own ground. Desktop only: below `lg` that
+          rule is not rendered and the bottom-up wash already covers it. */}
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 hidden h-[34%] bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.10)_46%,rgba(4,18,15,0.40)_100%)] lg:block"
+        className="absolute inset-x-0 bottom-0 -z-10 hidden h-[30%] bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.14)_44%,rgba(4,18,15,0.46)_100%)] lg:block"
       />
+
       <div aria-hidden className="u-grain absolute inset-0 -z-10 [&::after]:opacity-[0.10]" />
 
       <Container className="relative">
@@ -114,7 +131,7 @@ export function HomeHero() {
           <h1
             className="u-editorial text-ivory-100"
             style={{
-              marginTop: "clamp(1rem, 2.6svh, 2rem)",
+              marginTop: "clamp(0.75rem, 2.3svh, 2rem)",
               fontSize: "clamp(2.5625rem, min(6.3vw, 8.1svh), 5.375rem)",
             }}
           >
@@ -138,7 +155,7 @@ export function HomeHero() {
             aria-hidden
             className="u-in-draw block h-px w-32 origin-left bg-brass-500"
             style={{
-              marginTop: "clamp(1.25rem, 3svh, 2.5rem)",
+              marginTop: "clamp(1rem, 2.7svh, 2.5rem)",
               animationDelay: "480ms",
             }}
           />
@@ -146,7 +163,7 @@ export function HomeHero() {
           <p
             className="u-in-rise-lcp max-w-[42ch] text-[1.0625rem] leading-[1.75] text-ivory-100/80 lg:text-[1.1875rem]"
             style={{
-              marginTop: "clamp(1rem, 2.6svh, 2rem)",
+              marginTop: "clamp(0.875rem, 2.3svh, 2rem)",
               animationDelay: "560ms",
             }}
           >
@@ -156,7 +173,7 @@ export function HomeHero() {
           <div
             className="u-in-rise flex flex-wrap gap-4"
             style={{
-              marginTop: "clamp(1.25rem, 3.4svh, 2.75rem)",
+              marginTop: "clamp(1.125rem, 3.1svh, 2.75rem)",
               animationDelay: "660ms",
             }}
           >
@@ -188,7 +205,7 @@ export function HomeHero() {
         aria-hidden
         className="u-in-fade pointer-events-none relative hidden lg:block"
         style={{
-          marginTop: "clamp(1.75rem, 4.2svh, 3rem)",
+          marginTop: "clamp(1.5rem, 3.8svh, 3rem)",
           animationDelay: "900ms",
         }}
       >
