@@ -121,14 +121,41 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
           }
         }}
       >
+        {/* Vertical depth, and the only thing standing between pale
+            navigation and a sunlit sky.
+
+            Deepest evergreen at the very top, gone by 248px — well below
+            the bar itself, so the header reads as the dense end of one
+            cinematic frame rather than a panel with an edge ruled under it.
+            It reaches its own height and a half on purpose: a gradient that
+            stopped where the bar stops would draw exactly the hard line it
+            exists to avoid.
+
+            This used to be painted by each hero separately, which meant two
+            elements owning one effect and no way to change it in one place.
+            The header carries it now, and fades it out as the solid bar
+            fades in, so the two never stack into something darker than
+            either. */}
+        <div
+          aria-hidden
+          className={cn(
+            "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[248px]",
+            "transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+            "bg-[linear-gradient(180deg,rgba(4,18,15,0.92)_0%,rgba(4,18,15,0.82)_28%,rgba(6,32,27,0.46)_58%,rgba(6,32,27,0.16)_80%,rgba(8,52,48,0)_100%)]",
+            transparent ? "opacity-100" : "opacity-0",
+          )}
+        />
+
         <Container wide>
           <div
             className={cn(
-              "flex items-center gap-6 transition-[padding] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-              // Trimmed a step: this bar overlays the hero, and every
-              // pixel of its height is a pixel the hero composition
-              // has to clear before it can start.
-              scrolled ? "py-2.5" : "py-3 lg:py-3.5",
+              "flex items-center gap-4 transition-[padding] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] wide:gap-6",
+              // The bar overlays the hero, so every pixel of its height is a
+              // pixel the hero composition has to clear. It is still kept
+              // honest — but a navigation this thin read as tentative
+              // against a full-bleed film, and the height it takes back is
+              // returned to the hero by the headline coming down a step.
+              scrolled ? "py-3" : "py-4 lg:py-3.5 wide:py-4.5",
             )}
           >
             {/* ---------- Identity ---------- */}
@@ -162,7 +189,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
                         aria-expanded={hasPanel ? openKey === item.label : undefined}
                         aria-haspopup={hasPanel || undefined}
                         className={cn(
-                          "relative block px-4 py-3 font-display text-[0.625rem] uppercase tracking-[0.2em]",
+                          "relative block px-2.5 py-3 font-display text-[0.625rem] uppercase tracking-[0.16em] wide:px-4 wide:py-3.5 wide:text-[0.6875rem] wide:tracking-[0.2em]",
                           "transition-colors duration-300",
                           active || openKey === item.label
                             ? "text-ivory-100"
@@ -186,18 +213,18 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
                 })}
               </ul>
 
-              <span aria-hidden className="mx-4 block h-6 w-px bg-ivory-100/15" />
+              <span aria-hidden className="mx-3 block h-7 w-px bg-ivory-100/15 wide:mx-4" />
 
               <a
                 href={site.phoneHref}
-                className="mr-5 hidden font-display text-[0.625rem] tracking-[0.14em] text-ivory-100/70 transition-colors duration-300 hover:text-ivory-100 xl:block"
+                className="mr-5 hidden font-display text-[0.625rem] tracking-[0.14em] text-ivory-100/70 transition-colors duration-300 hover:text-ivory-100 xl:block wide:text-[0.6875rem]"
               >
                 {site.phone}
               </a>
 
               <Link
                 href="/contact"
-                className="group relative overflow-hidden border border-brass-500/70 px-7 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.22em] text-brass-400 transition-colors duration-300 hover:text-evergreen-950"
+                className="group relative overflow-hidden whitespace-nowrap border border-brass-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] wide:tracking-[0.22em] text-brass-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-8 wide:py-4 wide:text-[0.6875rem]"
               >
                 <span
                   aria-hidden
@@ -213,12 +240,12 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
               onClick={() => setMobileOpen(true)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              className="ml-auto flex shrink-0 items-center gap-2.5 border border-ivory-100/30 px-4 py-2.5 font-display text-[0.5625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-brass-500 lg:hidden"
+              className="ml-auto flex shrink-0 items-center gap-2.5 border border-ivory-100/30 px-5 py-3 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-brass-500 lg:hidden"
             >
               Menu
               <span aria-hidden className="flex flex-col gap-[3px]">
-                <span className="block h-px w-4 bg-current" />
-                <span className="block h-px w-4 bg-current" />
+                <span className="block h-px w-[1.125rem] bg-current" />
+                <span className="block h-px w-[1.125rem] bg-current" />
               </span>
             </button>
           </div>

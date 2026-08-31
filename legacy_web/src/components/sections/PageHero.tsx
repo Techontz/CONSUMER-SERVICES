@@ -37,15 +37,12 @@ export function PageHero({
         className="-z-20"
       />
 
-      {/* Horizontal wash anchors the type; the vertical one seats the header
-          and keeps the lower edge from fighting the section below. */}
+      {/* Horizontal wash anchors the type. The band that used to seat the
+          header is gone: the header draws that itself now, so the same
+          gradient runs over this photograph and over the homepage film. */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-[linear-gradient(96deg,rgba(4,18,15,0.90)_0%,rgba(6,32,27,0.82)_38%,rgba(8,52,48,0.48)_70%,rgba(8,52,48,0.16)_100%)]"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.76)_0px,rgba(4,18,15,0.20)_140px,rgba(4,18,15,0)_212px)]"
       />
 
       <Container className="relative">

@@ -35,7 +35,7 @@ export function HomeHero() {
     <section
       className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-evergreen-950"
       style={{
-        paddingTop: "clamp(5.5rem, 11svh, 8.25rem)",
+        paddingTop: "clamp(6.25rem, 12svh, 8.5rem)",
         paddingBottom: "clamp(1.75rem, 4svh, 3rem)",
       }}
     >
@@ -73,14 +73,10 @@ export function HomeHero() {
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.14)_0%,rgba(4,18,15,0.34)_16%,rgba(6,32,27,0.62)_34%,rgba(4,18,15,0.82)_66%,rgba(4,18,15,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(4,18,15,0.82)_0%,rgba(4,18,15,0.70)_30%,rgba(6,32,27,0.32)_56%,rgba(8,52,48,0.06)_78%,rgba(8,52,48,0)_90%)]"
       />
 
-      {/* The header band is measured in pixels, not percent: it is protecting
-          an 80px bar over a bright sky, not a fraction of the viewport, so it
-          is dense across the navigation and gone 208px down at any window
-          height. */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.80)_0px,rgba(4,18,15,0.74)_68px,rgba(4,18,15,0.22)_136px,rgba(4,18,15,0)_208px)]"
-      />
+      {/* The band that used to sit under the navigation is gone from here.
+          The header draws its own now, which is the only way one gradient
+          can serve a bar that is over this film on the homepage and over a
+          photograph everywhere else. */}
 
       {/* The standing rule and the scroll cue reach out over open water on
           the right, past where the directional wash has run out. Their own
@@ -104,15 +100,22 @@ export function HomeHero() {
             </span>
           </p>
 
-          {/* The size is unchanged wherever there is room for it: at 1080
-              tall this still resolves to the same 6rem it always did. The
-              height term only engages on short viewports, where the choice is
-              otherwise between a smaller headline and buttons below the fold. */}
+          {/* Down roughly a tenth from where it was — 6rem to 5.375rem at
+              the top, and every term in the clamp scaled with it, so the
+              relationship between the width and height limits is unchanged.
+              It is still far and away the loudest thing on the page; it was
+              simply loud enough to crowd the film it is standing on, and the
+              27px this returns at 1366x768 is what pays for the taller
+              navigation above it.
+
+              The height term still only engages on short viewports, where
+              the choice is otherwise between a smaller headline and buttons
+              below the fold. */}
           <h1
             className="u-editorial text-ivory-100"
             style={{
               marginTop: "clamp(1rem, 2.6svh, 2rem)",
-              fontSize: "clamp(2.875rem, min(7vw, 9svh), 6rem)",
+              fontSize: "clamp(2.5625rem, min(6.3vw, 8.1svh), 5.375rem)",
             }}
           >
             {lines.map((line, i) => (

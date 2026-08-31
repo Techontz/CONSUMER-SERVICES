@@ -60,6 +60,20 @@
   --spacing-gutter-wide: 1.25rem;
   --container-max: 132rem; /* 2112px — only bites on ultrawide */
 
+  /* The width at which the header rail has room to grow.
+     
+     A named breakpoint rather than an inline `min-[1360px]:`, because v4
+     sorts arbitrary min-width variants ahead of the named ones: alongside an
+     `lg:` utility on the same property the arbitrary one loses on source
+     order, silently, at every width where both match.
+     
+     1360 is measured, not chosen. Below it the lockup and the navigation
+     already fill the rail — at 1024 the previous header fitted with about
+     four pixels to spare — so a larger seal or wordmark there wraps the
+     company name or the button label. Above it the bar can take the extra
+     weight, which covers every width this was asked for. */
+  --breakpoint-wide: 85rem;
+
   /* --- Motion --- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
