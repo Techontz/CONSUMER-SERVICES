@@ -339,6 +339,13 @@ function MegaPanel({
                     fill
                     sizes="56px"
                     quality={58}
+                    // Eager, not lazy. The panel is mounted from first paint
+                    // but hidden, so a lazy thumbnail does not start loading
+                    // until the menu opens — and then pops in about a second
+                    // later, which is exactly when it is being looked at.
+                    // Eleven thumbnails at this size cost a few KB in total;
+                    // the pop-in cost more than that in feel.
+                    loading="eager"
                     className="object-cover opacity-65 grayscale-[0.45] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0 group-focus-within:scale-[1.05] group-focus-within:opacity-100 group-focus-within:grayscale-0 motion-reduce:transition-none"
                   />
                   <span
