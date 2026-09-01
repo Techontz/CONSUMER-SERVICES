@@ -292,22 +292,20 @@ function MegaPanel({
   items: { label: string; href: string; blurb?: string; image?: string; alt?: string }[];
 }) {
   /**
-   * The menu argues visually rather than listing.
+   * The menu argues visually, but at menu scale.
    *
-   * It used to be two columns of headings and comma-separated notes — a
-   * directory, and one that opened on construction support and HVAC, which
-   * is how a business-advisory firm ends up reading as a contractor. The
-   * content is unchanged; what changed is that every item now brings its own
-   * photograph, and the panel shows one at a time.
+   * It used to carry a large plate on the right that changed as you moved
+   * down the list. That plate set the height of the whole panel — six items
+   * made a 747px menu — and it only told you about the one row you happened
+   * to be on. The list is two columns now and the thumbnails are the size of
+   * the thing they are: a visual cue beside a label, not a card. All six
+   * business worlds are legible at a glance, and the panel is as tall as its
+   * list rather than as tall as a photograph.
    *
-   * The frames are all mounted and cross-faded on opacity rather than
-   * swapped, so there is no decode flash between them and no layout to
-   * settle. The first is eager because it is what the panel opens on; the
-   * rest load lazily as the menu is used.
+   * No state left in here either: the hover emphasis is `group-hover` and
+   * `group-focus-within`, so it works from the keyboard and there is nothing
+   * to re-render as the pointer travels.
    */
-  const [live, setLive] = useState(0);
-  const withArt = items.filter((i) => i.image);
-
   return (
     <div className="u-container grid grid-cols-12 gap-x-10 py-8">
       {/* --- the argument --- */}
@@ -321,53 +319,37 @@ function MegaPanel({
         ) : null}
       </div>
 
-      {/* --- the index --- */}
-      <ul className="col-span-4 border-l border-ivory-100/10 pl-9">
-        {items.map((link, i) => (
+      {/* --- the index, two columns --- */}
+      {/* Column-first, not row-first: the eye reads the first three down the
+          left and the next three down the right, which is how the grouping
+          was asked for and how a printed index reads. Three rows fixed, so
+          the flow can only ever make two columns. */}
+      <ul className="col-span-8 grid grid-flow-col grid-cols-2 grid-rows-3 gap-x-10 gap-y-1 border-l border-ivory-100/10 pl-9">
+        {items.map((link) => (
           <li key={link.label}>
             <Link
               href={link.href}
-              onMouseEnter={() => setLive(i)}
-              onFocus={() => setLive(i)}
-              className="group flex gap-4 border-b border-ivory-100/10 py-2.5 last:border-b-0"
+              className="group flex gap-4 border-b border-ivory-100/10 py-3.5"
             >
-              {/* The thumbnail is the whole argument of this menu. One large
-                  frame shows the live item well but says nothing until you
-                  hover; six small ones say "these are six different kinds of
-                  business" the moment the menu opens, which is the thing a
-                  reader most needs to know about this company. */}
               {link.image ? (
-                <span className="relative mt-0.5 block h-11 w-16 shrink-0 overflow-hidden bg-evergreen-950">
+                <span className="relative mt-0.5 block h-9 w-14 shrink-0 overflow-hidden bg-evergreen-950">
                   <Image
                     src={link.image}
                     alt=""
                     fill
-                    sizes="64px"
-                    quality={62}
-                    className={cn(
-                      "object-cover transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
-                      live === i
-                        ? "scale-[1.05] opacity-100 grayscale-0"
-                        : "scale-100 opacity-60 grayscale-[0.45]",
-                    )}
+                    sizes="56px"
+                    quality={58}
+                    className="object-cover opacity-65 grayscale-[0.45] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0 group-focus-within:scale-[1.05] group-focus-within:opacity-100 group-focus-within:grayscale-0 motion-reduce:transition-none"
                   />
                   <span
                     aria-hidden
-                    className={cn(
-                      "absolute inset-x-0 bottom-0 block h-0.5 origin-left bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
-                      live === i ? "scale-x-100" : "scale-x-0",
-                    )}
+                    className="absolute inset-x-0 bottom-0 block h-0.5 origin-left scale-x-0 bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
                   />
                 </span>
               ) : null}
 
               <span className="min-w-0">
-                <span
-                  className={cn(
-                    "u-display-4 block transition-colors duration-400",
-                    live === i ? "text-brass-400" : "text-ivory-100",
-                  )}
-                >
+                <span className="u-display-4 block text-ivory-100 transition-colors duration-400 group-hover:text-brass-400 group-focus-within:text-brass-400">
                   {link.label}
                 </span>
                 {link.blurb ? (
@@ -380,52 +362,6 @@ function MegaPanel({
           </li>
         ))}
       </ul>
-
-      {/* --- the frame --- */}
-      {withArt.length ? (
-        <div className="col-span-4 flex items-center">
-          {/* A plate, centred against the index, rather than a column
-              stretched to the list's full height — at that proportion the
-              crop was taking the tops off heads. */}
-          <div className="relative aspect-4/5 w-full overflow-hidden bg-evergreen-950">
-            {items.map((link, i) =>
-              link.image ? (
-                <span
-                  key={link.image + i}
-                  aria-hidden={live !== i}
-                  className={cn(
-                    "absolute inset-0 block transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
-                    live === i ? "opacity-100" : "opacity-0",
-                  )}
-                >
-                  <Image
-                    src={link.image}
-                    alt={live === i ? (link.alt ?? "") : ""}
-                    fill
-                    sizes="(min-width: 1024px) 32vw, 100vw"
-                    quality={80}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    className={cn(
-                      "object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
-                      live === i ? "scale-[1.03]" : "scale-100",
-                    )}
-                  />
-                </span>
-              ) : null,
-            )}
-            {/* Ties six photographs shot in six conditions into one set, and
-                keeps any of them from competing with the type beside it. */}
-            <span
-              aria-hidden
-              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(10,60,52,0.26),rgba(4,18,15,0.52))]"
-            />
-            <span
-              aria-hidden
-              className="absolute bottom-0 left-0 block h-0.5 w-16 bg-brass-500"
-            />
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }
