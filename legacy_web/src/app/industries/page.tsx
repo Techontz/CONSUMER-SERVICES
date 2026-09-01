@@ -22,7 +22,6 @@ export default function IndustriesPage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        position="center 58%"
       />
 
       {/* The mosaic runs edge to edge — the photography is the section, and

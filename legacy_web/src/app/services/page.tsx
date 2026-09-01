@@ -22,7 +22,6 @@ export default function ServicesPage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        position="center 52%"
       />
 
       <Section tone="paper">

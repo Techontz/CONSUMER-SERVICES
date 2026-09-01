@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { MarkerGrid } from "@/components/sections/MarkerGrid";
 import { PageHero } from "@/components/sections/PageHero";
@@ -24,8 +23,6 @@ export default function AboutPage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        image="/media/lake-forest.jpg"
-        position="center 42%"
       />
 
       {/* --- Role + how we work --- */}
@@ -52,40 +49,46 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* --- Our story, against the lake --- */}
-      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-18 pt-24 text-ivory-100 lg:pb-24 lg:pt-30">
-        <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <Reveal variant="clip" className="lg:col-span-5">
-              <div className="relative aspect-4/5 overflow-hidden">
-                <Image
-                  src="/media/lake-forest.jpg"
-                  alt="A still mountain lake at first light, framed by evergreen forest"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  quality={82}
-                  className="object-cover"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,18,15,0.12),rgba(4,18,15,0.45))]"
-                />
-                <span
-                  aria-hidden
-                  className="absolute bottom-0 left-0 block h-0.5 w-24 bg-brass-500"
-                />
-              </div>
-            </Reveal>
+      {/* --- Our story ---
 
-            <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
+          This band used to be a tall lake photograph in one column and four
+          short paragraphs in the other, which left a lot of empty evergreen
+          between them and put a forest at the centre of a page about a
+          business-development firm. The photograph is gone rather than
+          replaced: there is no image in the set that says "thirty-five years
+          of advising businesses", and a picture chosen only because it was
+          available is worse than none.
+
+          What carries it instead is structure — the founding year at display
+          scale as the anchor, a brass rule, and the approved copy in a
+          measured reading column beside it. Not a word of it changed. */}
+      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-16 pt-20 text-ivory-100 lg:pb-20 lg:pt-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-5">
               <Eyebrow tone="light">{p.story.eyebrow}</Eyebrow>
-              <h2 className="u-display-3 mt-6 text-ivory-100">
+              <h2 className="u-display-2 mt-6 max-w-[14ch] text-ivory-100">
                 {p.story.headline}
               </h2>
-              <p className="mt-7 text-[1.0625rem] leading-[1.72] text-ivory-100/72">
+              <span
+                aria-hidden
+                className="mt-8 block h-px w-24 bg-brass-500"
+              />
+              <p className="u-eyebrow mt-8 text-ivory-100/55">
+                {site.established} &middot; {site.establishedIn}
+              </p>
+            </Reveal>
+
+            {/* A hairline down the grid rather than a drawn box: the column
+                is separated by structure, not by a container. */}
+            <Reveal
+              delay={0.1}
+              className="lg:col-span-6 lg:col-start-7 lg:border-l lg:border-ivory-100/12 lg:pl-14"
+            >
+              <p className="text-[1.125rem] leading-[1.7] text-ivory-100/85">
                 {p.story.lede}
               </p>
-              <p className="mt-5 text-[1.0625rem] leading-[1.72] text-ivory-100/72">
+              <p className="mt-6 text-[1.0625rem] leading-[1.72] text-ivory-100/70">
                 {p.story.body}
               </p>
             </Reveal>

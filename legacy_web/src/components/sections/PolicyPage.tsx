@@ -26,7 +26,6 @@ export function PolicyPage({
       <PageHero
         eyebrow={eyebrow}
         headline={headline}
-        position="center 44%"
       />
 
       <Section tone="paper">

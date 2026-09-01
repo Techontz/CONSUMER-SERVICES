@@ -20,7 +20,6 @@ export default function AssessmentPage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        position="center 48%"
       />
 
       <Section tone="paper">

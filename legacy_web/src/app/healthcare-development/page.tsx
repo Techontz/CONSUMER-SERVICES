@@ -22,8 +22,6 @@ export default function HealthcarePage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        image="/media/industry-healthcare.jpg"
-        position="center 36%"
       />
 
       <Section tone="paper">

@@ -21,8 +21,6 @@ export default function InfrastructurePage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        image="/media/industry-infrastructure.jpg"
-        position="center 40%"
       />
 
       <Section tone="paper">

@@ -23,7 +23,6 @@ export default function ResourcesPage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        position="center 46%"
       />
 
       {/* --- Featured resource --- */}

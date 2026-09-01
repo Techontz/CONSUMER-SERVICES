@@ -23,7 +23,6 @@ export default function ContactPage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        position="center 50%"
       />
 
       {/* --- Reasons + form --- */}

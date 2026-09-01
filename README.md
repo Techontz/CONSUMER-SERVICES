@@ -530,7 +530,6 @@ the same subject and meaning as the approved alt text and section copy:
 | `city-towers-dusk.jpg` | Lit office towers at dusk | 5272×3515 | 3840×2560 |
 | `industry-infrastructure.jpg` | Engineers reviewing drawings on site | 4000×3000 | 3840×2560 |
 | `advisory-session.jpg` | Planning documents on a meeting table | 5760×3840 | 3840×2560 |
-| `lake-forest.jpg` | Still lake framed by evergreen forest | 4760×3217 | 3840×2560 |
 | `ridge-forest.jpg` | Conifer ridge in low cloud | 3885×2590 | 3840×2560 |
 | `industry-healthcare.jpg` | Residential care corridor | 5865×3910 | 3840×2560 |
 | `industry-technology.jpg` | Data-centre aisle | 5568×3712 | 2400×1600 |

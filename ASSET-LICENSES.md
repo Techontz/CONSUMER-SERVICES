@@ -26,7 +26,6 @@ Each photo page is `https://www.pexels.com/photo/<id>/`.
 | `advisory-session.jpg` | `8171198` | Planning documents on a meeting table | 5760×3840 |
 | `industry-professional.jpg` | `8124238` | Two colleagues reviewing a document | 5758×3839 |
 | `industry-technology.jpg` | `4508751` | Data-centre aisle | 5568×3712 |
-| `lake-forest.jpg` | `518485` | Still lake framed by evergreen forest | 4760×3217 |
 | `industry-infrastructure.jpg` | `15063590` | Engineers reviewing drawings on site | 4000×3000 |
 | `ridge-forest.jpg` | `30140363` | Conifer ridge in low cloud | 3885×2590 |
 | `industry-workforce.jpg` | `12965141` | Technical training workshop | 3240×2160 |
@@ -143,6 +142,12 @@ its specifications above were read off the supplied file itself, and its
 rights remain for the client to confirm.
 
 ---
+
+`lake-forest.jpg` (Pexels `518485`) is retired. It was the About page's
+opener and the photograph in its story band; both now stand on the shared
+waterfront film and on typography respectively, and an unused 904 KB asset in
+`public/` still ships to the edge. Its Pexels licence covered it and no
+obligation survives its removal.
 
 ## Client-supplied
 

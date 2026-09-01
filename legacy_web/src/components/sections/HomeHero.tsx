@@ -1,4 +1,4 @@
-import { HeroFilm } from "@/components/media/HeroFilm";
+import { HeroBackdrop } from "@/components/media/HeroBackdrop";
 import { PreloadHeroPoster } from "@/components/media/PreloadHeroPoster";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -11,6 +11,10 @@ import { site } from "@/lib/site";
  * Real footage fills the viewport — a slow push along a city canal at golden
  * hour, water and park and towers in one frame — and the type sits on it,
  * anchored low and left behind a directional scrim.
+ *
+ * The film and its grade live in HeroBackdrop, which every masthead on the
+ * site now shares; this one asks for the `full` variant because it owns a
+ * whole viewport rather than the half an interior opener gets.
  *
  * The headline is the one place on the site that speaks in the editorial
  * serif rather than letterspaced capitals: three nouns set roman, the promise
@@ -43,67 +47,7 @@ export function HomeHero() {
       }}
     >
       <PreloadHeroPoster href="/media/hero-waterfront-poster.webp" />
-      <HeroFilm
-        poster="/media/hero-waterfront-poster.webp"
-        src="/media/hero-waterfront-desktop.mp4"
-        webmSrc="/media/hero-waterfront-desktop.webm"
-        mobileSrc="/media/hero-waterfront-mobile.mp4"
-        className="-z-20"
-      />
-
-      {/* The grade, in four layers.
-
-          The film is a 720p source being asked to cover a 1920 frame, and
-          played raw it looks like exactly that: soft edges, visible
-          compression in the water, detail that does not survive the scale.
-          The answer is not blur — blur announces itself — it is the thing a
-          colourist would do, which is to put the picture under a veil and
-          let tone rather than resolution carry it.
-
-          1. An evergreen veil across the whole frame. The colour is
-             deliberately a mid evergreen rather than the near-black the
-             scrims use: at luminance 48 against the film's 64 it tints
-             strongly at a third opacity while costing almost no brightness,
-             which is the difference between veiled and dark. It is also
-             warmer than the brand evergreen — 18 of red rather than 4 —
-             because a veil with almost no red in it takes the golden hour
-             out of a golden hour clip, and the point is to harmonise with
-             that light rather than cancel it.
-          2. The directional wash the type sits on, denser to the left, and
-             flipped bottom-up below `lg` where the copy fills the frame
-             rather than sitting in a column down its side.
-          3. A vignette, shallow enough to read as a lens rather than an
-             effect.
-          4. A grade on the video element itself — contrast slightly down to
-             flatten the artefacts, brightness slightly up to pay for the
-             veil, saturation slightly down so the evergreen reads as a grade
-             over the footage rather than a filter laid on it. */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[rgba(18,58,42,0.33)]"
-      />
-
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.16)_18%,rgba(6,32,27,0.46)_40%,rgba(4,18,15,0.72)_70%,rgba(4,18,15,0.78)_100%)] lg:bg-[linear-gradient(96deg,rgba(4,18,15,0.80)_0%,rgba(4,18,15,0.66)_30%,rgba(6,32,27,0.26)_58%,rgba(8,52,48,0.05)_80%,rgba(8,52,48,0)_92%)]"
-      />
-
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(125%_105%_at_50%_44%,rgba(4,18,15,0)_52%,rgba(4,18,15,0.16)_78%,rgba(4,18,15,0.34)_100%)]"
-      />
-
-      {/* The standing rule and the scroll cue reach out over open water on
-          the right, past where the directional wash has run out — 10px ivory
-          at 60% over sunlit reflections is the least legible thing in the
-          frame, and it needs its own ground. Desktop only: below `lg` that
-          rule is not rendered and the bottom-up wash already covers it. */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 hidden h-[30%] bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.14)_44%,rgba(4,18,15,0.46)_100%)] lg:block"
-      />
-
-      <div aria-hidden className="u-grain absolute inset-0 -z-10 [&::after]:opacity-[0.10]" />
+      <HeroBackdrop variant="full" />
 
       <Container className="relative">
         <div className="max-w-[48rem]">

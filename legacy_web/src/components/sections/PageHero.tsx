@@ -1,12 +1,15 @@
-import { CinematicBackdrop } from "@/components/media/CinematicBackdrop";
+import { HeroBackdrop } from "@/components/media/HeroBackdrop";
 import { Container } from "@/components/ui/Container";
 
 /**
- * Interior page opener.
+ * Interior page opener — the same masthead as the homepage, at half height.
  *
- * The same evergreen-over-photograph treatment as the approved interior
- * designs. The photograph is used here in a wide, short frame, which is
- * the proportion the supplied skyline image was made for.
+ * It used to stand on a photograph, and which photograph was a per-page
+ * decision: a lake behind About, a glass tower behind everything else. That
+ * made five pages that looked like five different companies. The film is
+ * shared now, so the only thing an opener varies is the words in front of
+ * it, and the `image`/`position` props are gone rather than left on the
+ * signature as a way to reintroduce the problem.
  *
  * Server component — the H1 is the LCP element and its reveal is CSS only.
  */
@@ -14,36 +17,14 @@ export function PageHero({
   eyebrow,
   headline,
   lede,
-  image = "/media/city-towers-dusk.jpg",
-  position = "center 55%",
 }: {
   eyebrow: string;
   headline: string;
   lede?: string;
-  image?: string;
-  position?: string;
 }) {
   return (
     <section className="u-grain relative isolate flex min-h-[42svh] items-end overflow-hidden bg-evergreen-900 pb-12 pt-32 lg:min-h-[46svh] lg:pb-16 lg:pt-36">
-      <CinematicBackdrop
-        src={image}
-        priority
-        position={position}
-        sizes="115vw"
-        // The interior scrim runs from 96% to 24% opacity over this
-        // photograph, so some compression is free — but not so much that the
-        // architecture behind the type goes mushy.
-        quality={78}
-        className="-z-20"
-      />
-
-      {/* Horizontal wash anchors the type. The band that used to seat the
-          header is gone: the header draws that itself now, so the same
-          gradient runs over this photograph and over the homepage film. */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(96deg,rgba(4,18,15,0.90)_0%,rgba(6,32,27,0.82)_38%,rgba(8,52,48,0.48)_70%,rgba(8,52,48,0.16)_100%)]"
-      />
+      <HeroBackdrop />
 
       <Container className="relative">
         <p

@@ -22,8 +22,6 @@ export default function FundingPage() {
         eyebrow={p.hero.eyebrow}
         headline={p.hero.headline}
         lede={p.hero.lede}
-        image="/media/advisory-session.jpg"
-        position="center 38%"
       />
 
       {/* --- Purpose: six single-word objectives --- */}
