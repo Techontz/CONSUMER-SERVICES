@@ -69,8 +69,15 @@ export const metadata: Metadata = {
   publisher: site.legalName,
   alternates: { canonical: origin },
   icons: {
-    icon: [{ url: "/media/seal.png", type: "image/png" }],
-    apple: [{ url: "/media/seal.png" }],
+    // SVG first for anything modern, a raster fallback behind it. The Apple
+    // icon is a separate file on the brand ground: iOS composites a
+    // transparent touch icon onto black, which would lose the mark's chamfers
+    // into the corner radius.
+    icon: [
+      { url: "/media/mark.svg", type: "image/svg+xml" },
+      { url: "/media/mark-64.png", type: "image/png", sizes: "64x64" },
+    ],
+    apple: [{ url: "/media/mark-apple-180.png", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",

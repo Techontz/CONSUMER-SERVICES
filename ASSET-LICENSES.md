@@ -153,7 +153,17 @@ obligation survives its removal.
 
 | File | Origin | Notes |
 | --- | --- | --- |
-| `seal.png` | Consumer Services, Inc. | The authentic company seal, taken from the approved HTML. Never redrawn or regenerated. |
+| `mark.svg` | Consumer Services, Inc. / this repository | The brand mark. Drawn here as vector on a 64-unit grid — a squared C with 45-degree chamfers on the two terminals facing the aperture. One path, one flat brass (`#D6B268`), no gradient. |
+| `mark-512.png`, `mark-256.png`, `mark-64.png`, `mark-32.png` | derived from `mark.svg` | True-transparent rasters for favicons, social cards and JSON-LD. Verified: 67% transparent pixels, all four corners at alpha 0, one opaque colour. |
+| `mark-apple-180.png` | derived from `mark.svg` | Apple touch icon, on the brand evergreen rather than transparent — iOS composites a transparent touch icon onto black. |
+
+The previous `seal.png` — the detailed engraved emblem taken from the
+approved HTML, which this file previously recorded as "never redrawn or
+regenerated" — is retired at the client's explicit and repeated instruction
+to recreate the mark. It is deleted rather than left unreferenced. **If that
+seal is a registered mark, this replacement is a brand decision the client
+needs to have taken deliberately**, and reinstating it is a one-line revert
+of `components/ui/Logo.tsx` plus restoring the file from history.
 
 ---
 

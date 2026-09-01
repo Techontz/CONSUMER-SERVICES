@@ -48,8 +48,8 @@ export const organizationJsonLd = {
   name: site.legalName,
   alternateName: site.brandName,
   url: origin,
-  logo: `${origin}/media/seal.png`,
-  image: `${origin}/media/seal.png`,
+  logo: `${origin}/media/mark-512.png`,
+  image: `${origin}/media/mark-512.png`,
   slogan: site.tagline,
   foundingDate: site.established,
   foundingLocation: {
