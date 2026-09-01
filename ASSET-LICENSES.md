@@ -153,7 +153,7 @@ obligation survives its removal.
 
 | File | Origin | Notes |
 | --- | --- | --- |
-| `mark.svg` | Consumer Services, Inc. / this repository | The brand mark. Drawn here as vector on a 64-unit grid — a squared C with 45-degree chamfers on the two terminals facing the aperture. One path, one flat brass (`#D6B268`), no gradient. |
+| `mark.svg` | Consumer Services, Inc. / this repository | The brand mark. Drawn here as vector on a 64-unit grid — three courses: a wide plinth, a course laid on it, and a third stepped forward with its leading edge cut at 45 degrees. Three paths, one flat brass (`#D6B268`), no gradient. |
 | `mark-512.png`, `mark-256.png`, `mark-64.png`, `mark-32.png` | derived from `mark.svg` | True-transparent rasters for favicons, social cards and JSON-LD. Verified: 67% transparent pixels, all four corners at alpha 0, one opaque colour. |
 | `mark-apple-180.png` | derived from `mark.svg` | Apple touch icon, on the brand evergreen rather than transparent — iOS composites a transparent touch icon onto black. |
 

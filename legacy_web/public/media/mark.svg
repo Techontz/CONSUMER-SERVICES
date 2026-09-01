@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <title>Consumer Services, Inc.</title>
-  <path fill="#D6B268" d="M8 8H56L48 20H20V44H48L56 56H8Z"/>
+  <g fill="#D6B268">
+    <path d="M18 9h40L46 21H18Z"/>
+    <path d="M6 26h40v12H6Z"/>
+    <path d="M6 43h52v12H6Z"/>
+  </g>
 </svg>
