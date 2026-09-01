@@ -125,21 +125,33 @@ export function ReadinessStory({
               </div>
             </Reveal>
 
+            {/* A bulleted run, not a row of pills.
+            
+                These were six bordered boxes wrapping onto two lines, which
+                is a lot of drawn container for six words apiece — and six
+                identical boxes repeated twice down one page is exactly the
+                pattern that makes a site read as assembled rather than
+                designed. They were never interactive, so nothing is lost by
+                letting them be what they are: a list. A brass dot opens each
+                one, they flow inline instead of stacking, and the section
+                gets its air back. */}
             <RevealGroup
               as="ul"
               amount={0.05}
-              className="mt-8 flex flex-wrap gap-2.5"
+              className="mt-7 flex flex-wrap gap-x-7 gap-y-2.5"
             >
               {story.chips.map((chip) => (
                 <RevealItem as="li" key={chip}>
                   <span
                     className={cn(
-                      "block border px-4 py-2 text-[0.6875rem] font-normal uppercase tracking-[0.14em] transition-colors duration-400",
-                      dark
-                        ? "border-ivory-100/20 text-ivory-100/70 hover:border-brass-500/60 hover:text-brass-400"
-                        : "border-rule text-ink-500 hover:border-brass-500/60 hover:text-brass-700",
+                      "flex items-center gap-2.5 text-[0.6875rem] font-normal uppercase tracking-[0.14em]",
+                      dark ? "text-ivory-100/72" : "text-ink-500",
                     )}
                   >
+                    <span
+                      aria-hidden
+                      className={cn("u-dot", dark ? "text-brass-500" : "text-brass-700")}
+                    />
                     {chip}
                   </span>
                 </RevealItem>
