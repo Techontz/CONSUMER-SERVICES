@@ -51,7 +51,7 @@ Two moving assets, from two libraries.
 
 | File in `public/media/` | Derived from |
 | --- | --- |
-| `hero-canal-desktop.mp4`, `hero-canal-desktop.webm`, `hero-canal-mobile.mp4`, `hero-canal-poster.webp` | `DOCUMENTS/USE THIS.MOV` |
+| `public/videos/site-hero.mp4`, `site-hero.webm`, `site-hero-mobile.mp4`, `site-hero-poster.webp` | `DOCUMENTS/USE THIS.mov` |
 
 **Origin:** supplied directly by the client and approved by them as the hero
 footage. It did not come from Pexels, Coverr or any other library this
@@ -109,7 +109,7 @@ is a downscale or a straight copy of the supplied resolution; nothing is
 upscaled, and the 5.2 MB master stays out of the repository (see
 `.gitignore`) because the browser is served the derivatives.
 
-`hero-canal-poster.webp` is frame 0 of the encoded film. It correlates
+`site-hero-poster.webp` is frame 0 of the encoded film. It correlates
 **0.942** with the shipped frame 0 — that gap is WebP-vs-H.264 compression on
 the same picture, not a different picture, which the one-frame step above
 puts in scale: a genuinely adjacent frame only reaches 0.826.

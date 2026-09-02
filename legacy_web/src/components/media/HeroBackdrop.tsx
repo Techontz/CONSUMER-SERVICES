@@ -6,8 +6,12 @@ import { HeroFilm } from "@/components/media/HeroFilm";
  * One component rather than five copies. Each opener used to carry its own
  * photograph — a lake behind About, a glass tower behind Services,
  * Industries, Resources and Contact — which made five unrelated stock pages
- * rather than one brand. They all show the same waterfront now, and the only
- * thing a page varies is the words in front of it.
+ * rather than one brand. They all show the same film now, and the only thing
+ * a page varies is the words in front of it.
+ *
+ * These four paths are the only place in the codebase that names a hero
+ * video. No page overrides them and nothing imports a video module, so
+ * changing the film is this edit and nothing else.
  *
  * The grade is in four layers. It began as a fix for a 720p source that
  * could not cover a 1920 frame, and it stays because it is also what makes
@@ -38,10 +42,10 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
   return (
     <>
       <HeroFilm
-        poster="/media/hero-canal-poster.webp"
-        src="/media/hero-canal-desktop.mp4"
-        webmSrc="/media/hero-canal-desktop.webm"
-        mobileSrc="/media/hero-canal-mobile.mp4"
+        poster="/videos/site-hero-poster.webp"
+        src="/videos/site-hero.mp4"
+        webmSrc="/videos/site-hero.webm"
+        mobileSrc="/videos/site-hero-mobile.mp4"
         className="-z-20"
       />
 

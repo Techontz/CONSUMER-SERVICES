@@ -46,7 +46,7 @@ export function HomeHero() {
         paddingBottom: "clamp(1.5rem, 3.6svh, 3rem)",
       }}
     >
-      <PreloadHeroPoster href="/media/hero-canal-poster.webp" />
+      <PreloadHeroPoster href="/videos/site-hero-poster.webp" />
       <HeroBackdrop variant="full" />
 
       <Container className="relative">
