@@ -142,11 +142,16 @@ export function HeroFilm({
         // slice that still carries all four things the frame is for — light,
         // water, greenery, architecture — and it is held until the viewport
         // is wide enough to show most of the frame anyway.
-        // Layer four of the grade: contrast down to flatten the compression
-        // the scale exposes, brightness up to pay back what the veil above
-        // costs, saturation down so the evergreen over it reads as a grade
-        // and not a filter.
-        style={{ filter: "contrast(0.95) brightness(1.05) saturate(0.99)" }}
+        // Layer four of the grade, eased back for the current master.
+        //
+        // These numbers were set against a 720p source: contrast came down to
+        // flatten the compression that the upscale exposed. At 2158px there
+        // is no such compression to hide, and holding the old value would
+        // only be throwing away detail that was paid for. What is left is a
+        // small brightness lift to pay back what the veil above costs, and a
+        // touch off saturation so the evergreen over it reads as a grade
+        // rather than a filter.
+        style={{ filter: "contrast(0.99) brightness(1.04) saturate(0.98)" }}
         className="absolute inset-0 size-full object-cover object-[28%_50%] lg:object-[50%_50%]"
       >
         {source && wide && webmSrc ? (

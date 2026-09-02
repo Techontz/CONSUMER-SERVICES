@@ -9,11 +9,11 @@ import { HeroFilm } from "@/components/media/HeroFilm";
  * rather than one brand. They all show the same waterfront now, and the only
  * thing a page varies is the words in front of it.
  *
- * The grade is in four layers, because a 720p source covering a 1920 frame
- * played raw looks like exactly that: soft edges, visible compression in the
- * water, detail that does not survive the scale. The answer is not blur —
- * blur announces itself — it is what a colourist would do, which is to put
- * the picture under a veil and let tone rather than resolution carry it.
+ * The grade is in four layers. It began as a fix for a 720p source that
+ * could not cover a 1920 frame, and it stays because it is also what makes
+ * the film read as this company's rather than as stock: the veil is the
+ * brand, not a repair. The current master is 2158px, so the layers that were
+ * hiding artefacts have been eased back accordingly.
  *
  *  1. An evergreen veil across the frame, in a mid evergreen rather than the
  *     near-black the scrims use: it tints strongly at a third opacity while
@@ -38,10 +38,10 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
   return (
     <>
       <HeroFilm
-        poster="/media/hero-waterfront-poster.webp"
-        src="/media/hero-waterfront-desktop.mp4"
-        webmSrc="/media/hero-waterfront-desktop.webm"
-        mobileSrc="/media/hero-waterfront-mobile.mp4"
+        poster="/media/hero-canal-poster.webp"
+        src="/media/hero-canal-desktop.mp4"
+        webmSrc="/media/hero-canal-desktop.webm"
+        mobileSrc="/media/hero-canal-mobile.mp4"
         className="-z-20"
       />
 
@@ -60,6 +60,23 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(125%_105%_at_50%_44%,rgba(4,18,15,0)_52%,rgba(4,18,15,0.16)_78%,rgba(4,18,15,0.34)_100%)]"
       />
+
+      {/* The standing rule and the scroll cue sit along the foot of the
+          homepage frame — 10px ivory at 60%, the least legible thing in the
+          composition — and the directional wash has largely run out by the
+          time it reaches them. They get their own short band.
+
+          It is measured: without this the foot rule reads 4.45:1 against the
+          current master, which is under AA. The brighter the footage, the
+          more this one earns its place. Desktop only, because below `lg`
+          that rule is not rendered and the bottom-up wash already covers the
+          ground. */}
+      {full ? (
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 -z-10 hidden h-[32%] bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.12)_44%,rgba(4,18,15,0.48)_100%)] lg:block"
+        />
+      ) : null}
 
       <div aria-hidden className="u-grain absolute inset-0 -z-10 [&::after]:opacity-[0.10]" />
     </>

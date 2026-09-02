@@ -320,10 +320,10 @@ No frame of either reference recording appears anywhere in the build.
 
 | File | Purpose |
 | --- | --- |
-| `public/media/hero-waterfront-desktop.webm` | VP9, 1280×720, 3.4 MB — offered first on wide screens |
-| `public/media/hero-waterfront-desktop.mp4` | H.264, 1280×720, 4.3 MB — the fallback everywhere |
-| `public/media/hero-waterfront-mobile.mp4` | H.264, 960×540, 1.8 MB — below 768px |
-| `public/media/hero-waterfront-poster.webp` | 1280×720, 151 KB; paints immediately and is always the fallback |
+| `public/media/hero-canal-desktop.webm` | VP9, 1600×892, 4.1 MB — offered first on wide screens |
+| `public/media/hero-canal-desktop.mp4` | H.264, 1600×892, 4.2 MB — the fallback everywhere |
+| `public/media/hero-canal-mobile.mp4` | H.264, 960×534, 1.7 MB — below 768px |
+| `public/media/hero-canal-poster.webp` | 1600×892, 163 KB; paints immediately and is always the fallback |
 | `public/media/work-panel.mp4` | H.264, 1280×720, 660 KB — Funding Readiness, loaded near-viewport |
 
 The desktop film ships at **1280×720, which is the supplied resolution** —

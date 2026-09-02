@@ -51,7 +51,7 @@ Two moving assets, from two libraries.
 
 | File in `public/media/` | Derived from |
 | --- | --- |
-| `hero-waterfront-desktop.mp4`, `hero-waterfront-desktop.webm`, `hero-waterfront-mobile.mp4`, `hero-waterfront-poster.webp` | `DOCUMENTS/Waterfront_city_canal_with_park_202608312150 (1).mov` |
+| `hero-canal-desktop.mp4`, `hero-canal-desktop.webm`, `hero-canal-mobile.mp4`, `hero-canal-poster.webp` | `DOCUMENTS/USE THIS.MOV` |
 
 **Origin:** supplied directly by the client and approved by them as the hero
 footage. It did not come from Pexels, Coverr or any other library this
@@ -66,8 +66,11 @@ tells us who holds the rights to it. **The client should confirm the
 provenance and usage rights before this goes to a wider audience**; that is
 the one open item on this page.
 
-**Native:** 1280×720, 24 fps, H.264 High, 5.17 Mbps, 8.00 s, with an AAC
-track that is dropped on encode (the hero is muted).
+**Native:** 2158×1202, 29.97 fps, HEVC Main, 11.26 Mbps, 10.01 s, no audio
+track. This replaced an earlier 1280×720 clip of the same scene; the master
+is nearly three times the pixel count, so the derivatives ship at 1600 wide
+rather than 1280 and the CSS grade that was hiding the old source's
+compression has been eased back.
 
 **Subject:** a slow push along a city canal at golden hour — glass towers, a
 planted park, a stone embankment, and the sun low on the left throwing a
@@ -88,15 +91,16 @@ saturation `1.05`, and a gentle unsharp because a 720p source is being asked
 to cover a 1920 hero. No teal-and-orange preset, no crushed blacks — the
 supplied grade was already close.
 
-**Loop.** The clip is a slow dolly-in whose first and last frames sit far
-apart, so it neither hard-loops nor cross-dissolves cleanly: a fade would
-ghost two different camera positions over each other. It is encoded forward
-then reversed instead — push in, ease back out — with the duplicated boundary
-frames trimmed so the turn does not stutter. 15.92 s round trip.
+**Loop.** The clip does not loop: measured across all 598 shipped frames,
+its first and last source frames are far apart. It is encoded forward then
+reversed instead, with the duplicated boundary frames trimmed. The motion is
+slow enough — a median frame-to-frame difference of 3.3 out of 255 — that
+running it backwards reads as drift rather than rewind.
 
-Measured rather than assumed: the loop seam scores **SSIM 0.855** against an
-ordinary one-frame step mid-clip of **0.826**, so the join is a smaller
-change than the footage's own motion and there is nothing to see at it.
+Measured rather than assumed: the loop wrap scores **2.32** mean absolute
+difference against a median in-clip step of **3.30** and a worst step of
+5.22. The join is a *smaller* change than an ordinary frame of this footage,
+so there is nothing to see at it.
 
 **Encoded:** 1280×720 H.264 (`crf 27`, capped 2.1 Mbps, 4.26 MB) and VP9
 (`crf 42`, capped 1.5 Mbps, 3.41 MB — offered first, and genuinely the
@@ -105,7 +109,7 @@ is a downscale or a straight copy of the supplied resolution; nothing is
 upscaled, and the 5.2 MB master stays out of the repository (see
 `.gitignore`) because the browser is served the derivatives.
 
-`hero-waterfront-poster.webp` is frame 0 of the encoded film. It correlates
+`hero-canal-poster.webp` is frame 0 of the encoded film. It correlates
 **0.942** with the shipped frame 0 — that gap is WebP-vs-H.264 compression on
 the same picture, not a different picture, which the one-frame step above
 puts in scale: a genuinely adjacent frame only reaches 0.826.
