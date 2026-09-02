@@ -17,12 +17,17 @@ import { heritage } from "@/lib/content/home";
  * the city that sentence is actually about, photographed in daylight: blue
  * sky, cumulus, summer trees and sunlit towers.
  *
- * The scrim is tuned, not defaulted. It used to open at 96% opacity, which
- * would render any photograph — noon or midnight — as night. It now runs
- * 0.74 → 0.58 → 0.36 across the frame, deep enough on the left where the
- * year and the eyebrow sit and thin enough on the right to leave the sky
- * legibly blue. Every contrast ratio in the band was measured against the
- * composite that produces, not against the token colours.
+ * The crop is anchored at 20% rather than centred. `cover` on a frame this
+ * wide throws away nearly 40% of a 3:2 photograph's height, and centred it
+ * threw away the deep blue overhead and kept the hazy horizon — the one part
+ * of the sky that does not read as a clear afternoon.
+ *
+ * The scrim is tuned, not defaulted; see the note on the two layers below.
+ * It used to open at 96% opacity, which would have rendered any photograph,
+ * noon or midnight, as night. Every contrast ratio in the band was measured
+ * against the composite the new one produces — the painted ink against the
+ * same pixels with the type hidden, at seven widths from 1920 down to 360 —
+ * rather than against the token colours. Lowest anywhere: 4.64:1.
  *
  * The parallax is CSS-only, driven by a scroll-progress timeline. Browsers
  * without it simply render the photograph still, which costs the section
