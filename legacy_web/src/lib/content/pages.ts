@@ -57,8 +57,8 @@ export const servicesPage = {
       body:
         "Organize documentation, budgets, use-of-funds planning, capability materials, and readiness requirements.",
       href: "/funding-readiness",
-      image: "/media/work-panel-poster.webp",
-      alt: "Colleagues working through a plan at a table",
+      image: "/media/funding-review-poster.webp",
+      alt: "Financing paperwork being worked through at a table",
     },
     {
       step: "Register",

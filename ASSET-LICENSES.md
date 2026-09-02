@@ -27,7 +27,7 @@ Each photo page is `https://www.pexels.com/photo/<id>/`.
 | `industry-professional.jpg` | `8124238` | Two colleagues reviewing a document | 5758×3839 |
 | `industry-technology.jpg` | `4508751` | Data-centre aisle | 5568×3712 |
 | `industry-infrastructure.jpg` | `15063590` | Engineers reviewing drawings on site | 4000×3000 |
-| `ridge-forest.jpg` | `30140363` | Conifer ridge in low cloud | 3885×2590 |
+| `atlanta-skyline-day.jpg` | `33133738` | Downtown Atlanta from the air, clear afternoon | 5272×2962 |
 | `industry-workforce.jpg` | `12965141` | Technical training workshop | 3240×2160 |
 
 All are cropped to 3:2 and graded before shipping — see
@@ -120,20 +120,56 @@ The previous hero (Pexels `5052605`,
 Phillip Bay) is retired at the client's direction and its files are deleted.
 Its Pexels licence covered it and no obligation survives its removal.
 
-### Funding Readiness panel — Coverr
+### Funding Readiness panel — Mixkit
 
-**Licence:** [Coverr License](https://coverr.co/license). Free for commercial
-use, no attribution required. Only free-tier files are used — no watermarked
-"coverr+" premium file appears in the build.
+**Licence:** [Mixkit Stock Video Free License](https://mixkit.co/license/).
+Read at source rather than assumed: it permits use in "Commercial projects"
+and grants the right to "download, copy, modify, distribute, publicly perform
+and broadcast the Items", and states that "Attribution is not required".
 
-| File in `public/media/` | Coverr ID | Slug | Subject |
-| --- | --- | --- | --- |
-| `work-panel.mp4`, `work-panel-poster.webp` | `27bG4pHuoI` | `coverr-colleagues-discussing-work-351` | Colleagues working through a plan at a table |
+| File in `public/media/` | Mixkit ID | Slug | Contributor | Subject |
+| --- | --- | --- | --- | --- |
+| `funding-review.mp4`, `funding-review-poster.webp` | `241` | `signing-a-contract-241` | `marcolopez` | A hand in a suit working through a document at a table, a second party's hand across from it |
 
-Source 3840×2160; Coverr's free tier delivers 1920×1080, which is what was
-downloaded. Encoded at 1280×720 for its panel. Its poster is frame 0 of its own
-film, so the first painted frame and the first played frame are the same pixels.
+**Why this clip.** The section argues that funding begins *before* the
+application — that the work is preparation, not submission. The picture had
+to be the paperwork, not a building and not a trading screen. This one is two
+parties, one table, one document: warm wood, white paper, a dark sleeve and a
+pale cuff, and no faces, which is what keeps it from reading as a stock
+smile. Every alternative that was pulled and looked at — a four-person
+meeting, a boardroom presentation, an overhead of charts, a handshake — was
+either a different subject or a more generic one.
 
+**Native and shipped.** The catalogue file is 16 s at 24 fps; Mixkit's free
+tier delivers 1920×1080 (its 4K is behind the paid tier and was not taken).
+Shipped at 1200×900 — the panel is a fixed 4:3 frame, so a 4:3 file wastes no
+pixels — from a centred 1440×1080 crop, the one crop of the three tried that
+keeps both hands, the document and the table edge.
+
+**Grade.** Applied at encode, so the poster and the film match: contrast
+`1.05`, saturation `0.93`, and shadows lifted a few thousandths toward
+evergreen. Restrained on purpose — the section already lays a CSS evergreen
+wash over the frame, and grading twice would have muddied the paper.
+
+**Loop.** Built to loop, not left to cut. A 10.39 s window (frames 56–305)
+was chosen by comparing every candidate start/end pair in the source, then
+its last 0.70 s was cross-dissolved into its own head. The shipped file runs
+9.71 s and its wrap is measurably invisible: last frame to first frame
+differs by **2.62** mean absolute levels against a median consecutive-frame
+step of **2.28** — the loop point moves the picture less than an ordinary
+frame of the clip does. Minimum frame luminance across all 233 frames is
+**125.6**, so there is no black or blank frame anywhere to flash at the seam.
+Watched in the browser across two complete wraps: no pause, no dark frame,
+panel mean luminance moving 125.1 → 123.4 and 125.1 → 122.6 across the two
+loop points.
+
+`funding-review-poster.webp` is frame 0 of the shipped file, so the first
+painted frame and the first played frame are the same pixels.
+
+The previous panel film (Coverr `27bG4pHuoI`,
+`coverr-colleagues-discussing-work-351`, colleagues at a table) is retired at
+the client's direction and its files are deleted. Its Coverr licence covered
+it and no obligation survives its removal.
 
 Provenance was verified rather than assumed: every Pexels ID above was
 re-fetched and its native resolution confirmed against this table, and each
@@ -147,6 +183,13 @@ its specifications above were read off the supplied file itself, and its
 rights remain for the client to confirm.
 
 ---
+
+`ridge-forest.jpg` (Pexels `30140363`) is retired. It ran behind the 1991
+heritage band, where a conifer ridge in low cloud stood as the picture for a
+paragraph about a firm established in Georgia and advising businesses since —
+and behind a 96%-opacity scrim it read as night. Downtown Atlanta in daylight
+replaces it: the city the sentence is actually about. Its Pexels licence
+covered it and no obligation survives its removal.
 
 `lake-forest.jpg` (Pexels `518485`) is retired. It was the About page's
 opener and the photograph in its story band; both now stand on the shared
@@ -231,3 +274,21 @@ lake is the deliberate exception explained above. Two images sit slightly
 outside the contrast band by design: `city-towers-dusk.jpg` (47) is a flat-lit
 texture field carrying type on six pages, and `industry-transportation.jpg`
 (57) is a night aerial — pushing either to 72 would have looked forced.
+
+### The one that joined later
+
+`atlanta-skyline-day.jpg` was graded to the same targets rather than to
+itself, and lands inside every band above: **key 122.9, contrast 61.6,
+saturation 0.34, temperature −19.0.** It sits at the very top of the key band
+on purpose. Its whole job is to read as daylight through an evergreen scrim,
+so it is the brightest and the most saturated member of the set — saturation
+`1.42` at encode, which is what keeps the sky legibly blue and the summer
+trees legibly green once 0.69–0.76 of evergreen is laid over them.
+
+The scrim was tuned against that, not guessed at. Every text run in the band
+was measured against the composite it actually sits on — the painted ink
+compared with the same pixels re-rendered with the type hidden — at seven
+viewport widths from 1920 down to 360. The lowest ratio anywhere in the band
+is **4.64:1** against a 4.5:1 requirement, and the composite still measures a
+mean luminance of 52–58 with a sky band at 65–70 that is blue-dominant in
+98–100% of its pixels.

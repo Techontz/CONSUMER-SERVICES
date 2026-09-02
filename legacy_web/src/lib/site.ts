@@ -30,7 +30,9 @@ export const site = {
   phone: "877-855-3455",
   phoneHref: "tel:+18778553455",
 
-  copyrightYear: "2026",
+  // A range, not a year: the footer carries the founding date as well as
+  // the current one, which is the whole point of a line that opens with 1991.
+  copyrightRange: "1991 - 2026",
 } as const;
 
 export type NavChild = {
@@ -103,8 +105,8 @@ export const primaryNav: NavItem[] = [
         label: "Business Readiness Assessment",
         href: "/assessment",
         blurb: "Where is your business today?",
-        image: "/media/work-panel-poster.webp",
-        alt: "Colleagues working through a plan at a table",
+        image: "/media/funding-review-poster.webp",
+        alt: "Financing paperwork being worked through at a table",
       },
     ],
   },

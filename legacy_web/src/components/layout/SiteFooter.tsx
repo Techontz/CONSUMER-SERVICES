@@ -85,7 +85,7 @@ export function SiteFooter() {
         {/* Legal */}
         <div className="mt-16 flex flex-col gap-5 border-t border-ivory-100/10 pt-8 text-xs text-ivory-100/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {site.copyrightYear} {site.legalName} All Rights Reserved.
+            &copy; {site.copyrightRange} {site.legalName} All Rights Reserved.
           </p>
           <ul className="flex flex-wrap gap-x-7 gap-y-2">
             {legalNav.map((l) => (
