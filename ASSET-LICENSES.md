@@ -120,56 +120,70 @@ The previous hero (Pexels `5052605`,
 Phillip Bay) is retired at the client's direction and its files are deleted.
 Its Pexels licence covered it and no obligation survives its removal.
 
-### Funding Readiness panel — Mixkit
+### Funding Readiness panel — Pexels
 
-**Licence:** [Mixkit Stock Video Free License](https://mixkit.co/license/).
-Read at source rather than assumed: it permits use in "Commercial projects"
-and grants the right to "download, copy, modify, distribute, publicly perform
-and broadcast the Items", and states that "Attribution is not required".
+**Licence:** [Pexels License](https://www.pexels.com/license/), the same one
+that covers the photography above. Free for commercial use, attribution not
+required, modification permitted.
 
-| File in `public/media/` | Mixkit ID | Slug | Contributor | Subject |
+| File in `public/media/` | Pexels ID | Slug | Contributor | Subject |
 | --- | --- | --- | --- | --- |
-| `funding-review.mp4`, `funding-review-poster.webp` | `241` | `signing-a-contract-241` | `marcolopez` | A hand in a suit working through a document at a table, a second party's hand across from it |
+| `funding-consult.mp4`, `funding-consult-poster.webp` | `7822017` | `an-agent-talking-to-his-client-while-holding-documents` | RDNE Stock project | An adviser going through financing paperwork with a client across a desk |
 
-**Why this clip.** The section argues that funding begins *before* the
-application — that the work is preparation, not submission. The picture had
-to be the paperwork, not a building and not a trading screen. This one is two
-parties, one table, one document: warm wood, white paper, a dark sleeve and a
-pale cuff, and no faces, which is what keeps it from reading as a stock
-smile. Every alternative that was pulled and looked at — a four-person
-meeting, a boardroom presentation, an overhead of charts, a handshake — was
-either a different subject or a more generic one.
+**Why this clip, and why the two before it were not.** The section had to say
+BANKING → FINANCING → FUNDING → PROFESSIONAL GUIDANCE at a glance, and the
+first two attempts each failed a different part of that.
 
-**Native and shipped.** The catalogue file is 16 s at 24 fps; Mixkit's free
-tier delivers 1920×1080 (its 4K is behind the paid tier and was not taken).
-Shipped at 1200×900 — the panel is a fixed 4:3 frame, so a 4:3 file wastes no
-pixels — from a centred 1440×1080 crop, the one crop of the three tried that
-keeps both hands, the document and the table edge.
+A Coverr clip of colleagues at a table was a workplace, not a consultation.
+A Mixkit clip of a hand signing a contract was the right *subject* but showed
+no people, so it read as documents rather than as guidance. This one is the
+interaction itself: an adviser in a suit, pen on the page, walking a seated
+client through the figures — real people, a real daylight office, a
+calculator and papers on the desk, and no exaggerated acting.
 
-**Grade.** Applied at encode, so the poster and the film match: contrast
-`1.05`, saturation `0.93`, and shadows lifted a few thousandths toward
-evergreen. Restrained on purpose — the section already lays a CSS evergreen
-wash over the frame, and grading twice would have muddied the paper.
+Two candidates that looked right in a thumbnail were rejected on inspection.
+A "Mortgage Broker" clip was bright, modern and well framed, but carried a
+legible nameplate naming a consumer-lending role on a page about business
+funding, and every 4:3 crop that removed the nameplate also removed the
+client — leaving one man reading a page, which is the thing this replacement
+exists to avoid. A set of consultation clips from a legal shoot carried a
+scales-of-justice statuette and a framed law certificate on the desk, and
+were lit as warm evening interiors rather than the daytime office asked for.
 
-**Loop.** Built to loop, not left to cut. A 10.39 s window (frames 56–305)
-was chosen by comparing every candidate start/end pair in the source, then
-its last 0.70 s was cross-dissolved into its own head. The shipped file runs
-9.71 s and its wrap is measurably invisible: last frame to first frame
-differs by **2.62** mean absolute levels against a median consecutive-frame
-step of **2.28** — the loop point moves the picture less than an ordinary
-frame of the clip does. Minimum frame luminance across all 233 frames is
-**125.6**, so there is no black or blank frame anywhere to flash at the seam.
-Watched in the browser across two complete wraps: no pause, no dark frame,
-panel mean luminance moving 125.1 → 123.4 and 125.1 → 122.6 across the two
-loop points.
+**Native and shipped.** 1920×1080, 30 fps, 11.10 s. Shipped at 1200×900 from
+a 1440×1080 crop at `x=240` — the panel is a fixed 4:3 frame, and that offset
+is the one of three tested that holds both people through the whole push-in
+rather than losing the client as the camera moves.
 
-`funding-review-poster.webp` is frame 0 of the shipped file, so the first
+Checked for third-party marks at native resolution: no signage, no logos, no
+nameplate. The papers on the desk are unbranded financial forms, which is
+what a lender asks a business for and so is on-message rather than incidental.
+
+**Grade.** Applied at encode so the poster and the film match: contrast
+`1.05`, saturation `0.94`, shadows lifted a few thousandths toward evergreen.
+Restrained, because the section already lays a CSS evergreen wash over the
+frame and grading twice would muddy the paper.
+
+**Loop.** The camera pushes in continuously, so no two frames ten seconds
+apart match and a hard cut was never going to work. A 10.60 s window is used
+whole and its last 1.10 s cross-dissolved into its own head — long enough
+that the dissolve reads as a slow push through the same scene rather than as
+a seam. The shipped file runs 9.50 s, and the wrap is measurably invisible:
+last frame to first differs by **1.12** mean absolute levels against a median
+consecutive-frame step of **1.41**, so the loop point moves the picture
+*less* than an ordinary frame of the clip does. Minimum frame luminance
+across all 285 frames is **97.3**, so there is no black or blank frame to
+flash at the seam. Watched in the browser across two complete wraps: no
+pause, no dark frame, panel mean luminance moving 76.1 → 77.6 and
+76.3 → 76.9.
+
+`funding-consult-poster.webp` is frame 0 of the shipped file, so the first
 painted frame and the first played frame are the same pixels.
 
-The previous panel film (Coverr `27bG4pHuoI`,
-`coverr-colleagues-discussing-work-351`, colleagues at a table) is retired at
-the client's direction and its files are deleted. Its Coverr licence covered
-it and no obligation survives its removal.
+Two panel films are retired and their files deleted: Coverr `27bG4pHuoI`
+(`coverr-colleagues-discussing-work-351`) and Mixkit `241`
+(`signing-a-contract`). Both licences covered them and no obligation
+survives their removal.
 
 Provenance was verified rather than assumed: every Pexels ID above was
 re-fetched and its native resolution confirmed against this table, and each

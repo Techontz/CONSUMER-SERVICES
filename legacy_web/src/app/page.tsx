@@ -26,9 +26,9 @@ export default function HomePage() {
       />
       <ReadinessStory
         story={fundingStory}
-        film="/media/funding-review.mp4"
-        filmPoster="/media/funding-review-poster.webp"
-        alt="A business owner and an adviser working through financing paperwork across a table"
+        film="/media/funding-consult.mp4"
+        filmPoster="/media/funding-consult-poster.webp"
+        alt="A financial adviser going through financing paperwork with a client across a desk"
         tone="evergreen"
         flip
       />
