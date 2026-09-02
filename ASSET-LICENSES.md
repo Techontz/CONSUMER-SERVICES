@@ -51,7 +51,7 @@ Two moving assets, from two libraries.
 
 | File in `public/media/` | Derived from |
 | --- | --- |
-| `public/videos/site-hero.mp4`, `site-hero.webm`, `site-hero-mobile.mp4`, `site-hero-poster.webp` | `DOCUMENTS/USE THIS.mov` |
+| `public/videos/legacy-hero.mp4`, `legacy-hero.webm`, `legacy-hero-mobile.mp4`, `legacy-hero-poster.webp` | `DOCUMENTS/USE THIS.mov` |
 
 **Origin:** supplied directly by the client and approved by them as the hero
 footage. It did not come from Pexels, Coverr or any other library this
@@ -91,25 +91,26 @@ saturation `1.05`, and a gentle unsharp because a 720p source is being asked
 to cover a 1920 hero. No teal-and-orange preset, no crushed blacks — the
 supplied grade was already close.
 
-**Loop.** The clip does not loop: measured across all 598 shipped frames,
-its first and last source frames are far apart. It is encoded forward then
-reversed instead, with the duplicated boundary frames trimmed. The motion is
-slow enough — a median frame-to-frame difference of 3.3 out of 255 — that
-running it backwards reads as drift rather than rewind.
+**Loop.** Played straight, at the source's own length. Earlier versions of
+this asset were encoded forward-then-reversed to hide the fact that the clip
+does not loop — which doubled the duration to 19.95s and made the shipped
+file look like a different video every time it was inspected. It is not
+worth that. The film now runs 10.01s and cuts back to the start, and the cut
+is visible.
 
-Measured rather than assumed: the loop wrap scores **2.32** mean absolute
-difference against a median in-clip step of **3.30** and a worst step of
-5.22. The join is a *smaller* change than an ordinary frame of this footage,
-so there is nothing to see at it.
+**Encoded:** A straight downscale and re-encode — no trim, no loop
+manipulation, no colour grade. 300 frames in, 300 frames out; 10.01s in,
+10.01s out. 1600x892 H.264 (`crf 26`, 3.51 MB) and VP9 (`crf 38`, 3.16 MB),
+plus a 960x534 H.264 cut at 1.33 MB below 768px. Full-range source converted
+to limited range and tagged, so a decoder expands it back correctly.
 
-**Encoded:** 1280×720 H.264 (`crf 27`, capped 2.1 Mbps, 4.26 MB) and VP9
-(`crf 42`, capped 1.5 Mbps, 3.41 MB — offered first, and genuinely the
-smaller file), plus a 960×540 H.264 cut at 1.84 MB below 768 px. Everything
-is a downscale or a straight copy of the supplied resolution; nothing is
-upscaled, and the 5.2 MB master stays out of the repository (see
-`.gitignore`) because the browser is served the derivatives.
+Verified against the master frame-for-frame: put through the same 1600
+downscale, the shipped file differs by 1.96 mean absolute levels, which is
+h264 at crf 26 and nothing else. The evergreen treatment is entirely CSS and
+touches no pixel of the file. The 14 MB master stays out of the repository
+(see `.gitignore`); the browser is served the derivatives.
 
-`site-hero-poster.webp` is frame 0 of the encoded film. It correlates
+`legacy-hero-poster.webp` is frame 0 of the source. It correlates
 **0.942** with the shipped frame 0 — that gap is WebP-vs-H.264 compression on
 the same picture, not a different picture, which the one-frame step above
 puts in scale: a genuinely adjacent frame only reaches 0.826.

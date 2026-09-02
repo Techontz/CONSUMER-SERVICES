@@ -1,4 +1,5 @@
 import { HeroFilm } from "@/components/media/HeroFilm";
+import { HERO_VIDEO } from "@/lib/heroVideo";
 
 /**
  * The film every masthead on the site stands on, and the grade over it.
@@ -9,9 +10,9 @@ import { HeroFilm } from "@/components/media/HeroFilm";
  * rather than one brand. They all show the same film now, and the only thing
  * a page varies is the words in front of it.
  *
- * These four paths are the only place in the codebase that names a hero
- * video. No page overrides them and nothing imports a video module, so
- * changing the film is this edit and nothing else.
+ * The film itself is named in exactly one place — `lib/heroVideo.ts` — and
+ * read from here. No page overrides it, nothing imports a video module, and
+ * there is no fallback to any other footage.
  *
  * The grade is in four layers. It began as a fix for a 720p source that
  * could not cover a 1920 frame, and it stays because it is also what makes
@@ -42,10 +43,10 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
   return (
     <>
       <HeroFilm
-        poster="/videos/site-hero-poster.webp"
-        src="/videos/site-hero.mp4"
-        webmSrc="/videos/site-hero.webm"
-        mobileSrc="/videos/site-hero-mobile.mp4"
+        poster={HERO_VIDEO.poster}
+        src={HERO_VIDEO.mp4}
+        webmSrc={HERO_VIDEO.webm}
+        mobileSrc={HERO_VIDEO.mobile}
         className="-z-20"
       />
 

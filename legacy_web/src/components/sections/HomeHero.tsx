@@ -1,4 +1,5 @@
 import { HeroBackdrop } from "@/components/media/HeroBackdrop";
+import { HERO_VIDEO } from "@/lib/heroVideo";
 import { PreloadHeroPoster } from "@/components/media/PreloadHeroPoster";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -46,7 +47,7 @@ export function HomeHero() {
         paddingBottom: "clamp(1.5rem, 3.6svh, 3rem)",
       }}
     >
-      <PreloadHeroPoster href="/videos/site-hero-poster.webp" />
+      <PreloadHeroPoster href={HERO_VIDEO.poster} />
       <HeroBackdrop variant="full" />
 
       <Container className="relative">
