@@ -60,14 +60,21 @@ export function Heritage() {
           top of the frame — so the blue and the cloud structure survive —
           and reaches its maximum through the middle third, which is exactly
           the band the running paragraph occupies. Weighting it that way buys
-          the paragraph its contrast without paying for it in sky. */}
+          the paragraph its contrast without paying for it in sky.
+
+          It carries more weight below `lg`, and not arbitrarily. A phone sees
+          a far narrower slice of the same photograph, and at the end of the
+          parallax travel that slice puts a lit cloud directly behind the
+          kicker — measured at 4.13:1 there while every desktop width was
+          comfortably clear. The mobile crop is a different picture and needs
+          its own number. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(4,18,15,0.76)_0%,rgba(6,32,27,0.69)_46%,rgba(8,52,48,0.63)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(4,18,15,0.80)_0%,rgba(6,32,27,0.71)_46%,rgba(8,52,48,0.64)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.05)_24%,rgba(4,18,15,0.2)_58%,rgba(4,18,15,0.12)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.15)_0%,rgba(4,18,15,0.17)_24%,rgba(4,18,15,0.22)_58%,rgba(4,18,15,0.14)_100%)] lg:bg-[linear-gradient(180deg,rgba(4,18,15,0.04)_0%,rgba(4,18,15,0.08)_24%,rgba(4,18,15,0.2)_58%,rgba(4,18,15,0.12)_100%)]"
       />
 
       <Container className="relative">

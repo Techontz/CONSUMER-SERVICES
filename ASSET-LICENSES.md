@@ -287,8 +287,21 @@ trees legibly green once 0.69–0.76 of evergreen is laid over them.
 
 The scrim was tuned against that, not guessed at. Every text run in the band
 was measured against the composite it actually sits on — the painted ink
-compared with the same pixels re-rendered with the type hidden — at seven
-viewport widths from 1920 down to 360. The lowest ratio anywhere in the band
-is **4.64:1** against a 4.5:1 requirement, and the composite still measures a
-mean luminance of 52–58 with a sky band at 65–70 that is blue-dominant in
-98–100% of its pixels.
+compared with the same pixels re-rendered with the type hidden.
+
+Measuring it once was not enough, and the first attempt is worth recording
+because it was wrong. The band is on a parallax, so what sits behind a given
+line of type depends on where the page is scrolled; a single sample at one
+scroll position passed everywhere, and the live deployment then measured
+lower than the local one for no reason other than that the two runs happened
+to stop at different offsets. Re-measured properly — nine scroll positions
+across the band's full travel, at eight widths from 1920 down to 360 — one
+run was genuinely failing: the kicker on a phone, at **4.13:1**, where the
+end of the parallax travel puts a lit cloud behind it.
+
+That is why the vertical relief carries more weight below `lg`. A phone sees
+a much narrower slice of the same photograph and needs its own number. As
+shipped, the worst ratio anywhere in the band at any scroll position is
+**4.74:1** (360 px) against a 4.5:1 requirement, with desktop widths between
+4.94 and 5.53, and the composite still measuring a mean luminance of 52–58
+with a sky band at 65–70 that is blue-dominant in 98–100% of its pixels.
