@@ -194,13 +194,21 @@
   .u-display-4 { font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.24; letter-spacing: 0.07em; }
 
   /* The serif voice, for the hero and the rare pull quote. */
+  /* The serif voice, for the hero and the rare pull quote.
+     
+     line-height is 1.15, not 1.0. Measured on the shipped face: Fraunces
+     draws 0.983em of ink roman and 1.015em italic at this size, so a 1.0em
+     line box cannot contain its own descenders and the reveal mask above was
+     shaving the tails off the g in "Insight" and "Legacy" and the italic of
+     "Solutions That Last". 1.15 clears the italic by 0.135em. It costs no
+     vertical space overall — the headline went from four lines to three. */
   .u-editorial {
     font-family: var(--font-serif);
     font-weight: 400;
     font-variation-settings: normal;
     text-transform: none;
     letter-spacing: -0.02em;
-    line-height: 1.0;
+    line-height: 1.15;
   }
 
   .u-eyebrow {

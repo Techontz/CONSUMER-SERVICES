@@ -81,7 +81,16 @@ export function HomeHero() {
             }}
           >
             {lines.map((line, i) => (
-              <span key={line} className="block overflow-hidden pb-[0.04em]">
+              <span
+                key={line}
+                // `overflow-hidden` is the reveal mask, so this padding is
+                // what stands between it and the descenders: 0.04em was far
+                // less than the 0.245em of ink Fraunces puts below the
+                // baseline. `whitespace-nowrap` from `lg` keeps "Experience
+                // Insight" on one line on a desktop; below that it wraps
+                // naturally, which is what a phone needs.
+                className="block overflow-hidden pb-[0.14em] lg:whitespace-nowrap"
+              >
                 <span
                   className={
                     i === closing

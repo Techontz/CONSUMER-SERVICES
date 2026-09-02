@@ -6,7 +6,12 @@
 export const homeHero = {
   eyebrow: "Consumer Services, Inc.",
   /** Rendered as four staggered mask-revealed lines */
-  headlineLines: ["Experience", "Insight", "Legacy", "Solutions That Last"],
+  /**
+   * Line breaks, not copy. The same four words in the same order — only the
+   * grouping changed, so "Experience Insight" sets as one line on a desktop
+   * and the headline reads in three movements rather than four.
+   */
+  headlineLines: ["Experience Insight", "Legacy", "Solutions That Last"],
   lede:
     "Since 1991, Consumer Services, Inc. has helped businesses, professionals and organizations plan, prepare, strengthen and move forward.",
   primaryCta: { label: "Explore Consumer Services", href: "/services" },
