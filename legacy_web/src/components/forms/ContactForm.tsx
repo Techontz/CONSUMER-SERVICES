@@ -163,13 +163,13 @@ export function ContactForm() {
       <Honeypot value={values.website} onChange={set("website")} />
 
       <div className="mt-9 flex flex-wrap items-center gap-6">
-        <Button type="submit" variant="gold" disabled={busy} withArrow={!busy}>
+        <Button type="submit" variant="accent" disabled={busy} withArrow={!busy}>
           {busy ? "Sending…" : "Submit Inquiry"}
         </Button>
         {busy ? (
           <span
             aria-hidden
-            className="block size-4 animate-spin rounded-full border-2 border-brass-500/30 border-t-brass-600"
+            className="block size-4 animate-spin rounded-full border-2 border-olive-500/30 border-t-olive-600"
           />
         ) : null}
       </div>

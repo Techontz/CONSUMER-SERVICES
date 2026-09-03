@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 
 /**
- * The closing call to action shared by the interior pages. A brass rule
+ * The closing call to action shared by the interior pages. An olive rule
  * and an oversized serif line on the deepest evergreen — the visual full
  * stop for a page.
  */
@@ -37,8 +37,8 @@ export function CtaBand({
         <Reveal className="max-w-[46rem]">
           {eyebrow ? (
             <p className="flex items-center gap-4">
-              <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
-              <span className="u-eyebrow text-brass-400">{eyebrow}</span>
+              <span aria-hidden className="block h-px w-10 bg-olive-500/80" />
+              <span className="u-eyebrow text-olive-400">{eyebrow}</span>
             </p>
           ) : null}
 
@@ -51,7 +51,7 @@ export function CtaBand({
           ) : null}
 
           <div className="mt-9 flex flex-wrap gap-4">
-            <ButtonLink href={primary.href} variant="gold">
+            <ButtonLink href={primary.href} variant="accent">
               {primary.label}
             </ButtonLink>
             {secondary ? (

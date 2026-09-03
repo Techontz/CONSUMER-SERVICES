@@ -31,7 +31,7 @@ export default function AssessmentPage() {
               standfirst={p.hero.lede}
             />
 
-            <div className="mt-11 border-l-2 border-brass-500/60 py-1 pl-6">
+            <div className="mt-11 border-l-2 border-olive-500/60 py-1 pl-6">
               <h3 className="u-display-4 text-evergreen-600">
                 {p.next.headline}
               </h3>

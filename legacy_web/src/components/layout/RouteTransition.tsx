@@ -36,7 +36,7 @@ export function RouteTransition() {
       className="u-curtain pointer-events-none fixed inset-0 z-70"
     >
       <span className="u-curtain-panel absolute inset-0 bg-evergreen-900" />
-      <span className="u-curtain-rule absolute inset-x-0 top-0 h-px bg-brass-500" />
+      <span className="u-curtain-rule absolute inset-x-0 top-0 h-px bg-olive-500" />
     </div>
   );
 }

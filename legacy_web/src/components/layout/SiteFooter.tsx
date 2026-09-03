@@ -7,8 +7,8 @@ import { footerNav, legalNav, site } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="u-watermark relative isolate overflow-hidden bg-evergreen-950 text-ivory-100">
-      {/* A single brass hairline above the footer reads as a page rule. */}
-      <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-brass-500/45 to-transparent" />
+      {/* A single olive hairline above the footer reads as a page rule. */}
+      <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-olive-500/45 to-transparent" />
 
       <Container className="py-18 lg:py-24">
         <Reveal className="grid gap-14 lg:grid-cols-12 lg:gap-10">
@@ -16,7 +16,7 @@ export function SiteFooter() {
           <div className="lg:col-span-4">
             <Logo tone="light" size="lg" showTagline={false} />
 
-            <p className="mt-5 text-[0.5625rem] font-normal uppercase tracking-[0.24em] text-brass-500/85">
+            <p className="mt-5 text-[0.5625rem] font-normal uppercase tracking-[0.24em] text-olive-500/85">
               {site.brandName}
             </p>
 
@@ -31,7 +31,7 @@ export function SiteFooter() {
 
           {/* Navigation */}
           <nav aria-label="Footer" className="lg:col-span-3 lg:col-start-6">
-            <h2 className="u-eyebrow text-brass-500/80">Navigate</h2>
+            <h2 className="u-eyebrow text-olive-500/80">Navigate</h2>
             <ul className="mt-6 space-y-3">
               {footerNav.map((item) => (
                 <li key={item.href}>
@@ -48,7 +48,7 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div className="lg:col-span-4 lg:col-start-9">
-            <h2 className="u-eyebrow text-brass-500/80">Contact</h2>
+            <h2 className="u-eyebrow text-olive-500/80">Contact</h2>
             <ul className="mt-6 space-y-3 text-sm">
               <li>
                 <a

@@ -1,22 +1,39 @@
+import { FrameworkStep } from "@/components/sections/home/ReadinessFramework";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionOpener } from "@/components/ui/SectionOpener";
 import { digitalStory } from "@/lib/content/home";
 
 /**
- * Evergreen band. The five-step progression runs the full width of the
- * container as a numbered rule, so it reads as one movement rather than five
- * separate boxes.
+ * Digital & Market Readiness — the third and last movement of the readiness
+ * framework.
+ *
+ * It used to be the second section on the homepage, immediately after the
+ * introduction, which meant the first specific thing a visitor learned about
+ * a business-development firm founded in 1991 was that it does digital work.
+ * It is the same content, moved to where it belongs in the sequence: after
+ * infrastructure, after funding, as the last thing a business gets ready for
+ * rather than the first thing this company appears to sell.
+ *
+ * It keeps its own treatment — the five-step progression across the full
+ * width — because the framework's other two movements are argument-and-image
+ * and this one is a progression. What ties it to them is the shared opener
+ * above all three and the counter on its label line, not a forced sameness.
  */
 export function DigitalStory() {
   return (
-    <Section tone="evergreen" seam="top" className="py-18 lg:pb-22 lg:pt-28">
+    // Charcoal, not the brand evergreen: the Funding movement above it is
+    // already Deep Evergreen, and two identical dark grounds meeting would
+    // read as one over-long band. Stepping down instead of repeating also
+    // sets up the descent into the history band, which is deeper again.
+    <Section tone="charcoal" className="py-16 lg:py-20">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <SectionOpener
           label={digitalStory.kicker}
           heading={digitalStory.headline}
           tone="light"
           className="lg:col-span-6"
+          trailing={<FrameworkStep index={3} tone="light" />}
         />
 
         <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-12">
@@ -40,9 +57,9 @@ export function DigitalStory() {
           >
             <span
               aria-hidden
-              className="absolute inset-x-0 top-0 block h-px origin-left scale-x-0 bg-brass-500 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
+              className="absolute inset-x-0 top-0 block h-px origin-left scale-x-0 bg-olive-500 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
             />
-            <span aria-hidden className="u-dot text-brass-500" />
+            <span aria-hidden className="u-dot text-olive-500" />
             <span className="u-display-4 mt-4 block text-ivory-100">
               {step.label}
             </span>

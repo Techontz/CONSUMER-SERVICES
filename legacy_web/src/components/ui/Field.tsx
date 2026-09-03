@@ -8,8 +8,8 @@ import { cn } from "@/lib/cn";
 const control =
   "block w-full border bg-transparent px-4 py-3.5 text-[0.9375rem] text-ink-900 " +
   "placeholder:text-ink-300 transition-colors duration-300 " +
-  "focus:border-brass-600 " +
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass-600";
+  "focus:border-olive-600 " +
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive-600";
 
 const ok = "border-rule hover:border-ink-300";
 const bad = "border-red-700/70 bg-red-50/40";
@@ -167,7 +167,7 @@ export function SelectField({
         </select>
         <span
           aria-hidden
-          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[0.625rem] text-brass-700"
+          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[0.625rem] text-olive-700"
         >
           &#9660;
         </span>

@@ -21,19 +21,40 @@ export const homeHero = {
 export const homeIntro = {
   kicker: "Business Development & Implementation",
   headline: ["You Bring the Vision.", "We Help Build the Business."],
+  /**
+   * Two paragraphs that used to make the same case twice. The first ran
+   * "develop the blueprint / identify what is required / organize the
+   * pieces / create implementation strategies"; the second answered with
+   * "understand the vision / build the development path / work alongside
+   * you as the pieces come together". Four verbs, then the same four verbs.
+   *
+   * Kept: what we do, and how we work. Cut: the second telling.
+   */
   body: [
-    "You know what you want to create. We help develop the blueprint, identify what is required, organize the pieces, and create implementation strategies to help move the business toward operation.",
-    "Our role is practical: understand the vision, build the development path, and work alongside you as the pieces come together.",
+    "You know what you want to create. We identify what it will require, organize the pieces, and set out a practical path toward operation.",
+    "Our role is hands-on. We work alongside you as those pieces come together, not from a distance once the plan is written.",
   ],
   link: { label: "See How We Help", href: "/services" },
 };
+
+/**
+ * The credibility band under the hero. Four claims, no elaboration — it is
+ * a statement of standing, not a section, and it earns its place by being
+ * the shortest thing on the page.
+ */
+export const credibility = [
+  "Established in Georgia in 1991",
+  "Business Development",
+  "Operational Readiness",
+  "Multi-Industry Experience",
+];
 
 export const digitalStory = {
   kicker: "Digital & Market Readiness",
   headline: "Small business has gone digital.",
   body: [
     "A professional digital presence, organized information, effective communication, and accessible business systems have become part of operating a credible business.",
-    "We help entrepreneurs determine what their business needs and coordinate practical solutions that support the larger business plan.",
+    "We help entrepreneurs work out what theirs actually needs, and coordinate solutions that serve the wider plan rather than sit beside it.",
   ],
   flowLabel: "Digital readiness progression",
   flow: [
@@ -45,9 +66,31 @@ export const digitalStory = {
   ],
 };
 
+/**
+ * How We Help — one section where there were two.
+ *
+ * "How We Help" listed Build · Plan · Prepare · Position · Implement against
+ * five service groupings. "A Practical Development Process" then listed
+ * Discover · Structure · Develop · Prepare · Implement against five stages.
+ * Two five-step frameworks, one after the other, describing the same
+ * sequence in different words — the kind of thing that makes a reader
+ * wonder which one is the real one.
+ *
+ * This keeps the stronger half of each: the five verbs and the service
+ * groupings from the first, the headline and the framing sentence from the
+ * second. Nothing is lost except the second telling.
+ *
+ * The notes are re-cut for the same reason. "Prepare → Prepare for the
+ * objective" and "Position → Build a credible business presence" each
+ * echoed a verb already standing beside them in 32px capitals, and
+ * "Develop the blueprint" collided with the Businesses headline further
+ * down the page. Each now says something the verb does not already say.
+ */
 export const pathways = {
   label: "How We Help",
-  headline: "Building the pieces that move a business forward.",
+  headline: "A practical development process.",
+  standfirst:
+    "Built around what you are creating and what is required to move it toward operation.",
   micro:
     "Business Plans · Feasibility · Funding Readiness · SAM.gov Registration · Contracting Readiness · Business Development",
   link: { label: "Explore Services", href: "/services" },
@@ -60,22 +103,22 @@ export const pathways = {
     {
       verb: "Plan",
       title: "Strategy, Research & Feasibility",
-      note: "Develop the blueprint.",
+      note: "Test the idea before committing to it.",
     },
     {
       verb: "Prepare",
       title: "Funding & Opportunity Readiness",
-      note: "Prepare for the objective.",
+      note: "Organize what a funder will ask to see.",
     },
     {
       verb: "Position",
       title: "Digital & Market Readiness",
-      note: "Build a credible business presence.",
+      note: "Make the business credible in its market.",
     },
     {
       verb: "Implement",
       title: "Business Launch & Operations",
-      note: "Put the pieces into action.",
+      note: "Put the approved plan into action.",
     },
   ],
 };
@@ -83,8 +126,14 @@ export const pathways = {
 export const sectorStory = {
   label: "Businesses We Help Develop",
   headline: "Different businesses require different blueprints.",
+  /**
+   * Was: "...where structure, preparation, implementation, or operational
+   * development may be needed." Four abstractions in one clause, three of
+   * which the page has already used. The point of the sentence is the range
+   * of clients, so that is what it says now.
+   */
   body:
-    "We work with entrepreneurs and organizations across selected business models where structure, preparation, implementation, or operational development may be needed.",
+    "We work with entrepreneurs and organizations across a range of business models, each with its own requirements and its own route to operation.",
   link: { label: "Explore Industries", href: "/industries" },
   items: [
     {
@@ -114,12 +163,26 @@ export const sectorStory = {
   ],
 };
 
+/**
+ * The three readiness stories used to sit on the homepage as unrelated
+ * blocks with Digital & Market Readiness first, which made a business-
+ * development firm read as a digital agency before the visitor had met it.
+ * They are one framework now, in the order the work actually happens, and
+ * this is its opener.
+ */
+export const readinessFramework = {
+  label: "Specialized Readiness",
+  headline: "Readiness is specific.",
+  standfirst:
+    "What a business must have in place depends on what it is reaching for. These are the three we are asked for most.",
+};
+
 export const opportunityStory = {
   kicker: "Infrastructure & Opportunity Readiness",
   headline: "Big projects can create opportunities for small business.",
   body: [
     "Infrastructure development can require contractors, suppliers, transportation, technology, staffing, facility services, and other supporting businesses.",
-    "We help entrepreneurs explore where their services may fit and what their business may need before pursuing those opportunities.",
+    "We help entrepreneurs find where their services fit, and what has to be in place before they pursue that work.",
   ],
   link: {
     label: "Explore Infrastructure Readiness",
@@ -155,27 +218,19 @@ export const fundingStory = {
     "Funding eligibility and approval are determined by the applicable lender, funder, investor, or program.",
 };
 
-export const processStory = {
-  label: "From Blueprint to Implementation",
-  headline: "A practical development process.",
-  body:
-    "Built around what you are creating and what is required to move it toward operation.",
-  steps: [
-    { title: "Discover", note: "Understand the vision and objective." },
-    { title: "Structure", note: "Determine what needs to be established." },
-    { title: "Develop", note: "Build the essential pieces." },
-    { title: "Prepare", note: "Get ready for the intended objective." },
-    { title: "Implement", note: "Put the approved plan into action." },
-  ],
-};
-
+/**
+ * The company-history band. Every string below is the client's approved
+ * copy, used exactly as supplied — eyebrow, headline, both paragraphs and
+ * the button label. Nothing here is edited, shortened or improved.
+ */
 export const heritage = {
-  kicker: "Consumer Services, Inc.",
+  kicker: "Consumer Services, Inc. · Established 1991",
   year: "1991",
-  establishedLabel: "Established in Georgia",
-  headline: "Experience that still informs how we build today.",
-  body:
-    "Consumer Services, Inc. was established in 1991. Today, that longstanding business foundation shapes how we help entrepreneurs organize ideas, build stronger structures, prepare for opportunity, and move toward implementation.",
+  headline: "Experience that shapes how we build today.",
+  body: [
+    "Consumer Services, Inc. combines longstanding business experience with practical, implementation-focused support. We help entrepreneurs and organizations clarify their vision, establish the right structure, prepare for opportunity, and move forward with an actionable development path.",
+    "We understand that different businesses require different blueprints. Our approach is tailored to the client, the industry, the objective, and what is realistically required for implementation.",
+  ],
   link: { label: "Our Story", href: "/about" },
 };
 

@@ -51,7 +51,7 @@ export default function ResourcesPage() {
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="u-eyebrow text-brass-700">{p.featured.kicker}</p>
+            <p className="u-eyebrow text-olive-700">{p.featured.kicker}</p>
             <h2 className="u-display-3 mt-5 text-evergreen-600">
               {p.featured.headline}
             </h2>
@@ -102,7 +102,7 @@ export default function ResourcesPage() {
                 </p>
                 <span
                   aria-hidden
-                  className="col-span-12 mt-3 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-evergreen-700 transition-colors duration-400 group-hover:text-brass-700 sm:col-span-1 sm:mt-0 sm:text-right"
+                  className="col-span-12 mt-3 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-evergreen-700 transition-colors duration-400 group-hover:text-olive-700 sm:col-span-1 sm:mt-0 sm:text-right"
                 >
                   &rarr;
                 </span>
@@ -142,7 +142,7 @@ export default function ResourcesPage() {
                   aria-hidden
                   className="absolute inset-0 origin-bottom scale-y-0 bg-evergreen-800 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100 motion-reduce:transition-none"
                 />
-                <span className="relative u-eyebrow text-brass-700 transition-colors duration-400 group-hover:text-brass-400">
+                <span className="relative u-eyebrow text-olive-700 transition-colors duration-400 group-hover:text-olive-400">
                   {item.type}
                 </span>
                 <h3 className="relative mt-5 text-[1.1875rem] leading-snug text-evergreen-600 transition-colors duration-400 group-hover:text-ivory-100">
@@ -151,7 +151,7 @@ export default function ResourcesPage() {
                 <p className="relative mt-3 flex-1 text-sm leading-relaxed text-ink-500 transition-colors duration-400 group-hover:text-ivory-100/70">
                   {item.body}
                 </p>
-                <span className="relative mt-7 flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-evergreen-700 transition-colors duration-400 group-hover:text-brass-400">
+                <span className="relative mt-7 flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-evergreen-700 transition-colors duration-400 group-hover:text-olive-400">
                   {item.action}
                   <span
                     aria-hidden

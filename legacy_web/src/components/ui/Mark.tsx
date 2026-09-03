@@ -25,13 +25,16 @@
  */
 export function Mark({
   className,
-  tone = "brass",
+  tone = "olive",
 }: {
   className?: string;
-  /** "brass" everywhere by default; "current" inherits for reversed use. */
-  tone?: "brass" | "current";
+  /** "olive" everywhere by default; "current" inherits for reversed use. */
+  tone?: "olive" | "current";
 }) {
-  const fill = tone === "current" ? "currentColor" : "#D6B268";
+  // Light Olive, flat. The mark was drawn in gold; the approved palette
+  // replaces that outright, and a mark is the one place a brand colour
+  // has to be the colour itself rather than a token that resolves to it.
+  const fill = tone === "current" ? "currentColor" : "#B8BE8A";
   return (
     <svg
       viewBox="0 0 64 64"

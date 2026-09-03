@@ -75,7 +75,7 @@ export function IndustryMosaic({ items }: { items: Industry[] }) {
               <span className="relative">
                 <span
                   aria-hidden
-                  className="mb-4 block h-0.5 w-10 origin-left bg-brass-500 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-[2.2] group-focus-within:scale-x-[2.2] motion-reduce:transition-none"
+                  className="mb-4 block h-0.5 w-10 origin-left bg-olive-500 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-[2.2] group-focus-within:scale-x-[2.2] motion-reduce:transition-none"
                 />
                 <h2 className="u-display-3 max-w-[14ch] text-ivory-100">
                   {item.title}
@@ -88,16 +88,16 @@ export function IndustryMosaic({ items }: { items: Industry[] }) {
               <span className="block text-[0.9375rem] leading-relaxed text-ivory-100/80">
                 {item.note}
               </span>
-              <span className="mt-6 flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-brass-400">
+              <span className="mt-6 flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-olive-400">
                 Discuss This Industry
                 <span aria-hidden className="block h-px w-7 bg-current" />
               </span>
             </span>
 
-            {/* Brass hairline that draws across the foot of a live tile. */}
+            {/* Olive hairline that draws across the foot of a live tile. */}
             <span
               aria-hidden
-              className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-brass-500 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
+              className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-olive-500 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
             />
           </Link>
         </RevealItem>

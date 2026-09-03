@@ -105,7 +105,7 @@ export function MobileNav({
                       onClick={onClose}
                       className={cn(
                         "u-display-3 flex-1 py-6 transition-colors duration-300",
-                        active ? "text-brass-400" : "text-ivory-100",
+                        active ? "text-olive-400" : "text-ivory-100",
                       )}
                     >
                       {item.label}
@@ -137,14 +137,14 @@ export function MobileNav({
                       data-open={isOpen ? "true" : "false"}
                     >
                       <div>
-                        <ul className="mb-5 border-l border-brass-500/30 pl-5">
+                        <ul className="mb-5 border-l border-olive-500/30 pl-5">
                           {subs.map((s) => (
                             <li key={s.label}>
                               <Link
                                 href={s.href}
                                 onClick={onClose}
                                 tabIndex={isOpen ? undefined : -1}
-                                className="flex items-center gap-3.5 py-2.5 text-[0.9375rem] leading-snug text-ivory-100/75 transition-colors duration-300 hover:text-brass-400"
+                                className="flex items-center gap-3.5 py-2.5 text-[0.9375rem] leading-snug text-ivory-100/75 transition-colors duration-300 hover:text-olive-400"
                               >
                                 {/* The same argument the desktop menu makes,
                                     at phone scale: six thumbnails say "six
@@ -183,7 +183,7 @@ export function MobileNav({
             <Link
               href="/contact"
               onClick={onClose}
-              className="block bg-brass-500 px-6 py-4.5 text-center font-display text-[0.625rem] uppercase tracking-[0.22em] text-evergreen-950"
+              className="block bg-olive-500 px-6 py-4.5 text-center font-display text-[0.625rem] uppercase tracking-[0.22em] text-evergreen-950"
             >
               Contact Us
             </Link>

@@ -29,8 +29,8 @@ export default function IndustriesPage() {
       <section className="relative isolate bg-ivory-50 py-16 lg:py-20">
         <Container className="mb-11 lg:mb-12">
           <Reveal className="flex items-center gap-4">
-            <span aria-hidden className="block h-px w-10 shrink-0 bg-brass-600/70" />
-            <span className="u-eyebrow text-brass-700">{p.overview.label}</span>
+            <span aria-hidden className="block h-px w-10 shrink-0 bg-olive-600/70" />
+            <span className="u-eyebrow text-olive-700">{p.overview.label}</span>
           </Reveal>
           <Reveal delay={0.08} className="mt-7 max-w-[62ch]">
             <p className="u-lede">{p.overview.lede}</p>

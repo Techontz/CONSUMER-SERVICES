@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/cn";
 
-type Variant = "solid" | "gold" | "quiet" | "quietLight";
+type Variant = "solid" | "accent" | "quiet" | "quietLight";
 
 /**
  * Buttons follow the reference: a thin rule, generous horizontal air, and
@@ -17,7 +17,7 @@ const base =
 
 const variants: Record<Variant, string> = {
   solid: "border-evergreen-800 bg-evergreen-800 text-ivory-100",
-  gold: "border-brass-500 bg-brass-500 text-evergreen-950",
+  accent: "border-olive-500 bg-olive-500 text-evergreen-950",
   quiet: "border-evergreen-800/40 bg-transparent text-evergreen-700 hover:text-ivory-100",
   quietLight:
     "border-ivory-100/45 bg-transparent text-ivory-100 hover:text-evergreen-950",
@@ -26,7 +26,7 @@ const variants: Record<Variant, string> = {
 /** The wash that wipes across on hover, per variant. */
 const sweeps: Record<Variant, string> = {
   solid: "bg-evergreen-950",
-  gold: "bg-brass-400",
+  accent: "bg-olive-400",
   quiet: "bg-evergreen-800",
   quietLight: "bg-ivory-100",
 };
@@ -122,8 +122,8 @@ export function TextLink({
         "group inline-flex items-center gap-3 font-display text-[0.625rem] uppercase tracking-[0.22em]",
         "transition-colors duration-300",
         tone === "dark"
-          ? "text-evergreen-700 hover:text-brass-700"
-          : "text-brass-400 hover:text-ivory-100",
+          ? "text-evergreen-700 hover:text-olive-700"
+          : "text-olive-400 hover:text-ivory-100",
         className,
       )}
     >

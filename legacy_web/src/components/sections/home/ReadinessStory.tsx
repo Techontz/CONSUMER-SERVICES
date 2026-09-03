@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SectionFilm } from "@/components/media/SectionFilm";
+import { FrameworkStep } from "@/components/sections/home/ReadinessFramework";
 import { TextLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Disclaimer } from "@/components/ui/Disclaimer";
@@ -32,6 +33,7 @@ export function ReadinessStory({
   alt,
   tone = "ivory",
   flip = false,
+  step,
 }: {
   story: Story;
   /** Still media. Ignored when `film` is supplied. */
@@ -42,6 +44,8 @@ export function ReadinessStory({
   alt: string;
   tone?: "ivory" | "evergreen";
   flip?: boolean;
+  /** Position in the readiness framework, e.g. 1 renders "01 / 03". */
+  step?: number;
 }) {
   const dark = tone === "evergreen";
 
@@ -85,7 +89,7 @@ export function ReadinessStory({
               />
               <span
                 aria-hidden
-                className="absolute bottom-0 left-0 block h-0.5 w-24 bg-brass-500"
+                className="absolute bottom-0 left-0 block h-0.5 w-24 bg-olive-500"
               />
             </div>
           </Reveal>
@@ -101,6 +105,11 @@ export function ReadinessStory({
               label={story.kicker}
               heading={story.headline}
               tone={dark ? "light" : "dark"}
+              trailing={
+                step ? (
+                  <FrameworkStep index={step} tone={dark ? "light" : "dark"} />
+                ) : undefined
+              }
             />
 
             <Reveal delay={0.08}>
@@ -132,7 +141,7 @@ export function ReadinessStory({
                 identical boxes repeated twice down one page is exactly the
                 pattern that makes a site read as assembled rather than
                 designed. They were never interactive, so nothing is lost by
-                letting them be what they are: a list. A brass dot opens each
+                letting them be what they are: a list. An olive dot opens each
                 one, they flow inline instead of stacking, and the section
                 gets its air back. */}
             <RevealGroup
@@ -150,7 +159,7 @@ export function ReadinessStory({
                   >
                     <span
                       aria-hidden
-                      className={cn("u-dot", dark ? "text-brass-500" : "text-brass-700")}
+                      className={cn("u-dot", dark ? "text-olive-500" : "text-olive-700")}
                     />
                     {chip}
                   </span>

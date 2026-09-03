@@ -2,12 +2,15 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "./Container";
 
-type Tone = "paper" | "ivory" | "evergreen" | "deep";
+type Tone = "paper" | "ivory" | "evergreen" | "charcoal" | "deep";
 
 const tones: Record<Tone, string> = {
   paper: "bg-ivory-50 text-ink-900",
   ivory: "bg-ivory-200 text-ink-900",
   evergreen: "bg-evergreen-800 text-ivory-100",
+  /** Charcoal Green. Depth beneath the brand ground, not a second
+      brand ground — used where two dark bands would otherwise meet. */
+  charcoal: "bg-evergreen-900 text-ivory-100",
   deep: "bg-evergreen-950 text-ivory-100",
 };
 
@@ -32,7 +35,7 @@ export function Section({
   seam?: "top" | "bottom";
   children: ReactNode;
 }) {
-  const dark = tone === "evergreen" || tone === "deep";
+  const dark = tone === "evergreen" || tone === "charcoal" || tone === "deep";
   return (
     <section
       id={id}

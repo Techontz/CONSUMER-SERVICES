@@ -46,12 +46,12 @@ export function MarkerGrid({
         >
           <span
             aria-hidden
-            className="absolute inset-x-0 top-0 block h-px origin-left scale-x-0 bg-brass-500 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
+            className="absolute inset-x-0 top-0 block h-px origin-left scale-x-0 bg-olive-500 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
           />
 
           <span
             aria-hidden
-            className={cn("u-dot", dark ? "text-brass-500" : "text-brass-700")}
+            className={cn("u-dot", dark ? "text-olive-500" : "text-olive-700")}
           />
 
           <h3

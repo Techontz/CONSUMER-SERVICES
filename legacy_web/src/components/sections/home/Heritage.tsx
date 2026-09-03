@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TextLink } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { heritage } from "@/lib/content/home";
@@ -74,38 +74,59 @@ export function Heritage() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.15)_0%,rgba(4,18,15,0.17)_24%,rgba(4,18,15,0.22)_58%,rgba(4,18,15,0.14)_100%)] lg:bg-[linear-gradient(180deg,rgba(4,18,15,0.04)_0%,rgba(4,18,15,0.08)_24%,rgba(4,18,15,0.2)_58%,rgba(4,18,15,0.12)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.18)_0%,rgba(4,18,15,0.19)_24%,rgba(4,18,15,0.23)_58%,rgba(4,18,15,0.15)_100%)] lg:bg-[linear-gradient(180deg,rgba(4,18,15,0.04)_0%,rgba(4,18,15,0.08)_24%,rgba(4,18,15,0.2)_58%,rgba(4,18,15,0.12)_100%)]"
       />
 
       <Container className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-4">
             <p className="flex items-center gap-4">
-              <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
-              <span className="u-eyebrow text-brass-400">{heritage.kicker}</span>
+              <span aria-hidden className="block h-px w-10 bg-olive-500/80" />
+              {/* Ivory, not the accent — the one rule this band adds to the
+                  system: the accent colour never sets type over a
+                  photograph. Light Olive has 6-8:1 on the flat evergreen
+                  grounds every other eyebrow sits on, but over sunlit sky
+                  it measured 3.70:1 on a phone, and the amount of scrim it
+                  would take to fix that is the amount that turns a clear
+                  afternoon into dusk. Ivory reads at 5.9:1 on the same
+                  pixels and costs the picture nothing. The rule beside it
+                  and the button below it still carry the olive, which is
+                  also the more restrained composition — three accent
+                  elements in one band was one too many. */}
+              <span className="u-eyebrow text-ivory-100">{heritage.kicker}</span>
             </p>
 
             <p className="mt-7 font-display text-[clamp(4rem,9vw,7.5rem)] leading-[0.84] tracking-[0.01em] text-ivory-100">
               {heritage.year}
             </p>
 
-            <span aria-hidden className="mt-7 block h-px w-28 bg-brass-500" />
+            <span aria-hidden className="mt-7 block h-px w-28 bg-olive-500" />
           </Reveal>
 
           <Reveal delay={0.12} className="lg:col-span-6 lg:col-start-7">
-            <p className="u-eyebrow text-brass-400">
-              {heritage.establishedLabel}
-            </p>
-            <h2 className="u-display-2 mt-6 max-w-[22ch] text-ivory-100">
+            {/* The eyebrow used to read "Established in Georgia" while the
+                column beside it set 1991 at display scale, which said the
+                same thing twice. The approved copy folds the year into the
+                kicker on the left, so this line is now the headline's own
+                and the band states its credential once. */}
+            <h2 className="u-display-2 max-w-[22ch] text-ivory-100">
               {heritage.headline}
             </h2>
-            <p className="u-copy mt-6 max-w-[54ch] text-ivory-100/75">
-              {heritage.body}
-            </p>
-            <div className="mt-9">
-              <TextLink href={heritage.link.href} tone="light">
+            {heritage.body.map((t, i) => (
+              <p
+                key={t}
+                className={
+                  "u-copy max-w-[56ch] " +
+                  (i === 0 ? "mt-7 text-ivory-100/80" : "mt-6 text-ivory-100/70")
+                }
+              >
+                {t}
+              </p>
+            ))}
+            <div className="mt-10">
+              <ButtonLink href={heritage.link.href} variant="accent">
                 {heritage.link.label}
-              </TextLink>
+              </ButtonLink>
             </div>
           </Reveal>
         </div>

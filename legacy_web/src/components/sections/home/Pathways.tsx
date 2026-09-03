@@ -5,9 +5,17 @@ import { SectionOpener } from "@/components/ui/SectionOpener";
 import { pathways } from "@/lib/content/home";
 
 /**
- * The five development pathways, as an editorial index rather than a card
- * grid: an oversized verb, a rule, and the title. Hovering floods the row and
- * pushes the verb into brass.
+ * How We Help — the five stages, as an editorial index rather than a card
+ * grid: the verb, the service grouping, and one line on what the stage is
+ * for. Hovering floods the row and lifts the verb.
+ *
+ * This section used to have a twin. "A Practical Development Process" sat
+ * six sections further down with its own five steps — Discover, Structure,
+ * Develop, Prepare, Implement — describing the same sequence in different
+ * words. Two five-step frameworks on one page do not reinforce each other;
+ * they make the reader work out which is the real one. That section is gone
+ * and its headline and framing sentence are here, which is why this opener
+ * now carries a standfirst it did not have before.
  */
 export function Pathways() {
   return (
@@ -16,11 +24,14 @@ export function Pathways() {
         <SectionOpener
           label={pathways.label}
           heading={pathways.headline}
-          className="lg:col-span-7"
+          className="lg:col-span-6"
         />
 
-        <Reveal delay={0.1} className="lg:col-span-4 lg:col-start-9 lg:pt-14">
-          <p className="text-sm leading-[1.9] text-ink-500">{pathways.micro}</p>
+        <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
+          <p className="u-copy text-ink-500">{pathways.standfirst}</p>
+          <p className="mt-6 text-sm leading-[1.9] text-ink-300">
+            {pathways.micro}
+          </p>
           <div className="mt-9">
             <TextLink href={pathways.link.href}>{pathways.link.label}</TextLink>
           </div>
@@ -38,7 +49,7 @@ export function Pathways() {
               />
 
               <span className="col-span-12 sm:col-span-2">
-                <span className="u-eyebrow block text-brass-700 transition-colors duration-400 group-hover:text-brass-600">
+                <span className="u-eyebrow block text-olive-700 transition-colors duration-400 group-hover:text-evergreen-600">
                   {item.verb}
                 </span>
               </span>

@@ -19,7 +19,7 @@ import { site } from "@/lib/site";
  *
  * The headline is the one place on the site that speaks in the editorial
  * serif rather than letterspaced capitals: three nouns set roman, the promise
- * set italic in brass. That contrast is the whole point of the frame, and it
+ * set italic in olive. That contrast is the whole point of the frame, and it
  * is why the serif is kept for this and nothing else.
  *
  * A server component on purpose — the headline is the LCP element and its
@@ -56,8 +56,8 @@ export function HomeHero() {
             className="u-in-fade flex items-center gap-4"
             style={{ animationDelay: "100ms" }}
           >
-            <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
-            <span className="u-eyebrow text-brass-400">
+            <span aria-hidden className="block h-px w-10 bg-olive-500/80" />
+            <span className="u-eyebrow text-olive-400">
               Established {site.established} · {site.establishedIn}
             </span>
           </p>
@@ -94,7 +94,7 @@ export function HomeHero() {
                 <span
                   className={
                     i === closing
-                      ? "u-in-mask block italic text-brass-400"
+                      ? "u-in-mask block italic text-olive-400"
                       : "u-in-mask block"
                   }
                   style={{ animationDelay: `${200 + i * 80}ms` }}
@@ -107,7 +107,7 @@ export function HomeHero() {
 
           <span
             aria-hidden
-            className="u-in-draw block h-px w-32 origin-left bg-brass-500"
+            className="u-in-draw block h-px w-32 origin-left bg-olive-500"
             style={{
               marginTop: "clamp(1rem, 2.7svh, 2.5rem)",
               animationDelay: "480ms",
@@ -131,7 +131,7 @@ export function HomeHero() {
               animationDelay: "660ms",
             }}
           >
-            <ButtonLink href={homeHero.primaryCta.href} variant="gold">
+            <ButtonLink href={homeHero.primaryCta.href} variant="accent">
               {homeHero.primaryCta.label}
             </ButtonLink>
             <ButtonLink
@@ -168,7 +168,7 @@ export function HomeHero() {
           <span className="flex items-center gap-4">
             <span className="u-eyebrow text-ivory-100/60">Scroll</span>
             <span className="relative block h-[clamp(2.25rem,4.5svh,3rem)] w-px overflow-hidden bg-ivory-100/25">
-              <span className="absolute inset-x-0 top-0 block h-1/2 animate-[lbc-scroll-cue_2.4s_ease-in-out_infinite] bg-brass-500" />
+              <span className="absolute inset-x-0 top-0 block h-1/2 animate-[lbc-scroll-cue_2.4s_ease-in-out_infinite] bg-olive-500" />
             </span>
           </span>
         </div>

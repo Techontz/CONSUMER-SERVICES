@@ -60,7 +60,7 @@ export default function AboutPage() {
           available is worse than none.
 
           What carries it instead is structure — the founding year at display
-          scale as the anchor, a brass rule, and the approved copy in a
+          scale as the anchor, an olive rule, and the approved copy in a
           measured reading column beside it. Not a word of it changed. */}
       <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-16 pt-20 text-ivory-100 lg:pb-20 lg:pt-24">
         <Container>
@@ -72,7 +72,7 @@ export default function AboutPage() {
               </h2>
               <span
                 aria-hidden
-                className="mt-8 block h-px w-24 bg-brass-500"
+                className="mt-8 block h-px w-24 bg-olive-500"
               />
               <p className="u-eyebrow mt-8 text-ivory-100/55">
                 {site.established} &middot; {site.establishedIn}
@@ -156,9 +156,9 @@ export default function AboutPage() {
               </span>
               <span
                 aria-hidden
-                className="mx-auto mt-5 block h-px w-14 bg-brass-500"
+                className="mx-auto mt-5 block h-px w-14 bg-olive-500"
               />
-              <span className="u-eyebrow mt-5 justify-center text-brass-700">
+              <span className="u-eyebrow mt-5 justify-center text-olive-700">
                 Established
               </span>
             </div>

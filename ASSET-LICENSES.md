@@ -215,9 +215,9 @@ obligation survives its removal.
 
 | File | Origin | Notes |
 | --- | --- | --- |
-| `mark.svg` | Consumer Services, Inc. / this repository | The brand mark. Drawn here as vector on a 64-unit grid — three courses: a wide plinth, a course laid on it, and a third stepped forward with its leading edge cut at 45 degrees. Three paths, one flat brass (`#D6B268`), no gradient. |
-| `mark-512.png`, `mark-256.png`, `mark-64.png`, `mark-32.png` | derived from `mark.svg` | True-transparent rasters for favicons, social cards and JSON-LD. Verified: 67% transparent pixels, all four corners at alpha 0, one opaque colour. |
-| `mark-apple-180.png` | derived from `mark.svg` | Apple touch icon, on the brand evergreen rather than transparent — iOS composites a transparent touch icon onto black. |
+| `mark.svg` | Consumer Services, Inc. / this repository | The brand mark. Drawn here as vector on a 64-unit grid — three courses: a wide plinth, a course laid on it, and a third stepped forward with its leading edge cut at 45 degrees. Three paths, one flat colour, no gradient. Redrawn from brass `#D6B268` to Light Olive `#B8BE8A` with the 2026 palette — the geometry is untouched, only the fill. |
+| `mark-512.png`, `mark-256.png`, `mark-64.png`, `mark-32.png` | derived from `mark.svg` | True-transparent rasters for favicons, social cards and JSON-LD. Re-rendered in Light Olive; verified on the shipped files — one opaque colour, `#B8BE8A`, and 63% fully transparent pixels. |
+| `mark-apple-180.png` | derived from `mark.svg` | Apple touch icon, on Deep Evergreen `#123D32` rather than transparent — iOS composites a transparent touch icon onto black. Verified: two colours in the file, the mark and its ground. |
 
 The previous `seal.png` — the detailed engraved emblem taken from the
 approved HTML, which this file previously recorded as "never redrawn or

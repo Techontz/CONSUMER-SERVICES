@@ -8,36 +8,75 @@
    ============================================================ */
 
 @theme {
-  /* --- Evergreen --- */
-  --color-evergreen-950: #04120F;
-  --color-evergreen-900: #06201B;
-  --color-evergreen-800: #083430;
-  --color-evergreen-700: #0E463F;
-  --color-evergreen-600: #143A2E;
-  --color-evergreen-500: #1D5347;
+  /* ------------------------------------------------------------------
+     The approved 2026 palette. Four colours, and everything else on this
+     page is a working tint of one of them.
 
-  /* --- Brass --- */
-  --color-brass-400: #DDBC72;
-  --color-brass-500: #C9A24B;
-  --color-brass-600: #B98B33;
-  /* Darkened from #8C6A2A: the eyebrow label sets at 11px on ivory, where
-     the lighter brass measured 4.31:1 against the 4.5:1 AA minimum. */
-  --color-brass-700: #7E5C22;
+       Deep Evergreen   #123D32   the brand ground
+       Charcoal Green   #182821   depth beneath it
+       Light Olive      #B8BE8A   the accent
+       Warm Ivory       #F6F2E9   the type
 
-  /* --- Paper --- */
+     The gold ramp this replaces (#DDBC72 → #7E5C22) is gone from the
+     stylesheet entirely; there is no `brass` token left to reach for.
+     ------------------------------------------------------------------ */
+
+  /* --- Evergreen ---
+     Six steps, but only two of them are inventions. 800 is Deep Evergreen
+     exactly and 900 is Charcoal Green exactly, which is why the two named
+     surfaces in the brief — the brand ground and the depth beneath it —
+     are the two most-used values on the site rather than approximations of
+     them. 950 is the one step below Charcoal, for the footer and the
+     header's top edge. */
+  --color-evergreen-950: #0A2019;
+  --color-evergreen-900: #182821; /* Charcoal Green — approved */
+  --color-evergreen-800: #123D32; /* Deep Evergreen — approved */
+  --color-evergreen-700: #17493B;
+  /* Heading ink on a light ground is Deep Evergreen itself, not a darker
+     relative of it: 10.80:1 on Warm Ivory, so the brand colour can carry
+     every heading on the site without a second, nearly-identical green
+     existing only to be readable. */
+  --color-evergreen-600: #123D32;
+  --color-evergreen-500: #1E5A49;
+
+  /* --- Olive ---
+     500 is Light Olive exactly. The other three exist because one value
+     cannot do the accent's whole job: at 6.19:1 on Deep Evergreen it is
+     excellent on a dark ground and hopeless on a light one, where it
+     measures 1.74:1 against Warm Ivory. So the ramp splits by ground —
+     400/500 are the dark-ground accents, 600 is the hairline weight, and
+     700 is the only value allowed to set small type on ivory (4.90:1).
+
+     Every step holds the same hue as the approved colour (67°) and stays
+     inside a 28–34% saturation band. That band is what keeps it olive: at
+     the saturation a gold ramp runs, the same hue turns to mustard. */
+  --color-olive-400: #C5CA9C;
+  --color-olive-500: #B8BE8A; /* Light Olive — approved */
+  --color-olive-600: #949B69;
+  --color-olive-700: #686D3B;
+
+  /* --- Paper ---
+     100 is Warm Ivory exactly; the rest are its tints. */
   --color-ivory-50:  #FBF9F4;
-  --color-ivory-100: #F6F2E9;
+  --color-ivory-100: #F6F2E9; /* Warm Ivory — approved */
   --color-ivory-200: #F3EEE3;
-  --color-ivory-300: #EBE4D6;
+  --color-ivory-300: #EAE4D5;
 
-  /* --- Ink --- */
-  --color-ink-900: #17221D;
-  --color-ink-700: #2C3A32;
-  --color-ink-500: #526057;
-  /* Darkened from #7B857E, which reached only 3.42:1 on ivory. */
-  --color-ink-300: #666F69;
-  --color-rule:    #DDD6C9;
-  --color-rule-soft: #ECE6DA;
+  /* --- Ink ---
+     Body copy on a light ground. 900 is Charcoal Green exactly, so the
+     darkest type and the darkest surface are one colour. The lighter steps
+     hold its hue rather than drifting to a neutral grey, and each was set
+     against Warm Ivory: 500 at 6.30:1, 300 at 4.86:1. */
+  --color-ink-900: #182821; /* Charcoal Green — approved */
+  --color-ink-700: #2A3B33;
+  --color-ink-500: #4E5C55;
+  --color-ink-300: #5F6D66;
+
+  /* Hairlines. Warm Ivory pulled toward the olive rather than toward the
+     sand it used to sit on, so a rule reads as part of this palette
+     instead of as a leftover of the last one. */
+  --color-rule:      #D9D7C0;
+  --color-rule-soft: #E8E5D5;
 
   /* --- Type ---
      display : Archivo Black  — letterspaced capitals, the section voice
@@ -130,12 +169,12 @@
   p { text-wrap: pretty; }
 
   ::selection {
-    background: var(--color-brass-500);
+    background: var(--color-olive-500);
     color: var(--color-evergreen-950);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brass-500);
+    outline: 2px solid var(--color-olive-500);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -237,7 +276,7 @@
      than written. A dot holds the same column and the same alignment
      without claiming the reader has to keep count.
      
-     It takes its colour from `currentColor`, so the brass tone comes from
+     It takes its colour from `currentColor`, so the olive tone comes from
      the same text class the numeral used to carry, and it aligns to the cap
      height of the label beside it rather than to the baseline. */
   .u-dot {

@@ -20,6 +20,7 @@ export function SectionOpener({
   label,
   heading,
   standfirst,
+  trailing,
   tone = "dark",
   align = "left",
   className,
@@ -28,6 +29,8 @@ export function SectionOpener({
   label: string;
   heading: ReactNode;
   standfirst?: ReactNode;
+  /** Sits on the label line, hard right. Used for the readiness counter. */
+  trailing?: ReactNode;
   /** "dark" = ink on ivory. "light" = ivory on evergreen. */
   tone?: "dark" | "light";
   align?: "left" | "center";
@@ -44,24 +47,27 @@ export function SectionOpener({
         className={cn(
           "flex items-center gap-4",
           centered && "justify-center",
+          trailing ? "justify-between" : undefined,
         )}
       >
         <span
           aria-hidden
           className={cn(
             "block h-px w-10 shrink-0 origin-left",
-            light ? "bg-brass-400/70" : "bg-brass-600/70",
+            light ? "bg-olive-400/70" : "bg-olive-600/70",
           )}
         />
 
         <span
           className={cn(
             "u-eyebrow",
-            light ? "text-brass-400" : "text-brass-700",
+            light ? "text-olive-400" : "text-olive-700",
           )}
         >
           {label}
         </span>
+
+        {trailing ? <span className="ml-auto shrink-0">{trailing}</span> : null}
       </Reveal>
 
       {/* --- heading --- */}

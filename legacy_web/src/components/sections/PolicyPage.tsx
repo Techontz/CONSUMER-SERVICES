@@ -39,12 +39,12 @@ export function PolicyPage({
               Questions about this policy can be directed to{" "}
               <a
                 href={`mailto:${site.email}`}
-                className="u-underline break-all text-brass-700"
+                className="u-underline break-all text-olive-700"
               >
                 {site.email}
               </a>{" "}
               or{" "}
-              <a href={site.phoneHref} className="u-underline text-brass-700">
+              <a href={site.phoneHref} className="u-underline text-olive-700">
                 {site.phone}
               </a>
               .
@@ -54,7 +54,7 @@ export function PolicyPage({
           <Reveal delay={0.08} className="lg:col-span-7 lg:col-start-6">
             <p className="u-lede">{summary}</p>
 
-            <div className="mt-10 border-l-2 border-brass-500/60 py-1 pl-6">
+            <div className="mt-10 border-l-2 border-olive-500/60 py-1 pl-6">
               <h2 className="u-display-4 text-evergreen-600">
                 This policy is being finalised.
               </h2>

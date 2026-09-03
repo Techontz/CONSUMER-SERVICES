@@ -68,7 +68,7 @@ export function Logo({
           <span
             className={cn(
               "mt-2 hidden font-display text-[0.5625rem] uppercase tracking-[0.26em] sm:block wide:mt-2.5 wide:text-[0.625rem]",
-              tone === "light" ? "text-ivory-100/60" : "text-brass-700",
+              tone === "light" ? "text-ivory-100/60" : "text-olive-700",
             )}
           >
             {site.tagline}

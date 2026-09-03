@@ -44,7 +44,7 @@ export default function ContactPage() {
                   key={r.title}
                   className="group flex gap-5 border-t border-rule py-6 last:border-b"
                 >
-                  <span aria-hidden className="mt-2.5 u-dot text-brass-700" />
+                  <span aria-hidden className="mt-2.5 u-dot text-olive-700" />
                   <span>
                     <h3 className="text-[1.1875rem] leading-snug text-evergreen-600">
                       {r.title}
@@ -66,7 +66,7 @@ export default function ContactPage() {
                   <dd>
                     <a
                       href={site.phoneHref}
-                      className="u-underline text-evergreen-600 transition-colors hover:text-brass-700"
+                      className="u-underline text-evergreen-600 transition-colors hover:text-olive-700"
                     >
                       {site.phone}
                     </a>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                   <dd>
                     <a
                       href={`mailto:${site.email}`}
-                      className="u-underline break-all text-evergreen-600 transition-colors hover:text-brass-700"
+                      className="u-underline break-all text-evergreen-600 transition-colors hover:text-olive-700"
                     >
                       {site.email}
                     </a>
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 key={item}
                 className="group flex items-center gap-5 bg-evergreen-800 px-7 py-6 transition-colors duration-500 hover:bg-evergreen-700"
               >
-                <span aria-hidden className="u-dot text-brass-500" />
+                <span aria-hidden className="u-dot text-olive-500" />
                 <span className="text-[1.0625rem] leading-snug text-ivory-100">
                   {item}
                 </span>
