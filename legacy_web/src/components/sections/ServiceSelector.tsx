@@ -170,7 +170,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
             {/* One tint over seven photographs, so the set reads as commissioned. */}
             <span
               aria-hidden
-              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(10,60,52,0.24),rgba(4,18,15,0.60))]"
+              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(18,61,50,0.24),rgba(10,32,25,0.60))]"
             />
             <span
               aria-hidden

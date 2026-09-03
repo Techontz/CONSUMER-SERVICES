@@ -85,7 +85,7 @@ export function ReadinessStory({
               {/* Keeps the crop from competing with the type beside it. */}
               <div
                 aria-hidden
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,18,15,0.1),rgba(4,18,15,0.4))]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,32,25,0.1),rgba(10,32,25,0.4))]"
               />
               <span
                 aria-hidden

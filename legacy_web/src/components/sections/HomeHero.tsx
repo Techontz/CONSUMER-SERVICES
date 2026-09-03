@@ -77,19 +77,32 @@ export function HomeHero() {
             className="u-editorial text-ivory-100"
             style={{
               marginTop: "clamp(0.75rem, 2.3svh, 2rem)",
-              fontSize: "clamp(2.5625rem, min(6.3vw, 8.1svh), 5.375rem)",
+              // Four lines, not three. The height term is what stops the
+              // composition running past the fold on a short screen, and a
+              // fourth line is a fourth 1.15em of it — so 8.1svh comes down
+              // to 6.4svh. The width term and the 5.375rem ceiling are
+              // untouched, so on any screen tall enough the headline is
+              // exactly the size it was; only short viewports pay, and they
+              // pay in type size rather than in buttons below the fold.
+              fontSize: "clamp(2.375rem, min(6.3vw, 6.4svh), 5.375rem)",
             }}
           >
             {lines.map((line, i) => (
               <span
                 key={line}
                 // `overflow-hidden` is the reveal mask, so this padding is
-                // what stands between it and the descenders: 0.04em was far
-                // less than the 0.245em of ink Fraunces puts below the
-                // baseline. `whitespace-nowrap` from `lg` keeps "Experience
-                // Insight" on one line on a desktop; below that it wraps
-                // naturally, which is what a phone needs.
-                className="block overflow-hidden pb-[0.14em] lg:whitespace-nowrap"
+                // the only thing standing between it and the descenders.
+                // Measured on the shipped face: Fraunces puts 0.245em of ink
+                // below the baseline roman and 0.253em italic, so 0.14em of
+                // clearance under a 1.15 line box is what keeps the g in
+                // "Insight", the g and y in "Legacy" and the italic tails
+                // whole. It is not a guess and it is not decorative.
+                //
+                // `whitespace-nowrap` throughout: each of the first three
+                // lines is a single word and the fourth is the closing
+                // phrase, which is set to hold together at every width the
+                // site supports. Nothing here may wrap into a fifth line.
+                className="block overflow-hidden whitespace-nowrap pb-[0.14em]"
               >
                 <span
                   className={
@@ -97,7 +110,7 @@ export function HomeHero() {
                       ? "u-in-mask block italic text-olive-400"
                       : "u-in-mask block"
                   }
-                  style={{ animationDelay: `${200 + i * 80}ms` }}
+                  style={{ animationDelay: `${200 + i * 70}ms` }}
                 >
                   {line}
                 </span>
@@ -163,10 +176,17 @@ export function HomeHero() {
           animationDelay: "900ms",
         }}
       >
-        <div className="u-container flex items-center justify-between border-t border-ivory-100/15 pt-[clamp(0.875rem,2svh,1.25rem)]">
-          <span className="u-eyebrow text-ivory-100/60">{site.tagline}</span>
+        {/* 75%, not 60%. These two are the quietest text in the composition
+            and they sit at the foot of the frame where the directional wash
+            has run out — the strap line measured 4.41:1 and "Scroll", which
+            sits furthest right where the wash reaches zero, 3.84:1. The
+            alternative was more scrim, and more scrim over the water is the
+            thing this hero is not allowed to do. Fifteen points of opacity
+            costs the composition nothing: they still read as furniture. */}
+        <div className="u-container flex items-center justify-between border-t border-ivory-100/20 pt-[clamp(0.875rem,2svh,1.25rem)]">
+          <span className="u-eyebrow text-ivory-100/75">{site.tagline}</span>
           <span className="flex items-center gap-4">
-            <span className="u-eyebrow text-ivory-100/60">Scroll</span>
+            <span className="u-eyebrow text-ivory-100/75">Scroll</span>
             <span className="relative block h-[clamp(2.25rem,4.5svh,3rem)] w-px overflow-hidden bg-ivory-100/25">
               <span className="absolute inset-x-0 top-0 block h-1/2 animate-[lbc-scroll-cue_2.4s_ease-in-out_infinite] bg-olive-500" />
             </span>

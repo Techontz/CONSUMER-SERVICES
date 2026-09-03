@@ -45,7 +45,7 @@ export default function ResourcesPage() {
               />
               <div
                 aria-hidden
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,52,48,0.1),rgba(4,18,15,0.34))]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,61,50,0.1),rgba(10,32,25,0.34))]"
               />
             </div>
           </Reveal>

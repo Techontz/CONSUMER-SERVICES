@@ -50,20 +50,33 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
         className="-z-20"
       />
 
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(18,58,42,0.33)]" />
+      {/* The evergreen veil. 0.36, not the 0.33 it carried while this layer
+          was still mixed at the old ramp's rgb(18,58,42): Deep Evergreen is
+          a lighter green than the colour it replaced, so holding the alpha
+          constant would have quietly lightened every scrim on the site.
+          Three points of alpha is what returns the composite to where it
+          was measured, and it is the film's ground colour that changed —
+          not how much of the film you can see. */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(18,61,50,0.36)]" />
 
       <div
         aria-hidden
         className={
           full
-            ? "absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.14)_0%,rgba(4,18,15,0.34)_16%,rgba(6,32,27,0.62)_34%,rgba(4,18,15,0.82)_66%,rgba(4,18,15,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(4,18,15,0.80)_0%,rgba(4,18,15,0.66)_30%,rgba(6,32,27,0.26)_58%,rgba(8,52,48,0.05)_80%,rgba(8,52,48,0)_92%)]"
-            : "absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.30)_0%,rgba(6,32,27,0.52)_38%,rgba(4,18,15,0.80)_100%)] lg:bg-[linear-gradient(96deg,rgba(4,18,15,0.84)_0%,rgba(4,18,15,0.72)_32%,rgba(6,32,27,0.34)_60%,rgba(8,52,48,0.08)_82%,rgba(8,52,48,0)_94%)]"
+            ? "absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,32,25,0.14)_0%,rgba(10,32,25,0.34)_16%,rgba(24,40,33,0.62)_34%,rgba(10,32,25,0.82)_66%,rgba(10,32,25,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(10,32,25,0.84)_0%,rgba(10,32,25,0.70)_30%,rgba(24,40,33,0.30)_58%,rgba(18,61,50,0.06)_80%,rgba(18,61,50,0)_92%)]"
+            // The interior variant's phone gradient opened at 0.30, which is
+            // most of a page hero's height at 390px: on Industries the
+            // kicker sits up in that thin part of it and measured 2.78:1.
+            // A page hero is half the height of the homepage's and its type
+            // starts higher in the frame, so it cannot borrow the homepage's
+            // curve — it needs its own, weighted to the top.
+            : "absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,32,25,0.74)_0%,rgba(24,40,33,0.74)_38%,rgba(10,32,25,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(10,32,25,0.84)_0%,rgba(10,32,25,0.72)_32%,rgba(24,40,33,0.34)_60%,rgba(18,61,50,0.08)_82%,rgba(18,61,50,0)_94%)]"
         }
       />
 
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(125%_105%_at_50%_44%,rgba(4,18,15,0)_52%,rgba(4,18,15,0.16)_78%,rgba(4,18,15,0.34)_100%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(125%_105%_at_50%_44%,rgba(10,32,25,0)_52%,rgba(10,32,25,0.16)_78%,rgba(10,32,25,0.34)_100%)]"
       />
 
       {/* The standing rule and the scroll cue sit along the foot of the
@@ -75,11 +88,18 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
           current master, which is under AA. The brighter the footage, the
           more this one earns its place. Desktop only, because below `lg`
           that rule is not rendered and the bottom-up wash already covers the
-          ground. */}
+          ground.
+
+          Deepened to 0.60 with the palette change. Deep Evergreen is lighter
+          than the green this layer used to be mixed at, and the strap line
+          is the one run on the whole page with no margin to give — it fell
+          to 4.41:1. Doing it here rather than in the veil is the point: the
+          extra weight lands in the last third of the frame, which is water,
+          instead of across the towers and the sky that the film is for. */}
       {full ? (
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 -z-10 hidden h-[32%] bg-[linear-gradient(180deg,rgba(4,18,15,0)_0%,rgba(4,18,15,0.12)_44%,rgba(4,18,15,0.48)_100%)] lg:block"
+          className="absolute inset-x-0 bottom-0 -z-10 hidden h-[34%] bg-[linear-gradient(180deg,rgba(10,32,25,0)_0%,rgba(10,32,25,0.16)_44%,rgba(10,32,25,0.60)_100%)] lg:block"
         />
       ) : null}
 

@@ -17,10 +17,26 @@ const base =
 
 const variants: Record<Variant, string> = {
   solid: "border-evergreen-800 bg-evergreen-800 text-ivory-100",
+  // Primary: Light Olive ground, dark type. One weight of border, no fill
+  // gradient, no radius.
   accent: "border-olive-500 bg-olive-500 text-evergreen-950",
-  quiet: "border-evergreen-800/40 bg-transparent text-evergreen-700 hover:text-ivory-100",
+  // Secondary on a light ground. The border is olive rather than a tint of
+  // the evergreen it used to be — the accent is what marks an action, and a
+  // faded structural colour marked nothing.
+  //
+  // olive-700, and the ramp step matters: a control's boundary owes 3:1, and
+  // on ivory Light Olive itself measures 1.85:1 and olive-600 only 2.79:1.
+  // 700 is the first step that clears it, at 5.20:1. It is the same value
+  // the eyebrows use on a light ground, so the accent reads as one colour
+  // across the site even though two different tints are doing the work.
+  quiet: "border-olive-700 bg-transparent text-evergreen-700 hover:text-ivory-100",
+  // Secondary on a dark ground. Light Olive at 70% — a thin refined rule
+  // rather than the ivory hairline it was, so both secondary buttons on the
+  // site are marked by the same colour. 70 rather than 55 for the same
+  // reason as above: 55% composites to 2.95:1 on Deep Evergreen, just under
+  // the 3:1; 70% reads 3.85:1 and is still visibly a hairline.
   quietLight:
-    "border-ivory-100/45 bg-transparent text-ivory-100 hover:text-evergreen-950",
+    "border-olive-500/70 bg-transparent text-ivory-100 hover:text-evergreen-950",
 };
 
 /** The wash that wipes across on hover, per variant. */

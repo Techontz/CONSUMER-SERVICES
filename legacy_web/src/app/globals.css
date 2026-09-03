@@ -173,9 +173,18 @@
     color: var(--color-evergreen-950);
   }
 
+  /* A two-tone ring, because one colour cannot serve both grounds.
+     Light Olive is the brand's focus colour and it is excellent on
+     evergreen — 6.19:1 — and useless on ivory, where it measures 1.74:1
+     against a 3:1 requirement for a focus indicator. So the ring is drawn
+     twice: a dark band hard against the element and the olive outline
+     just outside it. On a light page the dark band carries it; on a dark
+     page the olive does. Whichever ground the control is on, one of the
+     two edges is always at full strength. */
   :focus-visible {
     outline: 2px solid var(--color-olive-500);
-    outline-offset: 3px;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-evergreen-950);
     border-radius: 2px;
   }
 

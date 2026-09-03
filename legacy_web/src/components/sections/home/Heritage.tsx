@@ -70,11 +70,11 @@ export function Heritage() {
           its own number. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(4,18,15,0.80)_0%,rgba(6,32,27,0.71)_46%,rgba(8,52,48,0.64)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(10,32,25,0.80)_0%,rgba(24,40,33,0.71)_46%,rgba(18,61,50,0.64)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,15,0.18)_0%,rgba(4,18,15,0.19)_24%,rgba(4,18,15,0.23)_58%,rgba(4,18,15,0.15)_100%)] lg:bg-[linear-gradient(180deg,rgba(4,18,15,0.04)_0%,rgba(4,18,15,0.08)_24%,rgba(4,18,15,0.2)_58%,rgba(4,18,15,0.12)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,32,25,0.18)_0%,rgba(10,32,25,0.19)_24%,rgba(10,32,25,0.23)_58%,rgba(10,32,25,0.15)_100%)] lg:bg-[linear-gradient(180deg,rgba(10,32,25,0.06)_0%,rgba(10,32,25,0.11)_24%,rgba(10,32,25,0.24)_58%,rgba(10,32,25,0.15)_100%)]"
       />
 
       <Container className="relative">

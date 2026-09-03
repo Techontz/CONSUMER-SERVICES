@@ -121,20 +121,23 @@ export function SiteHeader() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[box-shadow,backdrop-filter] duration-500",
           "ease-[cubic-bezier(0.16,1,0.3,1)]",
-          // A solid band, not a veil over the film.
+          // One colour. Deep Evergreen, flat, edge to edge.
           //
-          // This used to fade out over the hero so the first viewport read as
-          // one cinematic frame. It reads instead as a branded architectural
-          // layer with a definite end: strongly evergreen, with a shallow
-          // tonal fall inside its own height — deepest at the very top,
-          // easing by the foot — so the band has depth without ever letting
-          // the video through it.
-          "bg-[linear-gradient(180deg,var(--color-evergreen-950)_0%,var(--color-evergreen-900)_58%,var(--color-evergreen-800)_100%)]",
-          // The line that says where the header stops. One pixel of low
-          // olive: enough to read as a drawn edge against sunlit water,
-          // far too little to read as a border.
-          "border-b border-olive-500/70",
-          scrolled && "shadow-[0_14px_34px_-16px_rgba(4,18,15,0.85)] backdrop-blur-xl",
+          // It used to run a vertical gradient from evergreen-950 through
+          // -900 to -800 inside its own height, which was meant to read as
+          // depth and instead read as three bands of green stacked in a
+          // strip. A masthead is architecture: it is one plane, and one
+          // plane is one colour.
+          "bg-evergreen-800",
+          // The only thing allowed to break the plane: a single pixel of
+          // olive saying where the header stops. Low enough to read as a
+          // drawn edge rather than as a border.
+          "border-b border-olive-500/45",
+          // No blur and no coloured shadow on scroll either — a shadow that
+          // dark against evergreen paints a fourth tone just under the rule,
+          // which is the two-tone effect coming back by another route. A
+          // neutral, shallow drop is enough to lift the band off the page.
+          scrolled && "shadow-[0_10px_24px_-18px_rgba(0,0,0,0.55)]",
         )}
         onMouseLeave={scheduleClose}
         // Tabbing out of the header closes any open panel, so keyboard users
@@ -262,7 +265,7 @@ export function SiteHeader() {
           // Hidden from assistive tech and from the tab order while closed;
           // the panel stays in the DOM only so it can animate out.
           inert={openKey ? undefined : true}
-          className="u-panel absolute inset-x-0 top-full hidden border-t border-ivory-100/10 bg-evergreen-900 shadow-[0_28px_60px_-20px_rgba(4,18,15,0.75)] lg:block"
+          className="u-panel absolute inset-x-0 top-full hidden border-t border-ivory-100/10 bg-evergreen-900 shadow-[0_28px_60px_-20px_rgba(10,32,25,0.75)] lg:block"
           onMouseEnter={() => openKey && open(openKey)}
         >
           {activeItem ? (

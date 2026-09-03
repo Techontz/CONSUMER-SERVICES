@@ -58,10 +58,16 @@ export function IndustryMosaic({ items }: { items: Industry[] }) {
             />
 
             {/* Evergreen tint unifies six photographs shot in six different
-                conditions into one set. */}
+                conditions into one set — and carries the tile's caption,
+                which sits at its foot. Deepened at the bottom stop with the
+                palette change: Deep Evergreen is lighter than the green this
+                gradient was mixed at, and the caption on the brightest of
+                the six tiles fell to 4.53:1. The extra weight is all in the
+                lower half, where the type is, so the photographs keep their
+                sky. */}
             <span
               aria-hidden
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,52,48,0.2),rgba(4,18,15,0.55))]"
+              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,61,50,0.18),rgba(10,32,25,0.66))]"
             />
 
             {/* The panel that rises to fill the tile. */}

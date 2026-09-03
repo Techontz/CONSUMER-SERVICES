@@ -291,7 +291,7 @@ export function HeroFilm({
           brand colour over the top is what makes it read as a dissolve. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[rgba(10,52,44,0.9)]"
+        className="pointer-events-none absolute inset-0 bg-[rgba(18,61,50,0.9)]"
         style={{
           opacity: dissolving ? 0.24 : 0,
           transition: `opacity ${Math.round(FADE_MS / 2)}ms ease-in-out`,

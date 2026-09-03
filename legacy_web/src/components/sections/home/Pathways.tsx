@@ -41,7 +41,15 @@ export function Pathways() {
       <RevealGroup as="ul" className="mt-12 border-t border-rule lg:mt-16">
         {pathways.items.map((item) => (
           <RevealItem as="li" key={item.verb}>
-            <div className="group relative grid grid-cols-12 items-baseline gap-x-4 border-b border-rule py-7 transition-colors duration-500 sm:gap-x-8 lg:py-8">
+            {/* Rows, not cards. The three parts used to be spread 2 / 7 / 3
+                across the full 1210px rail, which put the verb alone at the
+                far left, the title adrift in a column twice the width it
+                needed, and the note pinned to the right margin — three
+                islands with a dead middle between them. 2 / 5 / 4 with the
+                note starting at column 8 closes that gap, and the title is
+                allowed a wider measure so it sets on one line instead of
+                breaking in half inside an over-wide column. */}
+            <div className="group relative grid grid-cols-12 items-baseline gap-x-4 border-b border-rule py-6 transition-colors duration-500 sm:gap-x-8 lg:py-7">
               {/* Hover wash — a paper-white lift, not a shadow. */}
               <span
                 aria-hidden
@@ -54,11 +62,11 @@ export function Pathways() {
                 </span>
               </span>
 
-              <h3 className="u-display-4 col-span-12 mt-3 max-w-[28ch] text-[clamp(1.125rem,1.75vw,1.625rem)] text-evergreen-600 sm:col-span-7 sm:mt-0">
+              <h3 className="u-display-4 col-span-12 mt-3 max-w-[34ch] text-[clamp(1.125rem,1.75vw,1.625rem)] text-evergreen-600 sm:col-span-5 sm:mt-0">
                 {item.title}
               </h3>
 
-              <p className="col-span-12 mt-3 text-sm text-ink-500 sm:col-span-3 sm:mt-0">
+              <p className="col-span-12 mt-3 text-sm leading-[1.7] text-ink-500 sm:col-span-4 sm:col-start-8 sm:mt-0">
                 {item.note}
               </p>
             </div>

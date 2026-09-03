@@ -5,13 +5,18 @@
 
 export const homeHero = {
   eyebrow: "Consumer Services, Inc.",
-  /** Rendered as four staggered mask-revealed lines */
   /**
-   * Line breaks, not copy. The same four words in the same order — only the
-   * grouping changed, so "Experience Insight" sets as one line on a desktop
-   * and the headline reads in three movements rather than four.
+   * Four lines, one word each until the closing phrase. This is the approved
+   * composition and it is fixed: Experience, then Insight, then Legacy, then
+   * the promise set italic beneath them.
+   *
+   * They were briefly grouped as "Experience Insight / Legacy / Solutions
+   * That Last" to get the first two words onto one desktop line. That is
+   * reverted. The four-line stack is the composition — three nouns falling
+   * one under the next, each landing on its own, and the italic line
+   * answering all three.
    */
-  headlineLines: ["Experience Insight", "Legacy", "Solutions That Last"],
+  headlineLines: ["Experience", "Insight", "Legacy", "Solutions That Last"],
   lede:
     "Since 1991, Consumer Services, Inc. has helped businesses, professionals and organizations plan, prepare, strengthen and move forward.",
   primaryCta: { label: "Explore Consumer Services", href: "/services" },
