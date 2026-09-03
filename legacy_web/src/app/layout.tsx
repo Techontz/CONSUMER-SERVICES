@@ -94,7 +94,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#083430",
+  // Deep Evergreen — the same value the header is painted with, so the
+  // browser's own chrome band continues the site's top edge instead of
+  // sitting a shade off it. It was #083430, left over from the green the
+  // palette was mixed against before Deep Evergreen was approved.
+  themeColor: "#123D32",
   colorScheme: "light",
 };
 

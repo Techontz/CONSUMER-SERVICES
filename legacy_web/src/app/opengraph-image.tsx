@@ -25,7 +25,7 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           background:
-            "linear-gradient(120deg, #04120F 0%, #083430 58%, #0E463F 100%)",
+            "linear-gradient(120deg, #182821 0%, #123D32 62%, #17493B 100%)",
           padding: "76px 80px",
           fontFamily: "Georgia, serif",
         }}

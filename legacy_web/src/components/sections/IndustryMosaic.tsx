@@ -54,7 +54,19 @@ export function IndustryMosaic({ items }: { items: Industry[] }) {
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 55vw"
               quality={82}
-              className="object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-focus-within:scale-[1.03] motion-reduce:transition-none"
+              // The grade, not just a tint. The evergreen scrim below sits
+              // *over* the photograph, so it darkens every tile equally and
+              // corrects none of them: the transportation aerial still came
+              // through cyan, the server aisle cool blue-grey, and the
+              // healthcare corridor a flat institutional beige — six
+              // palettes in one mosaic. Pulling saturation back to 0.68 and
+              // rotating the remaining chroma 8deg toward green takes the
+              // blue out of the two cold tiles before the scrim lands, which
+              // is the only order in which the scrim can unify anything. The
+              // slight contrast lift puts back the snap the desaturation
+              // costs. Applied to the image rather than the tile so the
+              // caption and the hover panel stay at full strength.
+              className="object-cover [filter:saturate(0.68)_hue-rotate(-8deg)_contrast(1.06)] transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-focus-within:scale-[1.03] motion-reduce:transition-none"
             />
 
             {/* Evergreen tint unifies six photographs shot in six different
