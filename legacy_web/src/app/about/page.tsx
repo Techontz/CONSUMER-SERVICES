@@ -74,7 +74,11 @@ export default function AboutPage() {
                 aria-hidden
                 className="mt-8 block h-px w-24 bg-olive-500"
               />
-              <p className="u-eyebrow mt-8 text-ivory-100/55">
+              {/* /60, not /55. Warm Ivory at 55% over Deep Evergreen measures
+                  4.41:1 — just under AA for text this size. One opacity step
+                  up is 4.95:1. Same colour, same palette; it is the alpha
+                  that was wrong, not the ink. */}
+              <p className="u-eyebrow mt-8 text-ivory-100/60">
                 {site.established} &middot; {site.establishedIn}
               </p>
             </Reveal>

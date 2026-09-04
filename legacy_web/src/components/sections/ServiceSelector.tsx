@@ -15,6 +15,17 @@ type Service = {
 };
 
 /**
+ * What the pathway's call to action should say.
+ *
+ * Four of the seven pathways have no page of their own — the next thing the
+ * reader does is talk to us — and inviting them to "explore" a destination
+ * that is the contact form was the CTA describing the control rather than
+ * the destination. Those four ask for the conversation by name; the three
+ * that open a real page still offer to open it.
+ */
+const isContact = (href: string) => href === "/contact";
+
+/**
  * The service pathways, as an index that drives a single detail panel.
  *
  * Seven cards in a grid make the reader compare seven things at once; a list
@@ -210,7 +221,9 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               href={current.href}
               className="group inline-flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-olive-400 transition-colors duration-300 hover:text-ivory-100"
             >
-              Explore this pathway
+              {isContact(current.href)
+                ? "Discuss This Service"
+                : "Explore this pathway"}
               <span
                 aria-hidden
                 className="block h-px w-8 bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-14 motion-reduce:transition-none"
@@ -237,7 +250,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                 {item.body}
               </span>
               <span className="mt-6 flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-evergreen-700">
-                Explore
+                {isContact(item.href) ? "Discuss This Service" : "Explore"}
                 <span aria-hidden className="block h-px w-7 bg-current" />
               </span>
             </Link>

@@ -1,7 +1,5 @@
 import { ContactForm } from "@/components/forms/ContactForm";
-import { MarkerGrid } from "@/components/sections/MarkerGrid";
 import { PageHero } from "@/components/sections/PageHero";
-import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -102,57 +100,6 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      {/* --- Six ways we help --- */}
-      <Section tone="ivory">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-6">
-            <Eyebrow>{p.next.eyebrow}</Eyebrow>
-            <h2 className="u-display-2 mt-6 text-evergreen-600">
-              {p.next.headline}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
-            <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
-              {p.next.body}
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="mt-11 lg:mt-14">
-          <MarkerGrid items={p.next.items} columns={3} />
-        </div>
-      </Section>
-
-      {/* --- Nine readiness checkpoints --- */}
-      <section className="u-seam-up u-grain relative isolate overflow-hidden bg-evergreen-800 pb-18 pt-24 text-ivory-100 lg:pb-24 lg:pt-30">
-        <Container>
-          <Reveal className="max-w-[52ch]">
-            <Eyebrow tone="light">{p.checkpoints.eyebrow}</Eyebrow>
-            <h2 className="u-display-3 mt-6 text-ivory-100">
-              {p.checkpoints.headline}
-            </h2>
-          </Reveal>
-
-          <RevealGroup
-            as="ul"
-            amount={0.06}
-            className="mt-11 grid gap-px bg-ivory-100/12 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {p.checkpoints.items.map((item) => (
-              <RevealItem
-                as="li"
-                key={item}
-                className="group flex items-center gap-5 bg-evergreen-800 px-7 py-6 transition-colors duration-500 hover:bg-evergreen-700"
-              >
-                <span aria-hidden className="u-dot text-olive-500" />
-                <span className="text-[1.0625rem] leading-snug text-ivory-100">
-                  {item}
-                </span>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </Container>
-      </section>
     </main>
   );
 }

@@ -32,7 +32,11 @@ export const site = {
 
   // A range, not a year: the footer carries the founding date as well as
   // the current one, which is the whole point of a line that opens with 1991.
-  copyrightRange: "1991 - 2026",
+  //
+  // The separator is an en dash with no spaces around it — "1991\u20132026" —
+  // which is how a span of years is set, and what the client specified. A
+  // hyphen with spaces is not the same character and reads as a subtraction.
+  copyrightRange: "1991\u20132026",
 } as const;
 
 export type NavChild = {

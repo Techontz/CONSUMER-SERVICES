@@ -346,7 +346,7 @@ export const contactPage = {
   reasons: {
     eyebrow: "3 Reasons to Connect With Us",
     headline:
-      "You know what you want. Allow us to help provide the direction to move it forward.",
+      "You know what you want to build. We help identify the direction to move it forward.",
     items: [
       {
         title: "You Have an Idea",
@@ -379,35 +379,13 @@ export const contactPage = {
     disclaimer:
       "Submitting this form does not create a consulting engagement or guarantee service availability.",
   },
-  next: {
-    eyebrow: "6 Ways We Help Move the Business Forward",
-    headline: "Direction where it matters most.",
-    body:
-      "Our work is designed around the business objective, not a one-size-fits-all package.",
-    items: [
-      { title: "Structure", body: "Organize the business foundation." },
-      { title: "Plan", body: "Develop the blueprint and strategy." },
-      { title: "Prepare", body: "Get the business ready for the objective." },
-      { title: "Position", body: "Strengthen market and opportunity readiness." },
-      { title: "Implement", body: "Put the plan and systems into action." },
-      { title: "Advance", body: "Support the next stage of growth or development." },
-    ],
-  },
-  checkpoints: {
-    eyebrow: "9 Readiness Checkpoints",
-    headline: "What may need to be in place before the next opportunity.",
-    items: [
-      "Business Structure",
-      "Business Plan",
-      "Financial Readiness",
-      "Digital Presence",
-      "Documentation",
-      "Licensing / Compliance",
-      "Funding Readiness",
-      "Contracting Readiness",
-      "Implementation Plan",
-    ],
-  },
+  /*
+   * "6 Ways We Help Move the Business Forward" and the "9 Readiness
+   * Checkpoints" grid stood here. The client removed both from the Contact
+   * page in final review — the page keeps the introduction, the three
+   * reasons, the contact details, the form and the legal note, and nothing
+   * else. The copy is in git history if it is ever wanted back.
+   */
 };
 
 /* ------------------------------------------------------------------ */
