@@ -205,7 +205,7 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
       </section>
 
       {/* ---- The document ---- */}
-      <div className="bg-ivory-50 pb-20 pt-12 lg:pb-28 lg:pt-16">
+      <div className="bg-ivory-100 pb-20 pt-12 lg:pb-28 lg:pt-16">
         <div className="mx-auto w-full max-w-[53.5rem] px-5 sm:px-8">
           {/* Contents. Nothing but the client's own numbers and headings,
               set as a jump list so a seventeen-section document can be
@@ -223,7 +223,7 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
                 <li key={s.number} className="break-inside-avoid pb-2.5">
                   <Link
                     href={`#${anchor(s.number)}`}
-                    className="u-underline flex gap-2.5 text-[0.9375rem] leading-[1.55] text-ink-500 transition-colors duration-300 hover:text-evergreen-600"
+                    className="u-underline flex gap-2.5 text-[0.9375rem] leading-[1.55] text-ink-700 transition-colors duration-300 hover:text-evergreen-600"
                   >
                     <span className="w-6 shrink-0 tabular-nums text-olive-700">
                       {s.number}.
@@ -287,7 +287,7 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
                   <li key={l.href}>
                     <Link
                       href={l.href}
-                      className="u-underline text-ink-500 transition-colors duration-300 hover:text-evergreen-600"
+                      className="u-underline text-ink-700 transition-colors duration-300 hover:text-evergreen-600"
                     >
                       {l.label}
                     </Link>

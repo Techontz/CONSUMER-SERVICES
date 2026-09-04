@@ -117,7 +117,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                 <span
                   className={cn(
                     "u-display-4 mt-3 block transition-colors duration-300",
-                    selected ? "text-evergreen-600" : "text-ink-500",
+                    selected ? "text-evergreen-600" : "text-ink-700",
                   )}
                 >
                   {item.title}
@@ -246,7 +246,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               <span className="u-display-4 mt-5 block text-evergreen-600">
                 {item.title}
               </span>
-              <span className="mt-3 block text-sm leading-relaxed text-ink-500">
+              <span className="mt-3 block text-sm leading-relaxed text-ink-700">
                 {item.body}
               </span>
               <span className="mt-6 flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-evergreen-700">

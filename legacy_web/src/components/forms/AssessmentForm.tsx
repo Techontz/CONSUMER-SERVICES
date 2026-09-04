@@ -193,7 +193,7 @@ export function AssessmentForm() {
         ) : null}
       </div>
 
-      <p className="mt-6 max-w-[56ch] text-[0.8125rem] leading-relaxed text-ink-500">
+      <p className="mt-6 max-w-[56ch] text-[0.8125rem] leading-relaxed text-ink-700">
         Submitting this form does not create a consulting engagement or
         guarantee service availability.
       </p>

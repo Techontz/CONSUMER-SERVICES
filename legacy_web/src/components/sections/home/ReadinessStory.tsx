@@ -119,7 +119,7 @@ export function ReadinessStory({
                     key={p}
                     className={cn(
                       "mb-5 text-[1.0625rem] leading-[1.72] last:mb-0",
-                      dark ? "text-ivory-100/70" : "text-ink-500",
+                      dark ? "text-ivory-100/70" : "text-ink-700",
                     )}
                   >
                     {p}
@@ -154,7 +154,7 @@ export function ReadinessStory({
                   <span
                     className={cn(
                       "flex items-center gap-2.5 text-[0.6875rem] font-normal uppercase tracking-[0.14em]",
-                      dark ? "text-ivory-100/72" : "text-ink-500",
+                      dark ? "text-ivory-100/72" : "text-ink-700",
                     )}
                   >
                     <span

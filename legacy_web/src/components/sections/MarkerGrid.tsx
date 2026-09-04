@@ -67,7 +67,7 @@ export function MarkerGrid({
             <p
               className={cn(
                 "mt-4 text-sm leading-relaxed",
-                dark ? "text-ivory-100/65" : "text-ink-500",
+                dark ? "text-ivory-100/65" : "text-ink-700",
               )}
             >
               {item.note ?? item.body}

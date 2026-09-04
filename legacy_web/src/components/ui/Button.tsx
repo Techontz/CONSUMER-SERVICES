@@ -19,7 +19,7 @@ const variants: Record<Variant, string> = {
   solid: "border-evergreen-800 bg-evergreen-800 text-ivory-100",
   // Primary: Light Olive ground, dark type. One weight of border, no fill
   // gradient, no radius.
-  accent: "border-olive-500 bg-olive-500 text-evergreen-950",
+  accent: "border-olive-500 bg-olive-500 text-ink-900",
   // Secondary on a light ground. The border is olive rather than a tint of
   // the evergreen it used to be — the accent is what marks an action, and a
   // faded structural colour marked nothing.
@@ -30,13 +30,13 @@ const variants: Record<Variant, string> = {
   // the eyebrows use on a light ground, so the accent reads as one colour
   // across the site even though two different tints are doing the work.
   quiet: "border-olive-700 bg-transparent text-evergreen-700 hover:text-ivory-100",
-  // Secondary on a dark ground. Light Olive at 70% — a thin refined rule
-  // rather than the ivory hairline it was, so both secondary buttons on the
-  // site are marked by the same colour. 70 rather than 55 for the same
-  // reason as above: 55% composites to 2.95:1 on Deep Evergreen, just under
-  // the 3:1; 70% reads 3.85:1 and is still visibly a hairline.
+  // Secondary on a dark ground: Light Olive at full strength, which is what
+  // the brief specifies for a secondary control, and 6.19:1 on Deep
+  // Evergreen. It was 70% — legible at 3.85:1, but a diluted accent reads as
+  // a weaker button rather than a quieter one, and one border weight across
+  // the site is the point of having a button system at all.
   quietLight:
-    "border-olive-500/70 bg-transparent text-ivory-100 hover:text-evergreen-950",
+    "border-olive-500 bg-transparent text-ivory-100 hover:text-ink-900",
 };
 
 /** The wash that wipes across on hover, per variant. */

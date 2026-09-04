@@ -33,7 +33,7 @@ export default function AboutPage() {
             <h2 className="u-display-3 mt-6 text-evergreen-600">
               {p.role.headline}
             </h2>
-            <p className="mt-7 text-[1.0625rem] leading-[1.72] text-ink-500">
+            <p className="mt-7 text-[1.0625rem] leading-[1.72] text-ink-700">
               {p.role.body}
             </p>
           </Reveal>
@@ -110,7 +110,7 @@ export default function AboutPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
-            <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
+            <p className="text-[1.0625rem] leading-[1.72] text-ink-700">
               {p.approach.body}
             </p>
           </Reveal>
@@ -146,7 +146,7 @@ export default function AboutPage() {
             {p.collaboration.body.map((t) => (
               <p
                 key={t}
-                className="mb-5 text-[1.0625rem] leading-[1.72] text-ink-500 last:mb-0"
+                className="mb-5 text-[1.0625rem] leading-[1.72] text-ink-700 last:mb-0"
               >
                 {t}
               </p>

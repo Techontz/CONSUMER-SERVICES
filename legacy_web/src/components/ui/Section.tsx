@@ -5,7 +5,11 @@ import { Container } from "./Container";
 type Tone = "paper" | "ivory" | "evergreen" | "charcoal" | "deep";
 
 const tones: Record<Tone, string> = {
-  paper: "bg-ivory-50 text-ink-900",
+  /* The primary light surface is Warm Ivory itself — the approved colour,
+     not the lighter tint this used to be. `ivory` is the alternate band, one
+     soft step down, which is enough to seam two light sections without
+     striping the page. Both carry Charcoal Green type. */
+  paper: "bg-ivory-100 text-ink-900",
   ivory: "bg-ivory-200 text-ink-900",
   evergreen: "bg-evergreen-800 text-ivory-100",
   /** Charcoal Green. Depth beneath the brand ground, not a second

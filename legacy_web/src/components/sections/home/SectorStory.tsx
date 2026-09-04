@@ -15,7 +15,7 @@ export function SectorStory() {
         />
 
         <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
-          <p className="u-copy text-ink-500">{sectorStory.body}</p>
+          <p className="u-copy text-ink-700">{sectorStory.body}</p>
           <div className="mt-9">
             <TextLink href={sectorStory.link.href}>
               {sectorStory.link.label}
@@ -42,7 +42,7 @@ export function SectorStory() {
             <h3 className="relative u-display-4 text-evergreen-600 transition-colors duration-400 group-hover:text-ivory-100">
               {item.title}
             </h3>
-            <p className="relative mt-5 text-sm leading-relaxed text-ink-500 transition-colors duration-400 group-hover:text-ivory-100/70">
+            <p className="relative mt-5 text-sm leading-relaxed text-ink-700 transition-colors duration-400 group-hover:text-ivory-100/70">
               {item.note}
             </p>
           </RevealItem>

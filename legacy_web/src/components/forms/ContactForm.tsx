@@ -174,7 +174,7 @@ export function ContactForm() {
         ) : null}
       </div>
 
-      <p className="mt-6 max-w-[56ch] text-[0.8125rem] leading-relaxed text-ink-500">
+      <p className="mt-6 max-w-[56ch] text-[0.8125rem] leading-relaxed text-ink-700">
         {contactPage.form.disclaimer}
       </p>
     </form>

@@ -199,9 +199,14 @@ export function SiteHeader() {
                         className={cn(
                           "relative block px-2.5 py-3 font-display text-[0.625rem] uppercase tracking-[0.16em] wide:px-3 wide:py-3 wide:text-[0.75rem] wide:tracking-[0.17em]",
                           "transition-colors duration-300",
+                          // Active is Light Olive, not brighter ivory. The
+                          // olive rule beneath was already marking the live
+                          // item; the label now says the same thing in the
+                          // same colour instead of leaving the accent to do
+                          // it alone. 6.19:1 on Deep Evergreen.
                           active || openKey === item.label
-                            ? "text-ivory-100"
-                            : "text-ivory-100/70 hover:text-ivory-100",
+                            ? "text-olive-500"
+                            : "text-ivory-100/75 hover:text-ivory-100",
                         )}
                       >
                         {item.label}
@@ -221,7 +226,7 @@ export function SiteHeader() {
                 })}
               </ul>
 
-              <span aria-hidden className="mx-3 block h-7 w-px bg-ivory-100/15 wide:mx-3.5 wide:h-9" />
+              <span aria-hidden className="mx-3 block h-7 w-px bg-olive-500/30 wide:mx-3.5 wide:h-9" />
 
               <a
                 href={site.phoneHref}
@@ -232,7 +237,7 @@ export function SiteHeader() {
 
               <Link
                 href="/contact"
-                className="group relative overflow-hidden whitespace-nowrap border border-olive-500/60 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-olive-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
+                className="group relative overflow-hidden whitespace-nowrap border border-olive-500 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-olive-500 transition-colors duration-300 hover:text-ink-900 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
               >
                 <span
                   aria-hidden
@@ -248,7 +253,7 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(true)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              className="ml-auto flex shrink-0 items-center gap-2.5 border border-ivory-100/30 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-olive-500 lg:hidden"
+              className="ml-auto flex shrink-0 items-center gap-2.5 border border-olive-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-olive-500 hover:text-olive-500 lg:hidden"
             >
               Menu
               <span aria-hidden className="flex flex-col gap-[3px]">

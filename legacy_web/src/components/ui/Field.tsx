@@ -12,7 +12,23 @@ const control =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive-600";
 
 const ok = "border-rule hover:border-ink-300";
-const bad = "border-red-700/70 bg-red-50/40";
+/*
+ * The invalid state, in brand colours.
+ *
+ * This was Tailwind's stock red — a mid red border on a pale red wash —
+ * which is a colour the approved palette does not contain, and it was the
+ * only foreign hue left anywhere in the interface. It never showed up in a
+ * colour audit because it only paints once a submission has failed
+ * validation.
+ *
+ * Deep Evergreen replaces it, and it signals harder rather than softer: a
+ * resting field is a #D9D7C0 hairline, so a full-strength #123D32 border is
+ * a far bigger jump than a mid red was, and it cannot be confused with the
+ * olive focus ring. Hue was never carrying this on its own anyway — the
+ * field is marked `aria-invalid` and the reason is written underneath it,
+ * which is what a reader who cannot separate red from green relies on.
+ */
+const bad = "border-evergreen-800 bg-evergreen-800/[0.06]";
 
 function Shell({
   id,
@@ -40,7 +56,7 @@ function Shell({
       >
         {label}
         {optional ? (
-          <span className="text-[0.6875rem] font-normal normal-case tracking-normal text-ink-500">
+          <span className="text-[0.6875rem] font-normal normal-case tracking-normal text-ink-700">
             (optional)
           </span>
         ) : null}
@@ -50,7 +66,7 @@ function Shell({
         <p
           id={`${id}-error`}
           role="alert"
-          className="mt-2 text-[0.8125rem] leading-snug text-red-800"
+          className="mt-2 text-[0.8125rem] leading-snug text-evergreen-800"
         >
           {error}
         </p>

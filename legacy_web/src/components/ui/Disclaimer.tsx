@@ -38,7 +38,7 @@ export function Disclaimer({
         className={cn(
           "text-sm leading-relaxed",
           title && "mt-2",
-          dark ? "text-ivory-100/60" : "text-ink-500",
+          dark ? "text-ivory-100/60" : "text-ink-700",
         )}
       >
         {children}

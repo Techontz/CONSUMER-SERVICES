@@ -33,10 +33,10 @@ export function PolicyPage({
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-4">
             <Eyebrow>{site.legalName}</Eyebrow>
-            <p className="mt-6 text-sm leading-relaxed text-ink-500">
+            <p className="mt-6 text-sm leading-relaxed text-ink-700">
               Established {site.established} in {site.establishedIn}.
             </p>
-            <p className="mt-6 text-sm leading-relaxed text-ink-500">
+            <p className="mt-6 text-sm leading-relaxed text-ink-700">
               Questions about this policy can be directed to{" "}
               <a
                 href={`mailto:${site.email}`}
@@ -59,7 +59,7 @@ export function PolicyPage({
               <h2 className="u-display-4 text-evergreen-600">
                 This policy is being finalised.
               </h2>
-              <p className="mt-2.5 text-sm leading-relaxed text-ink-500">
+              <p className="mt-2.5 text-sm leading-relaxed text-ink-700">
                 The full text is in preparation and will be published here.
                 In the meantime, please contact us directly with any question
                 about how {site.legalName} handles your information, and we

@@ -16,7 +16,7 @@ export function IntroSplit() {
 
         <Reveal delay={0.12} className="lg:col-span-5 lg:col-start-8 lg:pt-12">
           {homeIntro.body.map((p) => (
-            <p key={p} className="u-copy mb-7 text-ink-500 last:mb-0">
+            <p key={p} className="u-copy mb-7 text-ink-700 last:mb-0">
               {p}
             </p>
           ))}

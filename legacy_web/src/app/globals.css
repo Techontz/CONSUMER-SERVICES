@@ -32,11 +32,17 @@
   --color-evergreen-900: #182821; /* Charcoal Green — approved */
   --color-evergreen-800: #123D32; /* Deep Evergreen — approved */
   --color-evergreen-700: #17493B;
-  /* Heading ink on a light ground is Deep Evergreen itself, not a darker
-     relative of it: 10.80:1 on Warm Ivory, so the brand colour can carry
-     every heading on the site without a second, nearly-identical green
-     existing only to be readable. */
-  --color-evergreen-600: #123D32;
+  /* Heading ink on a light ground is Charcoal Green — the approved colour
+     itself, not a relative of it. It was Deep Evergreen, which read 10.81:1
+     on Warm Ivory and was perfectly legible; the change is one of role
+     rather than legibility. The client's system gives each colour one job,
+     and Deep Evergreen's is the brand ground: header, dark sections,
+     structure. Type on paper is Charcoal Green's job, and it happens to be
+     the better ink anyway at 13.78:1.
+
+     This token is only ever used as `text-evergreen-600` — it paints no
+     surface — so it is the single place light-ground heading colour lives. */
+  --color-evergreen-600: #182821;
   --color-evergreen-500: #1E5A49;
 
   /* --- Olive ---
@@ -68,7 +74,13 @@
      hold its hue rather than drifting to a neutral grey, and each was set
      against Warm Ivory: 500 at 6.30:1, 300 at 4.86:1. */
   --color-ink-900: #182821; /* Charcoal Green — approved */
+  /* Running body copy. The client's system puts Charcoal Green on Warm
+     Ivory, and this is that colour opened a few points so a long paragraph
+     does not read as hard as a heading — 10.61:1, against the 6.29:1 the
+     lighter step it replaced was giving. Body text was the weakest thing on
+     the light pages and it is why they read washed rather than crisp. */
   --color-ink-700: #2A3B33;
+  /* Secondary: captions, notes, the second line of a pair. */
   --color-ink-500: #4E5C55;
   --color-ink-300: #5F6D66;
 
@@ -142,7 +154,12 @@
   }
 
   body {
-    background: var(--color-ivory-50);
+    /* Warm Ivory itself. The page used to sit on ivory-50, a lighter tint,
+       which meant the approved light colour barely appeared on the site it
+       was approved for — it survived only in type on dark grounds. The
+       tints are still here and still useful, but as cards and seams lifted
+       off this ground rather than as substitutes for it. */
+    background: var(--color-ivory-100);
     color: var(--color-ink-900);
     font-family: var(--font-sans);
     font-size: 1rem;

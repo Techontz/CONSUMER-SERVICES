@@ -49,7 +49,7 @@ export function SuccessPanel({
       <p
         className={cn(
           "mt-4 max-w-[52ch] text-[1.0625rem] leading-[1.7]",
-          dark ? "text-ivory-100/72" : "text-ink-500",
+          dark ? "text-ivory-100/72" : "text-ink-700",
         )}
       >
         {body}
@@ -59,7 +59,7 @@ export function SuccessPanel({
         <p
           className={cn(
             "mt-6 text-[0.6875rem] uppercase tracking-[0.18em]",
-            dark ? "text-ivory-100/60" : "text-ink-500",
+            dark ? "text-ivory-100/60" : "text-ink-700",
           )}
         >
           Reference{" "}
@@ -74,7 +74,7 @@ export function SuccessPanel({
           "mt-8 border-t pt-6 text-sm",
           dark
             ? "border-ivory-100/15 text-ivory-100/60"
-            : "border-rule text-ink-500",
+            : "border-rule text-ink-700",
         )}
       >
         Need to reach us sooner?{" "}
@@ -107,9 +107,13 @@ export function ErrorNotice({ state }: { state: SubmitState }) {
   return (
     <div
       role="alert"
-      className="mb-8 border-l-2 border-red-700 bg-red-50/60 px-6 py-4"
+      // Deep Evergreen, not the stock red this carried: red is not in the
+      // approved palette, and a heavy brand-coloured bar against Warm Ivory
+      // is at least as loud as the mid red was. The alert role and the
+      // sentence itself are what actually carry the meaning.
+      className="mb-8 border-l-2 border-evergreen-800 bg-evergreen-800/[0.06] px-6 py-4"
     >
-      <p className="text-sm leading-relaxed text-red-900">{state.message}</p>
+      <p className="text-sm leading-relaxed text-ink-900">{state.message}</p>
     </div>
   );
 }

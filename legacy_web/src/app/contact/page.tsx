@@ -47,7 +47,7 @@ export default function ContactPage() {
                     <h3 className="text-[1.1875rem] leading-snug text-evergreen-600">
                       {r.title}
                     </h3>
-                    <p className="mt-2.5 text-sm leading-relaxed text-ink-500">
+                    <p className="mt-2.5 text-sm leading-relaxed text-ink-700">
                       {r.body}
                     </p>
                   </span>
@@ -87,9 +87,9 @@ export default function ContactPage() {
 
           {/* Form */}
           <Reveal delay={0.08} className="lg:col-span-6 lg:col-start-7">
-            <div className="border border-rule bg-ivory-100 p-8 lg:p-11">
+            <div className="border border-rule bg-ivory-50 p-8 lg:p-11">
               <Eyebrow>{p.form.eyebrow}</Eyebrow>
-              <p className="mt-6 max-w-[52ch] text-[0.9375rem] leading-relaxed text-ink-500">
+              <p className="mt-6 max-w-[52ch] text-[0.9375rem] leading-relaxed text-ink-700">
                 {p.form.body}
               </p>
               <div className="mt-10">

@@ -28,7 +28,7 @@ export function Pathways() {
         />
 
         <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-14">
-          <p className="u-copy text-ink-500">{pathways.standfirst}</p>
+          <p className="u-copy text-ink-700">{pathways.standfirst}</p>
           <p className="mt-6 text-sm leading-[1.9] text-ink-300">
             {pathways.micro}
           </p>
@@ -66,7 +66,7 @@ export function Pathways() {
                 {item.title}
               </h3>
 
-              <p className="col-span-12 mt-3 text-sm leading-[1.7] text-ink-500 sm:col-span-4 sm:col-start-8 sm:mt-0">
+              <p className="col-span-12 mt-3 text-sm leading-[1.7] text-ink-700 sm:col-span-4 sm:col-start-8 sm:mt-0">
                 {item.note}
               </p>
             </div>

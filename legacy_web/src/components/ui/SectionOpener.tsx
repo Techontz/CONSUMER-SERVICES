@@ -89,7 +89,7 @@ export function SectionOpener({
             className={cn(
               "u-copy",
               centered ? "mx-auto max-w-[62ch]" : "max-w-[58ch]",
-              light ? "text-ivory-100/75" : "text-ink-500",
+              light ? "text-ivory-100/75" : "text-ink-700",
             )}
           >
             {standfirst}

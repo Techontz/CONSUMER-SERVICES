@@ -26,7 +26,7 @@ export default function IndustriesPage() {
 
       {/* The mosaic runs edge to edge — the photography is the section, and
           a container would turn it back into a card grid. */}
-      <section className="relative isolate bg-ivory-50 py-16 lg:py-20">
+      <section className="relative isolate bg-ivory-100 py-16 lg:py-20">
         <Container className="mb-11 lg:mb-12">
           <Reveal className="flex items-center gap-4">
             <span aria-hidden className="block h-px w-10 shrink-0 bg-olive-600/70" />
@@ -48,7 +48,7 @@ export default function IndustriesPage() {
             className="lg:col-span-5"
           />
           <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7 lg:pt-14">
-            <p className="u-copy text-ink-500">{p.role.body}</p>
+            <p className="u-copy text-ink-700">{p.role.body}</p>
           </Reveal>
         </div>
       </Section>

@@ -35,14 +35,14 @@ export default function AssessmentPage() {
               <h3 className="u-display-4 text-evergreen-600">
                 {p.next.headline}
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-ink-500">
+              <p className="mt-2.5 text-sm leading-relaxed text-ink-700">
                 {p.next.body}
               </p>
             </div>
           </div>
 
           <Reveal delay={0.08} className="lg:col-span-7 lg:col-start-6">
-            <div className="border border-rule bg-ivory-100 p-8 lg:p-11">
+            <div className="border border-rule bg-ivory-50 p-8 lg:p-11">
               <AssessmentForm />
             </div>
           </Reveal>

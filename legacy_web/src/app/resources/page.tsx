@@ -55,7 +55,7 @@ export default function ResourcesPage() {
             <h2 className="u-display-3 mt-5 text-evergreen-600">
               {p.featured.headline}
             </h2>
-            <p className="mt-6 text-[1.0625rem] leading-[1.72] text-ink-500">
+            <p className="mt-6 text-[1.0625rem] leading-[1.72] text-ink-700">
               {p.featured.body}
             </p>
             <div className="mt-9">
@@ -77,7 +77,7 @@ export default function ResourcesPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
-            <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
+            <p className="text-[1.0625rem] leading-[1.72] text-ink-700">
               {p.library.body}
             </p>
           </Reveal>
@@ -97,7 +97,7 @@ export default function ResourcesPage() {
                 <h3 className="col-span-12 text-[1.1875rem] leading-snug text-evergreen-600 sm:col-span-6 lg:text-[1.3125rem]">
                   {item.title}
                 </h3>
-                <p className="col-span-12 mt-2 text-sm leading-relaxed text-ink-500 sm:col-span-5 sm:mt-0">
+                <p className="col-span-12 mt-2 text-sm leading-relaxed text-ink-700 sm:col-span-5 sm:mt-0">
                   {item.body}
                 </p>
                 <span
@@ -122,7 +122,7 @@ export default function ResourcesPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
-            <p className="text-[1.0625rem] leading-[1.72] text-ink-500">
+            <p className="text-[1.0625rem] leading-[1.72] text-ink-700">
               {p.notes.body}
             </p>
           </Reveal>
@@ -148,7 +148,7 @@ export default function ResourcesPage() {
                 <h3 className="relative mt-5 text-[1.1875rem] leading-snug text-evergreen-600 transition-colors duration-400 group-hover:text-ivory-100">
                   {item.title}
                 </h3>
-                <p className="relative mt-3 flex-1 text-sm leading-relaxed text-ink-500 transition-colors duration-400 group-hover:text-ivory-100/70">
+                <p className="relative mt-3 flex-1 text-sm leading-relaxed text-ink-700 transition-colors duration-400 group-hover:text-ivory-100/70">
                   {item.body}
                 </p>
                 <span className="relative mt-7 flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-evergreen-700 transition-colors duration-400 group-hover:text-olive-400">
