@@ -131,7 +131,13 @@ export const footerNav = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+/**
+ * The footer's legal row. Three documents, one authoritative route each —
+ * the two the approved footer named, plus the Terms of Use the client
+ * supplied alongside the Data Sharing Disclosure.
+ */
 export const legalNav = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Data Sharing", href: "/data-sharing" },
+  { label: "Terms of Use", href: "/terms-of-use" },
 ];

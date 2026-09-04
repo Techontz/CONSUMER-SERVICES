@@ -7,7 +7,12 @@ const nextConfig: NextConfig = {
 
   images: {
     formats: ["image/avif", "image/webp"],
-    qualities: [68, 75, 78, 82],
+    // Every quality any <Image> on the site actually asks for. Next 16
+    // rejects an unlisted value outright — /_next/image returns 400 — so a
+    // quality used in a component and missing here is a broken picture in
+    // production, not a softer compression. 55 and 58 are the header's and
+    // the mobile sheet's menu thumbnails, which were 400ing on every page.
+    qualities: [55, 58, 68, 75, 78, 82],
   },
 
   poweredByHeader: false,

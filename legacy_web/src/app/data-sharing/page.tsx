@@ -1,22 +1,14 @@
-import { PolicyPage } from "@/components/sections/PolicyPage";
+import { LegalDocument } from "@/components/sections/LegalDocument";
+import { dataSharingDisclosure } from "@/lib/content/legal";
 import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
-  ...pageMeta({
-    title: "Data Sharing",
-    description:
-      "How Consumer Services, Inc. shares information with the collaborating professionals and resources involved in a project.",
-    path: "/data-sharing",
-  }),
-  robots: { index: false, follow: true },
-};
+export const metadata = pageMeta({
+  title: "Data Sharing Disclosure",
+  description:
+    "When, why and with whom Consumer Services, Inc. may share information supplied through LegacyByConsumer.com.",
+  path: "/data-sharing",
+});
 
 export default function Page() {
-  return (
-    <PolicyPage
-      eyebrow="Legal"
-      headline="Data Sharing"
-      summary="When and how information you provide may be shared with the attorneys, accountants, licensed professionals and other specialised resources a project may involve."
-    />
-  );
+  return <LegalDocument doc={dataSharingDisclosure} />;
 }

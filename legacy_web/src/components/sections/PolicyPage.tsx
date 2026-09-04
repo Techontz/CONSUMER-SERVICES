@@ -5,12 +5,13 @@ import { Section } from "@/components/ui/Section";
 import { site } from "@/lib/site";
 
 /**
- * Shell for the two policy pages the approved footer links to.
+ * Shell for a legal page whose text the client has not yet supplied.
  *
- * The supplied HTML links to Privacy Policy and Data Sharing but contains
- * no policy text. Legal copy is not something to invent, so the pages are
- * built and routed, and the body is left for the client's own wording —
- * see README → "Outstanding client content".
+ * Data Sharing and Terms of Use now carry their own documents — see
+ * `lib/content/legal.ts` and `LegalDocument.tsx`. The Privacy Policy is the
+ * one page still waiting on copy, and legal wording is not something to
+ * invent, so the route is built and linked and the body says plainly that
+ * the text is coming. Delete this component once that copy arrives.
  */
 export function PolicyPage({
   eyebrow,

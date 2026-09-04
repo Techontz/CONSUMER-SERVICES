@@ -83,22 +83,28 @@ export function SiteFooter() {
         </Reveal>
 
         {/* Legal */}
+        {/* Legal row. The links are set a step larger than the copyright
+            line and carry their own vertical padding: these are documents a
+            reader is expected to be able to open, not fine print to be
+            hidden behind a four-pixel tap target. */}
         <div className="mt-16 flex flex-col gap-5 border-t border-ivory-100/10 pt-8 text-xs text-ivory-100/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             &copy; {site.copyrightRange} {site.legalName} All Rights Reserved.
           </p>
-          <ul className="flex flex-wrap gap-x-7 gap-y-2">
-            {legalNav.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="u-underline transition-colors duration-300 hover:text-ivory-100"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <nav aria-label="Legal">
+            <ul className="flex flex-wrap gap-x-7 gap-y-1 text-[0.8125rem]">
+              {legalNav.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="u-underline inline-block py-1.5 text-ivory-100/75 transition-colors duration-300 hover:text-ivory-100"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </Container>
 

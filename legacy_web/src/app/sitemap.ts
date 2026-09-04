@@ -13,6 +13,10 @@ const routes: { path: string; priority: number; freq: MetadataRoute.Sitemap[numb
   { path: "/funding-readiness", priority: 0.7, freq: "monthly" },
   { path: "/infrastructure-readiness", priority: 0.7, freq: "monthly" },
   { path: "/healthcare-development", priority: 0.7, freq: "monthly" },
+  // The two legal documents whose text the client has supplied. The privacy
+  // policy stays out until its own copy arrives.
+  { path: "/terms-of-use", priority: 0.3, freq: "yearly" },
+  { path: "/data-sharing", priority: 0.3, freq: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
