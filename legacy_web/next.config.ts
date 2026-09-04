@@ -6,13 +6,25 @@ const nextConfig: NextConfig = {
   turbopack: { root: __dirname },
 
   images: {
-    formats: ["image/avif", "image/webp"],
-    // Every quality any <Image> on the site actually asks for. Next 16
-    // rejects an unlisted value outright — /_next/image returns 400 — so a
-    // quality used in a component and missing here is a broken picture in
-    // production, not a softer compression. 55 and 58 are the header's and
-    // the mobile sheet's menu thumbnails, which were 400ing on every page.
-    qualities: [55, 58, 68, 75, 78, 82],
+    // Images are resized at build time, not per request.
+    //
+    // These used to go through Vercel's /_next/image optimiser, which is a
+    // metered service. When the account's quota ran out it answered every
+    // optimised request with HTTP 402 — cached immutable for a year — and
+    // every photograph on the deployed site rendered as a broken-image icon
+    // while the underlying files in public/media were still serving 200.
+    //
+    // scripts/generate-image-derivatives.mjs now builds the widths ahead of
+    // time and src/lib/imageLoader.ts points <Image> at them, so the pictures
+    // are ordinary static assets on the CDN with no quota in front of them.
+    loader: "custom",
+    loaderFile: "./src/lib/imageLoader.ts",
+
+    // These are the only widths the generator writes, so restricting Next to
+    // them is what guarantees it can never request a derivative that was not
+    // built. Change one of these three lists and you must change all three.
+    imageSizes: [64, 128, 256],
+    deviceSizes: [640, 1080, 1600, 2048, 2560],
   },
 
   poweredByHeader: false,
