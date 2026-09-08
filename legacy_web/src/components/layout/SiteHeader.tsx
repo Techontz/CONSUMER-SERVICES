@@ -132,7 +132,7 @@ export function SiteHeader() {
           // The only thing allowed to break the plane: a single pixel of
           // olive saying where the header stops. Low enough to read as a
           // drawn edge rather than as a border.
-          "border-b border-olive-500/45",
+          "border-b border-brass-500/45",
           // No blur and no coloured shadow on scroll either — a shadow that
           // dark against evergreen paints a fourth tone just under the rule,
           // which is the two-tone effect coming back by another route. A
@@ -205,7 +205,7 @@ export function SiteHeader() {
                           // same colour instead of leaving the accent to do
                           // it alone. 6.19:1 on Deep Evergreen.
                           active || openKey === item.label
-                            ? "text-olive-500"
+                            ? "text-brass-500"
                             : "text-ivory-100/75 hover:text-ivory-100",
                         )}
                       >
@@ -213,7 +213,7 @@ export function SiteHeader() {
                         <span
                           aria-hidden
                           className={cn(
-                            "absolute inset-x-4 bottom-1.5 block h-px origin-left bg-olive-500",
+                            "absolute inset-x-4 bottom-1.5 block h-px origin-left bg-brass-500",
                             "transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                             active || openKey === item.label
                               ? "scale-x-100"
@@ -226,7 +226,7 @@ export function SiteHeader() {
                 })}
               </ul>
 
-              <span aria-hidden className="mx-3 block h-7 w-px bg-olive-500/30 wide:mx-3.5 wide:h-9" />
+              <span aria-hidden className="mx-3 block h-7 w-px bg-brass-500/30 wide:mx-3.5 wide:h-9" />
 
               <a
                 href={site.phoneHref}
@@ -237,11 +237,11 @@ export function SiteHeader() {
 
               <Link
                 href="/contact"
-                className="group relative overflow-hidden whitespace-nowrap border border-olive-500 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-olive-500 transition-colors duration-300 hover:text-ink-900 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
+                className="group relative overflow-hidden whitespace-nowrap border border-brass-500 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-brass-500 transition-colors duration-300 hover:text-ink-900 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
               >
                 <span
                   aria-hidden
-                  className="absolute inset-0 origin-left scale-x-0 bg-olive-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
+                  className="absolute inset-0 origin-left scale-x-0 bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
                 />
                 <span className="relative">Contact Us</span>
               </Link>
@@ -253,7 +253,7 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(true)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              className="ml-auto flex shrink-0 items-center gap-2.5 border border-olive-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-olive-500 hover:text-olive-500 lg:hidden"
+              className="ml-auto flex shrink-0 items-center gap-2.5 border border-brass-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-brass-500 hover:text-brass-500 lg:hidden"
             >
               Menu
               <span aria-hidden className="flex flex-col gap-[3px]">
@@ -318,7 +318,7 @@ function MegaPanel({
     <div className="u-container grid grid-cols-12 gap-x-10 py-8">
       {/* --- the argument --- */}
       <div className="col-span-4 pr-10">
-        <p className="u-eyebrow text-olive-400">{item.label}</p>
+        <p className="u-eyebrow text-brass-400">{item.label}</p>
         <h2 className="u-display-3 mt-5 text-ivory-100">{item.panelTitle}</h2>
         {item.panelBlurb ? (
           <p className="mt-4 max-w-[38ch] text-sm leading-relaxed text-ivory-100/70">
@@ -354,17 +354,17 @@ function MegaPanel({
                     // Eleven thumbnails at this size cost a few KB in total;
                     // the pop-in cost more than that in feel.
                     loading="eager"
-                    className="object-cover opacity-65 grayscale-[0.45] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0 group-focus-within:scale-[1.05] group-focus-within:opacity-100 group-focus-within:grayscale-0 motion-reduce:transition-none"
+                    className="object-cover opacity-90 grayscale-[0.12] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0 group-focus-within:scale-[1.05] group-focus-within:opacity-100 group-focus-within:grayscale-0 motion-reduce:transition-none"
                   />
                   <span
                     aria-hidden
-                    className="absolute inset-x-0 bottom-0 block h-0.5 origin-left scale-x-0 bg-olive-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
+                    className="absolute inset-x-0 bottom-0 block h-0.5 origin-left scale-x-0 bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
                   />
                 </span>
               ) : null}
 
               <span className="min-w-0">
-                <span className="u-display-4 block text-ivory-100 transition-colors duration-400 group-hover:text-olive-400 group-focus-within:text-olive-400">
+                <span className="u-display-4 block text-ivory-100 transition-colors duration-400 group-hover:text-brass-400 group-focus-within:text-brass-400">
                   {link.label}
                 </span>
                 {link.blurb ? (

@@ -11,8 +11,8 @@ export default function NotFound() {
       className="u-grain relative isolate flex min-h-[80svh] items-center overflow-hidden bg-evergreen-950 pt-32 text-ivory-100"
     >
       <Container>
-        <p className="u-eyebrow flex items-center gap-3 text-olive-400">
-          <span aria-hidden className="block h-px w-8 bg-olive-500/70" />
+        <p className="u-eyebrow flex items-center gap-3 text-brass-400">
+          <span aria-hidden className="block h-px w-8 bg-brass-500/70" />
           Error 404
         </p>
 

@@ -72,7 +72,7 @@ export default function AboutPage() {
               </h2>
               <span
                 aria-hidden
-                className="mt-8 block h-px w-24 bg-olive-500"
+                className="mt-8 block h-px w-24 bg-brass-500"
               />
               {/* /60, not /55. Warm Ivory at 55% over Deep Evergreen measures
                   4.41:1 — just under AA for text this size. One opacity step
@@ -160,9 +160,9 @@ export default function AboutPage() {
               </span>
               <span
                 aria-hidden
-                className="mx-auto mt-5 block h-px w-14 bg-olive-500"
+                className="mx-auto mt-5 block h-px w-14 bg-brass-500"
               />
-              <span className="u-eyebrow mt-5 justify-center text-olive-700">
+              <span className="u-eyebrow mt-5 justify-center text-brass-700">
                 Established
               </span>
             </div>

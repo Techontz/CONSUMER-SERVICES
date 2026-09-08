@@ -37,8 +37,8 @@ export function CredibilityBand() {
                   // The divider belongs to the item on its left, so the
                   // first cell in each row never carries one.
                   "u-eyebrow text-[0.625rem] leading-[1.5] text-ivory-100/72 " +
-                  (i % 2 === 1 ? "border-l border-olive-500/25 pl-6 " : "") +
-                  "sm:border-l sm:border-olive-500/25 sm:pl-6 " +
+                  (i % 2 === 1 ? "border-l border-brass-500/25 pl-6 " : "") +
+                  "sm:border-l sm:border-brass-500/25 sm:pl-6 " +
                   (i === 0 ? "sm:border-l-0 sm:pl-0 " : "")
                 }
               >

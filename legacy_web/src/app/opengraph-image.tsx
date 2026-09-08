@@ -31,10 +31,10 @@ export default async function Image() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div style={{ width: 44, height: 2, background: "#B8BE8A" }} />
+          <div style={{ width: 44, height: 2, background: "#C9A24B" }} />
           <div
             style={{
-              color: "#B8BE8A",
+              color: "#C9A24B",
               fontSize: 20,
               letterSpacing: 5,
               textTransform: "uppercase",
@@ -59,7 +59,7 @@ export default async function Image() {
           </div>
           <div
             style={{
-              color: "#C5CA9C",
+              color: "#DDBC72",
               fontSize: 82,
               lineHeight: 1.05,
               fontStyle: "italic",
@@ -104,7 +104,7 @@ export default async function Image() {
           </div>
           <div
             style={{
-              color: "#B8BE8A",
+              color: "#C9A24B",
               fontSize: 21,
               letterSpacing: 2,
               fontFamily: "sans-serif",

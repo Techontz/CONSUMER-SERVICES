@@ -70,7 +70,7 @@ export function Heritage() {
           its own number. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(10,32,25,0.80)_0%,rgba(24,40,33,0.71)_46%,rgba(18,61,50,0.64)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(10,32,25,0.64)_0%,rgba(24,40,33,0.52)_46%,rgba(18,61,50,0.40)_100%)]"
       />
       <div
         aria-hidden
@@ -81,7 +81,7 @@ export function Heritage() {
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-4">
             <p className="flex items-center gap-4">
-              <span aria-hidden className="block h-px w-10 bg-olive-500/80" />
+              <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
               {/* Ivory, not the accent — the one rule this band adds to the
                   system: the accent colour never sets type over a
                   photograph. Light Olive has 6-8:1 on the flat evergreen
@@ -100,7 +100,7 @@ export function Heritage() {
               {heritage.year}
             </p>
 
-            <span aria-hidden className="mt-7 block h-px w-28 bg-olive-500" />
+            <span aria-hidden className="mt-7 block h-px w-28 bg-brass-500" />
           </Reveal>
 
           <Reveal delay={0.12} className="lg:col-span-6 lg:col-start-7">

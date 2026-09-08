@@ -57,7 +57,7 @@ export function Pathways() {
               />
 
               <span className="col-span-12 sm:col-span-2">
-                <span className="u-eyebrow block text-olive-700 transition-colors duration-400 group-hover:text-evergreen-600">
+                <span className="u-eyebrow block text-brass-700 transition-colors duration-400 group-hover:text-evergreen-600">
                   {item.verb}
                 </span>
               </span>

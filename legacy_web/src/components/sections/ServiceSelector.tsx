@@ -92,7 +92,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               <span
                 aria-hidden
                 className={cn(
-                  "absolute left-0 top-0 h-full w-0.5 origin-top bg-olive-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                  "absolute left-0 top-0 h-full w-0.5 origin-top bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   selected ? "scale-y-100" : "scale-y-0",
                 )}
               />
@@ -101,7 +101,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                 aria-hidden
                 className={cn(
                   "ml-5 mt-1 u-dot transition-colors duration-300",
-                  selected ? "text-olive-700" : "text-ink-300",
+                  selected ? "text-brass-700" : "text-ink-300",
                 )}
               />
 
@@ -109,7 +109,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                 <span
                   className={cn(
                     "u-eyebrow block transition-colors duration-300",
-                    selected ? "text-olive-700" : "text-ink-300",
+                    selected ? "text-brass-700" : "text-ink-300",
                   )}
                 >
                   {item.step}
@@ -127,7 +127,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               <span
                 aria-hidden
                 className={cn(
-                  "shrink-0 pr-1 text-olive-600 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                  "shrink-0 pr-1 text-brass-600 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   selected
                     ? "translate-x-0 opacity-100"
                     : "-translate-x-2 opacity-0",
@@ -181,11 +181,11 @@ export function ServiceSelector({ items }: { items: Service[] }) {
             {/* One tint over seven photographs, so the set reads as commissioned. */}
             <span
               aria-hidden
-              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(18,61,50,0.24),rgba(10,32,25,0.60))]"
+              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(18,61,50,0.08),rgba(10,32,25,0.30))]"
             />
             <span
               aria-hidden
-              className="absolute bottom-0 left-0 block h-0.5 w-20 bg-olive-500"
+              className="absolute bottom-0 left-0 block h-0.5 w-20 bg-brass-500"
             />
           </div>
 
@@ -194,8 +194,8 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               selection changes. */}
           <div key={active}>
             <p className="u-in-fade flex items-center gap-4">
-              <span aria-hidden className="block h-px w-10 bg-olive-500/80" />
-              <span className="u-eyebrow text-olive-400">{current.step}</span>
+              <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
+              <span className="u-eyebrow text-brass-400">{current.step}</span>
             </p>
             {/* h2: the panel carries the section's primary heading — the
                 index beside it is a control, not an outline level. */}
@@ -219,7 +219,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
           >
             <Link
               href={current.href}
-              className="group inline-flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-olive-400 transition-colors duration-300 hover:text-ivory-100"
+              className="group inline-flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-brass-400 transition-colors duration-300 hover:text-ivory-100"
             >
               {isContact(current.href)
                 ? "Discuss This Service"
@@ -240,8 +240,8 @@ export function ServiceSelector({ items }: { items: Service[] }) {
           <li key={item.title} className="border-b border-rule">
             <Link href={item.href} className="group block py-7">
               <span className="flex items-center gap-3">
-                <span aria-hidden className="block h-px w-6 bg-olive-600" />
-                <span className="u-eyebrow text-olive-700">{item.step}</span>
+                <span aria-hidden className="block h-px w-6 bg-brass-600" />
+                <span className="u-eyebrow text-brass-700">{item.step}</span>
               </span>
               <span className="u-display-4 mt-5 block text-evergreen-600">
                 {item.title}

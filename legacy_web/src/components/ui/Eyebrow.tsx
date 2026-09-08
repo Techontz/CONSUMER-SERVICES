@@ -17,7 +17,7 @@ export function Eyebrow({
     <p
       className={cn(
         "u-eyebrow flex items-center gap-3",
-        tone === "olive" ? "text-olive-700" : "text-olive-400",
+        tone === "olive" ? "text-brass-700" : "text-brass-400",
         className,
       )}
     >
@@ -25,7 +25,7 @@ export function Eyebrow({
         aria-hidden
         className={cn(
           "block h-px w-6 shrink-0",
-          tone === "olive" ? "bg-olive-600/60" : "bg-olive-400/60",
+          tone === "olive" ? "bg-brass-600/60" : "bg-brass-400/60",
         )}
       />
       {children}

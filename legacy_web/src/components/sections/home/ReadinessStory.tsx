@@ -85,11 +85,11 @@ export function ReadinessStory({
               {/* Keeps the crop from competing with the type beside it. */}
               <div
                 aria-hidden
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,32,25,0.1),rgba(10,32,25,0.4))]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,32,25,0.04),rgba(10,32,25,0.22))]"
               />
               <span
                 aria-hidden
-                className="absolute bottom-0 left-0 block h-0.5 w-24 bg-olive-500"
+                className="absolute bottom-0 left-0 block h-0.5 w-24 bg-brass-500"
               />
             </div>
           </Reveal>
@@ -159,7 +159,7 @@ export function ReadinessStory({
                   >
                     <span
                       aria-hidden
-                      className={cn("u-dot", dark ? "text-olive-500" : "text-olive-700")}
+                      className={cn("u-dot", dark ? "text-brass-500" : "text-brass-700")}
                     />
                     {chip}
                   </span>

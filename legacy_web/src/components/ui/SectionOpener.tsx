@@ -54,14 +54,14 @@ export function SectionOpener({
           aria-hidden
           className={cn(
             "block h-px w-10 shrink-0 origin-left",
-            light ? "bg-olive-400/70" : "bg-olive-600/70",
+            light ? "bg-brass-400/70" : "bg-brass-600/70",
           )}
         />
 
         <span
           className={cn(
             "u-eyebrow",
-            light ? "text-olive-400" : "text-olive-700",
+            light ? "text-brass-400" : "text-brass-700",
           )}
         >
           {label}

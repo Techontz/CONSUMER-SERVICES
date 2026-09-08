@@ -52,7 +52,7 @@ function withLinks(text: string, links?: InlineLink[]): ReactNode {
       <Link
         key={i}
         href={match.href}
-        className="u-underline font-semibold text-olive-700"
+        className="u-underline font-semibold text-brass-700"
       >
         {piece}
       </Link>
@@ -69,7 +69,7 @@ function contactLine(line: string) {
     return (
       <>
         {lead}
-        <a href={site.url} className="u-underline text-olive-700">
+        <a href={site.url} className="u-underline text-brass-700">
           {site.domainLabel}
         </a>
       </>
@@ -82,7 +82,7 @@ function contactLine(line: string) {
         {lead}
         <a
           href={`mailto:${site.email}`}
-          className="u-underline break-all text-olive-700"
+          className="u-underline break-all text-brass-700"
         >
           {site.email}
         </a>
@@ -94,7 +94,7 @@ function contactLine(line: string) {
     return (
       <>
         {lead}
-        <a href={site.phoneHref} className="u-underline text-olive-700">
+        <a href={site.phoneHref} className="u-underline text-brass-700">
           {site.phone}
         </a>
       </>
@@ -114,7 +114,7 @@ function Block({ block }: { block: LegalBlock }) {
           >
             <span
               aria-hidden
-              className="u-dot mt-[0.62em] text-olive-600"
+              className="u-dot mt-[0.62em] text-brass-600"
             />
             <span className="min-w-0">{item}</span>
           </li>
@@ -125,7 +125,7 @@ function Block({ block }: { block: LegalBlock }) {
 
   if (block.kind === "contact") {
     return (
-      <address className="mt-6 border-l-2 border-olive-500/70 py-1 pl-5 not-italic sm:pl-6">
+      <address className="mt-6 border-l-2 border-brass-500/70 py-1 pl-5 not-italic sm:pl-6">
         {block.lines.map((line, i) => (
           <span
             key={line}
@@ -159,8 +159,8 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
             className="u-in-fade flex items-center gap-4"
             style={{ animationDelay: "80ms" }}
           >
-            <span aria-hidden className="block h-px w-10 shrink-0 bg-olive-500/80" />
-            <span className="u-eyebrow text-olive-400">{site.legalName}</span>
+            <span aria-hidden className="block h-px w-10 shrink-0 bg-brass-500/80" />
+            <span className="u-eyebrow text-brass-400">{site.legalName}</span>
           </p>
 
           <h1 className="u-display-1 mt-6 max-w-[16ch] text-ivory-100">
@@ -183,13 +183,13 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
             style={{ animationDelay: "520ms" }}
           >
             <p className="text-ivory-100/80">
-              <span className="font-semibold text-olive-400">
+              <span className="font-semibold text-brass-400">
                 Effective Date:
               </span>{" "}
               {doc.effectiveDate}
             </p>
             <p className="text-ivory-100/80">
-              <span className="font-semibold text-olive-400">
+              <span className="font-semibold text-brass-400">
                 Last Updated:
               </span>{" "}
               {doc.lastUpdated}
@@ -200,7 +200,7 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
         {/* The thin Light Olive rule that closes the masthead. */}
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-px bg-olive-500/55"
+          className="absolute inset-x-0 bottom-0 h-px bg-brass-500/55"
         />
       </section>
 
@@ -214,7 +214,7 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
             aria-label={`${doc.title} contents`}
             className="u-reveal border-y border-rule-soft py-7"
           >
-            <h2 className="u-eyebrow text-olive-700">Contents</h2>
+            <h2 className="u-eyebrow text-brass-700">Contents</h2>
             {/* Columns rather than a grid, so a numbered index reads down
                 the first column and then down the second — 1…9 on the left,
                 10…17 on the right — instead of zig-zagging 1, 2 / 3, 4. */}
@@ -225,7 +225,7 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
                     href={`#${anchor(s.number)}`}
                     className="u-underline flex gap-2.5 text-[0.9375rem] leading-[1.55] text-ink-700 transition-colors duration-300 hover:text-evergreen-600"
                   >
-                    <span className="w-6 shrink-0 tabular-nums text-olive-700">
+                    <span className="w-6 shrink-0 tabular-nums text-brass-700">
                       {s.number}.
                     </span>
                     <span className="min-w-0">{s.heading}</span>
@@ -259,12 +259,12 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
                 id={`${anchor(s.number)}-heading`}
                 className="u-display-4 text-evergreen-600"
               >
-                <span className="text-olive-700">{s.number}.</span>{" "}
+                <span className="text-brass-700">{s.number}.</span>{" "}
                 {s.heading}
               </h2>
               <span
                 aria-hidden
-                className="mt-4 block h-px w-14 bg-olive-600/55"
+                className="mt-4 block h-px w-14 bg-brass-600/55"
               />
               {s.blocks.map((block, i) => (
                 <Block key={i} block={block} />
@@ -274,7 +274,7 @@ export function LegalDocument({ doc }: { doc: LegalDocumentData }) {
 
           {/* Not a dead end: the other two documents and the way back. */}
           <Reveal className="mt-16 border-t border-rule pt-8 lg:mt-20">
-            <h2 className="u-eyebrow text-olive-700">Also in this section</h2>
+            <h2 className="u-eyebrow text-brass-700">Also in this section</h2>
             <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3 text-[0.9375rem]">
               {[
                 { label: "Privacy Policy", href: "/privacy-policy" },

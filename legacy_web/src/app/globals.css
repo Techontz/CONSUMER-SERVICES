@@ -14,11 +14,13 @@
 
        Deep Evergreen   #123D32   the brand ground
        Charcoal Green   #182821   depth beneath it
-       Light Olive      #B8BE8A   the accent
+       Light Olive      #B8BE8A   an approved brand colour
+       Brass            #C9A24B   the interface accent
        Warm Ivory       #F6F2E9   the type
 
-     The gold ramp this replaces (#DDBC72 → #7E5C22) is gone from the
-     stylesheet entirely; there is no `brass` token left to reach for.
+     Light Olive remains an approved brand colour, but it is not the
+     interface accent any more — see the Brass block below for why, and for
+     the ramp that took the job.
      ------------------------------------------------------------------ */
 
   /* --- Evergreen ---
@@ -45,21 +47,31 @@
   --color-evergreen-600: #182821;
   --color-evergreen-500: #1E5A49;
 
-  /* --- Olive ---
-     500 is Light Olive exactly. The other three exist because one value
-     cannot do the accent's whole job: at 6.19:1 on Deep Evergreen it is
-     excellent on a dark ground and hopeless on a light one, where it
-     measures 1.74:1 against Warm Ivory. So the ramp splits by ground —
-     400/500 are the dark-ground accents, 600 is the hairline weight, and
-     700 is the only value allowed to set small type on ivory (4.90:1).
+  /* --- Brass ---
+     The accent, and the one place the palette moved.
 
-     Every step holds the same hue as the approved colour (67°) and stays
-     inside a 28–34% saturation band. That band is what keeps it olive: at
-     the saturation a gold ramp runs, the same hue turns to mustard. */
-  --color-olive-400: #C5CA9C;
-  --color-olive-500: #B8BE8A; /* Light Olive — approved */
-  --color-olive-600: #949B69;
-  --color-olive-700: #686D3B;
+     It was Light Olive #B8BE8A, which is an approved brand colour and is
+     still the right sage; as the interface accent it simply read pale. On
+     Deep Evergreen it is a soft sage-green highlight, and a highlight that
+     shares its parent's hue does not mark anything — every rule, border and
+     button was whispering. The client asked for the brass their original
+     brand presentation used, and this is that ramp restored.
+
+     500 is the signature. Hue 41.4 degrees puts it squarely in brass:
+     orange lives below 35 and yellow above 52, and at 53.8% saturation it
+     is rich rather than the muted 40% of a khaki. It measures 5.03:1 on
+     Deep Evergreen, which clears AA for text, so the accent can carry an
+     eyebrow, a nav label and a button label rather than only drawing lines.
+
+     The ramp splits by ground, exactly as the olive one did, because one
+     value cannot serve both: 400 is the bright step for type on a dark
+     ground, 600 is the hairline weight, and 700 is the only step allowed to
+     set small type on Warm Ivory, where 500 measures 2.15:1 and 700 reads
+     5.46:1. */
+  --color-brass-400: #DDBC72;
+  --color-brass-500: #C9A24B; /* the accent */
+  --color-brass-600: #B98B33;
+  --color-brass-700: #7E5C22;
 
   /* --- Paper ---
      100 is Warm Ivory exactly; the rest are its tints. */
@@ -186,20 +198,19 @@
   p { text-wrap: pretty; }
 
   ::selection {
-    background: var(--color-olive-500);
+    background: var(--color-brass-500);
     color: var(--color-evergreen-950);
   }
 
   /* A two-tone ring, because one colour cannot serve both grounds.
-     Light Olive is the brand's focus colour and it is excellent on
-     evergreen — 6.19:1 — and useless on ivory, where it measures 1.74:1
-     against a 3:1 requirement for a focus indicator. So the ring is drawn
-     twice: a dark band hard against the element and the olive outline
-     just outside it. On a light page the dark band carries it; on a dark
-     page the olive does. Whichever ground the control is on, one of the
+     Brass is the focus colour and it is excellent on evergreen — 5.03:1 —
+     and weak on ivory, where it measures 2.15:1 against a 3:1 requirement
+     for a focus indicator. So the ring is drawn twice: a dark band hard
+     against the element and the brass outline just outside it. On a light
+     page the dark band carries it; on a dark page the brass does. Whichever ground the control is on, one of the
      two edges is always at full strength. */
   :focus-visible {
-    outline: 2px solid var(--color-olive-500);
+    outline: 2px solid var(--color-brass-500);
     outline-offset: 2px;
     box-shadow: 0 0 0 2px var(--color-evergreen-950);
     border-radius: 2px;

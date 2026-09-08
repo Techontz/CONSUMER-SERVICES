@@ -26,9 +26,13 @@ import { HERO_VIDEO } from "@/lib/heroVideo";
  *     and dark. It is warmer than the brand green — 18 of red rather than 4 —
  *     because a veil with no red in it takes the golden hour out of a
  *     golden-hour clip.
- *  2. The directional wash the type sits on, denser to the left, and flipped
- *     bottom-up below `lg` where copy fills the frame rather than sitting in
- *     a column down its side.
+ *  2. The scrim the type sits on. This used to be a full-height wash across
+ *     the left of the frame, which darkened the towers and the sky as much
+ *     as it darkened the ground behind the words — the copy needed it, the
+ *     skyline was simply standing in the same column. It is an ellipse now,
+ *     anchored to the corner the copy actually occupies, so density is spent
+ *     where the glyphs are and the top of the frame is left alone. Measured
+ *     at glyph level over four frames of the film rather than guessed at.
  *  3. A vignette, shallow enough to read as a lens rather than an effect.
  *  4. Grain, at a lighter dose than the standard utility, which is tuned for
  *     flat evergreen fields and reads as haze over footage this bright.
@@ -57,26 +61,26 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
           Three points of alpha is what returns the composite to where it
           was measured, and it is the film's ground colour that changed —
           not how much of the film you can see. */}
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(18,61,50,0.36)]" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(18,61,50,0.14)]" />
 
       <div
         aria-hidden
         className={
           full
-            ? "absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,32,25,0.14)_0%,rgba(10,32,25,0.34)_16%,rgba(24,40,33,0.62)_34%,rgba(10,32,25,0.82)_66%,rgba(10,32,25,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(10,32,25,0.84)_0%,rgba(10,32,25,0.70)_30%,rgba(24,40,33,0.30)_58%,rgba(18,61,50,0.06)_80%,rgba(18,61,50,0)_92%)]"
+            ? "absolute inset-0 -z-10 bg-[radial-gradient(150%_86%_at_14%_82%,rgba(10,32,25,0.92)_0%,rgba(10,32,25,0.80)_36%,rgba(24,40,33,0.46)_64%,rgba(10,32,25,0.16)_86%,rgba(10,32,25,0)_100%)] lg:bg-[radial-gradient(74%_104%_at_2%_62%,rgba(10,32,25,0.92)_0%,rgba(10,32,25,0.82)_34%,rgba(24,40,33,0.46)_60%,rgba(18,61,50,0.10)_82%,rgba(18,61,50,0)_96%)]"
             // The interior variant's phone gradient opened at 0.30, which is
             // most of a page hero's height at 390px: on Industries the
             // kicker sits up in that thin part of it and measured 2.78:1.
             // A page hero is half the height of the homepage's and its type
             // starts higher in the frame, so it cannot borrow the homepage's
             // curve — it needs its own, weighted to the top.
-            : "absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,32,25,0.74)_0%,rgba(24,40,33,0.74)_38%,rgba(10,32,25,0.88)_100%)] lg:bg-[linear-gradient(96deg,rgba(10,32,25,0.84)_0%,rgba(10,32,25,0.72)_32%,rgba(24,40,33,0.34)_60%,rgba(18,61,50,0.08)_82%,rgba(18,61,50,0)_94%)]"
+            : "absolute inset-0 -z-10 bg-[radial-gradient(150%_130%_at_16%_62%,rgba(10,32,25,0.90)_0%,rgba(10,32,25,0.78)_34%,rgba(24,40,33,0.52)_64%,rgba(10,32,25,0.22)_86%,rgba(10,32,25,0.10)_100%)] lg:bg-[radial-gradient(100%_160%_at_0%_58%,rgba(10,32,25,0.90)_0%,rgba(10,32,25,0.80)_28%,rgba(24,40,33,0.48)_56%,rgba(18,61,50,0.12)_80%,rgba(18,61,50,0)_96%)]"
         }
       />
 
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(125%_105%_at_50%_44%,rgba(10,32,25,0)_52%,rgba(10,32,25,0.16)_78%,rgba(10,32,25,0.34)_100%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(125%_105%_at_50%_44%,rgba(10,32,25,0)_58%,rgba(10,32,25,0.08)_80%,rgba(10,32,25,0.18)_100%)]"
       />
 
       {/* The standing rule and the scroll cue sit along the foot of the
@@ -99,7 +103,7 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
       {full ? (
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 -z-10 hidden h-[34%] bg-[linear-gradient(180deg,rgba(10,32,25,0)_0%,rgba(10,32,25,0.16)_44%,rgba(10,32,25,0.60)_100%)] lg:block"
+          className="absolute inset-x-0 bottom-0 -z-10 hidden h-[34%] bg-[linear-gradient(180deg,rgba(10,32,25,0)_0%,rgba(10,32,25,0.10)_44%,rgba(10,32,25,0.38)_100%)] lg:block"
         />
       ) : null}
 

@@ -31,10 +31,11 @@ export function Mark({
   /** "olive" everywhere by default; "current" inherits for reversed use. */
   tone?: "olive" | "current";
 }) {
-  // Light Olive, flat. The mark was drawn in gold; the approved palette
-  // replaces that outright, and a mark is the one place a brand colour
-  // has to be the colour itself rather than a token that resolves to it.
-  const fill = tone === "current" ? "currentColor" : "#B8BE8A";
+  // Brass, flat. A mark is the one place a brand colour has to be the
+  // colour itself rather than a token that resolves to it. It was Light
+  // Olive, which on the evergreen masthead read as pale sage rather than as
+  // an identity; #C9A24B is the brass the brand was originally drawn in.
+  const fill = tone === "current" ? "currentColor" : "#C9A24B";
   return (
     <svg
       viewBox="0 0 64 64"

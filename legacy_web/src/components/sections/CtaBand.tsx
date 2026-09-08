@@ -37,8 +37,8 @@ export function CtaBand({
         <Reveal className="max-w-[46rem]">
           {eyebrow ? (
             <p className="flex items-center gap-4">
-              <span aria-hidden className="block h-px w-10 bg-olive-500/80" />
-              <span className="u-eyebrow text-olive-400">{eyebrow}</span>
+              <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
+              <span className="u-eyebrow text-brass-400">{eyebrow}</span>
             </p>
           ) : null}
 
