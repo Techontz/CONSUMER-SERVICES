@@ -1,5 +1,5 @@
 import { CtaBand } from "@/components/sections/CtaBand";
-import { IndustryMosaic } from "@/components/sections/IndustryMosaic";
+import { IndustryChapters } from "@/components/sections/IndustryChapters";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SectionOpener } from "@/components/ui/SectionOpener";
@@ -24,21 +24,26 @@ export default function IndustriesPage() {
         lede={p.hero.lede}
       />
 
-      {/* The mosaic runs edge to edge — the photography is the section, and
-          a container would turn it back into a card grid. */}
-      <section className="relative isolate bg-ivory-100 py-16 lg:py-20">
-        <Container className="mb-11 lg:mb-12">
-          <Reveal className="flex items-center gap-4">
-            <span aria-hidden className="block h-px w-10 shrink-0 bg-brass-600/70" />
-            <span className="u-eyebrow text-brass-700">{p.overview.label}</span>
-          </Reveal>
-          <Reveal delay={0.08} className="mt-7 max-w-[62ch]">
-            <p className="u-lede">{p.overview.lede}</p>
+      {/* The transition out of the hero and into the six chapters. It uses
+          the approved overview label and lede rather than a new headline —
+          the page already had the sentence it needed to open with, and the
+          only other approved one that would fit here is the Our Role opener
+          further down. A single measure rather than two columns: a label
+          alone in a five-column block left a hole where a heading would go
+          and made the section look like it was missing something. */}
+      <section className="bg-ivory-100 pb-2 pt-16 lg:pb-4 lg:pt-20">
+        <Container>
+          <Reveal className="max-w-[64ch]">
+            <p className="flex items-center gap-4">
+              <span aria-hidden className="block h-px w-10 shrink-0 bg-brass-600/70" />
+              <span className="u-eyebrow text-brass-700">{p.overview.label}</span>
+            </p>
+            <p className="u-lede mt-7">{p.overview.lede}</p>
           </Reveal>
         </Container>
-
-        <IndustryMosaic items={p.items} />
       </section>
+
+      <IndustryChapters items={p.items} />
 
       <Section tone="ivory">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">

@@ -269,6 +269,23 @@
   .u-display-3 { font-size: clamp(1.3125rem, 2.15vw, 1.875rem); line-height: 1.1; letter-spacing: 0.025em; }
   .u-display-4 { font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.24; letter-spacing: 0.07em; }
 
+  /* The display face with its width axis left open.
+
+     Everything else on the site sets this family at wdth 86, which is what
+     gives a section opener its compression. Six industry names are not
+     section openers — they are the content of the page, they run long, and
+     at 86 they pack into a wall. At 100 the same face reads as an editorial
+     chapter title while still being unmistakably the site's voice. */
+  .u-display-open {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-variation-settings: "wdth" 100;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
   /* The serif voice, for the hero and the rare pull quote. */
   /* The serif voice, for the hero and the rare pull quote.
      

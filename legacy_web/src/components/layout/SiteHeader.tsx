@@ -18,7 +18,7 @@ import { MobileNav } from "./MobileNav";
 const industryLinks = industriesPage.items.map((i) => ({
   label: i.title,
   href: "/industries",
-  blurb: i.note,
+  blurb: i.scope,
   image: i.image,
   alt: i.alt,
 }));

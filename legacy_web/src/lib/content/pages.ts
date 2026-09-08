@@ -192,43 +192,107 @@ export const industriesPage = {
     lede:
       "We help entrepreneurs understand what their industry requires, identify the pieces that need to be built, and develop a practical path toward operation and opportunity.",
   },
+  /*
+   * The six industries, in the client's numbered order.
+   *
+   * `scope`, `title`, `image` and the six categories themselves are the
+   * approved set and are unchanged. `summary` and `points` are new: the
+   * editorial layout gives each industry a chapter, and a chapter needs
+   * something to read. They are written to the substance the client set out
+   * per industry — bidding/prequalification/bonding for infrastructure,
+   * capability/offering/pricing/performance for technology, and so on — and
+   * the three infrastructure points are the client's own wording verbatim.
+   *
+   * They are DRAFT until the client's CSI_INDUSTRIES_REBUILD_V2.html is
+   * supplied; that file is not in /DOCUMENTS and the approved Industries
+   * HTML there contains none of this copy. Swapping in the real wording is
+   * an edit to this array and nothing else.
+   */
   items: [
     {
-      title: "Professional & Business Services",
-      note: "Consulting · Administrative services · Professional services · Small-business development",
-      image: "/media/industry-professional.jpg",
-      alt: "Professional and business services",
-    },
-    {
-      title: "Digital & Technology",
-      note: "IT · Digital services · Data · Cybersecurity · Communications",
-      image: "/media/industry-technology.jpg",
-      alt: "Digital and technology",
-    },
-    {
-      title: "Healthcare & Senior Living",
-      note: "Residential care · Senior living · Healthcare support · Community-based services",
-      image: "/media/industry-healthcare.jpg",
-      alt: "Healthcare and senior living",
-    },
-    {
-      title: "Workforce & Training",
-      note: "Staffing · Workforce readiness · Occupational training · Technical assistance",
-      image: "/media/industry-workforce.jpg",
-      alt: "Workforce and training",
-    },
-    {
-      title: "Transportation & Logistics",
-      note: "Trucking · Freight · Delivery · Logistics · Material movement",
-      image: "/media/industry-transportation.jpg",
-      alt: "Transportation and logistics",
-    },
-    {
+      number: "01",
       title: "Infrastructure & Facility Services",
-      note: "Construction support · HVAC · Mechanical · Electrical · Facility services",
+      scope: "Construction support · HVAC · Mechanical · Electrical · Facility services",
+      summary:
+        "Work in this sector is won on documentation as often as on capability. Bidding, prequalification and bonding each assume a business that is already structured, licensed and insured, and those requirements arrive long before the first contract does. We help assemble that record so a bid can be submitted on time and taken seriously.",
+      points: [
+        "Entity structure and licensing readiness",
+        "Bid, prequalification, and bonding document packages",
+        "Subcontractor agreements and job-costing records",
+      ],
       image: "/media/industry-infrastructure.jpg",
-      alt: "Infrastructure and facility services",
-    }
+      alt: "Engineers in high-visibility vests reviewing drawings on a reinforced-concrete site",
+    },
+    {
+      number: "02",
+      title: "Digital & Technology",
+      scope: "IT · Digital services · Data · Cybersecurity · Communications",
+      summary:
+        "Technical skill is rarely the constraint here. What buyers ask for is a defined offering, a price they can evaluate, and evidence of past performance — the business around the service rather than the service itself. We help put those into a form a client or a contracting officer can actually assess.",
+      points: [
+        "Capability statement and service definitions",
+        "Pricing models and scope-of-work documentation",
+        "Past-performance and contract records",
+      ],
+      image: "/media/industry-technology.jpg",
+      alt: "A row of server cabinets and network cabling in a working data centre",
+    },
+    {
+      number: "03",
+      title: "Transportation & Logistics",
+      scope: "Trucking · Freight · Delivery · Logistics · Material movement",
+      summary:
+        "Operating authority, insurance filings and compliance records determine whether a vehicle can move at all. They are also the first things a shipper, a broker or an agency checks. We help establish that authority and keep the supporting records in the condition inspections and contracts assume they are in.",
+      points: [
+        "Operating authority and registration filings",
+        "Insurance, safety and compliance documentation",
+        "Carrier, broker and shipper agreements",
+      ],
+      image: "/media/industry-transportation.jpg",
+      alt: "A multi-level highway interchange carrying freight traffic at night",
+    },
+    {
+      number: "04",
+      title: "Healthcare & Senior Living",
+      scope: "Residential care · Senior living · Healthcare support · Community-based services",
+      summary:
+        "Licensing sets the pace of these projects. Policies, staffing plans and the physical readiness of a building are examined before a single resident is admitted, and an application that arrives incomplete simply waits. We help prepare the documentation and the operational groundwork an inspection expects to find.",
+      points: [
+        "Licensing applications and regulatory preparation",
+        "Policy, procedure and staffing documentation",
+        "Facility readiness and admission planning",
+      ],
+      image: "/media/industry-healthcare.jpg",
+      alt: "Care staff walking a resident in a wheelchair along a daylit care-home corridor",
+    },
+    {
+      number: "05",
+      title: "Workforce & Training",
+      scope: "Staffing · Workforce readiness · Occupational training · Technical assistance",
+      summary:
+        "Much of the funding in this sector arrives through contracts and grants, and both carry reporting obligations that outlast the award itself. We help structure the organisation so it can qualify, apply, and then account for what it delivers once the work is underway.",
+      points: [
+        "Contract and grant application preparation",
+        "Program documentation and participant records",
+        "Reporting, invoicing and compliance systems",
+      ],
+      image: "/media/industry-workforce.jpg",
+      alt: "Trainees in protective equipment gathered around a welding bench during instruction",
+    },
+    {
+      number: "06",
+      title: "Professional & Business Services",
+      scope: "Consulting · Administrative services · Professional services · Small-business development",
+      summary:
+        "The expertise is the work; the business is everything around it. Pricing, client agreements and a repeatable way of delivering are what separate a practice from a job, and they are usually the last things a specialist gets to. We help build that structure so the work can be sold, delivered and repeated.",
+      points: [
+        "Pricing structure and service packaging",
+        "Client agreements and engagement documents",
+        "Delivery workflows and administrative systems",
+      ],
+      image: "/media/industry-professional.jpg",
+      alt: "Two advisers reviewing a document folder together beside an office window",
+    },
   ],
   role: {
     eyebrow: "Our Role",
