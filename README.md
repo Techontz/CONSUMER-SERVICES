@@ -47,7 +47,7 @@ DOCUMENTS/    The approved HTML supplied by the client              (reference)
 | `/healthcare-development` | Full-site preview — Healthcare & Residential Care |
 | `/data-sharing` | Data Sharing Disclosure — client-supplied text, verbatim |
 | `/terms-of-use` | Terms of Use — client-supplied text, verbatim |
-| `/privacy-policy` | Linked from the approved footer — see [Outstanding client content](#outstanding-client-content) |
+| `/privacy-policy` | Privacy Policy — client-supplied text, verbatim |
 
 Plus `/sitemap.xml`, `/robots.txt`, a generated Open Graph image and a 404 page.
 
@@ -494,34 +494,32 @@ link inside notification emails is built from it.
 - [ ] Run `php artisan legacy:admin` for each member of staff
 - [ ] Keep `php artisan queue:work` supervised
 - [ ] Submit `https://www.legacybyconsumer.com/sitemap.xml` to Search Console
-- [ ] Publish the Privacy Policy text below and remove its `noindex`
 
 ---
 
 ## Outstanding client content
 
-Two items could not be completed from the supplied material. Both need the
-client, not a developer.
+One item could not be completed from the supplied material, and it needs the
+client rather than a developer.
 
-**1. Privacy Policy.** The approved footer links to it, but no policy text was
-supplied. Inventing legal wording for a real company is not something to guess
-at, so the route, layout and metadata are built and the body carries a short
-holding note pointing readers to the contact details. The page is `noindex` and
-excluded from the sitemap until the real text lands.
+*Resolved:* all three legal documents now carry the client's own text. The
+**Privacy Policy** (`/privacy-policy`, 13 sections), the **Data Sharing
+Disclosure** (`/data-sharing`, 10 sections) and the **Terms of Use**
+(`/terms-of-use`, 17 sections) live in `src/lib/content/legal.ts` and nowhere
+else, rendered by `components/sections/LegalDocument.tsx`. The renderer makes
+only typographic decisions, so the wording, numbering, bullets, dates and
+contact details are the client's exactly. All three are indexed and in the
+sitemap, and the holding shell `PolicyPage.tsx` is gone.
 
-When that copy arrives it does not go into `PolicyPage.tsx` — it goes into
-`src/lib/content/legal.ts` as a third `LegalDocument`, rendered by
-`components/sections/LegalDocument.tsx` like the other two, and the route file
-drops its `PolicyPage` import for `<LegalDocument doc={privacyPolicy} />`.
-`PolicyPage.tsx` can then be deleted, and `/privacy-policy` added to
-`app/sitemap.ts`.
-
-*Resolved since:* the **Data Sharing Disclosure** (`/data-sharing`, 10
-sections) and the **Terms of Use** (`/terms-of-use`, 17 sections) were supplied
-by the client and are now published verbatim. Their text lives in
-`src/lib/content/legal.ts` and nowhere else; the renderer makes only
-typographic decisions, so the wording, numbering, bullets, dates and contact
-details are the client's exactly. Both are indexed and in the sitemap.
+**1. Industries chapter copy.** The six industry categories, their scope lines
+and their photographs are approved. The per-industry summaries and the three
+supporting points beneath each are **draft**: they were written to the
+substance the client set out industry by industry, because the layout gives
+each industry a chapter and a chapter needs something to read. The client
+referred to a file `CSI_INDUSTRIES_REBUILD_V2.html` that is not in
+`/DOCUMENTS`, and the approved Industries HTML there contains none of that
+copy. Replacing the draft is one edit to `industriesPage.items` in
+`src/lib/content/pages.ts` and nothing else.
 
 **2. Photography — replaced, and why.** *(Resolved. Recorded here because the
 client should know their supplied images are no longer in the build.)*

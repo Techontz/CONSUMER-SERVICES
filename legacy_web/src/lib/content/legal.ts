@@ -640,3 +640,325 @@ export const termsOfUse: LegalDocument = {
     },
   ],
 };
+
+/* ------------------------------------------------------------------ */
+/* Privacy Policy                                                      */
+/* ------------------------------------------------------------------ */
+
+export const privacyPolicy: LegalDocument = {
+  path: "/privacy-policy",
+  title: "Privacy Policy",
+  effectiveDate: "September 12, 2026",
+  lastUpdated: "September 12, 2026",
+
+  preamble: [
+    {
+      kind: "p",
+      text:
+        "Consumer Services, Inc. (“Consumer Services,” “we,” “our,” or “us”) respects your privacy. This Privacy Policy explains how we collect, use, retain, protect, and disclose information received through LegacyByConsumer.com and other webpages operated by Consumer Services, Inc.",
+    },
+  ],
+
+  sections: [
+    {
+      number: 1,
+      heading: "Information We Collect",
+      blocks: [
+        {
+          kind: "p",
+          text: "We may collect information you voluntarily provide when you:",
+        },
+        {
+          kind: "list",
+          items: [
+            "Complete a Business Readiness Assessment",
+            "Submit a contact or inquiry form",
+            "Request information about our services",
+            "Schedule a consultation",
+            "Communicate with us by telephone or email",
+            "Enter into a consulting or service relationship",
+          ],
+        },
+        { kind: "p", text: "The information may include:" },
+        {
+          kind: "list",
+          items: [
+            "Your name",
+            "Email address",
+            "Telephone number",
+            "Business or organization name",
+            "Business stage, industry, or operating status",
+            "Description of your business, project, or objective",
+            "Requested services",
+            "Anticipated timeline",
+            "Business challenges and readiness information",
+            "Documents or information submitted during an engagement",
+            "Billing and transaction information when services are purchased",
+          ],
+        },
+        {
+          kind: "p",
+          text:
+            "Please do not submit Social Security numbers, banking credentials, passwords, medical records, or other highly sensitive information through a general website form unless Consumer Services provides a secure and specifically authorized method.",
+        },
+      ],
+    },
+    {
+      number: 2,
+      heading: "Information Collected Automatically",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "When you visit the website, limited technical information may be collected automatically, including:",
+        },
+        {
+          kind: "list",
+          items: [
+            "Internet Protocol address",
+            "Browser and device type",
+            "Operating system",
+            "Pages visited",
+            "Date and time of access",
+            "Referring website",
+            "Website interaction, security, and performance information",
+          ],
+        },
+        {
+          kind: "p",
+          text:
+            "We may use cookies or similar technologies for essential website operation, security, analytics, performance, and user experience.",
+        },
+      ],
+    },
+    {
+      number: 3,
+      heading: "How We Use Information",
+      blocks: [
+        {
+          kind: "p",
+          text: "Consumer Services may use collected information to:",
+        },
+        {
+          kind: "list",
+          items: [
+            "Review and respond to inquiries",
+            "Assess a prospective client’s business needs",
+            "Determine whether our services may be appropriate",
+            "Schedule consultations",
+            "Communicate about requested services",
+            "Prepare proposals, agreements, plans, reports, or deliverables",
+            "Provide and improve our services",
+            "Manage client relationships and internal records",
+            "Process authorized payments",
+            "Operate and secure the website",
+            "Prevent fraud, abuse, or unauthorized activity",
+            "Meet legal, regulatory, accounting, insurance, and contractual obligations",
+          ],
+        },
+        {
+          kind: "p",
+          text:
+            "Submitting information does not guarantee service availability, acceptance as a client, funding, licensing, certification, approval, or any particular result.",
+        },
+      ],
+    },
+    {
+      number: 4,
+      heading: "How Information May Be Shared",
+      blocks: [
+        {
+          kind: "p",
+          text: "We may share information when reasonably necessary with:",
+        },
+        {
+          kind: "list",
+          items: [
+            "Website hosting, form processing, email, scheduling, customer-management, analytics, payment, and cybersecurity providers",
+            "Employees, contractors, and authorized team members who require the information to perform assigned responsibilities",
+            "Attorneys, accountants, licensed professionals, consultants, or specialized resources involved in an authorized project",
+            "Government agencies, regulators, courts, or law-enforcement authorities when disclosure is required by law",
+            "A successor organization in connection with a lawful merger, reorganization, sale, or transfer of business assets",
+          ],
+        },
+        {
+          kind: "p",
+          text:
+            "When a project requires substantive information to be shared with an outside professional, we will obtain appropriate authorization when required.",
+        },
+        {
+          kind: "p",
+          text:
+            "Consumer Services, Inc. does not sell or rent personal information.",
+        },
+      ],
+    },
+    {
+      number: 5,
+      heading: "Payments",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "Payments may be processed through an independent payment provider. Consumer Services does not intend to store complete payment-card numbers or card-security codes on this website.",
+        },
+        {
+          kind: "p",
+          text:
+            "Payment providers process information according to their own terms, privacy policies, and security practices.",
+        },
+      ],
+    },
+    {
+      number: 6,
+      heading: "Data Retention",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "We retain information only for as long as reasonably necessary to:",
+        },
+        {
+          kind: "list",
+          items: [
+            "Respond to an inquiry",
+            "Evaluate or provide requested services",
+            "Maintain appropriate client and business records",
+            "Fulfill contractual obligations",
+            "Meet tax, insurance, accounting, legal, and regulatory requirements",
+            "Resolve disputes and enforce agreements",
+          ],
+        },
+        {
+          kind: "p",
+          text:
+            "Retention periods may vary according to the type of information and the reason it was collected.",
+        },
+      ],
+    },
+    {
+      number: 7,
+      heading: "Data Security",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "We use reasonable administrative, technical, and organizational safeguards intended to protect information against unauthorized access, loss, misuse, alteration, or disclosure.",
+        },
+        {
+          kind: "p",
+          text:
+            "No website, email system, electronic transmission, or storage method can be guaranteed to be completely secure. Users should exercise care when transmitting confidential information electronically.",
+        },
+      ],
+    },
+    {
+      number: 8,
+      heading: "Your Choices and Privacy Rights",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "Subject to applicable law, you may request that Consumer Services:",
+        },
+        {
+          kind: "list",
+          items: [
+            "Confirm whether we maintain your personal information",
+            "Provide access to certain personal information",
+            "Correct inaccurate information",
+            "Delete information that we are not legally or contractually required to retain",
+            "Explain how information has been used or disclosed",
+            "Stop nonessential promotional communications",
+          ],
+        },
+        {
+          kind: "p",
+          text:
+            "We may need to verify your identity before completing a request. Certain information may be retained when required for legal, accounting, contractual, fraud-prevention, or recordkeeping purposes.",
+        },
+        {
+          kind: "p",
+          text:
+            "Consumer Services will not unlawfully discriminate against an individual for exercising an applicable privacy right.",
+        },
+        {
+          kind: "p",
+          text: "Privacy requests may be submitted to info@legacybyconsumer.com.",
+          links: [
+            {
+              text: "info@legacybyconsumer.com",
+              href: "mailto:info@legacybyconsumer.com",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      number: 9,
+      heading: "Email and Telephone Communications",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "When you provide contact information in connection with an inquiry, Consumer Services may use it to respond and communicate about the services you requested.",
+        },
+        {
+          kind: "p",
+          text:
+            "Submission of a general inquiry does not constitute consent to unrelated automated marketing text messages. Any automated promotional messaging program will require a separate consent process where legally required.",
+        },
+      ],
+    },
+    {
+      number: 10,
+      heading: "Children’s Privacy",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "This website is intended for adults seeking business-related information and services. It is not directed to children under 13, and we do not knowingly collect personal information from children through the website.",
+        },
+      ],
+    },
+    {
+      number: 11,
+      heading: "Third-Party Websites",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "The website may include links to third-party websites, applications, or services. Consumer Services does not control and is not responsible for the privacy, security, content, or practices of those third parties.",
+        },
+        {
+          kind: "p",
+          text:
+            "Users should review the applicable third-party policies before providing information.",
+        },
+      ],
+    },
+    {
+      number: 12,
+      heading: "Changes to This Privacy Policy",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "We may revise this Privacy Policy as our website, services, technology, or legal obligations change. The updated policy will be posted on this page with a revised “Last Updated” date.",
+        },
+      ],
+    },
+    {
+      number: 13,
+      heading: "Contact Us",
+      blocks: [
+        {
+          kind: "p",
+          text:
+            "Questions, requests, or concerns regarding this Privacy Policy may be directed to:",
+        },
+        { kind: "contact", lines: CONTACT_LINES },
+      ],
+    },
+  ],
+};

@@ -48,16 +48,20 @@ function withLinks(text: string, links?: InlineLink[]): ReactNode {
 
   return text.split(pattern).map((piece, i) => {
     const match = links.find((l) => l.text === piece);
-    return match ? (
-      <Link
-        key={i}
-        href={match.href}
-        className="u-underline font-semibold text-brass-700"
-      >
+    if (!match) return <Fragment key={i}>{piece}</Fragment>;
+
+    const className = "u-underline font-semibold break-words text-brass-700";
+    // A mailto is not a route. next/link would render it, but routing a
+    // scheme it cannot prefetch through the router is a lie about what the
+    // link is; a plain anchor is what this is.
+    return match.href.startsWith("/") ? (
+      <Link key={i} href={match.href} className={className}>
         {piece}
       </Link>
     ) : (
-      <Fragment key={i}>{piece}</Fragment>
+      <a key={i} href={match.href} className={className}>
+        {piece}
+      </a>
     );
   });
 }
