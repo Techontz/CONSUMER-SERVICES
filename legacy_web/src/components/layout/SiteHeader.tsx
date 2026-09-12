@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
-import { primaryNav, site, type NavItem } from "@/lib/site";
+import { primaryNav, site, type NavItem, type NavChild } from "@/lib/site";
 import { industriesPage } from "@/lib/content/pages";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
@@ -297,7 +297,7 @@ function MegaPanel({
   items,
 }: {
   item: NavItem;
-  items: { label: string; href: string; blurb?: string; image?: string; alt?: string }[];
+  items: NavChild[];
 }) {
   /**
    * The menu argues visually, but at menu scale.
@@ -354,6 +354,7 @@ function MegaPanel({
                     // Eleven thumbnails at this size cost a few KB in total;
                     // the pop-in cost more than that in feel.
                     loading="eager"
+                    style={link.focus ? { objectPosition: link.focus } : undefined}
                     className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-focus-within:scale-[1.05] motion-reduce:transition-none"
                   />
                   <span

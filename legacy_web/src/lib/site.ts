@@ -50,6 +50,13 @@ export type NavChild = {
    */
   image?: string;
   alt?: string;
+  /**
+   * `object-position` for this thumbnail. Only needed where a portrait is
+   * shown in a landscape frame: the default centre crop takes a band out of
+   * the middle, which on a standing two-shot is the chests rather than the
+   * faces.
+   */
+  focus?: string;
 };
 
 export type NavItem = {
@@ -81,8 +88,9 @@ export const primaryNav: NavItem[] = [
         label: "All Services",
         href: "/services",
         blurb: "The seven development pathways.",
-        image: "/media/industry-professional.jpg",
-        alt: "Professionals working through a business plan together",
+        image: "/media/industry-advisers.jpg",
+        alt: "Two advisers standing together reviewing an open document folder",
+        focus: "50% 26%",
       },
       {
         label: "Funding Readiness",

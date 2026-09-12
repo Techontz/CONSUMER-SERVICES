@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/Logo";
-import { legalNav, primaryNav, site } from "@/lib/site";
+import { legalNav, primaryNav, site, type NavChild } from "@/lib/site";
 import { industriesPage } from "@/lib/content/pages";
 
-const industryLinks = industriesPage.items.map((i) => ({
+const industryLinks: NavChild[] = industriesPage.items.map((i) => ({
   label: i.title,
   href: "/industries",
   image: i.image,
@@ -158,6 +158,7 @@ export function MobileNav({
                                       fill
                                       sizes="52px"
                                       quality={55}
+                                      style={s.focus ? { objectPosition: s.focus } : undefined}
                                       className="object-cover"
                                     />
                                   </span>

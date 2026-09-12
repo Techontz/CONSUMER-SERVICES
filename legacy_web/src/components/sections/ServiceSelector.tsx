@@ -12,6 +12,8 @@ type Service = {
   href: string;
   image?: string;
   alt?: string;
+  /** `object-position`, for a portrait shown in this 16:9 frame. */
+  focus?: string;
 };
 
 /**
@@ -170,6 +172,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     quality={80}
                     loading={i === 0 ? "eager" : "lazy"}
+                    style={s.focus ? { objectPosition: s.focus } : undefined}
                     className={cn(
                       "object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none",
                       active === i ? "scale-[1.03]" : "scale-100",

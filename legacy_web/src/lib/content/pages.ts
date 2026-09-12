@@ -30,8 +30,9 @@ export const servicesPage = {
       body:
         "Establish the business foundation, structure, documentation, and development priorities.",
       href: "/contact",
-      image: "/media/industry-professional.jpg",
-      alt: "Advisers reviewing a plan together",
+      image: "/media/industry-advisers.jpg",
+      alt: "Two advisers standing together reviewing an open document folder",
+      focus: "50% 26%",
     },
     {
       step: "Plan",
