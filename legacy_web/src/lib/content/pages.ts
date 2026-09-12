@@ -262,8 +262,8 @@ export const industriesPage = {
         "Policy, procedure and staffing documentation",
         "Facility readiness and admission planning",
       ],
-      image: "/media/industry-healthcare.jpg",
-      alt: "Care staff walking a resident in a wheelchair along a daylit care-home corridor",
+      image: "/media/industry-care-home.jpg",
+      alt: "A carer talking with a seated resident in the sunlit corridor of a modern residential care home",
     },
     {
       number: "05",
@@ -290,8 +290,8 @@ export const industriesPage = {
         "Client agreements and engagement documents",
         "Delivery workflows and administrative systems",
       ],
-      image: "/media/industry-professional.jpg",
-      alt: "Two advisers reviewing a document folder together beside an office window",
+      image: "/media/industry-advisers.jpg",
+      alt: "Two advisers standing together reviewing an open document folder in a daylit room",
     },
   ],
   role: {

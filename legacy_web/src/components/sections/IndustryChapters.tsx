@@ -71,7 +71,12 @@ export function IndustryChapters({ items }: { items: readonly Industry[] }) {
                         src={item.image}
                         alt={item.alt}
                         fill
-                        sizes="(min-width: 1024px) 62vw, 165vw"
+                        // Measured, not estimated. The plate renders at
+                        // 38-40vw from 1024 up, 62-70vw on tablets and
+                        // essentially full-bleed on phones. The old hint
+                        // claimed 62vw and 165vw, which had Chrome pulling
+                        // the 2048 derivative for a 558px slot.
+                        sizes="(min-width: 1024px) 41vw, (min-width: 768px) 70vw, 100vw"
                         quality={82}
                         className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02] motion-reduce:transition-none"
                       />
@@ -80,7 +85,7 @@ export function IndustryChapters({ items }: { items: readonly Industry[] }) {
                           be able to see. */}
                       <span
                         aria-hidden
-                        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,61,50,0.02),rgba(10,32,25,0.12))]"
+                        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,61,50,0.01)_0%,rgba(18,61,50,0.01)_62%,rgba(10,32,25,0.08)_100%)]"
                       />
                       <span
                         aria-hidden

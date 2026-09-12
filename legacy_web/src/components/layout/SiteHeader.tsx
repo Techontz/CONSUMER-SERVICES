@@ -354,7 +354,7 @@ function MegaPanel({
                     // Eleven thumbnails at this size cost a few KB in total;
                     // the pop-in cost more than that in feel.
                     loading="eager"
-                    className="object-cover opacity-90 grayscale-[0.12] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0 group-focus-within:scale-[1.05] group-focus-within:opacity-100 group-focus-within:grayscale-0 motion-reduce:transition-none"
+                    className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-focus-within:scale-[1.05] motion-reduce:transition-none"
                   />
                   <span
                     aria-hidden

@@ -77,15 +77,20 @@ export function ReadinessStory({
                   src={image}
                   alt={alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  sizes="(min-width: 1024px) 35vw, 100vw"
                   quality={82}
                   className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 motion-reduce:transition-none"
                 />
               ) : null}
-              {/* Keeps the crop from competing with the type beside it. */}
+              {/* Seats the plate and the brass rule on the ground colour.
+                  It used to run to 0.22 across the whole frame to keep the
+                  crop "from competing with the type beside it" — but the type
+                  is beside it, on its own ground, and the photograph was
+                  losing a fifth of its brightness to a problem it did not
+                  have. */}
               <div
                 aria-hidden
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,32,25,0.04),rgba(10,32,25,0.22))]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,32,25,0.02)_0%,rgba(10,32,25,0.02)_58%,rgba(10,32,25,0.11)_100%)]"
               />
               <span
                 aria-hidden

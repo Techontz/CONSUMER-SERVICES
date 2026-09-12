@@ -104,7 +104,7 @@ export function SectionFilm({
         src={poster}
         alt={alt}
         fill
-        sizes="(max-width: 1024px) 100vw, 50vw"
+        sizes="(min-width: 1024px) 35vw, 100vw"
         quality={78}
         className="object-cover"
       />

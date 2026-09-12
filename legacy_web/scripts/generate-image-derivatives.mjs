@@ -51,8 +51,13 @@ const SOURCES = /\.(jpe?g|png|webp)$/i;
  * Quality by size. Thumbnails are shown at 56px and can take heavier
  * compression than a full-bleed backdrop; the large end stays generous
  * because these are the client's approved photographs.
+ *
+ * Raised at the top two bands once the photography was graded. Opening the
+ * shadows on these frames put real tonal detail where there had been flat
+ * black, and that detail is exactly what a codec discards first — the band
+ * that was fine for a muddy original was visibly banding the lifted one.
  */
-const qualityFor = (w) => (w <= 256 ? 72 : w <= 1080 ? 78 : 82);
+const qualityFor = (w) => (w <= 256 ? 72 : w <= 1080 ? 82 : 87);
 
 async function main() {
   if (!existsSync(MEDIA)) {

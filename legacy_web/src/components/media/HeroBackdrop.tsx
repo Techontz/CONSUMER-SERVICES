@@ -63,11 +63,23 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
           not how much of the film you can see. */}
       <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(18,61,50,0.14)]" />
 
+      {/* The desktop wash carries more through its middle than it used to.
+          "Solutions That Last" is the longest line in the composition and the
+          only one set in the accent, and its tail runs out past where the old
+          curve had any weight left: measured 2.16:1 at 1024, 3.00:1 at 1440
+          against the footage behind it — under AA for display type. The curve
+          now holds ~0.68 where that line ends instead of ~0.46, and reaches
+          a little further right before it lets go. The weight is added in the
+          middle band only; the near field and the far field are where they
+          were, so the towers and the sky the film was chosen for are
+          untouched. This is the localised-scrim answer rather than a darker
+          frame: the picture stays open, the type it sits under gets its
+          contrast. */}
       <div
         aria-hidden
         className={
           full
-            ? "absolute inset-0 -z-10 bg-[radial-gradient(150%_86%_at_14%_82%,rgba(10,32,25,0.92)_0%,rgba(10,32,25,0.80)_36%,rgba(24,40,33,0.46)_64%,rgba(10,32,25,0.16)_86%,rgba(10,32,25,0)_100%)] lg:bg-[radial-gradient(74%_104%_at_2%_62%,rgba(10,32,25,0.92)_0%,rgba(10,32,25,0.82)_34%,rgba(24,40,33,0.46)_60%,rgba(18,61,50,0.10)_82%,rgba(18,61,50,0)_96%)]"
+            ? "absolute inset-0 -z-10 bg-[radial-gradient(150%_86%_at_14%_82%,rgba(10,32,25,0.92)_0%,rgba(10,32,25,0.84)_34%,rgba(24,40,33,0.64)_58%,rgba(24,40,33,0.34)_78%,rgba(10,32,25,0.12)_92%,rgba(10,32,25,0)_100%)] lg:bg-[radial-gradient(84%_104%_at_2%_62%,rgba(10,32,25,0.92)_0%,rgba(10,32,25,0.84)_32%,rgba(24,40,33,0.66)_54%,rgba(24,40,33,0.34)_72%,rgba(18,61,50,0.10)_88%,rgba(18,61,50,0)_98%)]"
             // The interior variant's phone gradient opened at 0.30, which is
             // most of a page hero's height at 390px: on Industries the
             // kicker sits up in that thin part of it and measured 2.78:1.
@@ -100,6 +112,21 @@ export function HeroBackdrop({ variant = "page" }: { variant?: "full" | "page" }
           to 4.41:1. Doing it here rather than in the veil is the point: the
           extra weight lands in the last third of the frame, which is water,
           instead of across the towers and the sky that the film is for. */}
+      {/* The kicker gets its own band on small phones, for the same reason
+          the strap line gets one on desktop: it is 10px, it sits a third of
+          the way down the frame, and at 375-390px the crop puts sunlit
+          foliage directly behind its tail. Measured 2.78:1 there — a 10px
+          run needs 4.5:1. Widening the wash until it reached would have
+          dimmed the whole phone hero; a soft band over the one line it
+          affects costs the picture almost nothing. Above `sm` the crop
+          changes and the kicker already clears 5:1, so it stops there. */}
+      {full ? (
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-[22%] -z-10 h-[26%] bg-[linear-gradient(180deg,rgba(10,32,25,0)_0%,rgba(10,32,25,0.38)_42%,rgba(10,32,25,0.32)_64%,rgba(10,32,25,0)_100%)] sm:hidden"
+        />
+      ) : null}
+
       {full ? (
         <div
           aria-hidden

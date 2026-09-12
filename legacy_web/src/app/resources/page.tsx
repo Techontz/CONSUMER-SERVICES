@@ -38,14 +38,16 @@ export default function ResourcesPage() {
                 src={p.featured.image}
                 alt={p.featured.alt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 58vw"
+                sizes="(min-width: 1024px) 48vw, 100vw"
                 quality={82}
                 priority
                 className="object-cover"
               />
+              {/* Bottom-weighted, not a full-frame wash: the text sits in
+                  the column beside this image, never over it. */}
               <div
                 aria-hidden
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,61,50,0.04),rgba(10,32,25,0.18))]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,61,50,0.02)_0%,rgba(18,61,50,0.02)_60%,rgba(10,32,25,0.09)_100%)]"
               />
             </div>
           </Reveal>

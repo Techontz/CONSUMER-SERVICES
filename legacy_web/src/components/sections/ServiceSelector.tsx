@@ -167,7 +167,7 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                     src={s.image}
                     alt={active === i ? (s.alt ?? "") : ""}
                     fill
-                    sizes="(min-width: 1024px) 56vw, 100vw"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     quality={80}
                     loading={i === 0 ? "eager" : "lazy"}
                     className={cn(
@@ -178,10 +178,16 @@ export function ServiceSelector({ items }: { items: Service[] }) {
                 </span>
               ) : null,
             )}
-            {/* One tint over seven photographs, so the set reads as commissioned. */}
+            {/* One tint over seven photographs, so the set reads as
+                commissioned — but weighted to the bottom edge rather than
+                spread across the frame. The copy for this panel sits below
+                the photograph, not on it, so the tint was never carrying
+                contrast for anything; at 0.30 over the whole frame it was
+                simply darkening seven photographs to no purpose. What is
+                left seats the brass rule against the bottom of the image. */}
             <span
               aria-hidden
-              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(18,61,50,0.08),rgba(10,32,25,0.30))]"
+              className="absolute inset-0 bg-[linear-gradient(195deg,rgba(18,61,50,0.03)_0%,rgba(18,61,50,0.03)_58%,rgba(10,32,25,0.14)_100%)]"
             />
             <span
               aria-hidden
