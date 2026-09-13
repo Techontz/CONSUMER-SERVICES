@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
 import { SectionFilm } from "@/components/media/SectionFilm";
 import { FrameworkStep } from "@/components/sections/home/ReadinessFramework";
@@ -25,6 +26,29 @@ type Story = {
  * `flip` alternates the two so the page develops a rhythm instead of
  * repeating a layout.
  */
+
+/**
+ * Chips are set in caps, and CSS uppercasing cannot tell an acronym's plural
+ * from the acronym itself: the approved "CDFIs" was rendering as "CDFIS".
+ * The trailing "s" after a run of capitals is held in lowercase so the chip
+ * reads the way the copy is written. The label is one inline span, because
+ * its parent is a flex row with a gap and a loose "s" would sit a gap away.
+ */
+function chipLabel(chip: string): ReactNode {
+  const parts = chip.split(/\b([A-Z]{2,})s\b/);
+  if (parts.length === 1) return chip;
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <Fragment key={i}>
+        {part}
+        <span className="normal-case">s</span>
+      </Fragment>
+    ) : (
+      part
+    ),
+  );
+}
+
 export function ReadinessStory({
   story,
   image,
@@ -166,7 +190,7 @@ export function ReadinessStory({
                       aria-hidden
                       className={cn("u-dot", dark ? "text-brass-500" : "text-brass-700")}
                     />
-                    {chip}
+                    <span>{chipLabel(chip)}</span>
                   </span>
                 </RevealItem>
               ))}
