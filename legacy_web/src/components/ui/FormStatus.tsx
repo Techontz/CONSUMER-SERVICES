@@ -26,13 +26,13 @@ export function SuccessPanel({
       className={cn(
         "border p-10 lg:p-12",
         dark
-          ? "border-brass-500/40 bg-evergreen-700"
-          : "border-brass-500/50 bg-ivory-200",
+          ? "border-gold-500/40 bg-evergreen-700"
+          : "border-gold-500/50 bg-ivory-200",
       )}
     >
       <span
         aria-hidden
-        className="flex size-11 items-center justify-center rounded-full border border-brass-500 text-brass-600"
+        className="flex size-11 items-center justify-center rounded-full border border-gold-500 text-gold-600"
       >
         &#10003;
       </span>
@@ -63,7 +63,7 @@ export function SuccessPanel({
           )}
         >
           Reference{" "}
-          <span className={dark ? "text-brass-400" : "text-brass-700"}>
+          <span className={dark ? "text-gold-400" : "text-gold-700"}>
             {reference}
           </span>
         </p>
@@ -82,7 +82,7 @@ export function SuccessPanel({
           href={site.phoneHref}
           className={cn(
             "u-underline",
-            dark ? "text-brass-400" : "text-brass-700",
+            dark ? "text-gold-400" : "text-gold-700",
           )}
         >
           {site.phone}
@@ -92,7 +92,7 @@ export function SuccessPanel({
           href={`mailto:${site.email}`}
           className={cn(
             "u-underline break-all",
-            dark ? "text-brass-400" : "text-brass-700",
+            dark ? "text-gold-400" : "text-gold-700",
           )}
         >
           {site.email}

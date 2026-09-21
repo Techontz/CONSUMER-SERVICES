@@ -31,11 +31,17 @@ export function Mark({
   /** "olive" everywhere by default; "current" inherits for reversed use. */
   tone?: "olive" | "current";
 }) {
-  // Brass, flat. A mark is the one place a brand colour has to be the
+  // Gold, flat. A mark is the one place a brand colour has to be the
   // colour itself rather than a token that resolves to it. It was Light
   // Olive, which on the evergreen masthead read as pale sage rather than as
-  // an identity; #C9A24B is the brass the brand was originally drawn in.
-  const fill = tone === "current" ? "currentColor" : "#C9A24B";
+  // an identity; #C89528 is the CSI gold the brand is drawn in.
+  //
+  // Flat, and not the metallic finish. The seal is an identity and it is
+  // reproduced at 32px, as a favicon and on paper — a highlight sweeping
+  // across it is a rendering of the mark rather than the mark, and at the
+  // sizes this is used it would read as an artefact. The metal is for the
+  // page, never for the identity.
+  const fill = tone === "current" ? "currentColor" : "#C89528";
   return (
     <svg
       viewBox="0 0 64 64"

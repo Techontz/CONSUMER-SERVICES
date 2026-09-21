@@ -35,8 +35,8 @@ export default function IndustriesPage() {
         <Container>
           <Reveal className="max-w-[64ch]">
             <p className="flex items-center gap-4">
-              <span aria-hidden className="block h-px w-10 shrink-0 bg-brass-600/70" />
-              <span className="u-eyebrow text-brass-700">{p.overview.label}</span>
+              <span aria-hidden className="block h-px w-10 shrink-0 bg-gold-600/70" />
+              <span className="u-eyebrow text-gold-700">{p.overview.label}</span>
             </p>
             <p className="u-lede mt-7">{p.overview.lede}</p>
           </Reveal>

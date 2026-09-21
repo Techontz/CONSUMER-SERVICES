@@ -7,8 +7,18 @@ import { footerNav, legalNav, site } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="u-watermark relative isolate overflow-hidden bg-evergreen-950 text-ivory-100">
-      {/* A single olive hairline above the footer reads as a page rule. */}
-      <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-brass-500/45 to-transparent" />
+      {/* A single gold hairline above the footer reads as a page rule.
+
+          The metallic ramp supplies the colour and the highlight; the mask
+          supplies the fade into the page margins that this rule has always
+          had. Doing it with a mask rather than with transparent gradient
+          stops keeps the two jobs separate — the metal is the same five
+          stops used everywhere else on the site, and only its ends are
+          being dissolved. */}
+      <div
+        aria-hidden
+        className="u-metal-rule h-px w-full [mask-image:linear-gradient(90deg,transparent,#000_22%,#000_78%,transparent)]"
+      />
 
       <Container className="py-18 lg:py-24">
         <Reveal className="grid gap-14 lg:grid-cols-12 lg:gap-10">
@@ -16,7 +26,7 @@ export function SiteFooter() {
           <div className="lg:col-span-4">
             <Logo tone="light" size="lg" showTagline={false} />
 
-            <p className="mt-5 text-[0.5625rem] font-normal uppercase tracking-[0.24em] text-brass-500/85">
+            <p className="mt-5 text-[0.5625rem] font-normal uppercase tracking-[0.24em] text-gold-400/85">
               {site.brandName}
             </p>
 
@@ -31,7 +41,7 @@ export function SiteFooter() {
 
           {/* Navigation */}
           <nav aria-label="Footer" className="lg:col-span-3 lg:col-start-6">
-            <h2 className="u-eyebrow text-brass-500/80">Navigate</h2>
+            <h2 className="u-eyebrow text-gold-400/80">Navigate</h2>
             <ul className="mt-6 space-y-3">
               {footerNav.map((item) => (
                 <li key={item.href}>
@@ -48,7 +58,7 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div className="lg:col-span-4 lg:col-start-9">
-            <h2 className="u-eyebrow text-brass-500/80">Contact</h2>
+            <h2 className="u-eyebrow text-gold-400/80">Contact</h2>
             <ul className="mt-6 space-y-3 text-sm">
               <li>
                 <a

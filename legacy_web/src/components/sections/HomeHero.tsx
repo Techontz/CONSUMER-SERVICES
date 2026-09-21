@@ -56,7 +56,7 @@ export function HomeHero() {
             className="u-in-fade flex items-center gap-4"
             style={{ animationDelay: "100ms" }}
           >
-            <span aria-hidden className="block h-px w-10 bg-brass-500/80" />
+            <span aria-hidden className="block h-px w-10 bg-gold-500/80" />
             <span className="u-eyebrow text-ivory-100">
               Established {site.established} · {site.establishedIn}
             </span>
@@ -105,9 +105,20 @@ export function HomeHero() {
                 className="block overflow-hidden whitespace-nowrap pb-[0.14em]"
               >
                 <span
+                  // The closing phrase is the site's one metallic accent —
+                  // the only place gold is struck as material rather than
+                  // used as a colour. It is also the only element big enough
+                  // to take it: the gradient's dark ends clear 3:1, which is
+                  // what large text owes and all it owes.
+                  //
+                  // `u-metal-text` sets `display: inline-block`, which is
+                  // what `block` was already doing here, so the mask reveal
+                  // above is unaffected — it translates this box inside its
+                  // parent's `overflow-hidden`, and the gradient is painted
+                  // in this box's own coordinates and travels with it.
                   className={
                     i === closing
-                      ? "u-in-mask block italic text-brass-400"
+                      ? "u-in-mask u-metal-text block italic"
                       : "u-in-mask block"
                   }
                   style={{ animationDelay: `${200 + i * 70}ms` }}
@@ -120,7 +131,7 @@ export function HomeHero() {
 
           <span
             aria-hidden
-            className="u-in-draw block h-px w-32 origin-left bg-brass-500"
+            className="u-in-draw block h-px w-32 origin-left bg-gold-500"
             style={{
               marginTop: "clamp(1rem, 2.7svh, 2.5rem)",
               animationDelay: "480ms",
@@ -188,7 +199,7 @@ export function HomeHero() {
           <span className="flex items-center gap-4">
             <span className="u-eyebrow text-ivory-100/75">Scroll</span>
             <span className="relative block h-[clamp(2.25rem,4.5svh,3rem)] w-px overflow-hidden bg-ivory-100/25">
-              <span className="absolute inset-x-0 top-0 block h-1/2 animate-[lbc-scroll-cue_2.4s_ease-in-out_infinite] bg-brass-500" />
+              <span className="absolute inset-x-0 top-0 block h-1/2 animate-[lbc-scroll-cue_2.4s_ease-in-out_infinite] bg-gold-500" />
             </span>
           </span>
         </div>

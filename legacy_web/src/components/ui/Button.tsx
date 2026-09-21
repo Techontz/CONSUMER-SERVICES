@@ -17,32 +17,52 @@ const base =
 
 const variants: Record<Variant, string> = {
   solid: "border-evergreen-800 bg-evergreen-800 text-ivory-100",
-  // Primary: Light Olive ground, dark type. One weight of border, no fill
-  // gradient, no radius.
-  accent: "border-brass-500 bg-brass-500 text-ink-900",
+  // Primary: the metallic gold ground, dark type. One weight of border and
+  // no radius, as before — the fill is the only thing that changed.
+  //
+  // The border stays flat gold-500 on purpose. A gradient edge one pixel
+  // wide cannot show a highlight; it just makes the outline read as an
+  // uneven colour. Flat gold at 4.48:1 on evergreen is the boundary, the
+  // metal is the ground inside it.
+  //
+  // The label is evergreen-950, not ink-900. The fill's darkest stop is
+  // gold-600, where Charcoal Green measures 4.29:1 and misses AA for small
+  // text — and a 10px letterspaced capital is small text. evergreen-950
+  // reads 4.75:1 against that same worst-case stop, and 8.4:1 at the shine
+  // in the middle, so the label clears AA at every point along the sweep
+  // rather than only where the metal happens to be bright.
+  accent: "border-gold-500 u-metal-fill text-evergreen-950",
   // Secondary on a light ground. The border is olive rather than a tint of
   // the evergreen it used to be — the accent is what marks an action, and a
   // faded structural colour marked nothing.
   //
-  // brass-700, and the ramp step matters: a control's boundary owes 3:1, and
-  // on ivory Light Olive itself measures 1.85:1 and brass-600 only 2.79:1.
-  // 700 is the first step that clears it, at 5.20:1. It is the same value
-  // the eyebrows use on a light ground, so the accent reads as one colour
-  // across the site even though two different tints are doing the work.
-  quiet: "border-brass-700 bg-transparent text-evergreen-700 hover:text-ivory-100",
-  // Secondary on a dark ground: Light Olive at full strength, which is what
-  // the brief specifies for a secondary control, and 6.19:1 on Deep
-  // Evergreen. It was 70% — legible at 3.85:1, but a diluted accent reads as
-  // a weaker button rather than a quieter one, and one border weight across
-  // the site is the point of having a button system at all.
+  // gold-700, and the ramp step matters: a control's boundary owes 3:1, and
+  // on ivory Light Olive itself measures 1.85:1 and gold-500 only 2.41:1.
+  // 700 clears it with room to spare at 6.88:1, which is what lets this
+  // border also carry the label's weight. It is the same value the eyebrows
+  // use on a light ground, so the accent reads as one colour across the
+  // site even though two different tints are doing the work.
+  quiet: "border-gold-700 bg-transparent text-evergreen-700 hover:text-ivory-100",
+  // Secondary on a dark ground: the accent at full strength, which is what
+  // the brief specifies for a secondary control, and 4.48:1 on Deep
+  // Evergreen against the 3:1 a boundary owes. It was 70% — a diluted
+  // accent reads as a weaker button rather than a quieter one, and one
+  // border weight across the site is the point of having a button system at
+  // all. The label is ivory, so the gold here only ever draws the edge.
   quietLight:
-    "border-brass-500 bg-transparent text-ivory-100 hover:text-ink-900",
+    "border-gold-500 bg-transparent text-ivory-100 hover:text-ink-900",
 };
 
 /** The wash that wipes across on hover, per variant. */
 const sweeps: Record<Variant, string> = {
   solid: "bg-evergreen-950",
-  accent: "bg-brass-400",
+  // The same metal with the light swung across it, rather than a different
+  // colour wiping over the top. A flat wash arriving on a metallic ground
+  // reads as the finish being painted out; this reads as the highlight
+  // moving, which is what the material is meant to do when you touch it.
+  // Its darkest stop is a step brighter than the resting fill, so the label
+  // gains contrast on hover instead of losing it.
+  accent: "u-metal-fill-lit",
   quiet: "bg-evergreen-800",
   quietLight: "bg-ivory-100",
 };
@@ -138,8 +158,8 @@ export function TextLink({
         "group inline-flex items-center gap-3 font-display text-[0.625rem] uppercase tracking-[0.22em]",
         "transition-colors duration-300",
         tone === "dark"
-          ? "text-evergreen-700 hover:text-brass-700"
-          : "text-brass-400 hover:text-ivory-100",
+          ? "text-evergreen-700 hover:text-gold-700"
+          : "text-gold-400 hover:text-ivory-100",
         className,
       )}
     >

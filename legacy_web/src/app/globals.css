@@ -15,11 +15,11 @@
        Deep Evergreen   #123D32   the brand ground
        Charcoal Green   #182821   depth beneath it
        Light Olive      #B8BE8A   an approved brand colour
-       Brass            #C9A24B   the interface accent
+       CSI Gold         #C89528   the interface accent
        Warm Ivory       #F6F2E9   the type
 
      Light Olive remains an approved brand colour, but it is not the
-     interface accent any more — see the Brass block below for why, and for
+     interface accent any more — see the Gold block below for why, and for
      the ramp that took the job.
      ------------------------------------------------------------------ */
 
@@ -47,31 +47,48 @@
   --color-evergreen-600: #182821;
   --color-evergreen-500: #1E5A49;
 
-  /* --- Brass ---
+  /* --- Gold ---
      The accent, and the one place the palette moved.
 
      It was Light Olive #B8BE8A, which is an approved brand colour and is
      still the right sage; as the interface accent it simply read pale. On
      Deep Evergreen it is a soft sage-green highlight, and a highlight that
      shares its parent's hue does not mark anything — every rule, border and
-     button was whispering. The client asked for the brass their original
+     button was whispering. The client asked for the gold their original
      brand presentation used, and this is that ramp restored.
 
-     500 is the signature. Hue 41.4 degrees puts it squarely in brass:
-     orange lives below 35 and yellow above 52, and at 53.8% saturation it
-     is rich rather than the muted 40% of a khaki. It measures 5.03:1 on
-     Deep Evergreen, which clears AA for text, so the accent can carry an
-     eyebrow, a nav label and a button label rather than only drawing lines.
+     The values are no longer ours. 400, 500 and 700 are the locked tokens
+     from the CSI Metallic Gold standard — gold-light, gold, gold-dark — so
+     the site and the client's own stylesheet name the same colours. The
+     ramp that surrounds them is unchanged in shape, because the shape was
+     never the problem: one value still cannot serve both grounds.
 
-     The ramp splits by ground, exactly as the olive one did, because one
-     value cannot serve both: 400 is the bright step for type on a dark
-     ground, 600 is the hairline weight, and 700 is the only step allowed to
-     set small type on Warm Ivory, where 500 measures 2.15:1 and 700 reads
-     5.46:1. */
-  --color-brass-400: #DDBC72;
-  --color-brass-500: #C9A24B; /* the accent */
-  --color-brass-600: #B98B33;
-  --color-brass-700: #7E5C22;
+     500 is the signature, and it is the one step whose job narrowed. The
+     brass it replaces measured 5.03:1 on Deep Evergreen, which is what let
+     it set small type there; CSI gold measures 4.48:1 on the same ground
+     and misses AA for small text by a hair. So 500 draws and fills — rules,
+     borders, button grounds, all of which owe 3:1 and get 4.48:1 — and the
+     small labels it used to set on the masthead now take 400. That is the
+     split the ramp already had, applied one step further along.
+
+     400 is the bright step for type on a dark ground: 7.26:1 on Deep
+     Evergreen and 10.24:1 on the footer's Charcoal, with room left over for
+     the 80–85% tints the footer sets it at.
+
+     600 is the hairline weight, and it comes from the client's file too —
+     it is the darkest stop of their metallic fill. It is the only step that
+     clears 3:1 on BOTH grounds (3.21:1 on Warm Ivory, 3.37:1 on Deep
+     Evergreen), which is what a rule that appears on light and dark pages
+     alike actually needs. The brass 600 it replaces managed 2.76:1 on ivory
+     and was quietly failing there.
+
+     700 is the only step allowed to set small type on Warm Ivory, where 500
+     measures 2.41:1 and 700 reads 6.88:1 — up from the 5.46:1 the outgoing
+     brass gave, so the light-ground labels got stronger in the swap. */
+  --color-gold-400: #E8C56A; /* CSI gold-light */
+  --color-gold-500: #C89528; /* CSI gold — the accent */
+  --color-gold-600: #B07E22;
+  --color-gold-700: #78480C; /* CSI gold-dark */
 
   /* --- Paper ---
      100 is Warm Ivory exactly; the rest are its tints. */
@@ -142,6 +159,79 @@
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* ============================================================
+   The metallic finish
+   ============================================================
+   Gold on this site is a material, not just a hue. A flat fill reads as
+   yellow; what makes it read as metal is a highlight travelling across it,
+   so every metallic surface here is the same five-stop ramp — dark edge,
+   gold, shine, gold, dark edge — on the same 100deg axis. One axis is the
+   point: two gold objects in the same frame are lit by the same light, and
+   the moment the angles disagree they stop looking like one material.
+
+   These are :root properties rather than @theme tokens because a gradient
+   is not a colour — Tailwind would generate `text-*` and `bg-*` utilities
+   for them that would silently produce no paint at all.
+
+   --gold-shine is the centre stop, and the only value in the ramp that is
+   not a step of the palette. It is the client's locked shine token. */
+:root {
+  --gold-shine: #FFF1B8;
+
+  /* Type. Its dark edges are lighter than the fill's, because text is thin:
+     a stroke a pixel or two wide at the end of the sweep has to survive on
+     its own, where a solid ground has its whole area to carry the eye.
+     #9A6A1C measures 3.61:1 on Charcoal Green, which clears the 3:1 that
+     large text owes — and large text is the only thing this is for. */
+  --metal-text: linear-gradient(
+    100deg,
+    #9A6A1C 0%,
+    var(--color-gold-400) 30%,
+    var(--gold-shine) 50%,
+    var(--color-gold-400) 70%,
+    #9A6A1C 100%
+  );
+
+  /* Ground. Darkest stop is gold-600, which is the worst case the label on
+     top has to clear — Charcoal Green reads 4.29:1 there and misses, which
+     is why a button filled with this sets its label in evergreen-950 at
+     4.75:1 rather than in the ink the flat accent used to take. */
+  --metal-fill: linear-gradient(
+    100deg,
+    var(--color-gold-600) 0%,
+    var(--color-gold-400) 35%,
+    var(--gold-shine) 50%,
+    var(--color-gold-400) 65%,
+    var(--color-gold-600) 100%
+  );
+
+  /* The same ground with the light swung across it and the highlight opened
+     up. This is what wipes in on hover: the button does not change colour,
+     the light on it moves. Its darkest stop is gold-500, one step brighter
+     than the resting state, so the label's contrast improves on hover
+     rather than degrading. */
+  --metal-fill-lit: linear-gradient(
+    100deg,
+    var(--color-gold-500) 0%,
+    var(--gold-shine) 42%,
+    var(--gold-shine) 58%,
+    var(--color-gold-500) 100%
+  );
+
+  /* Rules run the full width of a section, so this one is drawn on the
+     horizontal rather than at 100deg — on a 1px band a tilted axis just
+     clips the ramp. Ends land on gold-700 so the line fades into the page
+     instead of stopping dead. */
+  --metal-rule: linear-gradient(
+    90deg,
+    var(--color-gold-700),
+    var(--color-gold-500) 25%,
+    var(--gold-shine) 50%,
+    var(--color-gold-500) 75%,
+    var(--color-gold-700)
+  );
+}
+
 /* Above phone widths the gutter becomes proportional: 8vw holds the content
    8% in from each edge at 1366, 1440 and 1920 alike, which is the proportion
    measured off REFERENCE.mov. It stops growing at 2112 so an ultrawide
@@ -198,19 +288,19 @@
   p { text-wrap: pretty; }
 
   ::selection {
-    background: var(--color-brass-500);
+    background: var(--color-gold-500);
     color: var(--color-evergreen-950);
   }
 
   /* A two-tone ring, because one colour cannot serve both grounds.
-     Brass is the focus colour and it is excellent on evergreen — 5.03:1 —
-     and weak on ivory, where it measures 2.15:1 against a 3:1 requirement
+     Gold is the focus colour and it is strong on evergreen — 4.48:1 —
+     and weak on ivory, where it measures 2.41:1 against a 3:1 requirement
      for a focus indicator. So the ring is drawn twice: a dark band hard
-     against the element and the brass outline just outside it. On a light
-     page the dark band carries it; on a dark page the brass does. Whichever ground the control is on, one of the
+     against the element and the gold outline just outside it. On a light
+     page the dark band carries it; on a dark page the gold does. Whichever ground the control is on, one of the
      two edges is always at full strength. */
   :focus-visible {
-    outline: 2px solid var(--color-brass-500);
+    outline: 2px solid var(--color-gold-500);
     outline-offset: 2px;
     box-shadow: 0 0 0 2px var(--color-evergreen-950);
     border-radius: 2px;
@@ -357,6 +447,86 @@
   /* Hairline rules that read as engraved rather than drawn */
   .u-rule { height: 1px; background: var(--color-rule); }
   .u-rule-dark { height: 1px; background: rgb(255 255 255 / 0.12); }
+
+  /* ---- The metallic gold, applied ----
+     Three surfaces, and deliberately only three. Gold is an accent: the
+     moment a second phrase on a page is struck in metal, neither of them is
+     marking anything. One accent phrase, the primary action, the page rules.
+
+     Everything flat stays flat — eyebrows, dots, borders, the hairlines
+     between list rows. Those are the accent doing structural work, and
+     structure drawn in a gradient reads as decoration. */
+
+  /* The accent phrase. Large display type only: the ramp's dark ends clear
+     3:1 and nothing more, so this must never be reached for at body size.
+     `display: inline-block` is not optional — background-clip on an inline
+     box that wraps restarts the gradient on every line, which puts a fresh
+     highlight in the middle of each one. */
+  .u-metal-text {
+    display: inline-block;
+    background-image: var(--metal-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Safari drops the clip on a composited layer and paints the whole box
+       gold. The hero reveal animates a transform on exactly this element. */
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* The primary action's ground. */
+  .u-metal-fill { background-image: var(--metal-fill); }
+  .u-metal-fill-lit { background-image: var(--metal-fill-lit); }
+
+  /* A page rule. Height is set by the caller, because a masthead edge and a
+     section divider are not the same weight. */
+  .u-metal-rule { background-image: var(--metal-rule); }
+
+  /* Where the gradient cannot survive, fall back to flat rather than to
+     nothing. Both cases below exist because `color: transparent` is only
+     safe for as long as something is painting through it — the moment the
+     background image goes, an unguarded metallic headline is invisible.
+
+     Print and forced colours want opposite things, so they are two rules
+     rather than one list. */
+
+  /* Paper. The gradient is gone because browsers omit backgrounds when
+     printing, but the brand colour is still the right answer here: the
+     ground is white and known, and gold-700 is the step that was chosen for
+     exactly that ground, at 6.88:1. */
+  @media print {
+    .u-metal-text {
+      background-image: none;
+      color: var(--color-gold-700);
+      -webkit-text-fill-color: var(--color-gold-700);
+    }
+  }
+
+  /* Forced colours is not a rendering failure to paper over — it is a
+     reader telling us which colours they can actually see. So the accent
+     phrase gives up the gold entirely and takes the system's own text
+     colour, rather than holding a brand value against a background we no
+     longer control and cannot measure against.
+
+     The rules keep a paint, in CanvasText, only because a hairline whose
+     sole paint is a background image would otherwise disappear and take a
+     structural edge of the page with it. The button grounds simply drop
+     their gradient and let the platform draw a button. */
+  @media (forced-colors: active) {
+    .u-metal-text {
+      background-image: none;
+      color: CanvasText;
+      -webkit-text-fill-color: CanvasText;
+    }
+    .u-metal-fill,
+    .u-metal-fill-lit {
+      background-image: none;
+    }
+    .u-metal-rule {
+      background-image: none;
+      background-color: CanvasText;
+      forced-color-adjust: none;
+    }
+  }
 
   /* Film grain — masks the softness of the supplied photography and
      gives large flat fields the texture of print. */

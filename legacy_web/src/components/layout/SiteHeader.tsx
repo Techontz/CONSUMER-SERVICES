@@ -130,9 +130,13 @@ export function SiteHeader() {
           // plane is one colour.
           "bg-evergreen-800",
           // The only thing allowed to break the plane: a single pixel of
-          // olive saying where the header stops. Low enough to read as a
-          // drawn edge rather than as a border.
-          "border-b border-brass-500/45",
+          // gold saying where the header stops. It is drawn as the metallic
+          // rule rather than a flat border — a masthead edge runs the full
+          // width of the page, which is the one dimension a highlight needs
+          // in order to read as metal at all. A border cannot carry a
+          // gradient, so the edge is a child element instead; see the strip
+          // rendered at the foot of this header.
+          "border-b border-transparent",
           // No blur and no coloured shadow on scroll either — a shadow that
           // dark against evergreen paints a fourth tone just under the rule,
           // which is the two-tone effect coming back by another route. A
@@ -199,13 +203,22 @@ export function SiteHeader() {
                         className={cn(
                           "relative block px-2.5 py-3 font-display text-[0.625rem] uppercase tracking-[0.16em] wide:px-3 wide:py-3 wide:text-[0.75rem] wide:tracking-[0.17em]",
                           "transition-colors duration-300",
-                          // Active is Light Olive, not brighter ivory. The
-                          // olive rule beneath was already marking the live
-                          // item; the label now says the same thing in the
-                          // same colour instead of leaving the accent to do
-                          // it alone. 6.19:1 on Deep Evergreen.
+                          // Active is gold, not brighter ivory. The gold
+                          // rule beneath was already marking the live item;
+                          // the label now says the same thing in the same
+                          // colour instead of leaving the accent to do it
+                          // alone.
+                          //
+                          // 400 rather than the 500 that draws the rule
+                          // below it: this is a 10px capital on Deep
+                          // Evergreen, where the signature measures 4.48:1
+                          // and misses AA for small text. 400 reads 7.26:1.
+                          // The two steps sitting a millimetre apart is not
+                          // a mismatch — it is the ramp's split by ground
+                          // doing exactly what it is for, and at this size
+                          // the rule and the label read as one gold.
                           active || openKey === item.label
-                            ? "text-brass-500"
+                            ? "text-gold-400"
                             : "text-ivory-100/75 hover:text-ivory-100",
                         )}
                       >
@@ -213,7 +226,7 @@ export function SiteHeader() {
                         <span
                           aria-hidden
                           className={cn(
-                            "absolute inset-x-4 bottom-1.5 block h-px origin-left bg-brass-500",
+                            "absolute inset-x-4 bottom-1.5 block h-px origin-left bg-gold-500",
                             "transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                             active || openKey === item.label
                               ? "scale-x-100"
@@ -226,7 +239,7 @@ export function SiteHeader() {
                 })}
               </ul>
 
-              <span aria-hidden className="mx-3 block h-7 w-px bg-brass-500/30 wide:mx-3.5 wide:h-9" />
+              <span aria-hidden className="mx-3 block h-7 w-px bg-gold-500/30 wide:mx-3.5 wide:h-9" />
 
               <a
                 href={site.phoneHref}
@@ -237,11 +250,20 @@ export function SiteHeader() {
 
               <Link
                 href="/contact"
-                className="group relative overflow-hidden whitespace-nowrap border border-brass-500 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-brass-500 transition-colors duration-300 hover:text-ink-900 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
+                // Border on the signature, label on 400 — the same split
+                // the nav labels take, and for the same reason: 10px
+                // capitals owe 4.5:1 and a control's boundary owes 3:1, so
+                // the two parts of this button draw from two steps.
+                //
+                // The hover sweep is flat gold-500 rather than the metal
+                // the primary CTA uses. There is one metallic action per
+                // frame; a masthead button that lights up like the hero's
+                // would be competing with it from six inches away.
+                className="group relative overflow-hidden whitespace-nowrap border border-gold-500 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-gold-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
               >
                 <span
                   aria-hidden
-                  className="absolute inset-0 origin-left scale-x-0 bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
+                  className="absolute inset-0 origin-left scale-x-0 bg-gold-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
                 />
                 <span className="relative">Contact Us</span>
               </Link>
@@ -253,7 +275,7 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(true)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              className="ml-auto flex shrink-0 items-center gap-2.5 border border-brass-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-brass-500 hover:text-brass-500 lg:hidden"
+              className="ml-auto flex shrink-0 items-center gap-2.5 border border-gold-500/70 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.2em] text-ivory-100 transition-colors duration-300 hover:border-gold-500 hover:text-gold-400 lg:hidden"
             >
               Menu
               <span aria-hidden className="flex flex-col gap-[3px]">
@@ -277,6 +299,23 @@ export function SiteHeader() {
             <MegaPanel item={activeItem} items={panelItems(activeItem)} />
           ) : null}
         </div>
+
+        {/* The masthead's bottom edge, drawn in metal.
+
+            It sits on top of the transparent border rather than replacing
+            it, because the border is load-bearing: it is one of the 116px
+            the band is measured at, and the hero's top padding is set
+            against that figure. Removing it would move the whole opening
+            composition up a pixel to no purpose.
+
+            One pixel, as before. The client's standard draws this rule at
+            3px; on this masthead that is a band rather than an edge, and
+            the header is deliberately one plane with a drawn line under it.
+            The weight is the site's, the finish is theirs. */}
+        <span
+          aria-hidden
+          className="u-metal-rule pointer-events-none absolute inset-x-0 -bottom-px block h-px"
+        />
       </header>
 
       {/* Dims the page behind an open mega menu. Pointer events stay off so
@@ -318,7 +357,7 @@ function MegaPanel({
     <div className="u-container grid grid-cols-12 gap-x-10 py-8">
       {/* --- the argument --- */}
       <div className="col-span-4 pr-10">
-        <p className="u-eyebrow text-brass-400">{item.label}</p>
+        <p className="u-eyebrow text-gold-400">{item.label}</p>
         <h2 className="u-display-3 mt-5 text-ivory-100">{item.panelTitle}</h2>
         {item.panelBlurb ? (
           <p className="mt-4 max-w-[38ch] text-sm leading-relaxed text-ivory-100/70">
@@ -359,13 +398,13 @@ function MegaPanel({
                   />
                   <span
                     aria-hidden
-                    className="absolute inset-x-0 bottom-0 block h-0.5 origin-left scale-x-0 bg-brass-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
+                    className="absolute inset-x-0 bottom-0 block h-0.5 origin-left scale-x-0 bg-gold-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
                   />
                 </span>
               ) : null}
 
               <span className="min-w-0">
-                <span className="u-display-4 block text-ivory-100 transition-colors duration-400 group-hover:text-brass-400 group-focus-within:text-brass-400">
+                <span className="u-display-4 block text-ivory-100 transition-colors duration-400 group-hover:text-gold-400 group-focus-within:text-gold-400">
                   {link.label}
                 </span>
                 {link.blurb ? (

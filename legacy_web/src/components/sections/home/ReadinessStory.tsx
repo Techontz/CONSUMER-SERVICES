@@ -106,7 +106,7 @@ export function ReadinessStory({
                   className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 motion-reduce:transition-none"
                 />
               ) : null}
-              {/* Seats the plate and the brass rule on the ground colour.
+              {/* Seats the plate and the gold rule on the ground colour.
                   It used to run to 0.22 across the whole frame to keep the
                   crop "from competing with the type beside it" — but the type
                   is beside it, on its own ground, and the photograph was
@@ -118,7 +118,7 @@ export function ReadinessStory({
               />
               <span
                 aria-hidden
-                className="absolute bottom-0 left-0 block h-0.5 w-24 bg-brass-500"
+                className="absolute bottom-0 left-0 block h-0.5 w-24 bg-gold-500"
               />
             </div>
           </Reveal>
@@ -188,7 +188,7 @@ export function ReadinessStory({
                   >
                     <span
                       aria-hidden
-                      className={cn("u-dot", dark ? "text-brass-500" : "text-brass-700")}
+                      className={cn("u-dot", dark ? "text-gold-500" : "text-gold-700")}
                     />
                     <span>{chipLabel(chip)}</span>
                   </span>

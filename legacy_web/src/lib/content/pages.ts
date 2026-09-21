@@ -85,8 +85,8 @@ export const servicesPage = {
       body:
         "Develop the procedures, workflows, administrative systems, and implementation steps behind the business.",
       href: "/contact",
-      image: "/media/industry-workforce.jpg",
-      alt: "A technical training environment",
+      image: "/media/operations-team.jpg",
+      alt: "Four colleagues working together over a laptop and tablets around a meeting table in a daylit office",
     },
   ],
   note:

@@ -89,7 +89,7 @@ export function IndustryChapters({ items }: { items: readonly Industry[] }) {
                       />
                       <span
                         aria-hidden
-                        className="absolute bottom-0 left-0 block h-0.5 w-16 bg-brass-500"
+                        className="absolute bottom-0 left-0 block h-0.5 w-16 bg-gold-500"
                       />
                     </div>
                   </Reveal>
@@ -106,9 +106,9 @@ export function IndustryChapters({ items }: { items: readonly Industry[] }) {
                     <p className="flex items-center gap-4">
                       <span
                         aria-hidden
-                        className="block h-px w-8 shrink-0 bg-brass-600"
+                        className="block h-px w-8 shrink-0 bg-gold-600"
                       />
-                      <span className="u-eyebrow tabular-nums text-brass-700">
+                      <span className="u-eyebrow tabular-nums text-gold-700">
                         {item.number}
                       </span>
                     </p>
@@ -137,7 +137,7 @@ export function IndustryChapters({ items }: { items: readonly Industry[] }) {
                         >
                           <span
                             aria-hidden
-                            className="u-dot mt-[0.6em] shrink-0 text-brass-600"
+                            className="u-dot mt-[0.6em] shrink-0 text-gold-600"
                           />
                           <span className="min-w-0">{point}</span>
                         </li>

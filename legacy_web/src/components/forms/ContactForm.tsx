@@ -169,7 +169,7 @@ export function ContactForm() {
         {busy ? (
           <span
             aria-hidden
-            className="block size-4 animate-spin rounded-full border-2 border-brass-500/30 border-t-brass-600"
+            className="block size-4 animate-spin rounded-full border-2 border-gold-500/30 border-t-gold-600"
           />
         ) : null}
       </div>

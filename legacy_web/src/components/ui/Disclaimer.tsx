@@ -20,7 +20,7 @@ export function Disclaimer({
     <div
       className={cn(
         "border-l-2 py-1 pl-6",
-        dark ? "border-brass-500/50" : "border-brass-500/60",
+        dark ? "border-gold-500/50" : "border-gold-500/60",
         className,
       )}
     >

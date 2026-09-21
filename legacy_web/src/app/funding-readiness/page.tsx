@@ -49,7 +49,7 @@ export default function FundingPage() {
               />
               <span
                 aria-hidden
-                className="relative mx-auto u-dot text-brass-700 transition-colors duration-400 group-hover:text-brass-400"
+                className="relative mx-auto u-dot text-gold-700 transition-colors duration-400 group-hover:text-gold-400"
               />
               <h3 className="relative mt-4 text-[1.25rem] text-evergreen-600 transition-colors duration-400 group-hover:text-ivory-100">
                 {item}
