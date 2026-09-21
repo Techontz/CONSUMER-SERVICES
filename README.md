@@ -132,12 +132,27 @@ approved HTML:
 | | |
 | --- | --- |
 | Evergreen | `#04120F` `#06201B` `#083430` `#0E463F` `#143A2E` |
-| Brass | `#DDBC72` `#C9A24B` `#B98B33` `#7E5C22` |
+| Gold | `#E8C56A` `#C89528` `#B07E22` `#78480C` |
 | Paper | `#FBF9F4` `#F6F2E9` `#F3EEE3` |
 | Type | Archivo condensed (display) · Mulish (body) · Fraunces (hero only) |
 
-Two brass values were darkened from the source designs so small text clears
-the WCAG AA 4.5:1 minimum; the hue is unchanged.
+The accent is the client's **CSI Metallic Gold** standard. 400, 500 and 700
+are their locked tokens (`gold-light`, `gold`, `gold-dark`); 600 is the
+darkest stop of their metallic fill, used here as the hairline weight because
+it is the only step clearing 3:1 on both Warm Ivory and Deep Evergreen.
+
+The ramp splits by ground, and the split is load-bearing: `gold-500` measures
+4.48:1 on Deep Evergreen, so it draws and fills but does not set small type
+there — dark-ground labels take `gold-400` (7.26:1), light-ground labels take
+`gold-700` (6.88:1 on Warm Ivory).
+
+Gold is also a **material**, not just a hue. Three metallic surfaces are
+defined in `globals.css` — `--metal-text`, `--metal-fill`, `--metal-rule` —
+all sharing one highlight axis, and they are applied in exactly three places:
+the homepage hero's closing phrase, the primary CTA, and the page rules
+(masthead edge, footer hairline). Everything else uses the flat ramp. A
+gradient on structure reads as decoration, and a second metallic phrase in a
+frame means neither is marking anything.
 
 ### Where the design came from
 
@@ -166,7 +181,7 @@ this site is now built on:
 
 What was not carried over is its *content and brand graphics* — the safari
 imagery, the animal silhouettes, the yellow palette. Those are replaced by
-LegacyByConsumer's own evergreen and brass and by the client's approved
+LegacyByConsumer's own evergreen and gold and by the client's approved
 photography.
 
 ### Typography

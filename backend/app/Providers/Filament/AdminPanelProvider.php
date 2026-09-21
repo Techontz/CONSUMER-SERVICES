@@ -31,11 +31,14 @@ class AdminPanelProvider extends PanelProvider
             ->profile(isSimple: false)
             ->brandName('LegacyByConsumer')
             ->favicon(asset('favicon.png'))
-            // Matches the public site: evergreen ground, brass accent.
+            // Matches the public site: evergreen ground, gold accent. The
+            // accent is the CSI Metallic Gold signature — flat here, because
+            // Filament generates its own tint ramp from this one value and a
+            // gradient is not a colour it can ramp.
             ->colors([
                 'primary' => Color::hex('#0E463F'),
                 'gray' => Color::Stone,
-                'warning' => Color::hex('#C9A24B'),
+                'warning' => Color::hex('#C89528'),
             ])
             ->font('Inter')
             ->sidebarCollapsibleOnDesktop()
