@@ -286,7 +286,8 @@ export const industriesPage = {
     {
       number: "06",
       title: "Professional & Business Services",
-      scope: "Consulting · Administrative services · Professional services · Small-business development",
+      scope:
+        "Consulting · Administrative services · Professional services · Small-business development · LLCs · Corporations · Nonprofits",
       summary:
         "The expertise is the work; the business is everything around it. Pricing, client agreements and a repeatable way of delivering are what separate a practice from a job, and they are usually the last things a specialist gets to. We help build that structure so the work can be sold, delivered and repeated.",
       points: [
