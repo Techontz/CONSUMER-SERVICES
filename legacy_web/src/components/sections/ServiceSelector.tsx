@@ -8,13 +8,20 @@ import { cn } from "@/lib/cn";
 type Service = {
   step: string;
   title: string;
-  body: string;
+  /** The entity types or sub-areas this pathway covers, set above the body. */
+  scope?: string;
+  /** One paragraph, or several. */
+  body: string | string[];
   href: string;
   image?: string;
   alt?: string;
   /** `object-position`, for a portrait shown in this 16:9 frame. */
   focus?: string;
 };
+
+/** One paragraph or several, always handed back as a list. */
+const paragraphs = (body: string | string[]): string[] =>
+  Array.isArray(body) ? body : [body];
 
 /**
  * What the pathway's call to action should say.
@@ -214,12 +221,26 @@ export function ServiceSelector({ items }: { items: Service[] }) {
             >
               {current.title}
             </h2>
-            <p
-              className="u-in-rise u-copy mt-8 max-w-[46ch] text-ivory-100/75"
-              style={{ animationDelay: "130ms" }}
-            >
-              {current.body}
-            </p>
+            {current.scope ? (
+              <p
+                className="u-in-rise mt-6 text-[0.9375rem] leading-[1.7] text-ivory-100/60"
+                style={{ animationDelay: "110ms" }}
+              >
+                {current.scope}
+              </p>
+            ) : null}
+            {paragraphs(current.body).map((line, i) => (
+              <p
+                key={i}
+                className={cn(
+                  "u-in-rise u-copy max-w-[46ch] text-ivory-100/75",
+                  i === 0 ? (current.scope ? "mt-6" : "mt-8") : "mt-5",
+                )}
+                style={{ animationDelay: `${130 + i * 40}ms` }}
+              >
+                {line}
+              </p>
+            ))}
           </div>
 
           <div
@@ -255,9 +276,22 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               <span className="u-display-4 mt-5 block text-evergreen-600">
                 {item.title}
               </span>
-              <span className="mt-3 block text-sm leading-relaxed text-ink-700">
-                {item.body}
-              </span>
+              {item.scope ? (
+                <span className="mt-3 block text-sm leading-relaxed text-ink-500">
+                  {item.scope}
+                </span>
+              ) : null}
+              {paragraphs(item.body).map((line, i) => (
+                <span
+                  key={i}
+                  className={cn(
+                    "block text-sm leading-relaxed text-ink-700",
+                    i === 0 ? "mt-3" : "mt-2.5",
+                  )}
+                >
+                  {line}
+                </span>
+              ))}
               <span className="mt-6 flex items-center gap-3 font-display text-[0.5625rem] uppercase tracking-[0.24em] text-evergreen-700">
                 {isContact(item.href) ? "Discuss This Service" : "Explore"}
                 <span aria-hidden className="block h-px w-7 bg-current" />

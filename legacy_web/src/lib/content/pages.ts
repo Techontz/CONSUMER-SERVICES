@@ -27,8 +27,11 @@ export const servicesPage = {
     {
       step: "Build",
       title: "Business Formation & Development",
-      body:
-        "Establish the business foundation, structure, documentation, and development priorities.",
+      scope: "LLCs · Corporations · Nonprofits",
+      body: [
+        "Establish the right business foundation with proper entity structure, formation documentation, and development priorities.",
+        "We assist with LLC formation, corporate formation and nonprofit formation, including the foundational filings and documentation needed to move the organization toward operations, banking, compliance, and growth.",
+      ],
       href: "/contact",
       image: "/media/industry-advisers.jpg",
       alt: "Two advisers standing together reviewing an open document folder",
