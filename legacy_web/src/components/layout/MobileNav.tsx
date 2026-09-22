@@ -184,7 +184,13 @@ export function MobileNav({
             <Link
               href="/contact"
               onClick={onClose}
-              className="block bg-gold-500 px-6 py-4.5 text-center font-display text-[0.625rem] uppercase tracking-[0.22em] text-evergreen-950"
+              // The metal, like every other primary action on the site. The
+              // sheet is its own frame and this is the only gold action in
+              // it, so the rule that keeps the masthead's Contact button
+              // flat — one metallic action per frame, and the hero already
+              // has it — does not apply here. The label was already
+              // evergreen-950, which is the value the metallic ground needs.
+              className="u-metal-fill block px-6 py-4.5 text-center font-display text-[0.625rem] uppercase tracking-[0.22em] text-evergreen-950"
             >
               Contact Us
             </Link>

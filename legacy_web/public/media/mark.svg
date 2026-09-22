@@ -1,6 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <title>Consumer Services, Inc.</title>
-  <g fill="#B8BE8A">
+  <!-- The CSI metallic gold. Stops are literal here, not var() as in the
+       inline React mark: this file is loaded as a favicon and as a bare
+       image, where no document stylesheet is applied and a custom property
+       would resolve to nothing. The values are gold-600, gold-400 and the
+       shine, and they must be changed in step with the palette. -->
+  <defs>
+    <linearGradient id="csi-mark-metal" gradientUnits="userSpaceOnUse" x1="3" y1="27" x2="61" y2="37">
+      <stop offset="0%" stop-color="#B07E22"/>
+      <stop offset="35%" stop-color="#E8C56A"/>
+      <stop offset="50%" stop-color="#FFF1B8"/>
+      <stop offset="65%" stop-color="#E8C56A"/>
+      <stop offset="100%" stop-color="#B07E22"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#csi-mark-metal)">
     <path d="M18 9h40L46 21H18Z"/>
     <path d="M6 26h40v12H6Z"/>
     <path d="M6 43h52v12H6Z"/>

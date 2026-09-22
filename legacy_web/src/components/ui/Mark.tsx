@@ -23,6 +23,30 @@
  * masthead and a single-colour reverse. The rasters in /media are only for
  * the places that cannot take an SVG — favicon, social card, JSON-LD.
  */
+
+/* The mark is struck in the same metal as the primary buttons.
+ *
+ * Its stops are the palette tokens, which is what keeps it honest: the CSS
+ * `--metal-fill` the buttons use and this gradient cannot drift apart in
+ * hue, because neither owns a colour — both read gold-600, gold-400 and the
+ * shine. The one thing that has to be maintained in two places is the shape
+ * of the ramp, so the percentages below are the fill's percentages, and a
+ * change to one is a change to both.
+ *
+ * `userSpaceOnUse`, and this is the whole trick: the default
+ * objectBoundingBox resolves against the element being painted, and the fill
+ * is inherited by three separate paths. Each course would get its own full
+ * sweep — three highlights stacked up the mark rather than one light
+ * crossing it. In user space the gradient is fixed to the 64-unit grid and
+ * all three courses are lit by the same source.
+ *
+ * The axis runs from (3,27) to (61,37) — a direction of about 100 degrees,
+ * matching the buttons, measured across the mark's real extent (x 6–58,
+ * y 9–55) rather than the viewBox, so the shine lands on the middle of the
+ * artwork instead of the middle of its padding.
+ */
+const GRADIENT_ID = "csi-mark-metal";
+
 export function Mark({
   className,
   tone = "olive",
@@ -31,17 +55,12 @@ export function Mark({
   /** "olive" everywhere by default; "current" inherits for reversed use. */
   tone?: "olive" | "current";
 }) {
-  // Gold, flat. A mark is the one place a brand colour has to be the
-  // colour itself rather than a token that resolves to it. It was Light
-  // Olive, which on the evergreen masthead read as pale sage rather than as
-  // an identity; #C89528 is the CSI gold the brand is drawn in.
-  //
-  // Flat, and not the metallic finish. The seal is an identity and it is
-  // reproduced at 32px, as a favicon and on paper — a highlight sweeping
-  // across it is a rendering of the mark rather than the mark, and at the
-  // sizes this is used it would read as an artefact. The metal is for the
-  // page, never for the identity.
-  const fill = tone === "current" ? "currentColor" : "#C89528";
+  // The reverse is still flat, and has to be: `tone="current"` exists for
+  // the places that stamp the mark in one ink — a single colour inherited
+  // from its surroundings. A gradient cannot inherit, so this branch is not
+  // a lesser version of the metal, it is a different job.
+  const metal = tone !== "current";
+
   return (
     <svg
       viewBox="0 0 64 64"
@@ -51,7 +70,33 @@ export function Mark({
       aria-hidden
       focusable="false"
     >
-      <g fill={fill}>
+      {metal ? (
+        <defs>
+          {/* Every instance carries its own copy rather than depending on a
+              definition rendered elsewhere in the document — the mark is in
+              the header, the footer and the mobile sheet, across a server
+              tree and a client one, and a fill that resolves only when some
+              other component happens to have rendered is a fill that will
+              eventually paint nothing. The copies are identical, so the
+              duplicate id resolves to the same paint wherever it is used. */}
+          <linearGradient
+            id={GRADIENT_ID}
+            gradientUnits="userSpaceOnUse"
+            x1="3"
+            y1="27"
+            x2="61"
+            y2="37"
+          >
+            <stop offset="0%" stopColor="var(--color-gold-600)" />
+            <stop offset="35%" stopColor="var(--color-gold-400)" />
+            <stop offset="50%" stopColor="var(--gold-shine)" />
+            <stop offset="65%" stopColor="var(--color-gold-400)" />
+            <stop offset="100%" stopColor="var(--color-gold-600)" />
+          </linearGradient>
+        </defs>
+      ) : null}
+
+      <g fill={metal ? `url(#${GRADIENT_ID})` : "currentColor"}>
         <path d="M18 9h40L46 21H18Z" />
         <path d="M6 26h40v12H6Z" />
         <path d="M6 43h52v12H6Z" />
