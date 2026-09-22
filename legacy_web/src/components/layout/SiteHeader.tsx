@@ -226,7 +226,7 @@ export function SiteHeader() {
                         <span
                           aria-hidden
                           className={cn(
-                            "absolute inset-x-4 bottom-1.5 block h-px origin-left bg-gold-500",
+                            "u-metal-rule absolute inset-x-4 bottom-1.5 block h-px origin-left",
                             "transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                             active || openKey === item.label
                               ? "scale-x-100"
@@ -255,15 +255,16 @@ export function SiteHeader() {
                 // capitals owe 4.5:1 and a control's boundary owes 3:1, so
                 // the two parts of this button draw from two steps.
                 //
-                // The hover sweep is flat gold-500 rather than the metal
-                // the primary CTA uses. There is one metallic action per
-                // frame; a masthead button that lights up like the hero's
-                // would be competing with it from six inches away.
+                // The hover sweep is the metal, like every other gold
+                // action on the site. The label already turns evergreen-950
+                // on hover, which is the value that ground needs — the
+                // fill's darkest stop is gold-600, where Charcoal Green
+                // misses AA at this size and evergreen-950 clears it.
                 className="group relative overflow-hidden whitespace-nowrap border border-gold-500 px-5 py-3.5 font-display text-[0.625rem] uppercase tracking-[0.18em] text-gold-400 transition-colors duration-300 hover:text-evergreen-950 wide:px-7 wide:py-3.5 wide:text-[0.75rem] wide:tracking-[0.2em]"
               >
                 <span
                   aria-hidden
-                  className="absolute inset-0 origin-left scale-x-0 bg-gold-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
+                  className="u-metal-fill absolute inset-0 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 motion-reduce:transition-none"
                 />
                 <span className="relative">Contact Us</span>
               </Link>
@@ -398,7 +399,7 @@ function MegaPanel({
                   />
                   <span
                     aria-hidden
-                    className="absolute inset-x-0 bottom-0 block h-0.5 origin-left scale-x-0 bg-gold-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
+                    className="u-metal-rule absolute inset-x-0 bottom-0 block h-0.5 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-within:scale-x-100 motion-reduce:transition-none"
                   />
                 </span>
               ) : null}

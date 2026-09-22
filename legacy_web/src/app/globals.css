@@ -230,6 +230,20 @@
     var(--color-gold-500) 75%,
     var(--color-gold-700)
   );
+
+  /* The same rule stood on its end, for an indicator that runs down the side
+     of something rather than along the bottom of it — the pathway rail's
+     live marker is two pixels wide and a whole row tall, and a 90deg ramp
+     across two pixels is a flat colour with extra steps. The stops are the
+     horizontal rule's stops; only the axis turns. */
+  --metal-rule-vertical: linear-gradient(
+    180deg,
+    var(--color-gold-700),
+    var(--color-gold-500) 25%,
+    var(--gold-shine) 50%,
+    var(--color-gold-500) 75%,
+    var(--color-gold-700)
+  );
 }
 
 /* Above phone widths the gutter becomes proportional: 8vw holds the content
@@ -480,6 +494,7 @@
   /* A page rule. Height is set by the caller, because a masthead edge and a
      section divider are not the same weight. */
   .u-metal-rule { background-image: var(--metal-rule); }
+  .u-metal-rule-vertical { background-image: var(--metal-rule-vertical); }
 
   /* Where the gradient cannot survive, fall back to flat rather than to
      nothing. Both cases below exist because `color: transparent` is only
@@ -521,7 +536,8 @@
     .u-metal-fill-lit {
       background-image: none;
     }
-    .u-metal-rule {
+    .u-metal-rule,
+    .u-metal-rule-vertical {
       background-image: none;
       background-color: CanvasText;
       forced-color-adjust: none;

@@ -97,11 +97,14 @@ export function ServiceSelector({ items }: { items: Service[] }) {
               onMouseEnter={() => setActive(i)}
               className="group relative flex w-full items-start gap-5 border-b border-rule py-5 text-left"
             >
-              {/* Olive spine marking the live pathway. */}
+              {/* Gold spine marking the live pathway. Struck in the metal
+                  on its vertical axis — the rail runs down the side of the
+                  row, so the horizontal ramp would have nothing to travel
+                  across in two pixels of width. */}
               <span
                 aria-hidden
                 className={cn(
-                  "absolute left-0 top-0 h-full w-0.5 origin-top bg-gold-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                  "u-metal-rule-vertical absolute left-0 top-0 h-full w-0.5 origin-top transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   selected ? "scale-y-100" : "scale-y-0",
                 )}
               />
