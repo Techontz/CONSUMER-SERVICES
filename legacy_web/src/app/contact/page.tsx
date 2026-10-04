@@ -1,4 +1,4 @@
-import { ContactForm } from "@/components/forms/ContactForm";
+import { InquiryForm } from "@/components/forms/InquiryForm";
 import { PageHero } from "@/components/sections/PageHero";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -87,14 +87,36 @@ export default function ContactPage() {
 
           {/* Form */}
           <Reveal delay={0.08} className="lg:col-span-6 lg:col-start-7">
-            <div className="border border-rule bg-ivory-50 p-8 lg:p-11">
-              <Eyebrow>{p.form.eyebrow}</Eyebrow>
-              <p className="mt-6 max-w-[52ch] text-[0.9375rem] leading-relaxed text-ink-700">
-                {p.form.body}
-              </p>
-              <div className="mt-10">
-                <ContactForm />
+            {/* The eyebrow keeps the page's voice above the frame; the
+                frame itself does not get the card's padding, because the
+                form arrives with its own margins baked in by the CRM and
+                nesting those inside another 44px of inset reads as two
+                boxes rather than one.
+
+                `p.form.body` is deliberately not rendered here any more.
+                It read "Share a few details about your business and what
+                you want to accomplish…", and the embedded form opens with
+                "Tell us where you are in your business journey and where
+                you'd like to go" — the same invitation, twice, two lines
+                apart. The string is still in pages.ts: if the CRM form's
+                own introduction is ever turned off, put it back. */}
+            <div className="border border-rule bg-ivory-50">
+              <div className="p-8 pb-6 lg:p-11 lg:pb-7">
+                <Eyebrow>{p.form.eyebrow}</Eyebrow>
               </div>
+
+              <InquiryForm />
+
+              {/* The legal note, which the approved page carries and which
+                  used to be the last thing ContactForm rendered. It does
+                  not belong to the form — it belongs to the act of
+                  submitting one — so it survives the form being replaced,
+                  and it sits outside the frame where we still control it.
+                  Nothing inside a third-party iframe can be relied on to
+                  say this. */}
+              <p className="max-w-[56ch] px-8 pb-8 text-[0.8125rem] leading-relaxed text-ink-700 lg:px-11 lg:pb-11">
+                {p.form.disclaimer}
+              </p>
             </div>
           </Reveal>
         </div>

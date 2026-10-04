@@ -71,6 +71,11 @@ export const organizationJsonLd = {
     contactType: "customer service",
     availableLanguage: "English",
   },
+  // The profiles that are demonstrably the same entity as this one. This is
+  // what `sameAs` is for, and it is the difference between five outbound
+  // links in a footer and a search engine understanding that the company,
+  // its channel and its page are one organisation.
+  sameAs: site.social.map((s) => s.href),
 };
 
 export const websiteJsonLd = {

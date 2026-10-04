@@ -37,6 +37,40 @@ export const site = {
   // which is how a span of years is set, and what the client specified. A
   // hyphen with spaces is not the same character and reads as a subtraction.
   copyrightRange: "1991\u20132026",
+
+  /**
+   * The company's social profiles, in the order the client supplied them.
+   *
+   * `id` keys the glyph in `components/ui/SocialLinks.tsx` and `name` is
+   * what a screen reader announces, so adding a profile here is half the
+   * job — the other half is a path in that file. The URLs are the client's
+   * own and are not to be tidied: the Facebook one is a numeric
+   * `profile.php?id=` link rather than a vanity slug because that is the
+   * page they have.
+   */
+  social: [
+    { id: "x", name: "X", href: "https://x.com/Consumer_Svcs" },
+    {
+      id: "youtube",
+      name: "YouTube",
+      href: "https://www.youtube.com/@Consumer_Services_Inc",
+    },
+    {
+      id: "instagram",
+      name: "Instagram",
+      href: "https://www.instagram.com/consumer_services/",
+    },
+    {
+      id: "facebook",
+      name: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61594299648000",
+    },
+    {
+      id: "tiktok",
+      name: "TikTok",
+      href: "https://www.tiktok.com/@consumer_services",
+    },
+  ],
 } as const;
 
 export type NavChild = {

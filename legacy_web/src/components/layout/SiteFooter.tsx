@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { Reveal } from "@/components/ui/Reveal";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { footerNav, legalNav, site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -86,7 +87,17 @@ export function SiteFooter() {
               </li>
             </ul>
 
-            <p className="mt-8 text-[0.6875rem] uppercase tracking-[0.2em] text-ivory-100/60">
+            {/* The profiles sit under the ways to reach the company,
+                because that is what they are — another door to the same
+                people, not a separate section of the site. The row is
+                inset by the icons' own padding, so the glyphs line up with
+                the text above them rather than with their tap targets. */}
+            <div className="mt-7">
+              <h2 className="u-eyebrow text-gold-400/80">Follow</h2>
+              <SocialLinks className="-ml-3 mt-2" />
+            </div>
+
+            <p className="mt-6 text-[0.6875rem] uppercase tracking-[0.2em] text-ivory-100/60">
               Established {site.established} · {site.establishedIn}
             </p>
           </div>
