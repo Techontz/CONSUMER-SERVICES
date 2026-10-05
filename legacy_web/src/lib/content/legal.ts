@@ -38,11 +38,19 @@ export type LegalDocument = {
   sections: LegalSection[];
 };
 
+/**
+ * The contact block that closes all three documents.
+ *
+ * A literal, not `site.phone`, because this file's whole contract is that
+ * what it contains is the client's supplied wording rather than something
+ * assembled at render time. The cost of that is this number existing in
+ * two places: keep it in step with `phone` in lib/site.ts.
+ */
 const CONTACT_LINES = [
   "Consumer Services, Inc.",
   "Online at LegacyByConsumer.com",
   "Email: info@legacybyconsumer.com",
-  "Telephone: 877-855-3455",
+  "Telephone: 877-722-3009",
 ];
 
 /* ------------------------------------------------------------------ */

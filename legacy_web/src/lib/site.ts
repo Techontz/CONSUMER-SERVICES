@@ -27,8 +27,12 @@ export const site = {
   domainLabel: "LegacyByConsumer.com",
 
   email: "info@legacybyconsumer.com",
-  phone: "877-855-3455",
-  phoneHref: "tel:+18778553455",
+  // Changed from 877-855-3455 in October 2026. The same number is written
+  // out again in the legal documents' contact block — see CONTACT_LINES in
+  // content/legal.ts, which holds its own literal on purpose because that
+  // file is the client's verbatim text. The two have to move together.
+  phone: "877-722-3009",
+  phoneHref: "tel:+18777223009",
 
   // A range, not a year: the footer carries the founding date as well as
   // the current one, which is the whole point of a line that opens with 1991.
