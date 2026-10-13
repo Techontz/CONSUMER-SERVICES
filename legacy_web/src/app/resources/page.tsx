@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { PageHero } from "@/components/sections/PageHero";
+import { ResourceLibrary } from "@/components/sections/ResourceLibrary";
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -85,33 +86,110 @@ export default function ResourcesPage() {
           </Reveal>
         </div>
 
-        <RevealGroup as="ul" className="mt-11 border-t border-rule lg:mt-14">
-          {p.library.items.map((item) => (
-            <RevealItem as="li" key={item.title}>
-              <Link
-                href="/contact"
-                className="group relative grid grid-cols-12 items-baseline gap-x-4 border-b border-rule py-7 sm:gap-x-8 lg:py-8"
+        <ResourceLibrary items={p.library.items} />
+      </Section>
+
+      {/* --- Business structure visual ---
+          On the page, and only on the page. The client's instruction is
+          explicit that this carries no download button, no file link and no
+          lightbox: the comparison guide below is the downloadable artefact
+          and this is not a second route to it. */}
+      <Section tone="paper">
+        <Reveal>
+          <Eyebrow>{p.structure.eyebrow}</Eyebrow>
+          <h2 className="u-display-2 mt-6 max-w-[18ch] text-evergreen-600">
+            {p.structure.headline}
+          </h2>
+          <p className="mt-6 max-w-[62ch] text-[1.0625rem] leading-[1.72] text-ink-700">
+            {p.structure.body}
+          </p>
+        </Reveal>
+
+        <Reveal variant="clip" delay={0.1} className="mt-11 block lg:mt-14">
+          <figure>
+            {/* Width and height rather than `fill`: the artwork sets its own
+                aspect ratio and must not be cropped to a frame. It is dense
+                with small type, so it runs the full width of the column and
+                is left for the reader to pinch-zoom on a phone — which is
+                what the brief asks for, and what cropping would prevent. */}
+            <Image
+              src={p.structure.image}
+              alt={p.structure.alt}
+              width={1536}
+              height={1024}
+              sizes="(min-width: 1024px) 80vw, 100vw"
+              quality={90}
+              className="h-auto w-full border border-rule bg-ivory-50"
+            />
+            <figcaption className="mt-5 max-w-[68ch] text-[0.8125rem] leading-relaxed text-ink-500">
+              {p.structure.caption}
+            </figcaption>
+          </figure>
+        </Reveal>
+      </Section>
+
+      {/* --- Free downloads --- */}
+      <Section tone="ivory">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-6">
+            <Eyebrow>{p.downloads.eyebrow}</Eyebrow>
+            <h2 className="u-display-2 mt-6 text-evergreen-600">
+              {p.downloads.headline}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pt-10">
+            <p className="text-[1.0625rem] leading-[1.72] text-ink-700">
+              {p.downloads.body}
+            </p>
+          </Reveal>
+        </div>
+
+        <RevealGroup
+          as="ul"
+          className="mt-11 grid gap-px border border-rule bg-rule sm:grid-cols-2 lg:mt-14"
+        >
+          {p.downloads.items.map((item) => (
+            <RevealItem as="li" key={item.file} className="bg-ivory-50">
+              {/* A plain anchor with `download`. These are static files, not
+                  routes, so next/link has nothing to prefetch and `download`
+                  is what makes a PDF save rather than open in a tab. */}
+              <a
+                href={item.file}
+                download
+                className="group relative flex h-full flex-col overflow-hidden p-8 lg:p-10"
               >
                 <span
                   aria-hidden
-                  className="absolute -inset-x-[var(--spacing-gutter)] inset-y-0 -z-10 origin-bottom scale-y-0 bg-ivory-50 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100 motion-reduce:transition-none"
+                  className="absolute inset-0 origin-bottom scale-y-0 bg-evergreen-800 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100 motion-reduce:transition-none"
                 />
-                <h3 className="col-span-12 text-[1.1875rem] leading-snug text-evergreen-600 sm:col-span-6 lg:text-[1.3125rem]">
+                <span className="relative u-eyebrow text-gold-700 transition-colors duration-400 group-hover:text-gold-400">
+                  {item.format}
+                </span>
+                <h3 className="relative mt-5 text-[1.1875rem] leading-snug text-evergreen-600 transition-colors duration-400 group-hover:text-ivory-100 lg:text-[1.3125rem]">
                   {item.title}
                 </h3>
-                <p className="col-span-12 mt-2 text-sm leading-relaxed text-ink-700 sm:col-span-5 sm:mt-0">
+                <p className="relative mt-3 flex-1 text-sm leading-relaxed text-ink-700 transition-colors duration-400 group-hover:text-ivory-100/70">
                   {item.body}
                 </p>
-                <span
-                  aria-hidden
-                  className="col-span-12 mt-3 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-evergreen-700 transition-colors duration-400 group-hover:text-gold-700 sm:col-span-1 sm:mt-0 sm:text-right"
-                >
-                  &rarr;
+                <span className="relative mt-7 flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-evergreen-700 transition-colors duration-400 group-hover:text-gold-400">
+                  {item.action}
+                  <span
+                    aria-hidden
+                    className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0.5 motion-reduce:transition-none"
+                  >
+                    &darr;
+                  </span>
                 </span>
-              </Link>
+              </a>
             </RevealItem>
           ))}
         </RevealGroup>
+
+        <Reveal delay={0.15}>
+          <p className="mt-9 text-[0.8125rem] leading-relaxed text-ink-500">
+            {p.downloads.tip}
+          </p>
+        </Reveal>
       </Section>
 
       {/* --- Notes & guidance --- */}

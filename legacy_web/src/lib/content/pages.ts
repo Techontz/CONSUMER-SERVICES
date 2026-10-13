@@ -333,33 +333,135 @@ export const resourcesPage = {
     headline: "Start With a Stronger Foundation.",
     body:
       "Key considerations before developing a business plan, feasibility strategy, or implementation roadmap.",
-    image: "/media/advisory-session.jpg",
-    alt: "Business planning discussion",
+    // The client's approved photograph, supplied with the resource-page
+    // brief and marked "DO NOT replace with any alternative photo".
+    image: "/media/business-planning-collaboration.png",
+    alt: "Three women reviewing business planning documents together",
     action: { label: "Read More", href: "/contact" },
   },
   library: {
     headline: "Resource Library",
     body: "Browse key topics designed to support your next step.",
+    /*
+     * Each topic now opens a short reading panel rather than sending the
+     * reader to the contact form. `lead`, `details` and `step` are the
+     * client's supplied panel copy; `tool` names the download the panel
+     * offers at the end and `file` is the one it links to, which is always
+     * one of the four in `downloads` below — the panels introduce no asset
+     * of their own.
+     */
     items: [
       {
         title: "Business Formation & Structure",
         body: "Entity and foundational business considerations every entrepreneur should understand.",
+        lead: "A clear business foundation starts with choosing a structure that fits your activities, ownership, and long-term plans.",
+        details:
+          "Compare how sole proprietorships, LLCs, corporations, and nonprofits are generally organized. Review state registration, ownership documentation, tax treatment, and licensing requirements before filing.",
+        step: "Write down who will own and manage the business, where it will operate, and which licenses or registrations may apply.",
+        tool: "Business Structure Comparison Guide",
+        file: "/downloads/business-structure-comparison-guide.pdf",
       },
       {
         title: "SAM.gov & Government Readiness",
         body: "Understanding registration, compliance, and preparation for government opportunities.",
+        lead: "Government contracting readiness begins well before bidding on an opportunity.",
+        details:
+          "Confirm your entity information is consistent, understand SAM.gov registration and renewal, identify relevant NAICS codes, and review solicitation requirements, insurance, past performance, and capacity. Registration does not guarantee an award.",
+        step: "Make a list of target agencies, potential NAICS codes, and documentation you need to organize.",
+        tool: "90-Day Business Launch Planner",
+        file: "/downloads/90-day-business-launch-planner.pdf",
       },
       {
         title: "Digital Business Readiness",
         body: "Preparing the operational and digital foundation of a modern business.",
+        lead: "Simple, dependable digital systems help customers reach you and help your business deliver consistently.",
+        details:
+          "Start with professional contact information, a secure domain and website, a clear inquiry process, payment options, document storage, and basic cybersecurity practices. Add automation only where it solves a real workflow problem.",
+        step: "Map the path from customer inquiry to service delivery and identify one avoidable manual step.",
+        tool: "Business Readiness Self-Assessment",
+        file: "/downloads/business-readiness-self-assessment-fillable.pdf",
       },
       {
         title: "Healthcare & Residential Care",
         body: "General guidance for selected healthcare and residential business models.",
+        lead: "Care-related businesses often have location-specific rules that should be researched before leasing property or accepting clients.",
+        details:
+          "Define the intended population and services, then check whether licensing, zoning, staffing, background checks, fire clearance, insurance, and operating policies apply. Requirements vary by state and program type.",
+        step: "Write a one-paragraph description of the services you plan to offer and verify the governing state agency.",
+        tool: "Business Readiness Self-Assessment",
+        file: "/downloads/business-readiness-self-assessment-fillable.pdf",
       },
       {
         title: "Funding & Growth Preparation",
         body: "Preparing the business before pursuing grants, funding, and growth capital.",
+        lead: "Funding preparation is stronger when business costs and repayment capacity are understood first.",
+        details:
+          "Organize startup and monthly expenses, revenue assumptions, business records, ownership details, and realistic cash-flow estimates. Different lenders and programs have different eligibility and documentation standards.",
+        step: "Estimate your total startup investment and the amount of working capital needed for the first months.",
+        tool: "Business Startup Cost Calculator",
+        file: "/downloads/business-startup-cost-calculator.xlsx",
+      },
+    ],
+  },
+
+  /*
+   * The on-page business structure visual.
+   *
+   * Non-downloadable, deliberately and on the client's instruction: no
+   * download button, no file link, no lightbox. The Business Structure
+   * Comparison Guide in `downloads` is the downloadable artefact and this
+   * is not a second copy of it. The artwork carries small type, so it is
+   * set full width and left for the reader to pinch-zoom rather than being
+   * cropped into a tidier shape.
+   */
+  structure: {
+    eyebrow: "Business Formation · Visual Guide",
+    headline: "Choose a Business Structure",
+    body: "Explore the differences between common business structures. Review the visual below, then use the separate downloadable comparison guide for further planning.",
+    image: "/media/business-structure-infographic.png",
+    alt: "Infographic comparing sole proprietorships, LLCs, S-corporations, C-corporations, nonprofit 501(c)(3) organizations, and other tax-exempt organizations, with key features and common uses.",
+    caption:
+      "Educational overview only. Legal, tax, and registration requirements vary by jurisdiction and circumstances.",
+  },
+
+  /*
+   * The four free tools. `file` is a path under public/downloads, served as
+   * an ordinary static asset — these are the client's own documents, copied
+   * in byte for byte, and nothing here rewrites or regenerates them.
+   */
+  downloads: {
+    eyebrow: "Free Downloads",
+    headline: "Free Business Tools & Downloads",
+    body: "Practical resources you can download and use right away. No purchase or inquiry form required.",
+    tip: "Open the fillable assessment in a PDF reader to save your completed answers.",
+    items: [
+      {
+        title: "Business Startup Cost Calculator",
+        body: "Estimate startup expenses, monthly costs, and initial funding needs.",
+        format: "Excel Workbook",
+        action: "Download Calculator",
+        file: "/downloads/business-startup-cost-calculator.xlsx",
+      },
+      {
+        title: "Business Structure Comparison Guide",
+        body: "Compare common business structures and important formation considerations.",
+        format: "PDF Guide",
+        action: "Download Guide",
+        file: "/downloads/business-structure-comparison-guide.pdf",
+      },
+      {
+        title: "Business Readiness Self-Assessment",
+        body: "Complete 12 numbered checkboxes, enter your score, and identify next steps.",
+        format: "Fillable PDF",
+        action: "Download Assessment",
+        file: "/downloads/business-readiness-self-assessment-fillable.pdf",
+      },
+      {
+        title: "90-Day Business Launch Planner",
+        body: "Organize priorities, weekly tasks, milestones, and progress over 90 days.",
+        format: "PDF Planner",
+        action: "Download Planner",
+        file: "/downloads/90-day-business-launch-planner.pdf",
       },
     ],
   },

@@ -218,6 +218,22 @@ obligation survives its removal.
 | `mark.svg` | Consumer Services, Inc. / this repository | The brand mark. Drawn here as vector on a 64-unit grid — three courses: a wide plinth, a course laid on it, and a third stepped forward with its leading edge cut at 45 degrees. Three paths on one gradient. Struck in the CSI Metallic Gold — stops `#B07E22`, `#E8C56A`, `#FFF1B8` — on a single `userSpaceOnUse` axis, so one highlight crosses all three courses rather than each course carrying its own. The fill has been Light Olive `#B8BE8A` and brass `#D6B268` before this; the geometry has never changed, only the fill. `mark-32/64/256/512.png` and `mark-apple-180.png` are renders of this file and are regenerated from it — the rasters are never edited by hand. |
 | `mark-512.png`, `mark-256.png`, `mark-64.png`, `mark-32.png` | derived from `mark.svg` | True-transparent rasters for favicons, social cards and JSON-LD. Re-rendered from `mark.svg` in the metallic gold; verified on the shipped files — 63% fully transparent pixels (58% at 32px, where the artwork covers proportionally more of a smaller canvas) and a gradient ramp across the ink rather than the single flat colour these used to carry. |
 | `mark-apple-180.png` | derived from `mark.svg` | Apple touch icon, on Deep Evergreen `#123D32` rather than transparent — iOS composites a transparent touch icon onto black. Verified: the ground is `#123D32` and the mark carries the metallic ramp over it. |
+| `business-planning-collaboration.png` | Consumer Services, Inc. — supplied with the resource-page brief | The featured photograph on `/resources`, 1672×941. Supplied as `APPROVED_three_women_green_blazer.png` and marked in the brief as the final approved image, not to be substituted. Replaces the Pexels `advisory-session.jpg` that stood in that frame. Copied in unaltered; the derivatives under `media/opt/` are built from it like any other photograph. |
+| `business-structure-infographic.png` | Consumer Services, Inc. — supplied with the resource-page brief | The on-page business-structure visual on `/resources`, 1536×1024. The client's own artwork and logo lock-up; the brief forbids altering either. Shown full width and uncropped because it carries small type, and deliberately **not** downloadable — no button, no file link, no lightbox. The downloadable equivalent is `business-structure-comparison-guide.pdf`. |
+
+## Client-supplied downloads
+
+These four are the client's own documents, served from `public/downloads` as
+ordinary static files. They are copied in byte for byte and nothing in the
+build rewrites, recompresses or regenerates them — each shipped file's
+SHA-256 matches the supplied original.
+
+| File | Origin | Notes |
+| --- | --- | --- |
+| `business-startup-cost-calculator.xlsx` | Consumer Services, Inc. | Excel workbook. Startup and monthly cost estimation. |
+| `business-structure-comparison-guide.pdf` | Consumer Services, Inc. | PDF guide. The downloadable counterpart to the on-page infographic. |
+| `business-readiness-self-assessment-fillable.pdf` | Consumer Services, Inc. | Fillable PDF with a real AcroForm: twelve checkbox fields `readiness_01`–`readiness_12`, a `score_out_of_12` text field and two next-action fields. Verified present in the shipped file. |
+| `90-day-business-launch-planner.pdf` | Consumer Services, Inc. | PDF planner. Flat document, no form fields. |
 
 The previous `seal.png` — the detailed engraved emblem taken from the
 approved HTML, which this file previously recorded as "never redrawn or

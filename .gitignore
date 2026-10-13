@@ -9,3 +9,10 @@ DOCUMENTS/*.MOV
 DOCUMENTS/*.mp4
 
 .DS_Store
+
+# The client's supplied source material — briefs, approved HTML, the assets
+# that come with them. Removed from the repository in October 2026 and kept
+# out since: the files that the site actually serves are copied into
+# legacy_web/public and recorded in ASSET-LICENSES.md, and a brief folder is
+# several megabytes of material the build never reads.
+/DOCUMENTS/
