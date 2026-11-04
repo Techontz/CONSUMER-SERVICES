@@ -1,0 +1,12 @@
+{
+  "name": "consumer-services",
+  "private": true,
+  "description": "Root entry point for hosts that build from the repository root (GoDaddy Node.js). The site itself lives in legacy_web/.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm ci --include=dev --prefix legacy_web && npm run build --prefix legacy_web",
+    "start": "npm run start --prefix legacy_web"
+  }
+}
