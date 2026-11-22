@@ -40,7 +40,7 @@ const MEDIA = path.join(process.cwd(), "public", "media");
 const OUT = path.join(MEDIA, "opt");
 
 /** Must equal imageSizes ++ deviceSizes in next.config.ts. */
-const WIDTHS = [64, 128, 256, 640, 1080, 1600, 2048, 2560];
+const WIDTHS = [64, 128, 256, 640, 1080, 1600];
 
 /** The brand mark is an icon set, not photography — it is served as-is. */
 const SKIP = /^mark[-.]/;
@@ -57,7 +57,7 @@ const SOURCES = /\.(jpe?g|png|webp)$/i;
  * black, and that detail is exactly what a codec discards first — the band
  * that was fine for a muddy original was visibly banding the lifted one.
  */
-const qualityFor = (w) => (w <= 256 ? 72 : w <= 1080 ? 82 : 87);
+const qualityFor = (w) => (w <= 256 ? 65 : w <= 1080 ? 60 : 58);
 
 async function main() {
   if (!existsSync(MEDIA)) {
@@ -91,7 +91,7 @@ async function main() {
 
       await sharp(src)
         .resize(width, null, { withoutEnlargement: true, fit: "inside" })
-        .webp({ quality: qualityFor(width), effort: 5 })
+        .webp({ quality: qualityFor(width), effort: 6 })
         .toFile(dest);
       written++;
     }

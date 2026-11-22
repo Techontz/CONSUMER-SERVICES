@@ -40,7 +40,7 @@ export function SectionFilm({
       }
     ).connection;
     if (conn?.saveData) return;
-    if (conn?.effectiveType && /^(slow-)?2g$/.test(conn.effectiveType)) return;
+    if (conn?.effectiveType && /^(slow-2g|2g|3g)$/.test(conn.effectiveType)) return;
 
     const io = new IntersectionObserver(
       (entries) => {

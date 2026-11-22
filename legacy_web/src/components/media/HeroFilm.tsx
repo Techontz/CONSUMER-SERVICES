@@ -36,7 +36,7 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
  * reduced motion, data saver, 2G. In that case nothing here animates.
  */
 
-/** Held back to the poster on data-saver and 2G connections. */
+/** Held back to the poster on data-saver, 2G and 3G connections. */
 function allowsVideo() {
   if (typeof navigator === "undefined") return false;
   const conn = (
@@ -45,7 +45,7 @@ function allowsVideo() {
     }
   ).connection;
   if (conn?.saveData) return false;
-  if (conn?.effectiveType && /^(slow-)?2g$/.test(conn.effectiveType)) return false;
+  if (conn?.effectiveType && /^(slow-2g|2g|3g)$/.test(conn.effectiveType)) return false;
   return true;
 }
 
@@ -85,25 +85,38 @@ export function HeroFilm({
     play && posterPainted ? (wide || !mobileSrc ? src : mobileSrc) : null;
 
   /**
-   * Sources are attached only once the poster has decoded — the film is
-   * megabytes and would otherwise queue ahead of the frame the reader is
-   * actually waiting on.
+   * Sources are attached only once the poster has decoded AND the page has
+   * finished loading its images — the film is megabytes and would otherwise
+   * compete with the photographs for bandwidth on a slow connection.
    */
   useEffect(() => {
     let cancelled = false;
-    const done = () => !cancelled && setPosterPainted(true);
+    let posterReady = false;
+    let pageReady = document.readyState === "complete";
+    const maybe = () => {
+      if (!cancelled && posterReady && pageReady) setPosterPainted(true);
+    };
+    const onPoster = () => {
+      posterReady = true;
+      maybe();
+    };
+    const onLoad = () => {
+      pageReady = true;
+      maybe();
+    };
     const img = new Image();
     img.src = poster;
-    if (img.decode) img.decode().then(done, done);
-    else if (img.complete) done();
+    if (img.decode) img.decode().then(onPoster, onPoster);
+    else if (img.complete) onPoster();
     else {
-      img.onload = done;
-      img.onerror = done;
+      img.onload = onPoster;
+      img.onerror = onPoster;
     }
-    const failsafe = window.setTimeout(done, 2500);
+    if (!pageReady) window.addEventListener("load", onLoad, { once: true });
+    maybe();
     return () => {
       cancelled = true;
-      window.clearTimeout(failsafe);
+      window.removeEventListener("load", onLoad);
     };
   }, [poster]);
 

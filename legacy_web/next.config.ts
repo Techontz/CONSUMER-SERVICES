@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
     // them is what guarantees it can never request a derivative that was not
     // built. Change one of these three lists and you must change all three.
     imageSizes: [64, 128, 256],
-    deviceSizes: [640, 1080, 1600, 2048, 2560],
+    deviceSizes: [640, 1080, 1600],
   },
 
   poweredByHeader: false,

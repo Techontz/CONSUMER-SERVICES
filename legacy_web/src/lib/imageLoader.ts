@@ -22,7 +22,7 @@
  */
 
 /** Mirrors WIDTHS in the generator and imageSizes+deviceSizes in next.config. */
-const WIDTHS = [64, 128, 256, 640, 1080, 1600, 2048, 2560];
+const WIDTHS = [64, 128, 256, 640, 1080, 1600];
 
 /** Only these are pre-built; .svg is vector and needs no derivative. */
 const RASTER = /\.(jpe?g|png|webp)$/i;

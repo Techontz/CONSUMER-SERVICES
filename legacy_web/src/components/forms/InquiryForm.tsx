@@ -36,7 +36,11 @@ export function InquiryForm() {
   return (
     <>
       <iframe
-        src={`https://www.legacybyconsumer.com/widget/form/${FORM_ID}`}
+        // The CRM (LeadConnector) serves the form from its own host. The
+        // supplied snippet pointed at www.legacybyconsumer.com/widget/…, a
+        // white-label path that only exists if the CRM owns the domain —
+        // it does not (the site does), so that URL was always a 404.
+        src={`https://api.leadconnectorhq.com/widget/form/${FORM_ID}`}
         id={FRAME_ID}
         title="Service Inquiry"
         className="block w-full"
@@ -59,7 +63,7 @@ export function InquiryForm() {
           to resize a frame that is already rendering its own content, so
           nothing is gained by blocking first paint on a third-party host. */}
       <Script
-        src="https://www.legacybyconsumer.com/js/form_embed.js"
+        src="https://link.msgsndr.com/js/form_embed.js"
         strategy="afterInteractive"
       />
     </>
